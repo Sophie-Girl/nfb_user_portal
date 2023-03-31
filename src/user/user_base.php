@@ -58,6 +58,4 @@ class user_base
             $this->user_civi_id = $user_data['contact_id'];
         }
     }
-
-
 }
