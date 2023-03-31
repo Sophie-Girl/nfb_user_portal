@@ -1,0 +1,5 @@
+name: NFB User Portal
+type: module
+description: 'Member Login Project, Created by Sophi Connell '
+core: 8.x
+core_version_requirement: ^8 || ^9
