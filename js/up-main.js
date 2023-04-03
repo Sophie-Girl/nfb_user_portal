@@ -1,5 +1,5 @@
 (function ($, Drupal) {
-    Drupal.behaviors.coms_request_wash = {
+    Drupal.behaviors.up_main = {
         attach: function (context, settings) {
             window.onload = function () {
             }
