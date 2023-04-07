@@ -35,7 +35,7 @@ class core_markup
                     <p id='prime_email'>Email: ".$this->user_data->get_prime_email()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Email' id='edit_prime_email'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div id='prim_email_edit_div'><form><imput id='prim_email_new_val' class= 'feild_custom_text' aria-label='enter new primary email'></imput></form>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_email'>Cancel</a><a role='button' id='save_prim_email'>Save</a></div>
                     <p id='prime_phone'>Phone: ".$this->user_data->get_prime_phone()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Email' id='edit_prime_email'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
-                    <div id='prim_phone_edit_div'><form><imput id='prim_phone_new_val' class= 'feild_custom_text' aria-label='enter new primary phone'></imput></form>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_phone'>Cancel</a><a role='button' id='save_prim_phone'>Save</a></div>
+                    <div id='prim_phone_edit_div'><form><imput id='prim_phone_new_val' class= 'feild_custom_text' aria-label='enter new primary phone'></imput></form>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_phone'>Cancel</a><a role='button' id='save-prim-phone'>Save</a></div>
                     ";
 
     }
