@@ -1,7 +1,6 @@
 <?php
 Namespace Drupal\nfb_user_portal\html_builder;
 use Drupal\nfb_user_portal\user\user_civi;
-
 class core_markup
 {
     public $user_data; // user civi class object
