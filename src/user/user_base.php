@@ -45,13 +45,13 @@ class user_base
     }
     public function set_civi_useR_data()
     {
-        \Drupal::logger("civ_api_error")->notice("Drupal_user_id: ".$this->get_user_id(). \drupal::currentUser()->getAccount()->id());
+        \Drupal::logger("civ_api_error")->notice("Drupal_user_id: ".$this->get_user_id());
         $query = new query_base();
         $query->entity = "User";
         $query->mode = "get";
         $query->params = array(
             'sequential' => 1,
-            'id' => $this->get_user_id(),
+            'id' => \drupal::currentUser()->getAccount()->id(),
         );
         $query->civi_api_v3_query();
         foreach ($query->get_civi_result()['values'] as $user_data)
