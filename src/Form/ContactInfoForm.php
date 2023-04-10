@@ -18,6 +18,7 @@ class ContactInfoForm extends FormBase
             '#markup' => $page_builder->create_core_markup(),
             '#allowed_tags' => ['div', 'table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
+        $form['#attached']['library'][] = 'nfb_user_portal/up-main';
         return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
