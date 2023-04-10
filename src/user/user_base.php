@@ -39,13 +39,13 @@ class user_base
         $this->user_name = $user->getAccount()->getAccountName();
         $this->user_email = $user->getAccount()->getEmail();
         $this->user_language = $user->getPreferredLangcode();
-        $this->user_id = $user->id();
+        $this->user_id = $user->getAccount()->id();
         $this->user_role = $user->getRoles();
         $this->set_civi_useR_data();
     }
     public function set_civi_useR_data()
     {
-        \Drupal::logger("civ_api_error")->notice("Drupal_user_id: ".$this->get_user_id());
+        \Drupal::logger("civ_api_error")->notice("Drupal_user_id: ".$this->get_user_id(). \drupal::currentUser()->getAccount()->id());
         $query = new query_base();
         $query->entity = "User";
         $query->mode = "get";
