@@ -45,6 +45,7 @@ class user_base
     }
     public function set_civi_useR_data()
     {
+        \Drupal::logger("civ_api_error")->notice*("Drupal_user_id: ".$this->get_user_id());
         $query = new query_base();
         $query->entity = "User";
         $query->mode = "get";
