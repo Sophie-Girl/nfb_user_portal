@@ -22,9 +22,9 @@ class core_markup
     public function header_2(){
         $markup = "
 <p>Intro text goes here.</p>
-<p class='hidden_val' id='user_id_val'>".$this->user_data->get_user_id()."</p>
+<p class='hidden_val' id='user_id_val'>".\Drupal::currentUser()->getAccount()->id()."</p>
 <p class='hidden_val' id = 'civi_id_val'>".$this->user_data->get_user_civi_id()."</p>
-<p class='hidden_val' id = 'user_name_val'>".$this->user_data->get_user_name()."</p>
+<p class='hidden_val' id = 'user_name_val'>".\Drupal::currentUser()->getAccountName()."</p>
 <p class='hidden_val' id='edit_open'>Not Open</p>
                    <p class='hidden_val' id='open_field'>None</p>
                     <p class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>
