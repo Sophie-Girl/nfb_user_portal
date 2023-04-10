@@ -148,21 +148,33 @@
             });
             $('#cancel_prim_phone').once().onclick(function () {
                 document.getElementById("prim_phone_edit_div").style.display = "None";
+                document.getElementById("prim_phone_new_val").style.display = "None";
+                document.getElementById("cancel_prim_phone").style.display = "None";
+                document.getElementById("save_prim_phone").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_prim_email').once().onclick(function () {
                 document.getElementById("prim_email_edit_div").style.display = "None";
+                document.getElementById("prim_email_new_val").style.display = "None";
+                document.getElementById("cancel_prim_email").style.display = "None";
+                document.getElementById("save_prim_email").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_last_name').once().onclick(function () {
                 document.getElementById("last_name_edit_div").style.display = "None";
+                document.getElementById("last_name_new_val").style.display = "None";
+                document.getElementById("cancel_l_name").style.display = "None";
+                document.getElementById("save_l_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_first_name').once().onclick(function () {
                 document.getElementById("first_name_edit_div").style.display = "None";
+                document.getElementById("first_name_new_val").style.display = "None";
+                document.getElementById("cancel_f_name").style.display = "None";
+                document.getElementById("save_f_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
@@ -207,9 +219,21 @@ function hide_user_id()
     document.getElementById("civi_id_val").style.display = "None";
     document.getElementById("user_name_val").style.display = "None";
     document.getElementById("first_name_edit_div").style.display = "None";
+    document.getElementById("f_name_new_val").style.display = "None";
+    document.getElementById("cancel_f_name").style.display = "None";
+    document.getElementById("save_f_name").style.display = "None";
     document.getElementById("last_name_edit_div").style.display = "None";
+    document.getElementById("l_name_new_val").style.display = "None";
+    document.getElementById("cancel_l_name").style.display = "None";
+    document.getElementById("save_l_name").style.display = "None";
     document.getElementById("prim_email_edit_div").style.display = "None";
+    document.getElementById("prim_email_new_val").style.display = "None";
+    document.getElementById("cancel_prim_email").style.display = "None";
+    document.getElementById("save_prim_email").style.display = "None";
     document.getElementById("prim_phone_edit_div").style.display = "None";
+    document.getElementById("prim_phone_new_val").style.display = "None";
+    document.getElementById("cancel_prim_phone").style.display = "None";
+    document.getElementById("save_prim_phone").style.display = "None";
 }
 
 
