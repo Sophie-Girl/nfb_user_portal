@@ -39,7 +39,7 @@ class user_base
         $this->user_name = $user->getAccount()->getAccountName();
         $this->user_email = $user->getAccount()->getEmail();
         $this->user_language = $user->getPreferredLangcode();
-        $this->user_id = $user->getAccount()->id();
+        $this->user_id = $user->id();
         $this->user_role = $user->getRoles();
         $this->set_civi_useR_data();
     }
