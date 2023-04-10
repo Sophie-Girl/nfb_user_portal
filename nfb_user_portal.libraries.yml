@@ -1,0 +1,7 @@
+up-main:
+  version: 1.x
+  css:
+    theme:
+      css/up-main.css: {}
+  js:
+    js/upmain.js: {}
