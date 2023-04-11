@@ -138,8 +138,6 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_prim_phone').once().click(function () {
                 document.getElementById("prim_phone_edit_div").style.display = "None";
