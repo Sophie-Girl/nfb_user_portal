@@ -1,162 +1,129 @@
 (function ($, Drupal) {
     Drupal.behaviors.up_main = {
         attach: function (context, settings) {
-            window.onload = function () {
-                hide_user_id();
-            }
-            $('#save-prim-phone').once().onclick(function ()
-            {
+
+            $('#save-prim-phone').once().onclick(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
-                if(feild_data == "")
-                {
+                if (feild_data == "") {
                     vfeildarray = "not_run";
-                }
-                else {
+                } else {
                     vfeildarray[0] = "phone";
-                    vfeildarray[1] =  document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[2] = document.getElementById('prim_phone_new_val').value
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#save-prim-email').once().onclick(function ()
-            {
+            $('#save-prim-email').once().onclick(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
-                if(feild_data == "")
-                {
+                if (feild_data == "") {
                     vfeildarray = "not_run";
-                }
-                else {
+                } else {
                     vfeildarray[0] = "email";
-                    vfeildarray[1] =  document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[2] = document.getElementById('prim_email_new_val').value
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#save-f_name').once().onclick(function ()
-            {
+            $('#save-f_name').once().onclick(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('f_name_new_val').value;
-                if(feild_data == "")
-                {
+                if (feild_data == "") {
                     vfeildarray = "not_run";
-                }
-                else {
+                } else {
                     vfeildarray[0] = "f_name";
-                    vfeildarray[1] =  document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[2] = document.getElementById('f_name_new_val').value
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#save-l-name').once().onclick(function ()
-            {
+            $('#save-l-name').once().onclick(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('l_name_new_val').value;
-                if(feild_data == "")
-                {
+                if (feild_data == "") {
                     vfeildarray = "not_run";
-                }
-                else {
+                } else {
                     vfeildarray[0] = "l_name";
-                    vfeildarray[1] =  document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[2] = document.getElementById('l_name_new_val').value
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#edit_f_name').once().onclick(function ()
-            {
-              var editstatus = document.getElementById("edit_open").innerText;
-              var openfeild = document.getElementById("open_field").innerText;
-              if(editstatus == "Not Open")
-              {
-                  document.getElementById("first_name_edit_div").style.display = "Block";
-                  document.getElementById("first_name_new_val").style.display = "Block";
-                  document.getElementById("cancel_f_name").style.display = "Block";
-                  document.getElementById("save_f_name").style.display = "Block";
-                  document.getElementById("edit_open").innerText = "Open";
-                  document.getElementById("open_field").innerText = "First Name";
-              }
-              else if( editstatus == "Open" && openfeild == "First Name")
-              {
-                  document.getElementById("first_name_edit_div").style.display = "None";
-                  document.getElementById("first_name_new_val").style.display = "None";
-                  document.getElementById("cancel_f_name").style.display = "None";
-                  document.getElementById("save_f_name").style.display = "None";
-                  document.getElementById("edit_open").innerText = "Not Open";
-                  document.getElementById("open_field").innerText = "None";
-              }
-              else{
-                  alert("Cannot edit more than one field at a time. Please close the "+ openfeild +" edit field and try again.")
-              }
-            });
-            $('#edit_l_name').once().onclick(function ()
-            {
+            $('#edit_f_name').once().onclick(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
-                if(editstatus == "Not Open")
-                {
+                if (editstatus == "Not Open") {
+                    document.getElementById("first_name_edit_div").style.display = "Block";
+                    document.getElementById("first_name_new_val").style.display = "Block";
+                    document.getElementById("cancel_f_name").style.display = "Block";
+                    document.getElementById("save_f_name").style.display = "Block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "First Name";
+                } else if (editstatus == "Open" && openfeild == "First Name") {
+                    document.getElementById("first_name_edit_div").style.display = "None";
+                    document.getElementById("first_name_new_val").style.display = "None";
+                    document.getElementById("cancel_f_name").style.display = "None";
+                    document.getElementById("save_f_name").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#edit_l_name').once().onclick(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
                     document.getElementById("last_name_edit_div").style.display = "Block";
                     document.getElementById("last_name_new_val").style.display = "Block";
                     document.getElementById("cancel_l_name").style.display = "Block";
                     document.getElementById("save_l_name").style.display = "Block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Last Name";
-                }
-                else if( editstatus == "Open" && openfeild == "Last Name")
-                {
+                } else if (editstatus == "Open" && openfeild == "Last Name") {
                     document.getElementById("last_name_edit_div").style.display = "None";
                     document.getElementById("last_name_new_val").style.display = "None";
                     document.getElementById("cancel_l_name").style.display = "None";
                     document.getElementById("save_l_name").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                }
-                else{
-                    alert("Cannot edit more than one field at a time. Please close the "+ openfeild +" edit field and try again.")
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_prim_email').once().onclick(function ()
-            {
+            $('#edit_prim_email').once().onclick(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
-                if(editstatus == "Not Open")
-                {
+                if (editstatus == "Not Open") {
                     document.getElementById("prim_email_edit_div").style.display = "Block";
                     document.getElementById("prim_email_new_val").style.display = "Block";
                     document.getElementById("cancel_prim_email").style.display = "Block";
                     document.getElementById("save_prime_email").style.display = "Block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Prime Email";
-                }
-                else if( editstatus == "Open" && openfeild == "Prime Email")
-                {
+                } else if (editstatus == "Open" && openfeild == "Prime Email") {
                     document.getElementById("prim_email_edit_div").style.display = "None";
                     document.getElementById("prim_email_new_val").style.display = "None";
                     document.getElementById("cancel_prim_email").style.display = "None";
                     document.getElementById("save_prime_email").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                }
-                else{
-                    alert("Cannot edit more than one field at a time. Please close the "+ openfeild +" edit field and try again.")
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_prim_phone').once().onclick(function ()
-            {
+            $('#edit_prim_phone').once().onclick(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
-                if(editstatus == "Not Open")
-                {
+                if (editstatus == "Not Open") {
                     document.getElementById("prim_phone_edit_div").style.display = "Block";
                     document.getElementById("prim_phone_new_val").style.display = "Block";
                     document.getElementById("cancel_prim_phone").style.display = "Block";
                     document.getElementById("save_prim_phone").style.display = "Block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Prime Phone";
-                }
-                else if( editstatus == "Open" && openfeild == "Prime Phone")
-                {
+                } else if (editstatus == "Open" && openfeild == "Prime Phone") {
                     document.getElementById("prim_phone_edit_div").style.display = "None";
                     document.getElementById("prim_phone_new_val").style.display = "None";
                     document.getElementById("cancel_prim_phone").style.display = "None";
@@ -164,10 +131,10 @@
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
 
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-                else{
-                    alert("Cannot edit more than one field at a time. Please close the "+ openfeild +" edit field and try again.")
-                }                    document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_prim_phone').once().onclick(function () {
@@ -202,8 +169,11 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-        }
 
+            window.onload = function () {
+                hide_user_id();
+            }
+        }
     }
     function ajax_change_call(vfeildarray)
     {
