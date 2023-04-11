@@ -98,6 +98,10 @@ class core_markup
         }
         return $options;
     }
+    public function gender_options()
+    {
+
+    }
 
 
 }
