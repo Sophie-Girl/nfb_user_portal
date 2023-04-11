@@ -15,7 +15,7 @@ class core_markup
     }
     public function create_core_markup()
     {
-        $this->user_data->set_civi_useR_data(); //set all data
+        $this->user_data->civi_contact_set(); //set all data
         $this->header_2();
         return $this->get_core_markup();
     }
