@@ -103,14 +103,14 @@
                     document.getElementById("prim_email_edit_div").style.display = "Block";
                     document.getElementById("prim_email_new_val").style.display = "Block";
                     document.getElementById("cancel_prim_email").style.display = "inline-block";
-                    document.getElementById("save_prime_email").style.display = "inline-block";
+                    document.getElementById("save_prim_email").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Prime Email";
                 } else if (editstatus == "Open" && openfeild == "Prime Email") {
                     document.getElementById("prim_email_edit_div").style.display = "None";
                     document.getElementById("prim_email_new_val").style.display = "None";
                     document.getElementById("cancel_prim_email").style.display = "None";
-                    document.getElementById("save_prime_email").style.display = "None";
+                    document.getElementById("save_prim_email").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
                 } else {
