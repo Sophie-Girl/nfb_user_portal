@@ -3,6 +3,7 @@
         attach: function (context, settings) {
             window.onload = function () {
                 hide_user_id();
+                replace_title();
                 console.log("I am running");
             }
 
@@ -199,9 +200,11 @@ function show_hide_edit_feild(div_id)
         document.getElementById(div_id).style.display = "None";
     }
 }
-function replace_title(f_name, l_name)
+function replace_title()
 {
-    document.title = f_name+ " " + l_name;
+    document.title = document.getElementById("member_name").innerText;
+   var header = document.getElementsByClassName("js-quickedit-page-title page-title");
+   header[0].innerText = document.getElementById("member_name").innerText;
 }
 function replace_old_value(lab_id, new_val)
 {
