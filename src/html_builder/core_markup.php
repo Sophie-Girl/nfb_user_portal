@@ -70,7 +70,33 @@ class core_markup
             $current++;
         }
         return $options;
-
+    }
+    public function country_options()
+    {
+        $civi = new query_base();
+        $civi->mode = "get";
+        $civi->entity = "Country";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'limit' => 300,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $count = $result->count();
+        $current = 1;
+        $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>
+                    <option value='1228'>&nbsp;&nbsp;&nbsp;United States&nbsp;&nbsp;&nbsp;</option>";
+        while ($current <= $count) {
+            $state = $result->itemat($current);
+            if ($state['id'] != "1228"){
+        $options = $options . "<option value='" . $state['id'] . "'>&nbsp;&nbsp;&nbsp;" . $state['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+    }
+        $current++;
+        }
+        return $options;
     }
 
 
