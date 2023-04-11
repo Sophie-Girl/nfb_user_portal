@@ -1,6 +1,10 @@
 (function ($, Drupal) {
     Drupal.behaviors.up_main = {
         attach: function (context, settings) {
+            window.onload = function () {
+                hide_user_id();
+                console.log("I am running");
+            }
 
             $('#save-prim-phone').once().click(function () {
                 var vfeildarray;
@@ -170,9 +174,7 @@
                 document.getElementById("open_field").innerText = "None";
             });
 
-            window.onload = function () {
-                hide_user_id();
-            }
+
         }
     }
     function ajax_change_call(vfeildarray)
