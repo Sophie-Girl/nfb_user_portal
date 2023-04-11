@@ -59,14 +59,14 @@
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
                     document.getElementById("first_name_edit_div").style.display = "Block";
-                    document.getElementById("first_name_new_val").style.display = "Block";
+                    document.getElementById("f_name_new_val").style.display = "Block";
                     document.getElementById("cancel_f_name").style.display = "Block";
                     document.getElementById("save_f_name").style.display = "Block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "First Name";
                 } else if (editstatus == "Open" && openfeild == "First Name") {
                     document.getElementById("first_name_edit_div").style.display = "None";
-                    document.getElementById("first_name_new_val").style.display = "None";
+                    document.getElementById("f_name_new_val").style.display = "None";
                     document.getElementById("cancel_f_name").style.display = "None";
                     document.getElementById("save_f_name").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
@@ -80,14 +80,14 @@
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
                     document.getElementById("last_name_edit_div").style.display = "Block";
-                    document.getElementById("last_name_new_val").style.display = "Block";
+                    document.getElementById("l_name_new_val").style.display = "Block";
                     document.getElementById("cancel_l_name").style.display = "Block";
                     document.getElementById("save_l_name").style.display = "Block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Last Name";
                 } else if (editstatus == "Open" && openfeild == "Last Name") {
                     document.getElementById("last_name_edit_div").style.display = "None";
-                    document.getElementById("last_name_new_val").style.display = "None";
+                    document.getElementById("l_name_new_val").style.display = "None";
                     document.getElementById("cancel_l_name").style.display = "None";
                     document.getElementById("save_l_name").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
@@ -159,7 +159,7 @@
             });
             $('#cancel_last_name').once().click(function () {
                 document.getElementById("last_name_edit_div").style.display = "None";
-                document.getElementById("last_name_new_val").style.display = "None";
+                document.getElementById("l_name_new_val").style.display = "None";
                 document.getElementById("cancel_l_name").style.display = "None";
                 document.getElementById("save_l_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
@@ -167,7 +167,7 @@
             });
             $('#cancel_first_name').once().click(function () {
                 document.getElementById("first_name_edit_div").style.display = "None";
-                document.getElementById("first_name_new_val").style.display = "None";
+                document.getElementById("f_name_new_val").style.display = "None";
                 document.getElementById("cancel_f_name").style.display = "None";
                 document.getElementById("save_f_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
