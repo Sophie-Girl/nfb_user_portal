@@ -4,4 +4,4 @@ up-main:
     theme:
       css/up-main.css: {}
   js:
-    js/upmain.js: {}
+    js/up-main.js: {}
