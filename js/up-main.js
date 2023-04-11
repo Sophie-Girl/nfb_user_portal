@@ -60,8 +60,8 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("first_name_edit_div").style.display = "Block";
                     document.getElementById("f_name_new_val").style.display = "Block";
-                    document.getElementById("cancel_f_name").style.display = "Block";
-                    document.getElementById("save_f_name").style.display = "Block";
+                    document.getElementById("cancel_f_name").style.display = "inline-block";
+                    document.getElementById("save_f_name").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "First Name";
                 } else if (editstatus == "Open" && openfeild == "First Name") {
@@ -81,8 +81,8 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("last_name_edit_div").style.display = "Block";
                     document.getElementById("l_name_new_val").style.display = "Block";
-                    document.getElementById("cancel_l_name").style.display = "Block";
-                    document.getElementById("save_l_name").style.display = "Block";
+                    document.getElementById("cancel_l_name").style.display = "inline-block";
+                    document.getElementById("save_l_name").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Last Name";
                 } else if (editstatus == "Open" && openfeild == "Last Name") {
@@ -102,8 +102,8 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("prim_email_edit_div").style.display = "Block";
                     document.getElementById("prim_email_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_email").style.display = "Block";
-                    document.getElementById("save_prime_email").style.display = "Block";
+                    document.getElementById("cancel_prim_email").style.display = "inline-block";
+                    document.getElementById("save_prime_email").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Prime Email";
                 } else if (editstatus == "Open" && openfeild == "Prime Email") {
@@ -123,8 +123,8 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("prim_phone_edit_div").style.display = "Block";
                     document.getElementById("prim_phone_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_phone").style.display = "Block";
-                    document.getElementById("save_prim_phone").style.display = "Block";
+                    document.getElementById("cancel_prim_phone").style.display = "inline-block";
+                    document.getElementById("save_prim_phone").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Prime Phone";
                 } else if (editstatus == "Open" && openfeild == "Prime Phone") {
@@ -157,7 +157,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_last_name').once().click(function () {
+            $('#cancel_l_name').once().click(function () {
                 document.getElementById("last_name_edit_div").style.display = "None";
                 document.getElementById("l_name_new_val").style.display = "None";
                 document.getElementById("cancel_l_name").style.display = "None";
@@ -165,7 +165,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_first_name').once().click(function () {
+            $('#cancel_f_name').once().click(function () {
                 document.getElementById("first_name_edit_div").style.display = "None";
                 document.getElementById("f_name_new_val").style.display = "None";
                 document.getElementById("cancel_f_name").style.display = "None";
