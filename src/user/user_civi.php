@@ -92,7 +92,6 @@ class user_civi extends user_base
         );
         $civi->civi_api_v4_query();
         $contact = $civi->get_civi_result();
-        \Drupal::logger("interesting")->notice("contact ".print_r($contact, true));
         $contact = $contact->first();
         $this->first_name = $contact['first_name'];
         $this->last_name = $contact['last_name'];
@@ -123,6 +122,7 @@ class user_civi extends user_base
             'checkPermissions' => FALSE,
         );
         $email =  $civi->get_civi_result();
+        \Drupal::logger("interesting")->notice("contact ".print_r($email, true));
         $email = $email->first();
         $this->prime_email = $email['email'];
         $civi = null;
