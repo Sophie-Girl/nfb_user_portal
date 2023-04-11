@@ -1,5 +1,6 @@
 <?php
 Namespace Drupal\nfb_user_portal\html_builder;
+use Drupal\nfb_user_portal\civi_query\query_base;
 use Drupal\nfb_user_portal\user\user_civi;
 class core_markup
 {
@@ -40,6 +41,35 @@ class core_markup
                     <div role='form' id='prim_phone_edit_div' class='hidden_val'><input id='prim_phone_new_val' class= 'feild_custom_text' aria-label='enter new primary phone'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_phone'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_phone'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     </form>";
         $this->core_markup = $markup;
+
+    }
+    public function state_options()
+    {
+        $civi = new query_base();
+        $civi->mode = "get";
+        $civi->entity = "StateProvince";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['country_id', '=', 1228],
+            ],
+            'limit' => 65,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $count = $result->count();
+        $current = 1;
+        $options = "";
+        while ($current <=  $count)
+        {
+            $state = $result->itemat($current);
+            $options = $options."<option value='".$state['id']."'>&nbsp;&nbsp;&nbsp;".$state['name']."&nbsp;&nbsp;&nbsp;</option>";
+            $current++;
+        }
+        return $options;
 
     }
 
