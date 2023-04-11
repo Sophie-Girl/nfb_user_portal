@@ -121,6 +121,7 @@ class user_civi extends user_base
             'limit' => 25,
             'checkPermissions' => FALSE,
         );
+        $civi->civi_api_v4_query();
         $email =  $civi->get_civi_result();
         \Drupal::logger("interesting")->notice("contact ".print_r($email, true));
         $email = $email->first();
@@ -143,6 +144,7 @@ class user_civi extends user_base
             'limit' => 25,
             'checkPermissions' => FALSE,
         );
+        $civi->civi_api_v4_query();
         $phone =  $civi->get_civi_result();
         $phone = $phone->first();
         $this->prime_phone = $phone['phone'];
@@ -169,6 +171,7 @@ class user_civi extends user_base
             'limit' => 25,
             'checkPermissions' => FALSE,
         );
+        $civi->civi_api_v4_query();
         $address =  $civi->get_civi_result();
         $address = $address->first();
         $this->prime_street = $address['street_address'];
