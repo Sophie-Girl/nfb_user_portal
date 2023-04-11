@@ -2,7 +2,7 @@
     Drupal.behaviors.up_main = {
         attach: function (context, settings) {
 
-            $('#save-prim-phone').once().onclick(function () {
+            $('#save-prim-phone').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
                 if (feild_data == "") {
@@ -14,7 +14,7 @@
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#save-prim-email').once().onclick(function () {
+            $('#save-prim-email').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
                 if (feild_data == "") {
@@ -26,7 +26,7 @@
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#save-f_name').once().onclick(function () {
+            $('#save-f_name').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('f_name_new_val').value;
                 if (feild_data == "") {
@@ -38,7 +38,7 @@
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#save-l-name').once().onclick(function () {
+            $('#save-l-name').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('l_name_new_val').value;
                 if (feild_data == "") {
@@ -50,7 +50,7 @@
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#edit_f_name').once().onclick(function () {
+            $('#edit_f_name').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -71,7 +71,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_l_name').once().onclick(function () {
+            $('#edit_l_name').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -92,7 +92,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_prim_email').once().onclick(function () {
+            $('#edit_prim_email').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -113,7 +113,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_prim_phone').once().onclick(function () {
+            $('#edit_prim_phone').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -137,7 +137,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_prim_phone').once().onclick(function () {
+            $('#cancel_prim_phone').once().click(function () {
                 document.getElementById("prim_phone_edit_div").style.display = "None";
                 document.getElementById("prim_phone_new_val").style.display = "None";
                 document.getElementById("cancel_prim_phone").style.display = "None";
@@ -145,7 +145,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_prim_email').once().onclick(function () {
+            $('#cancel_prim_email').once().click(function () {
                 document.getElementById("prim_email_edit_div").style.display = "None";
                 document.getElementById("prim_email_new_val").style.display = "None";
                 document.getElementById("cancel_prim_email").style.display = "None";
@@ -153,7 +153,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_last_name').once().onclick(function () {
+            $('#cancel_last_name').once().click(function () {
                 document.getElementById("last_name_edit_div").style.display = "None";
                 document.getElementById("last_name_new_val").style.display = "None";
                 document.getElementById("cancel_l_name").style.display = "None";
@@ -161,7 +161,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_first_name').once().onclick(function () {
+            $('#cancel_first_name').once().click(function () {
                 document.getElementById("first_name_edit_div").style.display = "None";
                 document.getElementById("first_name_new_val").style.display = "None";
                 document.getElementById("cancel_f_name").style.display = "None";
