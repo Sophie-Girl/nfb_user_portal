@@ -63,6 +63,11 @@ class user_civi extends user_base
     public $media_type;
     public function get_media_type()
     {return $this->media_type;}
+    public $preferred_language;
+    public function get_preferred_language()
+    {
+        return $this->preferred_language;
+    }
     public function civi_contact_set()
     {
         $this->set_user_data();
@@ -98,6 +103,7 @@ class user_civi extends user_base
         $this->dob = $contact['birth_date'];
         $this->gender = $contact['gender_id:label'];
         $this->is_blind = $contact['Medical_Issues.Is_Blind'];
+        $this->preferred_language = $contact['preferred_language'];
         $this->deaf = $contact['Medical_Issues.Is_Deaf'];
         $this->disability = $contact['Medical_Issues.Other_Disability'];
         $this->dog_user = $contact['Individual_s_Information.Uses_a_Service_Animal'];
