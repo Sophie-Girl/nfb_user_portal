@@ -55,7 +55,7 @@ class core_markup
                     <h2>Your Demographics</h2>
                     <form>
                     <p id='prime_lnag_pref'>Your Prefered Langaunge: ".$this->user_data->get_preferred_language()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Your Preffered Langauge' id='edit_lang_pref'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
-                    <div role='form' aria-live='polite' id='lang_pref_edit_div' class='hidden_val'><label for='lang_pref_new_val'>Country:</label><select id='lang_pref_new_val' class='feild_custom_select' aria-label='enter new language prefference'>".$this->language_options()."</select>
+                    <div role='form' aria-live='polite' id='lang_pref_edit_div' class='hidden_val'><label for='lang_pref_new_val' id='lang_pref_new_val_lab'>Country:</label><select id='lang_pref_new_val' class='feild_custom_select' aria-label='enter new language prefference'>".$this->language_options()."</select>
                     <a role='button' id='cancel_lang_pref'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_lang_pref'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='gender_info'>Gender: ".$this->user_data->get_gender()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Your Gender' id='edit_gender'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='gender_edit_div' class='hidden_val'><label for='gender_new_val'>Gender:</label><select id='gender_new_val' class='feild_custom_select' aria-label='enter new gender'>".$this->gender_options()."</select>
