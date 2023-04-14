@@ -140,6 +140,420 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
+            $('#edit_prim_street').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("prim_street_edit_div").style.display = "Block";
+                    document.getElementById("prim_street_new_val").style.display = "Block";
+                    document.getElementById("cancel_prim_street").style.display = "inline-block";
+                    document.getElementById("save_prim_street").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Street Address";
+                } else if (editstatus == "Open" && openfeild == "Street Address") {
+                    document.getElementById("prim_street_edit_div").style.display = "None";
+                    document.getElementById("prim_street_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_street").style.display = "None";
+                    document.getElementById("save_prim_street").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#edit_prim_address_2').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("prim_address_2_edit_div").style.display = "Block";
+                    document.getElementById("prim_address_2_new_val").style.display = "Block";
+                    document.getElementById("cancel_prim_address_2").style.display = "inline-block";
+                    document.getElementById("save_prim_address_2").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Address Line 2";
+                } else if (editstatus == "Open" && openfeild == "Adress Line 2") {
+                    document.getElementById("prim_address_2_edit_div").style.display = "None";
+                    document.getElementById("prim_address_2_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_address_2").style.display = "None";
+                    document.getElementById("save_prim_address_2").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#edit_prim_city').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("prim_city_edit_div").style.display = "Block";
+                    document.getElementById("prim_city_new_val").style.display = "Block";
+                    document.getElementById("cancel_prim_city").style.display = "inline-block";
+                    document.getElementById("save_prim_city").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "City";
+                } else if (editstatus == "Open" && openfeild == "City") {
+                    document.getElementById("prim_city_edit_div").style.display = "None";
+                    document.getElementById("prim_city_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_city").style.display = "None";
+                    document.getElementById("save_prim_city").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#edit_prim_state').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("prim_state_edit_div").style.display = "Block";
+                    document.getElementById("prim_state_new_val").style.display = "Block";
+                    document.getElementById("prim_state_new_val_lab").style.display = "inline-block";
+                    document.getElementById("prim_country_new_val_lab").style.display = "inline-block";
+                    document.getElementById("prim_country_new_val").style.display = "Block";
+                    document.getElementById("cancel_prim_state").style.display = "inline-block";
+                    document.getElementById("save_prim_state").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "State";
+                } else if (editstatus == "Open" && openfeild == "State") {
+                    document.getElementById("prim_state_edit_div").style.display = "None";
+                    document.getElementById("prim_state_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_state").style.display = "None";
+                    document.getElementById("prim_state_new_val_lab").style.display = "None";
+                    document.getElementById("prim_country_new_val_lab").style.display = "None";
+                    document.getElementById("save_prim_city").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#prim_zip_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("prim_zip_edit_div").style.display = "Block";
+                    document.getElementById("prim_zip_new_val").style.display = "Block";
+                    document.getElementById("cancel_prim_zip").style.display = "inline-block";
+                    document.getElementById("save_prim_zip").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Zip Code";
+                } else if (editstatus == "Open" && openfeild == "Zip Code") {
+                    document.getElementById("prim_zip_edit_div").style.display = "None";
+                    document.getElementById("prim_zip_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_zip").style.display = "None";
+                    document.getElementById("save_prim_zip").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#pronouns_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("pronouns_edit_div").style.display = "Block";
+                    document.getElementById("pronouns_new_val").style.display = "Block";
+                    document.getElementById("cancel_pronouns").style.display = "inline-block";
+                    document.getElementById("save_pronouns").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Pronouns";
+                } else if (editstatus == "Open" && openfeild == "Pronouns") {
+                    document.getElementById("pronouns_edit_div").style.display = "None";
+                    document.getElementById("pronouns_new_val").style.display = "None";
+                    document.getElementById("cancel_pronouns").style.display = "None";
+                    document.getElementById("save_pronouns").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#dob_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("dob_edit_div").style.display = "Block";
+                    document.getElementById("dob_new_val").style.display = "Block";
+                    document.getElementById("cancel_dob").style.display = "inline-block";
+                    document.getElementById("save_dob").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Date of Birth";
+                } else if (editstatus == "Open" && openfeild == "Date of Birth") {
+                    document.getElementById("dob_edit_div").style.display = "None";
+                    document.getElementById("dob_new_val").style.display = "None";
+                    document.getElementById("cancel_dob").style.display = "None";
+                    document.getElementById("save_dob").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#disability_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("disability_edit_div").style.display = "Block";
+                    document.getElementById("disability_new_val").style.display = "Block";
+                    document.getElementById("cancel_disability").style.display = "inline-block";
+                    document.getElementById("save_disability").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "disability";
+                } else if (editstatus == "Open" && openfeild == "disability") {
+                    document.getElementById("disability_edit_div").style.display = "None";
+                    document.getElementById("disability_new_val").style.display = "None";
+                    document.getElementById("cancel_disability").style.display = "None";
+                    document.getElementById("save_disability").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#blind_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("blind_edit_div").style.display = "Block";
+                    document.getElementById("blind_new_val").style.display = "Block";
+                    document.getElementById("blind_new_val_lab").style.display = "inline-block";
+                    document.getElementById("cancel_blind").style.display = "inline-block";
+                    document.getElementById("save_blind").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "blindness status";
+                } else if (editstatus == "Open" && openfeild == "blindness status") {
+                    document.getElementById("blind_edit_div").style.display = "None";
+                    document.getElementById("blind_new_val").style.display = "None";
+                    document.getElementById("blind_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_blind").style.display = "None";
+                    document.getElementById("save_blind").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#deaf_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("deaf_edit_div").style.display = "Block";
+                    document.getElementById("deaf_new_val").style.display = "Block";
+                    document.getElementById("deaf_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_deaf").style.display = "inline-block";
+                    document.getElementById("save_deaf").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "deaf blind status";
+                } else if (editstatus == "Open" && openfeild == "deaf blind status") {
+                    document.getElementById("deaf_edit_div").style.display = "None";
+                    document.getElementById("deaf_new_val").style.display = "None";
+                    document.getElementById("deaf_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_deaf").style.display = "None";
+                    document.getElementById("save_deaf").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#gender_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("gender_edit_div").style.display = "Block";
+                    document.getElementById("gender_new_val").style.display = "Block";
+                    document.getElementById("gender_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_gender").style.display = "inline-block";
+                    document.getElementById("save_gender").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "gender";
+                } else if (editstatus == "Open" && openfeild == "gender") {
+                    document.getElementById("gender_edit_div").style.display = "None";
+                    document.getElementById("gender_new_val").style.display = "None";
+                    document.getElementById("gender_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_gender").style.display = "None";
+                    document.getElementById("save_gender").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#lang_pref_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("lang_pref_edit_div").style.display = "Block";
+                    document.getElementById("lang_pref_new_val").style.display = "Block";
+                    document.getElementById("lang_pref_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_lang_pref").style.display = "inline-block";
+                    document.getElementById("save_lang_pref").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "language preference ";
+                } else if (editstatus == "Open" && openfeild == "language preference") {
+                    document.getElementById("lang_pref_edit_div").style.display = "None";
+                    document.getElementById("lang_pref_new_val").style.display = "None";
+                    document.getElementById("lang_pref_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_lang_pref").style.display = "None";
+                    document.getElementById("save_lang_pref").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#media_type_edit_div').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("media_type_edit_div").style.display = "Block";
+                    document.getElementById("media_type_new_val").style.display = "Block";
+                    document.getElementById("media_type_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_media_type").style.display = "inline-block";
+                    document.getElementById("save_media_type").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Media preference ";
+                } else if (editstatus == "Open" && openfeild == "Media preference") {
+                    document.getElementById("media_type_edit_div").style.display = "None";
+                    document.getElementById("media_type_new_val").style.display = "None";
+                    document.getElementById("media_type_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_media_type").style.display = "None";
+                    document.getElementById("save_media_type").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#cancel_media_type').once().click(function () {
+                document.getElementById("media_type_edit_div").style.display = "None";
+                document.getElementById("media_type_new_val").style.display = "None";
+                document.getElementById("cancel_media_type").style.display = "None";
+                document.getElementById("save_media_type").style.display = "None";
+                document.getElementById("media_type_new_val_lab").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_blind').once().click(function () {
+                document.getElementById("blind_edit_div").style.display = "None";
+                document.getElementById("blind_new_val").style.display = "None";
+                document.getElementById("cancel_blind").style.display = "None";
+                document.getElementById("save_blind").style.display = "None";
+                document.getElementById("blind_new_val_lab").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_deaf').once().click(function () {
+                document.getElementById("deaf_edit_div").style.display = "None";
+                document.getElementById("deaf_new_val").style.display = "None";
+                document.getElementById("cancel_deaf").style.display = "None";
+                document.getElementById("save_deaf").style.display = "None";
+                document.getElementById("deaf_new_val_lab").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_gender').once().click(function () {
+                document.getElementById("gender_edit_div").style.display = "None";
+                document.getElementById("gender_new_val").style.display = "None";
+                document.getElementById("cancel_gender").style.display = "None";
+                document.getElementById("save_gender").style.display = "None";
+                document.getElementById("gender_new_val_lab").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_lang_pref').once().click(function () {
+                document.getElementById("lang_pref_edit_div").style.display = "None";
+                document.getElementById("lang_pref_new_val").style.display = "None";
+                document.getElementById("cancel_lang_pref").style.display = "None";
+                document.getElementById("save_lang_pref").style.display = "None";
+                document.getElementById("lang_pref_new_val_lab").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_state').once().click(function () {
+
+                document.getElementById("prim_state_edit_div").style.display = "None";
+                document.getElementById("prim_state_new_val").style.display = "None";
+                document.getElementById("cancel_prim_state").style.display = "None";
+                document.getElementById("prim_state_new_val_lab").style.display = "None";
+                document.getElementById("prim_country_new_val_lab").style.display = "None";
+                document.getElementById("save_prim_city").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+
+            });
+            $('#cancel_disability').once().click(function () {
+                document.getElementById("disability_edit_div").style.display = "None";
+                document.getElementById("disability_new_val").style.display = "None";
+                document.getElementById("cancel_disability").style.display = "None";
+                document.getElementById("save_disability").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_pronouns').once().click(function () {
+                document.getElementById("pronouns_edit_div").style.display = "None";
+                document.getElementById("pronouns_new_val").style.display = "None";
+                document.getElementById("cancel_pronouns").style.display = "None";
+                document.getElementById("save_pronouns").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_dob').once().click(function () {
+                document.getElementById("dob_edit_div").style.display = "None";
+                document.getElementById("dob_new_val").style.display = "None";
+                document.getElementById("cancel_dob").style.display = "None";
+                document.getElementById("save_dob").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_prim_zip').once().click(function () {
+                document.getElementById("prim_zip_edit_div").style.display = "None";
+                document.getElementById("prim_zip_new_val").style.display = "None";
+                document.getElementById("cancel_prim_zip").style.display = "None";
+                document.getElementById("save_prim_zip").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_prim_city').once().click(function () {
+                document.getElementById("prim_city_edit_div").style.display = "None";
+                document.getElementById("prim_city_new_val").style.display = "None";
+                document.getElementById("cancel_prim_city").style.display = "None";
+                document.getElementById("save_prim_city").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_prim_address_2').once().click(function () {
+                document.getElementById("prim_address_2_edit_div").style.display = "None";
+                document.getElementById("prim_address_2_new_val").style.display = "None";
+                document.getElementById("cancel_prim_address_2").style.display = "None";
+                document.getElementById("save_prim_address_2").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#cancel_prim_street').once().click(function () {
+                document.getElementById("prim_street_edit_div").style.display = "None";
+                document.getElementById("prim_street_new_val").style.display = "None";
+                document.getElementById("cancel_prim_street").style.display = "None";
+                document.getElementById("save_prim_street").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
             $('#cancel_prim_phone').once().click(function () {
                 document.getElementById("prim_phone_edit_div").style.display = "None";
                 document.getElementById("prim_phone_new_val").style.display = "None";
@@ -231,6 +645,63 @@ function hide_user_id()
     document.getElementById("prim_phone_new_val").style.display = "None";
     document.getElementById("cancel_prim_phone").style.display = "None";
     document.getElementById("save_prim_phone").style.display = "None";
+    document.getElementById("prim_street_edit_div").style.display = "None";
+    document.getElementById("prim_street_new_val").style.display = "None";
+    document.getElementById("cancel_prim_street").style.display = "None";
+    document.getElementById("save_prim_street").style.display = "None";
+    document.getElementById("prim_address_2_edit_div").style.display = "None";
+    document.getElementById("prim_address_2_new_val").style.display = "None";
+    document.getElementById("cancel_prim_address_2").style.display = "None";
+    document.getElementById("save_prim_address_2").style.display = "None";
+    document.getElementById("prim_city_edit_div").style.display = "None";
+    document.getElementById("prim_city_new_val").style.display = "None";
+    document.getElementById("cancel_prim_city").style.display = "None";
+    document.getElementById("save_prim_city").style.display = "None";
+    document.getElementById("prim_state_edit_div").style.display = "None";
+    document.getElementById("prim_state_new_val").style.display = "None";
+    document.getElementById("prim_country_new_val").style.display = "None";
+    document.getElementById("cancel_prim_state").style.display = "None";
+    document.getElementById("save_prim_state").style.display = "None";
+    document.getElementById("prim_country_new_val_lab").style.display = "None";
+    document.getElementById("prim_state_new_val_lab").style.display = "None";
+    document.getElementById("prim_zip_edit_div").style.display = "None";
+    document.getElementById("prim_zip_new_val").style.display = "None";
+    document.getElementById("cancel_prim_zip").style.display = "None";
+    document.getElementById("save_prim_zip").style.display = "None";
+    document.getElementById("lang_pref_edit_div").style.display = "None";
+    document.getElementById("lang_pref_new_val").style.display = "None";
+    document.getElementById("cancel_lang_pref").style.display = "None";
+    document.getElementById("save_lang_pref").style.display = "None";
+    document.getElementById("lang_pref_new_val_lab").style.display = "None";
+    document.getElementById("gender_edit_div").style.display = "None";
+    document.getElementById("gender_new_val").style.display = "None";
+    document.getElementById("cancel_gender").style.display = "None";
+    document.getElementById("save_gender").style.display = "None";
+    document.getElementById("gender_new_val_lab").style.display = "None";
+    document.getElementById("blind_edit_div").style.display = "None";
+    document.getElementById("blind_new_val").style.display = "None";
+    document.getElementById("cancel_blind").style.display = "None";
+    document.getElementById("save_blind").style.display = "None";
+    document.getElementById("blind_new_val_lab").style.display = "None";
+    document.getElementById("deaf_edit_div").style.display = "None";
+    document.getElementById("deaf_new_val").style.display = "None";
+    document.getElementById("cancel_deaf").style.display = "None";
+    document.getElementById("save_deaf").style.display = "None";
+    document.getElementById("deaf_new_val_lab").style.display = "None";
+    document.getElementById("media_type_edit_div").style.display = "None";
+    document.getElementById("media_type_new_val").style.display = "None";
+    document.getElementById("cancel_media_type").style.display = "None";
+    document.getElementById("save_media_type").style.display = "None";
+    document.getElementById("media_type_new_val_lab").style.display = "None";
+    document.getElementById("pronouns_edit_div").style.display = "None";
+    document.getElementById("pronouns_new_val").style.display = "None";
+    document.getElementById("cancel_pronouns").style.display = "None";
+    document.getElementById("save_pronouns").style.display = "None";
+    document.getElementById("dob_edit_div").style.display = "None";
+    document.getElementById("dob_new_val").style.display = "None";
+    document.getElementById("dob_pronouns").style.display = "None";
+    document.getElementById("dob_pronouns").style.display = "None";
+
 }
 
 
