@@ -233,7 +233,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#prim_zip_edit').once().click(function () {
+            $('#edit_prim_zip').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -255,7 +255,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#pronouns_edit').once().click(function () {
+            $('#edit_pronouns').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -277,7 +277,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#dob_edit').once().click(function () {
+            $('#edit_dob').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -299,7 +299,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#disability_edit').once().click(function () {
+            $('#edit_disability').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -321,7 +321,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#blind_edit').once().click(function () {
+            $('#edit_blind').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -345,7 +345,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#deaf_edit').once().click(function () {
+            $('#edit_deaf').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -369,7 +369,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#gender_edit').once().click(function () {
+            $('#edit_gender').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -393,7 +393,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#lang_pref_edit').once().click(function () {
+            $('#edit_lang_pref').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -417,7 +417,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#media_type_edit').once().click(function () {
+            $('#edit_media_type').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
