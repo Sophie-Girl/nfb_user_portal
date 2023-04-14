@@ -699,8 +699,8 @@ function hide_user_id()
     document.getElementById("save_pronouns").style.display = "None";
     document.getElementById("dob_edit_div").style.display = "None";
     document.getElementById("dob_new_val").style.display = "None";
-    document.getElementById("dob_pronouns").style.display = "None";
-    document.getElementById("dob_pronouns").style.display = "None";
+    document.getElementById("cancel_dob").style.display = "None";
+    document.getElementById("save_dob").style.display = "None";
 
 }
 
