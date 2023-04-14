@@ -172,7 +172,7 @@
                     document.getElementById("save_prim_address_2").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Address Line 2";
-                } else if (editstatus == "Open" && openfeild == "Adress Line 2") {
+                } else if (editstatus == "Open" && openfeild == "Address Line 2") {
                     document.getElementById("prim_address_2_edit_div").style.display = "None";
                     document.getElementById("prim_address_2_new_val").style.display = "None";
                     document.getElementById("cancel_prim_address_2").style.display = "None";
@@ -233,7 +233,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#prim_zip_edit_div').once().click(function () {
+            $('#prim_zip_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -255,7 +255,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#pronouns_edit_div').once().click(function () {
+            $('#pronouns_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -277,7 +277,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#dob_edit_div').once().click(function () {
+            $('#dob_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -299,7 +299,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#disability_edit_div').once().click(function () {
+            $('#disability_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -321,7 +321,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#blind_edit_div').once().click(function () {
+            $('#blind_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -345,7 +345,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#deaf_edit_div').once().click(function () {
+            $('#deaf_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -369,7 +369,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#gender_edit_div').once().click(function () {
+            $('#gender_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -393,7 +393,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#lang_pref_edit_div').once().click(function () {
+            $('#lang_pref_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -417,7 +417,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#media_type_edit_div').once().click(function () {
+            $('#media_type_edit').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
