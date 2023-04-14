@@ -98,7 +98,7 @@ class core_markup
         $result = $civi->get_civi_result();
         $count = $result->count();
         $current = 1;
-        $options = "";
+        $options = "<option value=''> &nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
         while ($current <=  $count)
         {
             $state = $result->itemat($current);
