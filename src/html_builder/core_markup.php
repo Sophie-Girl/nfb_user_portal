@@ -186,7 +186,7 @@ class core_markup
         while ($current <= $count) {
             $gender = $result->itemat($current);
             if($gender['id'] != "") {
-                $options = $options . "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+                $options = $options . "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['label'] . "&nbsp;&nbsp;&nbsp;</option>";
             }
             $current++;
         }
