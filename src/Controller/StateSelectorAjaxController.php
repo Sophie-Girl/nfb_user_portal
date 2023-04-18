@@ -48,7 +48,7 @@ class StateSelectorAjaxController extends ControllerBase
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $count = $result->count();
-        $current = 1;
+        $current = 0;
         $options = "<option value=''>&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
         while($count >= $current)
         {
