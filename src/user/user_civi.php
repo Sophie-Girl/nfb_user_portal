@@ -103,8 +103,18 @@ class user_civi extends user_base
         $this->dob = $contact['birth_date'];
         $this->gender = $contact['gender_id:label'];
         $this->is_blind = $contact['Medical_Issues.Is_Blind'];
+        if($this->get_is_blimd() == "1")
+        {$this->is_blind = "Yes";}
+        else{
+            $this->is_blind = "No";
+        }
         $this->preferred_language = $contact['preferred_language'];
         $this->deaf = $contact['Medical_Issues.Is_Deaf'];
+        if($this->get_deaf() == "1")
+        {
+            $this->deaf = "Yes";
+        }
+        else{$this->deaf = "No";}
         $this->disability = $contact['Medical_Issues.Other_Disability'];
         $this->dog_user = $contact['Individual_s_Information.Uses_a_Service_Animal'];
         $this->pronouns = $contact['Individual_s_Information.Pronouns'];
