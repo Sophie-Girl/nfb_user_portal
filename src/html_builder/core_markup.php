@@ -102,7 +102,9 @@ class core_markup
         while ($current <=  $count)
         {
             $state = $result->itemat($current);
-            $options = $options."<option value='".$state['id']."'>&nbsp;&nbsp;&nbsp;".$state['name']."&nbsp;&nbsp;&nbsp;</option>";
+            if($state['id'] != "") {
+                $options = $options . "<option value='" . $state['id'] . "'>&nbsp;&nbsp;&nbsp;" . $state['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+            }
             $current++;
         }
         return $options;
@@ -128,7 +130,9 @@ class core_markup
         while ($current <= $count) {
             $state = $result->itemat($current);
             if ($state['id'] != "1228"){
+                if($state['id'] != ""){
         $options = $options . "<option value='" . $state['id'] . "'>&nbsp;&nbsp;&nbsp;" . $state['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+                }
     }
         $current++;
         }
