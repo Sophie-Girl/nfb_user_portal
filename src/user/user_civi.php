@@ -119,6 +119,7 @@ class user_civi extends user_base
         $this->dog_user = $contact['Individual_s_Information.Uses_a_Service_Animal'];
         $this->pronouns = $contact['Individual_s_Information.Pronouns'];
         $this->ethnicity = $contact['Individual_s_Information.Race_Ethnicity'];
+        $this->media_type = $contact['Subscriptions.Media'];
         $civi = null;
     }
     public function email_set()
