@@ -73,7 +73,7 @@ class core_markup
                     <p id='disability'>Other Disability: ".$this->user_data->get_disability()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Disability' id='edit_disability'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='disability_edit_div' class='hidden_val'><input id='disability_new_val' class= 'feild_custom_text' aria-label='enter new disability information'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_disability'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_disability'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='meddia_preference_info'>Media Preference: ".$this->user_data->get_media_type()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your Media Preference' id='edit_media_pref'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
-                    <div role='form' aria-live='polite' id='media_type_edit_div' class='hidden_val'><label for='nedia_type_new_val' id='media_type_new_val_lab'>Deaf Blind?</label><select id='media_type_new_val' class='feild_custom_select' aria-label='Change Meida Type status'>".$this->yes_no()."</select>
+                    <div role='form' aria-live='polite' id='media_type_edit_div' class='hidden_val'><label for='nedia_type_new_val' id='media_type_new_val_lab'>Deaf Blind?</label><select id='media_type_new_val' class='feild_custom_select' aria-label='Change Meida Type status'>".$this->media_options()."</select>
                     <a role='button' id='cancel_media_type'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_media_type'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     </form>";
         $this->core_markup = $markup;
@@ -156,8 +156,10 @@ class core_markup
         $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
         while ($current <= $count) {
             $gender = $result->itemat($current);
-             $options = $options. "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['name'] . "&nbsp;&nbsp;&nbsp;</option>";
-             $current++;
+            if($gender['id'] != "") {
+                $options = $options . "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+            }
+            $current++;
         }
         return $options;
     }
@@ -183,16 +185,29 @@ class core_markup
         $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
         while ($current <= $count) {
             $gender = $result->itemat($current);
-            $options = $options. "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+            if($gender['id'] != "") {
+                $options = $options . "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+            }
             $current++;
         }
         return $options;
     }
     public function yes_no()
     {
-        $options = "<options value=''>&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</options>
-<options value='1'>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</options>
-<options value='0'>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;</options>
+        $options = "<option value=''>&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>
+<option value='1'>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;</option>
+<option value='0'>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;</option>
+";
+        return $options;
+    }
+    public function media_options()
+    {
+        $options = "<option value=''>&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>
+<option value='Print'>&nbsp;&nbsp;&nbsp;Print&nbsp;&nbsp;&nbsp;</option>
+<option value='Braille'>&nbsp;&nbsp;&nbsp;Braille&nbsp;&nbsp;&nbsp;</option>
+<option value='Large Print'>&nbsp;&nbsp;&nbsp;Large Print&nbsp;&nbsp;&nbsp;</option>
+<option value='E-Mail'>&nbsp;&nbsp;&nbsp;E-mail&nbsp;&nbsp;&nbsp;</option>
+<option value='USB-drive'>&nbsp;&nbsp;&nbsp;USB-Drive&nbsp;&nbsp;&nbsp;</option>
 ";
         return $options;
     }

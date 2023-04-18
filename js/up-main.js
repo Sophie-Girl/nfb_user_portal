@@ -403,7 +403,7 @@
                     document.getElementById("cancel_lang_pref").style.display = "inline-block";
                     document.getElementById("save_lang_pref").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "language preference ";
+                    document.getElementById("open_field").innerText = "language preference";
                 } else if (editstatus == "Open" && openfeild == "language preference") {
                     document.getElementById("lang_pref_edit_div").style.display = "None";
                     document.getElementById("lang_pref_new_val").style.display = "None";
@@ -417,7 +417,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_media_type').once().click(function () {
+            $('#edit_media_pref').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -486,7 +486,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_state').once().click(function () {
+            $('#cancel_prim_state').once().click(function () {
 
                 document.getElementById("prim_state_edit_div").style.display = "None";
                 document.getElementById("prim_state_new_val").style.display = "None";
