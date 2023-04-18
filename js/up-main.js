@@ -586,19 +586,37 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
+            $('#prim_country_new_val').once().change(function ()
+            {
+                var vcountry = document.getElementById("prim_country_new_val").value;
+                ajax_change_state_call(vcountry);
+            });
 
 
         }
     }
-    function ajax_change_call(vfeildarray)
-    {
-        if(vefeildarray == "no-run"){
-        $.ajax({
-            type: 'POST',
-            url: '/nfb_member_portal/ajax/change',
-            data: { feildarray:vfeildarray },
-        }).done(function (data) {});
+    function ajax_change_call(vfeildarray) {
+        if (vefeildarray == "no-run") {
+            $.ajax({
+                type: 'POST',
+                url: '/nfb_member_portal/ajax/change',
+                data: {feildarray: vfeildarray},
+            }).done(function (data) {
+            });
+        }
     }
+        function ajax_change_state_call(vcountry)
+        {
+            if(vcountry != "") {
+                $.ajax({
+                    type: 'POST',
+                    url: '/nfb_member_portal/ajax/state',
+                    data: {country: vcountry},
+                }).done(function (data) {
+                    document.getElementById("prim_state_new_val").innerHTML = data.join();
+                });
+            }
+
     }
 
     })(jQuery, Drupal)

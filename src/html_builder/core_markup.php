@@ -39,22 +39,22 @@ class core_markup
                     <div role='form' aria-live='polite'  id='prim_email_edit_div' class='hidden_val'><input id='prim_email_new_val' class= 'feild_custom_text' aria-label='enter new primary email'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_email'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_email'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='prime_phone'>Phone: ".$this->user_data->get_prime_phone()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Phone' id='edit_prim_phone'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='prim_phone_edit_div' class='hidden_val'><input id='prim_phone_new_val' class= 'feild_custom_text' aria-label='enter new primary phone'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_phone'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_phone'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    <p id='prime_street'>Street Address: ".$this->user_data->get_prime_street()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Street Address' id='edit_prim_street'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                    <p id='prime_street'>Street Address Line 1: ".$this->user_data->get_prime_street()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Street Address' id='edit_prim_street'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='prim_street_edit_div' class='hidden_val'><input id='prim_street_new_val' class= 'feild_custom_text' aria-label='enter new primary street address'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_street'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_street'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                      <p id='prime_address_2'>Address Line 2: ".$this->user_data->get_prime_line_2()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Address Line 2' id='edit_prim_address_2'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                      <p id='prime_address_2'>Street Address Line 2: ".$this->user_data->get_prime_line_2()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Address Line 2' id='edit_prim_address_2'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='prim_address_2_edit_div' class='hidden_val'><input id='prim_address_2_new_val' class= 'feild_custom_text' aria-label='enter new primary address line 2'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_address_2'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_address_2'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='prime_city'>City: ".$this->user_data->get_prime_city()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary City' id='edit_prim_city'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='prim_city_edit_div' class='hidden_val'><input id='prim_city_new_val' class= 'feild_custom_text' aria-label='enter new primary City'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_city'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_city'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    <p id='prime_st_ct'>State and Country: ".$this->user_data->get_prime_state().", ".$this->user_data->get_prime_country()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary State and Country' id='edit_prim_state'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                    <p id='prime_st_ct'>State, Country: ".$this->user_data->get_prime_state().", ".$this->user_data->get_prime_country()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary State and Country' id='edit_prim_state'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='prim_state_edit_div' class='hidden_val'><label for='prim_country_new_val' id='prim_country_new_val_lab' >Country:</label><select id='prim_country_new_val' class='feild_custom_select' aria-label='enter new primary country'>".$this->country_options()."</select>
                     <label id='prim_state_new_val_lab' for='prim_state_new_val'></label><select id='prim_state_new_val' class='feild_custom_select' aria-label='enter new primary state'>".$this->state_options()."</select>
                     <a role='button' id='cancel_prim_state'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_state'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    <p id='prime_zip'>Zip/Postal Code: ".$this->user_data->get_prime_zip()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Zip' id='edit_prim_zip'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                    <p id='prime_zip'>ZIP/Postal Code: ".$this->user_data->get_prime_zip()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Zip' id='edit_prim_zip'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='prim_zip_edit_div' class='hidden_val'><input id='prim_zip_new_val' class= 'feild_custom_text' aria-label='enter new primary zip code'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_zip'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_zip'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     </form>
                     <h2>Your Demographics</h2>
                     <form>
-                    <p id='prime_lnag_pref'>Your Prefered Langaunge: ".$this->user_data->get_preferred_language()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Your Preffered Langauge' id='edit_lang_pref'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                    <p id='prime_lnag_pref'>Prefered Langauge: ".$this->user_data->get_preferred_language()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Your Preffered Langauge' id='edit_lang_pref'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='lang_pref_edit_div' class='hidden_val'><label for='lang_pref_new_val' id='lang_pref_new_val_lab'>Country:</label><select id='lang_pref_new_val' class='feild_custom_select' aria-label='enter new language prefference'>".$this->language_options()."</select>
                     <a role='button' id='cancel_lang_pref'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_lang_pref'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='gender_info'>Gender: ".$this->user_data->get_gender()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Your Gender' id='edit_gender'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
@@ -67,7 +67,7 @@ class core_markup
                     <p id='blind_info'>Blindness Status: ".$this->user_data->get_is_blimd()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your blindness status' id='edit_blind'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='blind_edit_div' class='hidden_val'><label for='blind_new_val' id='blind_new_val_lab'>Blind?</label><select id='blind_new_val' class='feild_custom_select' aria-label='Change Blindness status'>".$this->yes_no()."</select>
                     <a role='button' id='cancel_blind'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_blind'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    <p id='deaf_info'>Deaf Blind Status: ".$this->user_data->get_deaf()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your deaf blind status' id='edit_deaf'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                    <p id='deaf_info'>Deaf blind Status: ".$this->user_data->get_deaf()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your deaf blind status' id='edit_deaf'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='deaf_edit_div' class='hidden_val'><label for='deaf_new_val'id='deaf_new_val_lab'>Deaf Blind?</label><select id='deaf_new_val' class='feild_custom_select' aria-label='Change Deafness status'>".$this->yes_no()."</select>
                     <a role='button' id='cancel_deaf'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_deaf'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='disability'>Other Disability: ".$this->user_data->get_disability()." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Disability' id='edit_disability'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
@@ -156,7 +156,7 @@ class core_markup
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $count = $result->count();
-        $current = 1;
+        $current = 0;
         $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
         while ($current <= $count) {
             $gender = $result->itemat($current);
@@ -185,7 +185,7 @@ class core_markup
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $count = $result->count();
-        $current = 1;
+        $current = 0;
         $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
         while ($current <= $count) {
             $gender = $result->itemat($current);
@@ -210,8 +210,8 @@ class core_markup
 <option value='Print'>&nbsp;&nbsp;&nbsp;Print&nbsp;&nbsp;&nbsp;</option>
 <option value='Braille'>&nbsp;&nbsp;&nbsp;Braille&nbsp;&nbsp;&nbsp;</option>
 <option value='Large Print'>&nbsp;&nbsp;&nbsp;Large Print&nbsp;&nbsp;&nbsp;</option>
-<option value='E-Mail'>&nbsp;&nbsp;&nbsp;E-mail&nbsp;&nbsp;&nbsp;</option>
-<option value='USB-drive'>&nbsp;&nbsp;&nbsp;USB-Drive&nbsp;&nbsp;&nbsp;</option>
+<option value='E-Mail'>&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;</option>
+<option value='USB-drive'>&nbsp;&nbsp;&nbsp;Usb Drive&nbsp;&nbsp;&nbsp;</option>
 ";
         return $options;
     }
