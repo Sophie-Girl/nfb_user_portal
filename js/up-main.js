@@ -589,8 +589,12 @@
             $('#prim_country_new_val').once().change(function ()
             {
                 var vcountry = document.getElementById("prim_country_new_val").value;
-                console.log("Country id check "+vcountry);
                 ajax_change_state_call(vcountry);
+            });
+            $('#prim_state_new_val').once().change(function ()
+            {
+                var state_val = document.getElementById("prim_state_new_val").value;
+                console.log("state "+state_val);
             });
 
 
@@ -608,14 +612,12 @@
     }
         function ajax_change_state_call(vcountry)
         {
-            console.log("Country id check "+vcountry);
             if(vcountry != "") {
                 $.ajax({
                     type: 'POST',
                     url: '/nfb_member_portal/ajax/state',
                     data: {country: vcountry},
                 }).done(function (data) {
-                    console.log("Country id check "+data);
                     document.getElementById("prim_state_new_val").innerHTML = data;
                 });
             }
