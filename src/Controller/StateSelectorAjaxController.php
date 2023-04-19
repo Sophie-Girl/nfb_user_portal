@@ -47,6 +47,7 @@ class StateSelectorAjaxController extends ControllerBase
             'checkPermissions' => FALSE,
         ];
         $civi->civi_api_v4_query();
+        \Drupal::logger("ajax_test")->notice("getting here");
         $result = $civi->get_civi_result();
         $count = $result->count();
         $current = 0;
