@@ -13,3 +13,10 @@ nfb_user_portal.page_laod:
     _title: 'ajax'
   requirements:
     _permission: 'access content'
+nfb_user_portal.state:
+  path: '/nfb_member_portal/ajax/state'
+  defaults:
+    _controller: '\Drupal\nfb_user_portal\Controller\StateSelectorAjaxController::content'
+    _title: 'ajax'
+  requirements:
+    _permission: 'access content'
