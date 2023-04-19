@@ -58,6 +58,7 @@ class StateSelectorAjaxController extends ControllerBase
                 if ($state['id'] != "") {
                     $options = $options . "<option value='" . $state['id'] . "'> &nbsp;" . $state['name'] . " </option>";
                 }
+                $current++;
             }
         }
         \Drupal::logger("ajax_test")->notice("Options ".$options);
