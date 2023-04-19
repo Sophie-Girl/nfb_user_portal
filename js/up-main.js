@@ -591,11 +591,6 @@
                 var vcountry = document.getElementById("prim_country_new_val").value;
                 ajax_change_state_call(vcountry);
             });
-            $('#prim_state_new_val').once().change(function ()
-            {
-                var state_val = document.getElementById("prim_state_new_val").value;
-                console.log("state "+state_val);
-            });
 
 
         }
