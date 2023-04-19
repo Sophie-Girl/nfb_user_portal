@@ -589,6 +589,7 @@
             $('#prim_country_new_val').once().change(function ()
             {
                 var vcountry = document.getElementById("prim_country_new_val").value;
+                console.log("Country id check "+vcountry);
                 ajax_change_state_call(vcountry);
             });
 
