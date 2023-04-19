@@ -29,7 +29,7 @@ class StateSelectorAjaxController extends ControllerBase
     {
         $request = Request::createFromGlobals();
         $this->country_id = $request->request->get('country');
-        \Drupal::logger("ajax_test")->notice("Country ".$this->get_country_id());
+
     }
     public function query_for_country_id()
     {
@@ -59,7 +59,7 @@ class StateSelectorAjaxController extends ControllerBase
                 }
             }
         }
-
+        \Drupal::logger("ajax_test")->notice("Options ".$options);
         $this->data = $options;
     }
 
