@@ -52,7 +52,7 @@ class StateSelectorAjaxController extends ControllerBase
         $options = "<option value=''>&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
         if($count != 0) {
             while ($count >= $current) {
-                $state = $result->iteatm($current);
+                $state = $result->itemat($current);
                 if ($state['id'] != "") {
                     $options = $options . "<option value='" . $state['id'] . "'> &nbsp;" . $state['name'] . " </option>";
                 }
