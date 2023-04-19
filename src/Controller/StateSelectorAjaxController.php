@@ -59,6 +59,7 @@ class StateSelectorAjaxController extends ControllerBase
                 }
             }
         }
+
         $this->data = $options;
     }
 

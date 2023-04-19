@@ -615,6 +615,7 @@
                     url: '/nfb_member_portal/ajax/state',
                     data: {country: vcountry},
                 }).done(function (data) {
+                    console.log("Country id check "+data);
                     document.getElementById("prim_state_new_val").innerHTML = data;
                 });
             }
