@@ -608,6 +608,7 @@
     }
         function ajax_change_state_call(vcountry)
         {
+            console.log("Country id check "+vcountry);
             if(vcountry != "") {
                 $.ajax({
                     type: 'POST',
