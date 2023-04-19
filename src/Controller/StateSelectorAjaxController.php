@@ -22,7 +22,6 @@ class StateSelectorAjaxController extends ControllerBase
     {
         $this->set_country();
         $this->query_for_country_id();
-
         return new JsonResponse($this->get_data());
     }
     public function set_country()
