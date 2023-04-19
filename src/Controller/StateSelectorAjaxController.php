@@ -28,6 +28,7 @@ class StateSelectorAjaxController extends ControllerBase
     {
         $request = Request::createFromGlobals();
         $this->country_id = $request->request->get('country');
+        \Drupal::logger("ajax_test")->notice("country ".$this->get_country_id());
 
     }
     public function query_for_country_id()
