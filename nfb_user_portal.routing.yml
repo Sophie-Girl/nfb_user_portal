@@ -9,7 +9,7 @@ nfb_user_portal.main_tab:
 nfb_user_portal.page_laod:
   path: 'member_portal/ajax/page_load'
   defaults:
-    _controller: '\Drupal\nfb_user_portal\Controller\PageLaodAjaxController::content'
+    _controller: '\Drupal\nfb_user_portal\EditFeildController::content'
     _title: 'ajax'
   requirements:
     _permission: 'access content'
