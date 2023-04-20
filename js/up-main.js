@@ -13,20 +13,21 @@
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
-                    vfeildarray[0] = "phone";
-                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
+
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "phone";
                     vfeildarray[2] = document.getElementById('prim_phone_new_val').value
                     ajax_change_call(vfeildarray);
                 }
             });
             $('#save-prim-email').once().click(function () {
                 var vfeildarray;
-                var feild_data = document.getElementById('prim_phone_new_val').value;
+                var feild_data = document.getElementById('prim_email_new_val').value;
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
-                    vfeildarray[0] = "email";
-                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "email";
                     vfeildarray[2] = document.getElementById('prim_email_new_val').value
                     ajax_change_call(vfeildarray);
                 }
@@ -37,8 +38,9 @@
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
-                    vfeildarray[0] = "f_name";
-                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
+
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "f_name";
                     vfeildarray[2] = document.getElementById('f_name_new_val').value
                     ajax_change_call(vfeildarray);
                 }
@@ -49,8 +51,9 @@
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
-                    vfeildarray[0] = "l_name";
-                    vfeildarray[1] = document.getElementById('civi_id_val').innerText;
+
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "l_name";
                     vfeildarray[2] = document.getElementById('l_name_new_val').value
                     ajax_change_call(vfeildarray);
                 }
@@ -599,9 +602,10 @@
         if (vefeildarray == "no-run") {
             $.ajax({
                 type: 'POST',
-                url: '/nfb_member_portal/ajax/change',
+                url: '/member_portal/ajax/page_load',
                 data: {feildarray: vfeildarray},
             }).done(function (data) {
+                alert("Changes mad successfully");
             });
         }
     }
