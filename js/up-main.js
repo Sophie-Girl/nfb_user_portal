@@ -602,6 +602,7 @@
     }
     function ajax_change_call(vfeildarray) {
         if (vfeildarray == "no-run") {
+            console.log("i should be doing a post");
             $.ajax({
                 type: 'POST',
                 url: '/member_portal/ajax/page_load',
