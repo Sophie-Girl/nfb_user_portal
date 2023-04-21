@@ -51,7 +51,7 @@
                     vfeildarray[2] = document.getElementById('f_name_new_val').value;
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("f_name").innerHTML = "First Name: "+document.getElementById('f_name_new_val').value+" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                document.getElementById("first_name_repalce").innerText = "First Name: "+document.getElementById('f_name_new_val').value;
                 alert("Changes made successfully");
             });
             $('#save-l-name').once().click(function () {
