@@ -13,12 +13,14 @@
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
-
+                    vfeildarray = [];
                     vfeildarray[0] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[1] = "phone";
                     vfeildarray[2] = document.getElementById('prim_phone_new_val').value
-                    ajax_change_call(vfeildarray);
                 }
+                ajax_change_call(vfeildarray);
+                document.getElementById("prime_phone").innerText = "Email: "+document.getElementById('prim_phone_new_val').value
+                alert("Changes made successfully");
             });
             $('#save-prim-email').once().click(function () {
                 var vfeildarray;
@@ -26,26 +28,31 @@
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
+                    vfeildarray = [];
                     vfeildarray[0] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[1] = "email";
                     vfeildarray[2] = document.getElementById('prim_email_new_val').value
-                    ajax_change_call(vfeildarray);
+
                 }
+                ajax_change_call(vfeildarray);
+                document.getElementById("prime_email").innerText = "Email: "+document.getElementById('prim_email_new_val').value
+                alert("Changes made successfully");
+
             });
             $('#save_f_name').once().click(function () {
                 var vfeildarray;
-                console.log("check check 1, 2");
                 var feild_data = document.getElementById('f_name_new_val').value;
-                console.log("feild_data "+feild_data);
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
                     vfeildarray = [];
                     vfeildarray[0] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[1] = "f_name";
-                    vfeildarray[2] = document.getElementById('f_name_new_val').value
+                    vfeildarray[2] = document.getElementById('f_name_new_val').value;
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("f_name").innerText = "First Name: "+document.getElementById('f_name_new_val').value
+                alert("Changes made successfully");
             });
             $('#save-l-name').once().click(function () {
                 var vfeildarray;
@@ -53,12 +60,15 @@
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
-
+                    vfeildarray = [];
                     vfeildarray[0] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[1] = "l_name";
                     vfeildarray[2] = document.getElementById('l_name_new_val').value
-                    ajax_change_call(vfeildarray);
+
                 }
+                ajax_change_call(vfeildarray);
+                document.getElementById("l_name").innerText = "Last Name: "+document.getElementById('l_name_new_val').value
+                alert("Changes made successfully");
             });
             $('#edit_f_name').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
@@ -609,7 +619,7 @@
                 url: '/member_portal/ajax/page_load',
                 data: {feildarray: vfeildarray},
             }).done(function (data) {
-                alert("Changes mad successfully");
+
             });
         }
     }
