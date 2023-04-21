@@ -34,6 +34,7 @@
             });
             $('#save-f_name').once().click(function () {
                 var vfeildarray;
+                console.log("check check 1, 2");
                 var feild_data = document.getElementById('f_name_new_val').value;
                 if (feild_data == "") {
                     vfeildarray = "not_run";
@@ -42,8 +43,8 @@
                     vfeildarray[0] = document.getElementById('civi_id_val').innerText;
                     vfeildarray[1] = "f_name";
                     vfeildarray[2] = document.getElementById('f_name_new_val').value
-                    ajax_change_call(vfeildarray);
                 }
+                ajax_change_call(vfeildarray);
             });
             $('#save-l-name').once().click(function () {
                 var vfeildarray;
