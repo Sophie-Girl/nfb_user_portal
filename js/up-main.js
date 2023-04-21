@@ -32,7 +32,7 @@
                     ajax_change_call(vfeildarray);
                 }
             });
-            $('#save-f_name').once().click(function () {
+            $('#save_f_name').once().click(function () {
                 var vfeildarray;
                 console.log("check check 1, 2");
                 var feild_data = document.getElementById('f_name_new_val').value;
