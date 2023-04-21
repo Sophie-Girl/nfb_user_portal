@@ -67,7 +67,7 @@
 
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("l_name").innerhtml = "Last Name: "+document.getElementById('l_name_new_val').value+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Last Name' id='edit_l_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
+                document.getElementById("last_name_repalce").innerText = "Last Name: "+document.getElementById('l_name_new_val').value;
                 alert("Changes made successfully");
             });
             $('#edit_f_name').once().click(function () {
