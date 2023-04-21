@@ -19,7 +19,7 @@
                     vfeildarray[2] = document.getElementById('prim_phone_new_val').value
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("prime_phone").innerText = "Email: "+document.getElementById('prim_phone_new_val').value
+                document.getElementById("prime_phone").innerText = "Phone: "+document.getElementById('prim_phone_new_val').value + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Phone' id='edit_prim_phone'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
                 alert("Changes made successfully");
             });
             $('#save-prim-email').once().click(function () {
@@ -35,7 +35,7 @@
 
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("prime_email").innerText = "Email: "+document.getElementById('prim_email_new_val').value
+                document.getElementById("prime_email").innerhtml = "Email: "+document.getElementById('prim_email_new_val').value + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Email' id='edit_prim_email'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
                 alert("Changes made successfully");
 
             });
@@ -67,7 +67,7 @@
 
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("l_name").innerText = "Last Name: "+document.getElementById('l_name_new_val').value
+                document.getElementById("l_name").innerhtml = "Last Name: "+document.getElementById('l_name_new_val').value+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Last Name' id='edit_l_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
                 alert("Changes made successfully");
             });
             $('#edit_f_name').once().click(function () {
