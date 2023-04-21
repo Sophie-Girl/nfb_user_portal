@@ -7,7 +7,7 @@ nfb_user_portal.main_tab:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.page_laod:
-  path: 'member_portal/ajax/page_load'
+  path: '/member_portal/ajax/page_load'
   defaults:
     _controller: '\Drupal\nfb_user_portal\Controller\EditFieldController::content'
     _title: 'ajax'
