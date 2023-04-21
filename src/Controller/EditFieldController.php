@@ -47,7 +47,7 @@ class EditFieldController extends ControllerBase
     public function set_field_map()
     {
         $request = Request::createFromGlobals();
-        $this->field_map = $request->request->get('feildmap');
+        $this->field_map = $request->request->get('feildarray');
     }
 
     public function parse_array()
