@@ -36,6 +36,7 @@
                 var vfeildarray;
                 console.log("check check 1, 2");
                 var feild_data = document.getElementById('f_name_new_val').value;
+                console.log("feild_data "+feild_data);
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
