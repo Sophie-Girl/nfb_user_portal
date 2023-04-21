@@ -600,7 +600,7 @@
         }
     }
     function ajax_change_call(vfeildarray) {
-        if (vefeildarray == "no-run") {
+        if (vfeildarray == "no-run") {
             $.ajax({
                 type: 'POST',
                 url: '/member_portal/ajax/page_load',
