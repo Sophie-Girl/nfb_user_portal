@@ -602,7 +602,7 @@
     }
     function ajax_change_call(vfeildarray) {
         console.log("test "+vfeildarray);
-        if (vfeildarray == "no-run") {
+        if (vfeildarray != "no-run") {
             console.log("i should be doing a post");
             $.ajax({
                 type: 'POST',
