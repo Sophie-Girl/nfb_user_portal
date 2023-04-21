@@ -7,7 +7,7 @@
                 console.log("I am running");
             }
 
-            $('#save-prim-phone').once().click(function () {
+            $('#save_prim_phone').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
                 if (feild_data == "") {
@@ -22,7 +22,7 @@
                 document.getElementById("prime_phone").innerText = "Phone: "+document.getElementById('prim_phone_new_val').value + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Phone' id='edit_prim_phone'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
                 alert("Changes made successfully");
             });
-            $('#save-prim-email').once().click(function () {
+            $('#save_prim_email').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_email_new_val').value;
                 if (feild_data == "") {
@@ -54,7 +54,7 @@
                 document.getElementById("first_name_repalce").innerText = "First Name: "+document.getElementById('f_name_new_val').value;
                 alert("Changes made successfully");
             });
-            $('#save-l-name').once().click(function () {
+            $('#save_l_name').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('l_name_new_val').value;
                 if (feild_data == "") {
