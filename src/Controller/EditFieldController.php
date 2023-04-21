@@ -40,6 +40,7 @@ class EditFieldController extends ControllerBase
     }
     public function content()
     {
+        \Drupal::logger("ajax_test")->notice("I am getting the post");
         $this->set_field_map();
         $data =  $this->parse_array();
         return new JsonResponse($data);
