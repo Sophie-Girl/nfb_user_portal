@@ -7,7 +7,7 @@ use Drupal\nfb_user_portal\html_builder\core_markup;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-class EditFeildController extends ControllerBase
+class EditFieldController extends ControllerBase
 {
     public $field_map;
     public function get_field_map()
