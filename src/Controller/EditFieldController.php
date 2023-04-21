@@ -48,6 +48,7 @@ class EditFieldController extends ControllerBase
     {
         $request = Request::createFromGlobals();
         $this->field_map = $request->request->get('feildarray');
+        \Drupal::logger("testing_ajax")->notice("array ".print_r($this->get_field_map(), true));
     }
 
     public function parse_array()
