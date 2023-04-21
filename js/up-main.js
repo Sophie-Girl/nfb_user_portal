@@ -19,7 +19,7 @@
                     vfeildarray[2] = document.getElementById('prim_phone_new_val').value
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("prime_phone").innerText = "Email: "+document.getElementById('prim_phone_new_val').value
+                document.getElementById("prime_phone").innerText = "Email: "+do`cument.getElementById('prim_phone_new_val').value
                 alert("Changes made successfully");
             });
             $('#save-prim-email').once().click(function () {
