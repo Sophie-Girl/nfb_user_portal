@@ -51,7 +51,7 @@
                     vfeildarray[2] = document.getElementById('f_name_new_val').value;
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("f_name").innerHTML = "First Name: "+document.getElementById('f_name_new_val').value+" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit first Name' id='edit_f_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
+                document.getElementById("f_name").innerHTML = "First Name: "+document.getElementById('f_name_new_val').value+" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                 alert("Changes made successfully");
             });
             $('#save-l-name').once().click(function () {
