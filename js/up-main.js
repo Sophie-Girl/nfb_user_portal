@@ -6,7 +6,111 @@
                 replace_title();
                 console.log("I am running");
             }
-
+            $('#save_prim_street').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('prim_street_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "street";
+                    vfeildarray[2] = document.getElementById('prim_street_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                document.getElementById("street_replace").innerText = "Street Address: "+document.getElementById('prim_street_new_val').value;
+                alert("Changes made successfully");
+            });
+            $('#save_prim_address_2').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('prim_address_2_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "Line 2";
+                    vfeildarray[2] = document.getElementById('prim_address_2_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                document.getElementById("line_2_replace").innerText = "Street Address Line 2: "+document.getElementById('prim_address_2_new_val').value;
+                alert("Changes made successfully");
+            });
+            $('#save_prim_city').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('prim_city_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "City";
+                    vfeildarray[2] = document.getElementById('prim_city_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                document.getElementById("city_replace").innerText = "City: "+document.getElementById('prim_city_new_val').value;
+                alert("Changes made successfully");
+            });
+            $('#save_prim_zip').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('prim_zip_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "zip";
+                    vfeildarray[2] = document.getElementById('prim_zip_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                document.getElementById("postal_replace").innerText = "ZIP/Postal Code: "+document.getElementById('prim_zip_new_val').value;
+                alert("Changes made successfully");
+            });
+            $('#save_pronouns').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('pronouns_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "pronouns";
+                    vfeildarray[2] = document.getElementById('pronouns_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                document.getElementById("pronouns_replace").innerText = "Pronouns: "+document.getElementById('pronouns_new_val').value;
+                alert("Changes made successfully");
+            });
+            $('#save_dob').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('dob_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "dob";
+                    vfeildarray[2] = document.getElementById('dob_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                document.getElementById("dob_replace").innerText = "Date of Birth: "+document.getElementById('dob_new_val').value;
+                alert("Changes made successfully");
+            });
+            $('#save_dob').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('disability_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "disability";
+                    vfeildarray[2] = document.getElementById('disability_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                document.getElementById("disability_replace").innerText = "Other Disability: "+document.getElementById('disability_new_val').value;
+                alert("Changes made successfully");
+            });
             $('#save_prim_phone').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
@@ -19,7 +123,7 @@
                     vfeildarray[2] = document.getElementById('prim_phone_new_val').value
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("prime_phone").innerText = "Phone: "+document.getElementById('prim_phone_new_val').value + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Phone' id='edit_prim_phone'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
+                document.getElementById("phone_replace").innerText = "Phone: "+document.getElementById('prim_phone_new_val').value;
                 alert("Changes made successfully");
             });
             $('#save_prim_email').once().click(function () {
@@ -35,7 +139,7 @@
 
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("prime_email").innerhtml = "Email: "+document.getElementById('prim_email_new_val').value + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Email' id='edit_prim_email'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>";
+                document.getElementById("email_repalce").innerText = "Email: "+document.getElementById('prim_email_new_val').value;
                 alert("Changes made successfully");
 
             });
