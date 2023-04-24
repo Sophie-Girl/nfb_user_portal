@@ -432,6 +432,7 @@ class EditFieldController extends ControllerBase
     {
         $civi->mode = "get";
         $civi->entity = "Country";
+        \Drupal::logger("country_check")->notice("country result: ".$this->get_new_val_2());
         $civi->params = array(
             'select' => [
                 '*',
