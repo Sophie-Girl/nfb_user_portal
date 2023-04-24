@@ -445,6 +445,7 @@ class EditFieldController extends ControllerBase
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $country = $result->first();
+        \Drupal::logger("country_check")->notice("country result: ".print_r($result, true));
         return $country['name'];
     }
 
