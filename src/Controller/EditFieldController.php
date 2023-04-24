@@ -84,39 +84,39 @@ class EditFieldController extends ControllerBase
         switch ($this->get_field())
         {
             case "f_name":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "l_name":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "email":
-                $civi->entity = "Email";
+                $civi->entity = "Email"; break;
             case "phone":
-                $civi->entity = "Phone";
+                $civi->entity = "Phone"; break;
             case "street_address":
-                $civi->entity = "Address";
+                $civi->entity = "Address"; break;
             case "State":
-                $civi->entity = "Address";
+                $civi->entity = "Address"; break;
             case "Line 2":
-                $civi->entity = "Address";
+                $civi->entity = "Address"; break;
             case "City":
-                $civi->entity = "Address";
+                $civi->entity = "Address"; break;
             case "zip":
-                $civi->entity = "Address";
+                $civi->entity = "Address"; break;
             case "lang":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "dob":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "gender":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "pronouns":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "blind":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "deaf":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "disability":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
             case "media":
-                $civi->entity = "Contact";
+                $civi->entity = "Contact"; break;
         }
     }
     public function find_primary_id(query_base &$civi)
