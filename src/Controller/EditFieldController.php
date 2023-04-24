@@ -78,6 +78,7 @@ class EditFieldController extends ControllerBase
     }
     public function entity_switch(query_base &$civi)
     {
+        \Drupal::logger("ajax_testing_step_1")->notice("entity switch ".$this->get_field());
         switch ($this->get_field())
         {
             case "f_name":
@@ -132,6 +133,7 @@ class EditFieldController extends ControllerBase
         $civi->mode = "get";
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
+        \Drupal::logger("ajax_test")->notice("array: ".print_r($result, true));
         $count = $result->count();
         if($count != "0")
         {
