@@ -724,7 +724,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#dog_media_type').once().click(function () {
+            $('#cancel_dog').once().click(function () {
                 document.getElementById("dog_edit_div").style.display = "None";
                 document.getElementById("dog_new_val").style.display = "None";
                 document.getElementById("cancel_dog").style.display = "None";
@@ -733,7 +733,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#braille_media_type').once().click(function () {
+            $('#braille_braille').once().click(function () {
                 document.getElementById("braille_edit_div").style.display = "None";
                 document.getElementById("braille_new_val").style.display = "None";
                 document.getElementById("cancel_braille").style.display = "None";
