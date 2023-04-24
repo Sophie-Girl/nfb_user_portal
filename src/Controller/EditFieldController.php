@@ -58,7 +58,7 @@ class EditFieldController extends ControllerBase
         $this->contact_id = $this->get_field_map()[0];
         $this->field = $this->get_field_map()[1];
         $this->new_val = $this->get_field_map()[2];
-        if($this->get_field() == "state")
+        if($this->get_field() == "State")
         {
             $this->new_val_2 = $this->get_field_map()[3];
         }
