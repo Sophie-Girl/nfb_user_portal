@@ -136,6 +136,7 @@ class EditFieldController extends ControllerBase
         if($count != "0")
         {
             $data = $result->first();
+            \Drupal::logger("ajax_test")->notice("array: ".print_r($data, true));
             $this->contact_data_id = $data['id'];
         }
     }
