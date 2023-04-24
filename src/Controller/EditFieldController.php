@@ -324,8 +324,129 @@ class EditFieldController extends ControllerBase
     public function make_update(query_base  $civi)
     {
         $civi->civi_api_v4_query();
-        return "success";
+        if($this->get_field() == "State")
+        {
+            $data[0] = $this->get_state_name($civi);
+            $data[1] = $this->find_country_name($civi);
+        }
+        elseif($this->get_field() == "blind" || $this->get_field() == "deaf")
+        {
+            if ($this->get_new_val() == "1")
+            {
+                $data = "Yes";
+            }
+            else{
+                $data = "No";
+            }
+        }
+        elseif($this->get_field() == "gender")
+        {
+            $civi->mode = "get";
+            $civi->entity = "OptionValue";
+            $civi->params = [
+                'select' => [
+                    '*',
+                ],
+                'where' => [
+                    ['id', '=', $this->get_new_val()],
+                    ['option_group_id', '=', 3],
+                ],
+                'limit' => 25,
+                'checkPermissions' => FALSE,
+            ];
+            $civi->civi_api_v4_query();
+            $result = $civi->get_civi_result();
+            $state = $result->first();
+            $data = $state['label'];
+        }
+        elseif($this->get_field() == "lang")
+        {
+            $civi->mode = "get";
+            $civi->entity = "Contact";
+            $civi->params = [
+                'select' => [
+                    '*',
+                    'custom.*',
+                ],
+                'where' => [
+                    ['id', '=', $this->get_contact_id()],
+                ],
+                'limit' => 25,
+                'checkPermissions' => FALSE,
+            ];
+            $civi->civi_api_v4_query();
+            $result = $civi->civi_api_v4_query();
+            $contact = $result->first();
+            $data = $contact['preferred_language'];
+            if($data == "en_US")
+            {
+                $data = "English";
+            }
+        }
+        elseif ($this->get_field() == "media")
+        {
+            $civi->mode = "get";
+            $civi->entity = "Contact";
+            $civi->params = [
+                'select' => [
+                    '*',
+                    'custom.*',
+                ],
+                'where' => [
+                    ['id', '=', $this->get_contact_id()],
+                ],
+                'limit' => 25,
+                'checkPermissions' => FALSE,
+            ];
+            $civi->civi_api_v4_query();
+            $result = $civi->civi_api_v4_query();
+            $contact = $result->first();
+            $data = $contact['Subscriptions.Media'];
+        }
+        else{
+            $data = "success";
+        }
+        return $data;
     }
+    public function get_state_name(query_base  $civi)
+    {
+        $civi->mode = "get";
+        $civi->entity = "StateProvince";
+        $civi->params = array(
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['id', '=', $this->get_new_val()],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        );
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $state = $result->first();
+        return $state['name'];
+    }
+    public function find_country_name(query_base  $civi)
+    {
+        $civi->mode = "get";
+        $civi->entity = "Country";
+        $civi->params = array(
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['id', '=', $this->get_new_val_2()],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        );
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $country = $result->first();
+        return $country['name'];
+    }
+
 
 
 
