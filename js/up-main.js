@@ -723,8 +723,9 @@
                 url: '/member_portal/ajax/page_load',
                 data: {feildarray: vfeildarray},
             }).done(function (data) {
-
+                var info = data;
             });
+            return info;
         }
     }
         function ajax_change_state_call(vcountry)
