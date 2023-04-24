@@ -62,6 +62,7 @@ class EditFieldController extends ControllerBase
         {
             $this->new_val_2 = $this->get_field_map()[3];
         }
+        \Drupal::logger("country_check")->notice("field_map_array ".print_r($this->get_field_map(), true));
         $this->civi_query($cool);
         return $cool;
     }
