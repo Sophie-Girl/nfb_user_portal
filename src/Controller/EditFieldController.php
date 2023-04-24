@@ -118,6 +118,10 @@ class EditFieldController extends ControllerBase
                 $civi->entity = "Contact"; break;
             case "media":
                 $civi->entity = "Contact"; break;
+            case "dog":
+                $civi->entity = "Contact"; break;
+            case "braille":
+                $civi->entity = "Contact"; break;
         }
     }
     public function find_primary_id(query_base &$civi)
@@ -320,6 +324,26 @@ class EditFieldController extends ControllerBase
                     ],
                     'checkPermissions' => FALSE,
                 ]; break;
+            case "braille":
+                $civi->params = [
+                    'values' => [
+                        'Individual_s_Information.Braille_Reader' => $this->get_new_val(),
+                    ],
+                    'where' => [
+                        ['id', '=', $this->get_contact_id()],
+                    ],
+                    'checkPermissions' => FALSE,
+                ]; break;
+            case "dog":
+                $civi->params = [
+                    'values' => [
+                        'IndividualNFB.ServiceAnimal' => $this->get_new_val(),
+                    ],
+                    'where' => [
+                        ['id', '=', $this->get_contact_id()],
+                    ],
+                    'checkPermissions' => FALSE,
+                ]; break;
         }
     }
     public function make_update(query_base  $civi)
@@ -330,7 +354,8 @@ class EditFieldController extends ControllerBase
             $data[0] = $this->get_state_name($civi);
             $data[1] = $this->find_country_name($civi);
         }
-        elseif($this->get_field() == "blind" || $this->get_field() == "deaf")
+        elseif($this->get_field() == "blind" || $this->get_field() == "deaf" ||
+         $this->get_field() == "dog" || $this->get_field() == "braille")
         {
             if ($this->get_new_val() == "1")
             {

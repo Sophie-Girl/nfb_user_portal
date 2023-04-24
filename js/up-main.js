@@ -6,6 +6,34 @@
                 replace_title();
                 console.log("I am running");
             }
+            $('#save_brialle').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('braille_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "braille";
+                    vfeildarray[2] = document.getElementById('braille_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
+            $('#save_dog').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('dog_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "dog";
+                    vfeildarray[2] = document.getElementById('dog_new_val').value
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
             $('#save_prim_street').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_street_new_val').value;
@@ -295,6 +323,48 @@
                     document.getElementById("l_name_new_val").style.display = "None";
                     document.getElementById("cancel_l_name").style.display = "None";
                     document.getElementById("save_l_name").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#edit_braille').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("braille_edit_div").style.display = "Block";
+                    document.getElementById("braille_new_val").style.display = "Block";
+                    document.getElementById("cancel_braille").style.display = "inline-block";
+                    document.getElementById("save_braille").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Braille Reader";
+                } else if (editstatus == "Open" && openfeild == "Braille Reader") {
+                    document.getElementById("braille_edit_div").style.display = "None";
+                    document.getElementById("braille_new_val").style.display = "None";
+                    document.getElementById("cancel_braille").style.display = "None";
+                    document.getElementById("save_braille").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                } else {
+                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                }
+            });
+            $('#edit_dog').once().click(function () {
+                var editstatus = document.getElementById("edit_open").innerText;
+                var openfeild = document.getElementById("open_field").innerText;
+                if (editstatus == "Not Open") {
+                    document.getElementById("dog_edit_div").style.display = "Block";
+                    document.getElementById("dog_new_val").style.display = "Block";
+                    document.getElementById("cancel_dog").style.display = "inline-block";
+                    document.getElementById("save_dog").style.display = "inline-block";
+                    document.getElementById("edit_open").innerText = "Open";
+                    document.getElementById("open_field").innerText = "Guide Dog User";
+                } else if (editstatus == "Open" && openfeild == "Guide Dog User") {
+                    document.getElementById("dog_edit_div").style.display = "None";
+                    document.getElementById("dog_new_val").style.display = "None";
+                    document.getElementById("cancel_dog").style.display = "None";
+                    document.getElementById("save_dog").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
                 } else {
@@ -654,6 +724,24 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
+            $('#dog_media_type').once().click(function () {
+                document.getElementById("dog_edit_div").style.display = "None";
+                document.getElementById("dog_new_val").style.display = "None";
+                document.getElementById("cancel_dog").style.display = "None";
+                document.getElementById("save_dog").style.display = "None";
+                document.getElementById("dog_new_val_lab").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
+            $('#braille_media_type').once().click(function () {
+                document.getElementById("braille_edit_div").style.display = "None";
+                document.getElementById("braille_new_val").style.display = "None";
+                document.getElementById("cancel_braille").style.display = "None";
+                document.getElementById("save_braille").style.display = "None";
+                document.getElementById("braille_new_val_lab").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+            });
             $('#cancel_blind').once().click(function () {
                 document.getElementById("blind_edit_div").style.display = "None";
                 document.getElementById("blind_new_val").style.display = "None";
@@ -831,6 +919,14 @@
                 else if(vfeildarray == "media")
                 {
                     document.getElementById("media_replace").innerText = "Media Preference: "+info[0];
+                }
+                else if(vfeildarray == "braille")
+                {
+                    document.getElementById("braille_replace").innerText = "Media Preference: "+info[0];
+                }
+                else if(vfeildarray == "dog")
+                {
+                    document.getElementById("dog_replace").innerText = "Media Preference: "+info[0];
                 }
             });
 

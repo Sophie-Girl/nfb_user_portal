@@ -63,6 +63,7 @@ class user_civi extends user_base
     public $media_type;
     public function get_media_type()
     {return $this->media_type;}
+
     public $preferred_language;
     public function get_preferred_language()
     {
@@ -117,6 +118,21 @@ class user_civi extends user_base
         else{$this->deaf = "No";}
         $this->disability = $contact['Medical_Issues.Other_Disability'];
         $this->dog_user = $contact['Individual_s_Information.Uses_a_Service_Animal'];
+        if($this->get_dog_user() == "1")
+        {
+            $this->dog_user = "Yes";
+        }
+        else {
+            $this->dog_user = "No";
+        }
+        $this->braille_reader = $contact['Individual_s_Information.Braille_Reader'];
+        if($this->get_braille_reader() == "1")
+        {
+            $this->braille_reader = "Yes";
+        }
+        else {
+            $this->braille_reader = "No";
+        }
         $this->pronouns = $contact['Individual_s_Information.Pronouns'];
         $this->ethnicity = $contact['Individual_s_Information.Race_Ethnicity'];
         $this->media_type = $contact['Subscriptions.Media'];
