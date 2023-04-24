@@ -195,6 +195,7 @@ class user_civi extends user_base
         $civi->civi_api_v4_query();
         $address =  $civi->get_civi_result();
         $address = $address->first();
+        \Drupal::logger("country_lol")->notice("address ".print_r($address, true));
         $this->prime_street = $address['street_address'];
         $this->prime_line_2 = $address['supplemental_address_1'];
         $this->prime_city = $address['city'];
