@@ -111,6 +111,91 @@
                 document.getElementById("disability_replace").innerText = "Other Disability: "+document.getElementById('disability_new_val').value;
                 alert("Changes made successfully");
             });
+            $('#save_prim_state').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('prim_country_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "State";
+                    vfeildarray[2] = document.getElementById('prim_state_new_val').value;
+                    vfeildarray[3] = document.getElementById('prim_country_new_val').value;
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
+            $('#save_lang_pref').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('lang_pref_new_vall').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "lang";
+                    vfeildarray[2] = document.getElementById('lang_pref_new_val').value;
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
+            $('#save_gender').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('gender_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "gender";
+                    vfeildarray[2] = document.getElementById('gender_new_val').value;
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
+            $('#save_blind').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('blind_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "blind";
+                    vfeildarray[2] = document.getElementById('blind_new_val').value;
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
+            $('#save_deaf').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('deaf_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "deaf";
+                    vfeildarray[2] = document.getElementById('deaf_new_val').value;
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
+            $('#save_media_type').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('media_type_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "media";
+                    vfeildarray[2] = document.getElementById('media_type_new_val').value;
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
             $('#save_prim_phone').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
@@ -724,8 +809,31 @@
                 data: {feildarray: vfeildarray},
             }).done(function (data) {
                 var info = data;
+                if(vfeildarray[1] == "State")
+                {
+                    document.getElementById("state_repalce").innerText = "State, Country: "+info[0]+", "+info[1];
+                }
+                else if(vfeildarray[1] == "lang"){
+                    document.getElementById("lang_repalce").innerText = "Preferred Language: "+info[0];
+                }
+                else if(vfeildarray[1] == "gender")
+                {
+                    document.getElementById("gender_change").innerText = "Gender: "+info[0];
+                }
+                else if(vfeildarray[1] == "blind")
+                {
+                    document.getElementById("blind_replace").innerText = "Blindness Status: "+info[0];
+                }
+                else if(vfeildarray[1] == "deaf")
+                {
+                    document.getElementById("deaf_replace").innerText = "Deaf blind Status: "+info[0];
+                }
+                else if(vfeildarray == "media")
+                {
+                    document.getElementById("media_replace").innerText = "Media Preference: "+info[0];
+                }
             });
-            return info;
+
         }
     }
         function ajax_change_state_call(vcountry)
