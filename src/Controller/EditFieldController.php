@@ -312,8 +312,8 @@ class EditFieldController extends ControllerBase
             case "State":
                 $civi->params = [
                     'values' => [
-                        'state_province_id' => $this->new_val,
-                        'country_id' => $this->new_val_2,
+                        'state_province_id' => $this->get_new_val(),
+                        'country_id' => $this->get_new_val_2(),
                     ],
                     'where' => [
                         ['id', '=', $this->get_contact_data_id()],
