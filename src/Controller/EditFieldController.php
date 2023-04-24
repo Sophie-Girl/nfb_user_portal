@@ -70,7 +70,8 @@ class EditFieldController extends ControllerBase
         $civi = new query_base();
         $this->entity_switch($civi);
         if($civi->get_entity() != "Contact")
-        {$this->find_primary_id($civi);}
+        {   \Drupal::logger("checking")->notice("entity_check :".$civi->get_entity());
+            $this->find_primary_id($civi);}
         $civi->mode = "update";
         $this->update_params_switch($civi);
         $cool =  $this->make_update($civi);
