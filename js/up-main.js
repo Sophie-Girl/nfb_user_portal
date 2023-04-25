@@ -914,7 +914,7 @@
                 }
                 else if(vfeildarray[1] == "deaf")
                 {
-                    document.getElementById("deaf_replace").innerText = "Deaf blind Status: "+info[0];
+                    document.getElementById("deaf_replace").innerText = "Deafblind Status: "+info[0];
                 }
                 else if(vfeildarray == "media")
                 {

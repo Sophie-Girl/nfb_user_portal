@@ -22,7 +22,9 @@ class core_markup
     }
     public function header_2(){
         $markup = "
-<p>Intro text goes here.</p>
+<p>Welcome to your National Federation of the Blind member profile. Achieving our shared goals of equality, opportunity, and security for the blind are impossible without you as member. In your account, maintain your personal information and review membership status. The member profile is under construction and expanding; you’ll find several tabs to different areas of the member profile. Review information in your profile, membership, FAQs, and more. Thank you for your active participation in the organized blind movement.
+<br>
+To update your contact or demographic information, navigate to the appropriate field and select Edit. Enter the correct information (or select it from the menu) and Save. Once you select Edit, you must Cancel or Save before editing another field.</p>
 <p class='hidden_val' id='user_id_val'>".\Drupal::currentUser()->getAccount()->id()."</p>
 <p class='hidden_val' id = 'civi_id_val'>".$this->user_data->get_user_civi_id()."</p>
 <p class='hidden_val' id = 'user_name_val'>".\Drupal::currentUser()->getAccountName()."</p>
@@ -73,7 +75,7 @@ class core_markup
                     <p id='dog_info'><span id='dog_replace'>Guide Dog User? ".$this->user_data->get_dog_user()."</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your guide dog user status' id='edit_dog'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='dog_edit_div' class='hidden_val'><label for='dog_new_val' id='dog_new_val_lab'>Guide Dog User?</label><select id='dog_new_val' class='feild_custom_select' aria-label='Change Braille Reader status'>".$this->yes_no()."</select>
                     <a role='button' id='cancel_dog'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_dog'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    <p id='deaf_info'><span id='deaf_replace'>Deaf blind Status: ".$this->user_data->get_deaf()."</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your deaf blind status' id='edit_deaf'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                    <p id='deaf_info'><span id='deaf_replace'>Deafblind Status: ".$this->user_data->get_deaf()."</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your deaf blind status' id='edit_deaf'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='deaf_edit_div' class='hidden_val'><label for='deaf_new_val'id='deaf_new_val_lab'>Deaf Blind?</label><select id='deaf_new_val' class='feild_custom_select' aria-label='Change Deafness status'>".$this->yes_no()."</select>
                     <a role='button' id='cancel_deaf'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_deaf'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='disability'><span id='disability_replace'>Other Disability: ".$this->user_data->get_disability()."</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Disability' id='edit_disability'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
