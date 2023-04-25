@@ -1,0 +1,29 @@
+<?php
+use Drupal\Core\Database\Database;
+/**
+ * @file
+ * Install, update and uninstall functions for the nfb_user_portal module
+ */
+/**
+ * Implements hook_install().
+ *
+ * Creates the schema for the NFB_USER_PORTAL module
+ *
+ * @see hook_install()
+ *
+ * @ingroup nfb_user_portal
+ */
+/**
+ * Implements hook_install().
+ */
+/**
+ * Implements hook_install().
+ */
+function nfb_user_portal_install()
+{
+
+}
+function nfb_user_portal_schema()
+{
+
+}

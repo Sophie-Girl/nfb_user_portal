@@ -963,7 +963,10 @@ function replace_title()
 {
     document.title = document.getElementById("member_name").innerText;
    var header = document.getElementsByClassName("js-quickedit-page-title page-title");
-   header[0].innerText = document.getElementById("member_name").innerText;
+   if(header[0]){
+   header[0].innerText = document.getElementById("member_name").innerText;}
+   else {   header = document.getElementsByClassName("page-title");
+       header[0].innerText = document.getElementById("member_name").innerText;}
 }
 function replace_old_value(lab_id, new_val)
 {
