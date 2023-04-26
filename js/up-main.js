@@ -733,7 +733,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#braille_braille').once().click(function () {
+            $('#cancel_braille').once().click(function () {
                 document.getElementById("braille_edit_div").style.display = "None";
                 document.getElementById("braille_new_val").style.display = "None";
                 document.getElementById("cancel_braille").style.display = "None";
