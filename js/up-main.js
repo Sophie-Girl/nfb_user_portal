@@ -307,7 +307,6 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-                document.getElementById("f_name_new_val").focus();
             });
             $('#edit_l_name').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
