@@ -25,5 +25,28 @@ function nfb_user_portal_install()
 }
 function nfb_user_portal_schema()
 {
+    $database = \Drupal::database();
+    if($database->schema()->tableExists('nfb_user_portal_content'))
+    {
+
+        \Drupal::logger('nfb_user_portal')->notice("Dropping Table");
+        $database->schema()->dropTable('nfb_user_portal_content');
+    }
+    $schema['nfb_user_portal_content'] = array(
+        'description' => 'Stores all markup content for the NFB User Portal',
+        'fields' => array(
+            'pid' => array(
+                'type' => 'serial',
+                'size' => 'big',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'description' => 'Primary Key: content id'
+            ),
+    $schema['']
+
+
+        ),
+    );
+
 
 }
