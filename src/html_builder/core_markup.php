@@ -22,19 +22,19 @@ class core_markup
     }
     public function header_2(){
         $markup = "
-<p>Welcome to your National Federation of the Blind member profile. Achieving our shared goals of equality, opportunity, and security for the blind are impossible without you as member. In your account, maintain your personal information and review membership status. The member profile is under construction and expanding; you’ll find several tabs to different areas of the member profile. Review information in your profile, membership, FAQs, and more. Thank you for your active participation in the organized blind movement.
+<p tabindex='0'>Welcome to your National Federation of the Blind member profile. Achieving our shared goals of equality, opportunity, and security for the blind are impossible without you as member. In your account, maintain your personal information and review membership status. The member profile is under construction and expanding; you’ll find several tabs to different areas of the member profile. Review information in your profile, membership, FAQs, and more. Thank you for your active participation in the organized blind movement.
 <br> <br>
 To update your contact or demographic information, navigate to the appropriate field and select Edit. Enter the correct information (or select it from the menu) and Save. Once you select Edit, you must Cancel or Save before editing another field.</p>
-<p class='hidden_val' id='user_id_val'>".\Drupal::currentUser()->getAccount()->id()."</p>
-<p class='hidden_val' id = 'civi_id_val'>".$this->user_data->get_user_civi_id()."</p>
-<p class='hidden_val' id = 'user_name_val'>".\Drupal::currentUser()->getAccountName()."</p>
-<p class='hidden_val' id='edit_open'>Not Open</p>
-                   <p class='hidden_val' id='open_field'>None</p>
-                    <p class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>
-                    <h2>Your Contact Information</h2>
-                    <p  id='f_name' style='display: inline'><span id='first_name_repalce'>First Name: ".$this->user_data->get_first_name()."</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit first Name' style='display: inline' id='edit_f_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
-                    <div role='form'  id='first_name_edit_div' aria-live='polite' class='hidden_val'><input id='f_name_new_val' class= 'feild_custom_text'aria-label='enter new first name'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_f_name'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_f_name'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    <p id='l_name'><span id='last_name_repalce'>Last Name: ".$this->user_data->get_last_name()." </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Last Name' id='edit_l_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+<p class='hidden_val' tabindex='0' id='user_id_val'>".\Drupal::currentUser()->getAccount()->id()."</p>
+<p class='hidden_val' tabindex='0' id = 'civi_id_val'>".$this->user_data->get_user_civi_id()."</p>
+<p class='hidden_val' tabindex='0' id = 'user_name_val'>".\Drupal::currentUser()->getAccountName()."</p>
+<p class='hidden_val' tabindex='0' id='edit_open'>Not Open</p>
+                   <p tabindex='0' class='hidden_val' id='open_field'>None</p>
+                    <p tabindex='0' class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>
+                    <h2 tabindex='0' >Your Contact Information</h2>
+                    <p tabindex='0' id='f_name' style='display: inline'><span id='first_name_repalce'>First Name: ".$this->user_data->get_first_name()."</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit first Name' style='display: inline' id='edit_f_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
+                    <div tabindex='0' role='form'  id='first_name_edit_div' aria-live='polite' class='hidden_val'><input  tabindex='0' id='f_name_new_val' class= 'feild_custom_text'aria-label='enter new first name'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_f_name' tabindex='0'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a  tabindex='0' role='button' id='save_f_name'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
+                    <p id='l_name' tabindex='0'>< span id='last_name_repalce'>Last Name: ".$this->user_data->get_last_name()." </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a tabindex='0' role='button' aria-label='Edit Last Name' id='edit_l_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite'  id='last_name_edit_div' class='hidden_val'><input id='l_name_new_val' class= 'feild_custom_text' aria-label='enter new last name'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_l_name'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_l_name'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='prime_email'><span id='email_repalce'>Email: ".$this->user_data->get_prime_email()."</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Email' id='edit_prim_email'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite'  id='prim_email_edit_div' class='hidden_val'><input id='prim_email_new_val' class= 'feild_custom_text' aria-label='enter new primary email'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_email'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_email'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
