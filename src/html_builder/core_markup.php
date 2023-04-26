@@ -32,7 +32,6 @@ To update your contact or demographic information, navigate to the appropriate f
                    <p class='hidden_val' id='open_field'>None</p>
                     <p class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>
                     <h2>Your Contact Information</h2>
-                    <form>
                     <p  id='f_name' style='display: inline'><span id='first_name_repalce'>First Name: ".$this->user_data->get_first_name()."</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit first Name' style='display: inline' id='edit_f_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form'  id='first_name_edit_div' aria-live='polite' class='hidden_val'><input id='f_name_new_val' class= 'feild_custom_text'aria-label='enter new first name'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_f_name'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_f_name'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='l_name'><span id='last_name_repalce'>Last Name: ".$this->user_data->get_last_name()." </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Last Name' id='edit_l_name'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
@@ -53,9 +52,9 @@ To update your contact or demographic information, navigate to the appropriate f
                     <a role='button' id='cancel_prim_state'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_state'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
                     <p id='prime_zip'><span id='postal_repalce'>ZIP/Postal Code: ".$this->user_data->get_prime_zip()."</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Primary Zip' id='edit_prim_zip'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='prim_zip_edit_div' class='hidden_val'><input id='prim_zip_new_val' class= 'feild_custom_text' aria-label='enter new primary zip code'></input>&nbsp;&nbsp;&nbsp;<a role='button' id='cancel_prim_zip'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_prim_zip'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    </form>
+
                     <h2>Your Demographics</h2>
-                    <form>
+
                     <p id='prime_lnag_pref'><span id='lang_repalce'>Prefered Langauge: ".$this->user_data->get_preferred_language()."</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Edit Your Preffered Langauge' id='edit_lang_pref'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='lang_pref_edit_div' class='hidden_val'><label for='lang_pref_new_val' id='lang_pref_new_val_lab'>Country:</label><select id='lang_pref_new_val' class='feild_custom_select' aria-label='enter new language prefference'>".$this->language_options()."</select>
                     <a role='button' id='cancel_lang_pref'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_lang_pref'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
@@ -83,7 +82,7 @@ To update your contact or demographic information, navigate to the appropriate f
                     <p id='meddia_preference_info'><span id='media_replace'>Media Preference: ".$this->user_data->get_media_type()." </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a role='button' aria-label='Change your Media Preference' id='edit_media_pref'>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></p>
                     <div role='form' aria-live='polite' id='media_type_edit_div' class='hidden_val'><label for='nedia_type_new_val' id='media_type_new_val_lab'>Deaf Blind?</label><select id='media_type_new_val' class='feild_custom_select' aria-label='Change Meida Type status'>".$this->media_options()."</select>
                     <a role='button' id='cancel_media_type'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a role='button' id='save_media_type'>&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;</a></div>
-                    </form>";
+                  ";
         $this->core_markup = $markup;
 
     }
