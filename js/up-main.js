@@ -47,6 +47,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("street_replace").innerText = "Street Address: "+document.getElementById('prim_street_new_val').value;
+                document.getElementById("prim_street_edit_div").style.display = "None";
+                document.getElementById("prim_street_new_val").style.display = "None";
+                document.getElementById("cancel_prim_street").style.display = "None";
+                document.getElementById("save_prim_street").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("street_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_prim_address_2').once().click(function () {
@@ -62,6 +69,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("line_2_replace").innerText = "Street Address Line 2: "+document.getElementById('prim_address_2_new_val').value;
+                document.getElementById("prim_address_2_edit_div").style.display = "None";
+                document.getElementById("prim_address_2_new_val").style.display = "None";
+                document.getElementById("cancel_prim_address_2").style.display = "None";
+                document.getElementById("save_prim_address_2").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("line_2_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_prim_city').once().click(function () {
@@ -77,6 +91,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("city_replace").innerText = "City: "+document.getElementById('prim_city_new_val').value;
+                document.getElementById("prim_city_edit_div").style.display = "None";
+                document.getElementById("prim_city_new_val").style.display = "None";
+                document.getElementById("cancel_prim_city").style.display = "None";
+                document.getElementById("save_prim_city").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("city_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_prim_zip').once().click(function () {
@@ -107,6 +128,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("pronouns_replace").innerText = "Pronouns: "+document.getElementById('pronouns_new_val').value;
+                document.getElementById("pronouns_edit_div").style.display = "None";
+                document.getElementById("pronouns_new_val").style.display = "None";
+                document.getElementById("cancel_pronouns").style.display = "None";
+                document.getElementById("save_pronouns").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("pronouns_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_dob').once().click(function () {
@@ -237,6 +265,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("phone_replace").innerText = "Phone: "+document.getElementById('prim_phone_new_val').value;
+                document.getElementById("prim_phone_edit_div").style.display = "None";
+                document.getElementById("prim_phone_new_val").style.display = "None";
+                document.getElementById("cancel_prim_phone").style.display = "None";
+                document.getElementById("save_prim_phone").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("phone_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_prim_email').once().click(function () {
@@ -253,6 +288,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("email_repalce").innerText = "Email: "+document.getElementById('prim_email_new_val').value;
+                document.getElementById("prim_email_edit_div").style.display = "None";
+                document.getElementById("prim_email_new_val").style.display = "None";
+                document.getElementById("cancel_prim_email").style.display = "None";
+                document.getElementById("save_prim_email").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("email_repalce").focus();
                 alert("Changes made successfully");
 
             });
@@ -269,6 +311,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("first_name_repalce").innerText = "First Name: "+document.getElementById('f_name_new_val').value;
+                document.getElementById("first_name_edit_div").style.display = "None";
+                document.getElementById("f_name_new_val").style.display = "None";
+                document.getElementById("cancel_f_name").style.display = "None";
+                document.getElementById("save_f_name").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("first_name_repalce").focus();
                 alert("Changes made successfully");
             });
             $('#save_l_name').once().click(function () {
@@ -285,6 +334,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("last_name_repalce").innerText = "Last Name: "+document.getElementById('l_name_new_val').value;
+                document.getElementById("last_name_edit_div").style.display = "None";
+                document.getElementById("l_name_new_val").style.display = "None";
+                document.getElementById("cancel_l_name").style.display = "None";
+                document.getElementById("save_l_name").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("last_name_repalce").focus();
                 alert("Changes made successfully");
             });
             $('#edit_f_name').once().click(function () {
