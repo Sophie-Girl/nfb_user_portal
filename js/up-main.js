@@ -113,6 +113,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("postal_replace").innerText = "ZIP/Postal Code: "+document.getElementById('prim_zip_new_val').value;
+                document.getElementById("prim_zip_edit_div").style.display = "None";
+                document.getElementById("prim_zip_new_val").style.display = "None";
+                document.getElementById("cancel_prim_zip").style.display = "None";
+                document.getElementById("save_prim_zip").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("postal_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_pronouns').once().click(function () {
@@ -150,6 +157,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("dob_replace").innerText = "Date of Birth: "+document.getElementById('dob_new_val').value;
+                document.getElementById("dob_edit_div").style.display = "None";
+                document.getElementById("dob_new_val").style.display = "None";
+                document.getElementById("cancel_dob").style.display = "None";
+                document.getElementById("save_dob").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("dob_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_disability').once().click(function () {
@@ -165,6 +179,13 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("disability_replace").innerText = "Other Disability: "+document.getElementById('disability_new_val').value;
+                document.getElementById("disability_edit_div").style.display = "None";
+                document.getElementById("disability_new_val").style.display = "None";
+                document.getElementById("cancel_disability").style.display = "None";
+                document.getElementById("save_disability").style.display = "None";
+                document.getElementById("edit_open").innerText = "Not Open";
+                document.getElementById("open_field").innerText = "None";
+                document.getElementById("disability_replace").focus();
                 alert("Changes made successfully");
             });
             $('#save_prim_state').once().click(function () {
@@ -975,29 +996,86 @@
                 if(vfeildarray[1] == "State")
                 {
                     document.getElementById("state_repalce").innerText = "State, Country: "+info[0]+", "+info[1];
+                    document.getElementById("prim_state_edit_div").style.display = "None";
+                    document.getElementById("prim_state_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_state").style.display = "None";
+                    document.getElementById("prim_state_new_val_lab").style.display = "None";
+                    document.getElementById("prim_country_new_val_lab").style.display = "None";
+                    document.getElementById("save_prim_city").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("state_repalce").focus();
                 }
                 else if(vfeildarray[1] == "lang"){
                     document.getElementById("lang_repalce").innerText = "Preferred Language: "+info[0];
+                    document.getElementById("lang_pref_edit_div").style.display = "None";
+                    document.getElementById("lang_pref_new_val").style.display = "None";
+                    document.getElementById("lang_pref_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_lang_pref").style.display = "None";
+                    document.getElementById("save_lang_pref").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("lang_repalce").focus();
                 }
                 else if(vfeildarray[1] == "gender")
                 {
                     document.getElementById("gender_change").innerText = "Gender: "+info[0];
+                    document.getElementById("gender_edit_div").style.display = "None";
+                    document.getElementById("gender_new_val").style.display = "None";
+                    document.getElementById("gender_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_gender").style.display = "None";
+                    document.getElementById("save_gender").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("gender_change").focus();
                 }
                 else if(vfeildarray[1] == "blind")
                 {
                     document.getElementById("blind_replace").innerText = "Blindness Status: "+info[0];
+                    document.getElementById("blind_edit_div").style.display = "None";
+                    document.getElementById("blind_new_val").style.display = "None";
+                    document.getElementById("blind_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_blind").style.display = "None";
+                    document.getElementById("save_blind").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("blind_replace").focus();
+
                 }
                 else if(vfeildarray[1] == "deaf")
                 {
                     document.getElementById("deaf_replace").innerText = "Deafblind Status: "+info[0];
+                    document.getElementById("deaf_edit_div").style.display = "None";
+                    document.getElementById("deaf_new_val").style.display = "None";
+                    document.getElementById("deaf_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_deaf").style.display = "None";
+                    document.getElementById("save_deaf").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("deaf_replace").focus();
                 }
                 else if(vfeildarray == "media")
                 {
                     document.getElementById("media_replace").innerText = "Media Preference: "+info[0];
+                    document.getElementById("media_type_edit_div").style.display = "None";
+                    document.getElementById("media_type_new_val").style.display = "None";
+                    document.getElementById("media_type_new_val_lab").style.display = "None";
+                    document.getElementById("cancel_media_type").style.display = "None";
+                    document.getElementById("save_media_type").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("media_replace").focus();
                 }
                 else if(vfeildarray == "braille")
                 {
                     document.getElementById("braille_replace").innerText = "Media Preference: "+info[0];
+                    document.getElementById("braille_edit_div").style.display = "None";
+                    document.getElementById("braille_new_val").style.display = "None";
+                    document.getElementById("cancel_braille").style.display = "None";
+                    document.getElementById("save_braille").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("braille_replace").focus();
                 }
                 else if(vfeildarray == "dog")
                 {
