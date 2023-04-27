@@ -297,6 +297,7 @@
                     document.getElementById("save_f_name").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "First Name";
+                    document.getElementById("f_name_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "First Name") {
                     document.getElementById("first_name_edit_div").style.display = "None";
                     document.getElementById("f_name_new_val").style.display = "None";
@@ -318,6 +319,7 @@
                     document.getElementById("save_l_name").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Last Name";
+                    document.getElementById("l_name_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Last Name") {
                     document.getElementById("last_name_edit_div").style.display = "None";
                     document.getElementById("l_name_new_val").style.display = "None";
@@ -339,6 +341,7 @@
                     document.getElementById("save_braille").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Braille Reader";
+                    document.getElementById("braille_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Braille Reader") {
                     document.getElementById("braille_edit_div").style.display = "None";
                     document.getElementById("braille_new_val").style.display = "None";
@@ -360,6 +363,7 @@
                     document.getElementById("save_dog").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Guide Dog User";
+                    document.getElementById("dog_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Guide Dog User") {
                     document.getElementById("dog_edit_div").style.display = "None";
                     document.getElementById("dog_new_val").style.display = "None";
@@ -381,6 +385,7 @@
                     document.getElementById("save_prim_email").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Email";
+                    document.getElementById("prim_email_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Email") {
                     document.getElementById("prim_email_edit_div").style.display = "None";
                     document.getElementById("prim_email_new_val").style.display = "None";
@@ -402,6 +407,7 @@
                     document.getElementById("save_prim_phone").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Phone";
+                    document.getElementById("prim_phone_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Phone") {
                     document.getElementById("prim_phone_edit_div").style.display = "None";
                     document.getElementById("prim_phone_new_val").style.display = "None";
@@ -424,6 +430,7 @@
                     document.getElementById("save_prim_street").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Street Address";
+                    document.getElementById("prim_street_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Street Address") {
                     document.getElementById("prim_street_edit_div").style.display = "None";
                     document.getElementById("prim_street_new_val").style.display = "None";
@@ -446,6 +453,7 @@
                     document.getElementById("save_prim_address_2").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Address Line 2";
+                    document.getElementById("prim_address_2_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Address Line 2") {
                     document.getElementById("prim_address_2_edit_div").style.display = "None";
                     document.getElementById("prim_address_2_new_val").style.display = "None";
@@ -468,6 +476,7 @@
                     document.getElementById("save_prim_city").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "City";
+                    document.getElementById("prim_city_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "City") {
                     document.getElementById("prim_city_edit_div").style.display = "None";
                     document.getElementById("prim_city_new_val").style.display = "None";
@@ -493,6 +502,7 @@
                     document.getElementById("save_prim_state").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "State";
+                    document.getElementById("prim_country_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "State") {
                     document.getElementById("prim_state_edit_div").style.display = "None";
                     document.getElementById("prim_state_new_val").style.display = "None";
@@ -517,6 +527,7 @@
                     document.getElementById("save_prim_zip").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Zip Code";
+                    document.getElementById("prim_zip_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Zip Code") {
                     document.getElementById("prim_zip_edit_div").style.display = "None";
                     document.getElementById("prim_zip_new_val").style.display = "None";
@@ -539,6 +550,7 @@
                     document.getElementById("save_pronouns").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Pronouns";
+                    document.getElementById("pronouns_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Pronouns") {
                     document.getElementById("pronouns_edit_div").style.display = "None";
                     document.getElementById("pronouns_new_val").style.display = "None";
@@ -561,6 +573,7 @@
                     document.getElementById("save_dob").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Date of Birth";
+                    document.getElementById("dob_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Date of Birth") {
                     document.getElementById("dob_edit_div").style.display = "None";
                     document.getElementById("dob_new_val").style.display = "None";
@@ -579,10 +592,11 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("disability_edit_div").style.display = "Block";
                     document.getElementById("disability_new_val").style.display = "Block";
-                    document.getElementById("cancel_disability").style.display = "inline-block";
+                    document.getElementById("cancel_disability").style.display = "block";
                     document.getElementById("save_disability").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "disability";
+                    document.getElementById("disability_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "disability") {
                     document.getElementById("disability_edit_div").style.display = "None";
                     document.getElementById("disability_new_val").style.display = "None";
@@ -601,11 +615,12 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("blind_edit_div").style.display = "Block";
                     document.getElementById("blind_new_val").style.display = "Block";
-                    document.getElementById("blind_new_val_lab").style.display = "inline-block";
+                    document.getElementById("blind_new_val_lab").style.display = "block";
                     document.getElementById("cancel_blind").style.display = "inline-block";
                     document.getElementById("save_blind").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "blindness status";
+                    document.getElementById("blind_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "blindness status") {
                     document.getElementById("blind_edit_div").style.display = "None";
                     document.getElementById("blind_new_val").style.display = "None";
@@ -625,11 +640,12 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("deaf_edit_div").style.display = "Block";
                     document.getElementById("deaf_new_val").style.display = "Block";
-                    document.getElementById("deaf_new_val_lab").style.display = "None";
+                    document.getElementById("deaf_new_val_lab").style.display = "Block";
                     document.getElementById("cancel_deaf").style.display = "inline-block";
                     document.getElementById("save_deaf").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "deaf blind status";
+                    document.getElementById("deaf_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "deaf blind status") {
                     document.getElementById("deaf_edit_div").style.display = "None";
                     document.getElementById("deaf_new_val").style.display = "None";
@@ -649,11 +665,12 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("gender_edit_div").style.display = "Block";
                     document.getElementById("gender_new_val").style.display = "Block";
-                    document.getElementById("gender_new_val_lab").style.display = "None";
+                    document.getElementById("gender_new_val_lab").style.display = "Blcok";
                     document.getElementById("cancel_gender").style.display = "inline-block";
                     document.getElementById("save_gender").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "gender";
+                    document.getElementById("gender_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "gender") {
                     document.getElementById("gender_edit_div").style.display = "None";
                     document.getElementById("gender_new_val").style.display = "None";
@@ -673,11 +690,12 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("lang_pref_edit_div").style.display = "Block";
                     document.getElementById("lang_pref_new_val").style.display = "Block";
-                    document.getElementById("lang_pref_new_val_lab").style.display = "None";
+                    document.getElementById("lang_pref_new_val_lab").style.display = "block";
                     document.getElementById("cancel_lang_pref").style.display = "inline-block";
                     document.getElementById("save_lang_pref").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "language preference";
+                    document.getElementById("lang_pref_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "language preference") {
                     document.getElementById("lang_pref_edit_div").style.display = "None";
                     document.getElementById("lang_pref_new_val").style.display = "None";
@@ -697,11 +715,12 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("media_type_edit_div").style.display = "Block";
                     document.getElementById("media_type_new_val").style.display = "Block";
-                    document.getElementById("media_type_new_val_lab").style.display = "None";
+                    document.getElementById("media_type_new_val_lab").style.display = "block";
                     document.getElementById("cancel_media_type").style.display = "inline-block";
                     document.getElementById("save_media_type").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Media preference";
+                    document.getElementById("media_type_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Media preference") {
                     document.getElementById("media_type_edit_div").style.display = "None";
                     document.getElementById("media_type_new_val").style.display = "None";
