@@ -1007,6 +1007,7 @@
                 data: {feildarray: vfeildarray},
             }).done(function (data) {
                 var info = data;
+                console.log("data "+info);
                 if(vfeildarray[1] == "State")
                 {
                     document.getElementById("state_repalce").innerText = "State, Country: "+info[0]+", "+info[1];
