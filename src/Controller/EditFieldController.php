@@ -359,10 +359,10 @@ class EditFieldController extends ControllerBase
         {
             if ($this->get_new_val() == "1")
             {
-                $data = "Yes";
+                $data[0] = "Yes";
             }
             else{
-                $data = "No";
+                $data[0] = "No";
             }
         }
         elseif($this->get_field() == "gender")
@@ -403,10 +403,10 @@ class EditFieldController extends ControllerBase
             $civi->civi_api_v4_query();
             $result = $civi->civi_api_v4_query();
             $contact = $result->first();
-            $data = $contact['preferred_language'];
-            if($data == "en_US")
+            $data[0] = $contact['preferred_language'];
+            if($data[0] == "en_US")
             {
-                $data = "English";
+                $data[0] = "English";
             }
         }
         elseif ($this->get_field() == "media")
@@ -427,7 +427,7 @@ class EditFieldController extends ControllerBase
             $civi->civi_api_v4_query();
             $result = $civi->civi_api_v4_query();
             $contact = $result->first();
-            $data = $contact['Subscriptions.Media'];
+            $data[0] = $contact['Subscriptions.Media'];
         }
         else{
             $data = "success";
