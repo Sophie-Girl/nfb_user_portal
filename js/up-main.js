@@ -1082,7 +1082,7 @@
                 }
                 else if(vfeildarray[1]  == "braille")
                 {
-                    document.getElementById("braille_replace").innerText = "Media Preference: "+info[0];
+                    document.getElementById("braille_replace").innerText = "Brialle Reader? "+info[0];
                     document.getElementById("braille_edit_div").style.display = "None";
                     document.getElementById("braille_new_val").style.display = "None";
                     document.getElementById("cancel_braille").style.display = "None";
