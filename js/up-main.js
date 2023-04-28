@@ -1054,7 +1054,7 @@
                     document.getElementById("open_field").innerText = "None";
                     document.getElementById("deaf_replace").focus();
                 }
-                else if(vfeildarray == "media")
+                else if(vfeildarray[1]  == "media")
                 {
                     document.getElementById("media_replace").innerText = "Media Preference: "+info[0];
                     document.getElementById("media_type_edit_div").style.display = "None";
@@ -1066,7 +1066,7 @@
                     document.getElementById("open_field").innerText = "None";
                     document.getElementById("media_replace").focus();
                 }
-                else if(vfeildarray == "braille")
+                else if(vfeildarray[1]  == "braille")
                 {
                     document.getElementById("braille_replace").innerText = "Media Preference: "+info[0];
                     document.getElementById("braille_edit_div").style.display = "None";
@@ -1077,9 +1077,16 @@
                     document.getElementById("open_field").innerText = "None";
                     document.getElementById("braille_replace").focus();
                 }
-                else if(vfeildarray == "dog")
+                else if(vfeildarray[1]  == "dog")
                 {
                     document.getElementById("dog_replace").innerText = "Media Preference: "+info[0];
+                    document.getElementById("dog_edit_div").style.display = "None";
+                    document.getElementById("dog_new_val").style.display = "None";
+                    document.getElementById("cancel_dog").style.display = "None";
+                    document.getElementById("save_dog").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("dog_replace").focus();
                 }
             });
 
