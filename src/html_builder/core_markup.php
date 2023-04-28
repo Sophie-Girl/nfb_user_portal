@@ -216,8 +216,9 @@ To update your contact or demographic information, navigate to the appropriate f
         $options = "<option value=''>&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>
 <option value='Print'>&nbsp;&nbsp;&nbsp;Print&nbsp;&nbsp;&nbsp;</option>
 <option value='Braille'>&nbsp;&nbsp;&nbsp;Braille&nbsp;&nbsp;&nbsp;</option>
-<option value='E-Mail'>&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;</option>
-<option value='USB-drive'>&nbsp;&nbsp;&nbsp;Usb Drive&nbsp;&nbsp;&nbsp;</option>
+<option value='Email'>&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;</option>
+<option value='USB'>&nbsp;&nbsp;&nbsp;Usb Drive&nbsp;&nbsp;&nbsp;</option>
+<option value='Audio'>&nbsp;&nbsp;&nbsp;Audio&nbsp;&nbsp;&nbsp;</option>
 ";
         return $options;
     }
