@@ -135,11 +135,7 @@ class user_civi extends user_base
         }
         $this->pronouns = $contact['Individual_s_Information.Pronouns'];
         $this->ethnicity = $contact['Individual_s_Information.Race_Ethnicity'];
-        $this->media_type = $contact['Subscriptions.Media'];
-        if($this->get_media_type() == "largeprint")
-        {
-            $this->media_type = "Large Print";
-        }
+        $this->media_type = $contact['Media_Preference.Media_Preference'];
         $civi = null;
     }
     public function email_set()

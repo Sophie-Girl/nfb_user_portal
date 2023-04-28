@@ -246,7 +246,7 @@ class EditFieldController extends ControllerBase
             case "media":
                 $civi->params = [
                     'values' => [
-                        'Subscriptions.Media' => $this->get_new_val(),
+                        'Media_Preference.Media_Preference' => $this->get_new_val(),
                     ],
                     'where' => [
                         ['id', '=', $this->get_contact_id()],
@@ -427,7 +427,7 @@ class EditFieldController extends ControllerBase
             $civi->civi_api_v4_query();
             $result = $civi->civi_api_v4_query();
             $contact = $result->first();
-            $data[0] = $contact['Subscriptions.Media'];
+            $data[0] = $contact['Media_Preference.Media_Preference'];
         }
         else{
             $data = "success";
