@@ -401,7 +401,7 @@ class EditFieldController extends ControllerBase
                 'checkPermissions' => FALSE,
             ];
             $civi->civi_api_v4_query();
-            $result = $civi->civi_api_v4_query();
+            $result = $civi->get_civi_result();
             $contact = $result->first();
             $data[0] = $contact['preferred_language'];
             if($data[0] == "en_US")
@@ -425,7 +425,7 @@ class EditFieldController extends ControllerBase
                 'checkPermissions' => FALSE,
             ];
             $civi->civi_api_v4_query();
-            $result = $civi->civi_api_v4_query();
+            $result = $civi->get_civi_result();
             $contact = $result->first();
             $data[0] = $contact['Media_Preference.Media_Preference'];
         }
