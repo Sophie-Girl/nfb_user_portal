@@ -245,6 +245,20 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
+            $('#save_braille').once().click(function () {
+                var vfeildarray;
+                var feild_data = document.getElementById('braille_new_val').value;
+                if (feild_data == "") {
+                    vfeildarray = "not_run";
+                } else {
+                    vfeildarray = [];
+                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                    vfeildarray[1] = "braille";
+                    vfeildarray[2] = document.getElementById('braille_new_val').value;
+                }
+                ajax_change_call(vfeildarray);
+                alert("Changes made successfully");
+            });
             $('#save_deaf').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('deaf_new_val').value;
