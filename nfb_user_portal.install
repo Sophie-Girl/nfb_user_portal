@@ -42,9 +42,9 @@ function nfb_user_portal_schema()
                 'not null' => TRUE,
                 'description' => 'Primary Key: content id'
             ),
-    $schema['']
+            'markup_type' => array(
 
-
+            ),
         ),
     );
 
