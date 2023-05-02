@@ -119,7 +119,7 @@
                 document.getElementById("save_prim_zip").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("postal_replace").focus();
+                document.getElementById("postal_repalce").focus();
                 alert("Changes made successfully");
             });
             $('#save_pronouns').once().click(function () {
