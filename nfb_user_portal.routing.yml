@@ -20,3 +20,11 @@ nfb_user_portal.state:
     _title: 'ajax'
   requirements:
     _permission: 'access content'
+nfb_user_portal.member_tab:
+  path: 'member_portal/membersher'
+  defaults:
+    _form: 'Drupal\nfb_user_portal\Form\MembershipInfoForm'
+    _title: 'Membership Info'
+  requirements:
+    _permission: 'access content'
+    _role: 'authenticated'
