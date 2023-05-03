@@ -21,6 +21,9 @@ class memberhisp_markup
     public function build_membership_markup()
     {
         $this->user_data->set_up_member_page_data();
+        $this->membership_markup();
+        $this->subscription_loop();
+        return  $this->get_markup();
     }
     public function membership_markup()
     {
