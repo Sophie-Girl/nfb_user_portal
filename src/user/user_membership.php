@@ -20,6 +20,7 @@ class user_membership extends user_civi {
         $this->phone_set();
         $this->address_set();
         $this->find_member_records();
+        $this->set_memberhsip_array();
     }
     public function find_member_records()
     {
@@ -29,6 +30,8 @@ class user_membership extends user_civi {
         $civi->params = [
             'select' => [
                 '*',
+                'membership_type_id:label',
+                'status_id:label',
             ],
             'where' => [
                 ['contact_id', '=', $this->get_user_civi_id()],
@@ -38,5 +41,23 @@ class user_membership extends user_civi {
         ];
         $civi->civi_api_v4_query();
         $this->member_result = $civi->get_civi_result();
+    }
+    public function set_memberhsip_array()
+    {
+        $count = $this->member_result->count();
+        $current = 0;
+        $member_array = [];
+        while($current <= $count)
+        {
+            $member = $this->member_result->itemat($current);
+            $member_array[$current][0] =  $member['membership_type_id:label'];
+            $member_array[$current][1] =  $member['membership_type_id'];
+            $member_array[$current][2] = $member['status_id'];
+            $member_array[$current][3] = $member['status_id:label'];
+            $member_array[$current][4] = $member['join_date'];
+            $member_array[$current][5] = $member['end_date'];
+            $current++;
+        }
+        $this->membership_array = $member_array;
     }
 }
