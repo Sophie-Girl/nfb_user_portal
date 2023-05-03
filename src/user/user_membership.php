@@ -56,8 +56,84 @@ class user_membership extends user_civi {
             $member_array[$current][3] = $member['status_id:label'];
             $member_array[$current][4] = $member['join_date'];
             $member_array[$current][5] = $member['end_date'];
+            $member_array[$current][6] = $member['id'];
             $current++;
         }
         $this->membership_array = $member_array;
+    }
+    public function get_media_type($membership_id, $type)
+    {
+        $civi = new query_base();
+        $civi->mode = "get";
+        $civi->entity = "LineItem";
+        $civi->params = [
+            'select' => [
+                '*',
+                'price_field_id:label',
+                'price_field_value_id:label',
+            ],
+            'where' => [
+                ['entity_table', '=', 'civicrm_membership'],
+                ['qty', '!=', 0],
+                ['entity_id', '=', $membership_id],
+            ],
+            'limit' => 25,
+        ];
+        $civi->civi_api_v4_query();
+        $array = $civi->get_civi_result();
+        $count = $array->count();
+        $current = 0;
+        $media_type = null;
+        while($current <= $count)
+        {
+            $line_item =  $array->itemat($current);
+            if($type == "6")
+            {
+                switch ($line_item['price_field_id']) {
+                    case "219":
+                        if( $media_type == null)
+                        {
+                            $media_type = "Print";
+                        }
+                        break;
+                    case "220":
+                        if( $media_type == null)
+                        {
+                            $media_type = "Braille";
+                        }
+                        break;
+                    case "221":
+                        if( $media_type == null)
+                        {
+                            $media_type = "USB";
+                        }
+                        break;
+                }
+                if($media_type == null)
+                {
+                    $media_type = "Email";
+                }
+            }
+            else {
+                switch ($line_item['price_field_id']) {
+                    case "223":
+                        if ($media_type == null) {
+                            $media_type = "Print";
+                        }
+                        break;
+                    case "224":
+                        if ($media_type == null) {
+                            $media_type = "Braille";
+                        }
+                        break;
+                }
+                if($media_type == null)
+                {
+                    $media_type = "Email";
+                }
+            }
+            $current++;
+        }
+        return $media_type;
     }
 }

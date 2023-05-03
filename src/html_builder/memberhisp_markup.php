@@ -34,10 +34,20 @@ class memberhisp_markup
                 $markup = $markup."<p tabindex='0'>".$membership[0]."<span class='right'>".$membership[3]."</span></p>";
             }
         }
-        $this->markup = $markup;
+        $this->markup = $markup."<p>Info text goes here</p>";
     }
     public function subscription_loop()
     {
-
+        $markup = "<h2 tabindex='0'>Member Status</h2>";
+        foreach ($this->user_data->get_membership_array() as $membership)
+        {
+            if($membership[1] != "7" || $membership[1] != "6" )
+            {
+                $membership_id = $membership[6];
+                $type = $membership[1];
+                $markup = $markup."<p tabindex='0' class='right-side'>".$membership[0]."<span>".$this->user_data->get_media_type($membership, $type)."</span></p>";
+            }
+        }
+        $this->markup = $this->get_markup().$markup;
     }
 }
