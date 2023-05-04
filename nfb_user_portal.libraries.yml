@@ -9,6 +9,6 @@ up-membership:
   version: 1.x
   css:
     theme:
-      css/up-membership.css: { }
+      css/up-membership.css: {}
     js:
-      js/up-membership.js: { }
+      js/up-membership.js: {}
