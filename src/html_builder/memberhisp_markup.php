@@ -33,10 +33,13 @@ class memberhisp_markup
         {
             if($membership[1] != "7" && $membership[1] != "6"
             && $membership[1] != "4" && $membership[1] != "5"
-            && $membership[1] != "10" && $membership[1] != "11")
-            {
-                $markup = $markup."<p tabindex='0'>".$membership[0].": &nbsp;<span class='right'>".$membership[3]."</span></p>";
+            && $membership[1] != "10" && $membership[1] != "11") {
+                if ($membership[0] != "") {
+                    $markup = $markup . "<p tabindex='0'>" . $membership[0] . ": &nbsp;<span class='right'>" . $membership[3] . "</span></p>";
+                }
             }
+
+
         }
         $this->markup = $markup."<p>Info text goes here</p>";
     }
@@ -52,6 +55,7 @@ class memberhisp_markup
                 $markup = $markup."<p tabindex='0' class='right-side'>".$membership[0].": &nbsp;<span>".$this->user_data->find_media_type($membership_id, $type)."</span></p>";
             }
         }
-        $this->markup = $this->get_markup().$markup;
+        $this->markup = $this->get_markup().$markup
+        ."<p class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>";
     }
 }
