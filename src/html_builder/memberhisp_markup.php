@@ -20,9 +20,13 @@ class memberhisp_markup
     }
     public function build_membership_markup()
     {
+        \Drupal::logger("interesting")->notice("500 happens at start of injection");
         $this->user_data->set_up_member_page_data();
+        \Drupal::logger("interesting")->notice("500 happens at data import");
         $this->membership_markup();
+        \Drupal::logger("interesting")->notice("500 happens at markup_maker");
         $this->subscription_loop();
+        \Drupal::logger("interesting")->notice("500 happens at subscription");
         return  $this->get_markup();
     }
     public function membership_markup()
