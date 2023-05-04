@@ -5,7 +5,7 @@ up-main:
       css/up-main.css: {}
   js:
     js/up-main.js: {}
-up-memberhsip:
+up-membership:
   version: 1.x
   css:
     theme:
