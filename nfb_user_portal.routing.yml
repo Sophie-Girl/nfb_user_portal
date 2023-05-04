@@ -6,6 +6,14 @@ nfb_user_portal.main_tab:
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
+nfb_user_portal.member_tab:
+  path: 'member_portal/membership_info'
+  defaults:
+    _form: 'Drupal\nfb_user_portal\Form\MembershipInfoForm'
+    _title: 'Membership Info'
+  requirements:
+    _permission: 'access content'
+    _role: 'authenticated'
 nfb_user_portal.page_laod:
   path: '/member_portal/ajax/page_load'
   defaults:
@@ -20,11 +28,3 @@ nfb_user_portal.state:
     _title: 'ajax'
   requirements:
     _permission: 'access content'
-nfb_user_portal.member_tab:
-  path: 'member_portal/membership_info'
-  defaults:
-    _form: 'Drupal\nfb_user_portal\Form\MembershipInfoForm'
-    _title: 'Membership Info'
-  requirements:
-    _permission: 'access content'
-    _role: 'authenticated'

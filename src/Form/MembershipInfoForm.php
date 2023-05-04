@@ -12,6 +12,7 @@ class MembershipInfoForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
+        \Drupal::logger("interesting")->notice("500 happens before injection");
         $page_builder = new memberhisp_markup();
         \Drupal::logger("interesting")->notice("500 happens before here");
         $form['portal_markup'] = array(
