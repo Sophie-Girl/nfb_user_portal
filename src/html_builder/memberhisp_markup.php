@@ -49,7 +49,7 @@ class memberhisp_markup
             {
                 $membership_id = $membership[6];
                 $type = $membership[1];
-                $markup = $markup."<p tabindex='0' class='right-side'>".$membership[0]."<span>".$this->user_data->get_media_type($membership, $type)."</span></p>";
+                $markup = $markup."<p tabindex='0' class='right-side'>".$membership[0]."<span>".$this->user_data->find_media_type($membership, $type)."</span></p>";
             }
         }
         $this->markup = $this->get_markup().$markup;

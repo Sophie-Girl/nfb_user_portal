@@ -14,11 +14,7 @@ class user_membership extends user_civi {
     // 1: Label 2: Status ID  3: status label 4: join date 5:end date
     public function set_up_member_page_data()
     {
-        $this->set_user_data();
-        $this->get_core_contact_info();
-        $this->email_set();
-        $this->phone_set();
-        $this->address_set();
+        $this->civi_contact_set();
         $this->find_member_records();
         $this->set_memberhsip_array();
     }
@@ -44,7 +40,7 @@ class user_membership extends user_civi {
     }
     public function set_memberhsip_array()
     {
-        $count = $this->member_result->count();
+        $count = $this->get_member_result()->count();
         $current = 0;
         $member_array = [];
         while($current <= $count)
@@ -61,7 +57,7 @@ class user_membership extends user_civi {
         }
         $this->membership_array = $member_array;
     }
-    public function get_media_type( $membership_id, $type)
+    public function find_media_type($membership_id, $type)
     {
         $civi = new query_base();
         $civi->mode = "get";
