@@ -27,15 +27,15 @@ class ContactInfoForm extends FormBase
         );
         $form['change_password'] = array(
             '#type' => 'textfield',
-            '#title' => "Change User Name",
+            '#title' => "Change Your Password",
             '#required' => True,
             '#min' => 5,
             '#size' => 20,
-            '#attributes' => array('style' => array('display:none;'))
+            '#attributes' => array('input hiding' => true)
         );
         $form['confirm_password'] = array(
             '#type' => 'textfield',
-            '#title' => "Change User Name",
+            '#title' => "Confirm Your New Password",
             '#required' => True,
             '#min' => 5,
             '#size' => 20,
