@@ -42,10 +42,10 @@ class memberhisp_markup
     }
     public function subscription_loop()
     {
-        $markup = "<h2 tabindex='0'>Member Status</h2>";
+        $markup = "<h2 tabindex='0'>Subscription</h2>";
         foreach ($this->user_data->get_membership_array() as $membership)
         {
-            if($membership[1] != "7" || $membership[1] != "6" )
+            if($membership[1] == "7" || $membership[1] == "6" )
             {
                 $membership_id = $membership[6];
                 $type = $membership[1];
