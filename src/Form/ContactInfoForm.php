@@ -31,7 +31,7 @@ class ContactInfoForm extends FormBase
             '#required' => True,
             '#min' => 5,
             '#size' => 20,
-            '#attributes' => array('input hiding' => true)
+            '#attributes' => array('input_hiding' => true)
         );
         $form['confirm_password'] = array(
             '#type' => 'textfield',
@@ -39,7 +39,7 @@ class ContactInfoForm extends FormBase
             '#required' => True,
             '#min' => 5,
             '#size' => 20,
-            '#attributes' => array('style' => array('display:none;'))
+            '#attributes' => array('input hiding' => true)
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-main';
         $form['submit'] = array(
