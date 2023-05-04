@@ -26,20 +26,18 @@ class ContactInfoForm extends FormBase
           '#size' => 20
         );
         $form['change_password'] = array(
-            '#type' => 'textfield',
+            '#type' => 'password',
             '#title' => "Change Your Password",
             '#required' => True,
             '#min' => 5,
             '#size' => 20,
-            '#attributes' => array('input_hiding' => true)
         );
         $form['confirm_password'] = array(
-            '#type' => 'textfield',
+            '#type' => 'password',
             '#title' => "Confirm Your New Password",
             '#required' => True,
             '#min' => 5,
             '#size' => 20,
-            '#attributes' => array('input hiding' => true)
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-main';
         $form['submit'] = array(
