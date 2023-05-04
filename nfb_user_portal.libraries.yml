@@ -5,3 +5,10 @@ up-main:
       css/up-main.css: {}
   js:
     js/up-main.js: {}
+up-memberhsip:
+  version: 1.x
+  css:
+    theme:
+      css/up-membership.css: { }
+    js:
+      js/up-membership.js: { }

@@ -20,6 +20,7 @@ class MembershipInfoForm extends FormBase
             '#markup' => $page_builder->build_membership_markup(),
             '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
+        $form['#attached']['library'][] = 'nfb_user_portal/up-membership';
         \Drupal::logger("interesting")->notice("500 happens after here");
         return $form;
     }
