@@ -13,6 +13,7 @@ class MembershipInfoForm extends FormBase
     public function buildForm(array $form, FormStateInterface $form_state)
     {
         $page_builder = new memberhisp_markup();
+        \Drupal::logger("interesting")->notice("500 happens before here");
         $form['portal_markup'] = array(
             '#type' => "item",
             '#markup' => $page_builder->build_membership_markup(),
