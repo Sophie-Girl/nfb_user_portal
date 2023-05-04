@@ -8,7 +8,7 @@ class MembershipInfoForm extends FormBase
 {
     public function getFormId()
     {
-       return "member_portal_tab2";
+       return "member_portal_second_tab";
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
