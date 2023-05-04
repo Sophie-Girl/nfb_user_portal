@@ -18,7 +18,34 @@ class ContactInfoForm extends FormBase
             '#markup' => $page_builder->create_core_markup(),
             '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
+        $form['change_username'] = array(
+          '#type' => 'textfield',
+          '#title' => "Change User Name",
+          '#required' => True,
+          '#min' => 5,
+          '#size' => 20
+        );
+        $form['change_password'] = array(
+            '#type' => 'textfield',
+            '#title' => "Change User Name",
+            '#required' => True,
+            '#min' => 5,
+            '#size' => 20,
+            '#attributes' => array('style' => array('display:none;'))
+        );
+        $form['confirm_password'] = array(
+            '#type' => 'textfield',
+            '#title' => "Change User Name",
+            '#required' => True,
+            '#min' => 5,
+            '#size' => 20,
+            '#attributes' => array('style' => array('display:none;'))
+        );
         $form['#attached']['library'][] = 'nfb_user_portal/up-main';
+        $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => $this->t('Submit'),
+        );
         return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
