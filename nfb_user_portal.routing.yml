@@ -21,7 +21,7 @@ nfb_user_portal.state:
   requirements:
     _permission: 'access content'
 nfb_user_portal.member_tab:
-  path: 'member_portal/membersher'
+  path: 'member_portal/membership'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\MembershipInfoForm'
     _title: 'Membership Info'
