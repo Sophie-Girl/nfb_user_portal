@@ -1,10 +1,10 @@
 nfb_user_portal.main:
   route_name: nfb_user_portal.main_tab
   title: 'Profile'
-  base_route: nfb_bell.admin
+  base_route: nfb_user_portal.main
   weight: 100
 nfb_user_portal.membership:
   route_name: nfb_user_portal.member_tab
   title: 'Profile'
-  base_route: nfb_bell.admin
+  base_route: nfb_user_portal.main
   weight: 200
