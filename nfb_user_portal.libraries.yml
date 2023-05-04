@@ -10,5 +10,5 @@ up-membership:
   css:
     theme:
       css/up-membership.css: {}
-    js:
-      js/up-membership.js: {}
+  js:
+    js/up-membership.js: {}
