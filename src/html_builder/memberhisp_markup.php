@@ -6,6 +6,10 @@ class memberhisp_markup
 {
     public $user_data;
     public $markup;
+    public function __construct()
+    {
+        $this->user_data = new user_membership();
+    }
     public function get_user_data()
     {
         return $this->user_data;
@@ -16,7 +20,6 @@ class memberhisp_markup
     }
     public function build_membership_markup()
     {
-        $this->user_data = new user_membership();
         \Drupal::logger("interesting")->notice("500 happens at start of injection");
         $this->user_data->set_up_member_page_data();
         \Drupal::logger("interesting")->notice("500 happens at data import");
