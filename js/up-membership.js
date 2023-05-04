@@ -9,7 +9,7 @@
 })(jQuery, Drupal);
 function replace_title()
 {
-    document.title = document.getElementById("member_name").innerText;
+    document.title = "Member: "+document.getElementById("member_name").innerText;
     var header = document.getElementsByClassName("js-quickedit-page-title page-title");
     if(header[0]){
         header[0].innerText = "Member: "+document.getElementById("member_name").innerText;}
