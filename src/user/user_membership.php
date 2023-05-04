@@ -61,7 +61,7 @@ class user_membership extends user_civi {
         }
         $this->membership_array = $member_array;
     }
-    public function get_media_type($membership_id, $type)
+    public function get_media_type( $membership_id, $type)
     {
         $civi = new query_base();
         $civi->mode = "get";
