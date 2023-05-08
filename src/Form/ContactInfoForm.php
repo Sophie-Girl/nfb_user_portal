@@ -21,7 +21,7 @@ class ContactInfoForm extends FormBase
         );
         $form['desire_change_uanme'] = array(
           '#type' => 'checkbox',
-          '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
+          '#title' => $this->t("Do you wish to change your username? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
         );
         $form['change_username'] = array(
           '#type' => 'textfield',
@@ -39,7 +39,7 @@ class ContactInfoForm extends FormBase
         );
         $form['desire_change_pword'] = array(
             '#type' => 'checkbox',
-            '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
+            '#title' => $this->t("Do you wish to change your password?")
         );
         $form['change_password'] = array(
             '#type' => 'password',
