@@ -49,7 +49,8 @@ class ContactInfoForm extends FormBase
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
         $user = \Drupal::currentUser(); // get the user.
-        $username = $user->getAccountName();
+        $uname =  $user->getAccountName();
+        \Drupal::logger("username_check")->notice("username check ".$uname);
         $uid = $user->getAccount()->id();
         $entity = User::load($uid);
         $entity->setEmail($form_state->getValue("change_username"));
