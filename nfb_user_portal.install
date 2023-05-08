@@ -47,10 +47,60 @@ function nfb_user_portal_schema()
                 'length' => 64,
                 'default' => 'member',
                 'not null' => true,
-                'description' => ""
+                'description' => "What kid of text is this. I.e Were does it go on the page",
+            ),
+        'tab' => array(
+            'type' => 'varchar',
+            'length' => 64,
+            'default' => 'member',
+            'not null' => true,
+            'description' => "What tab does this markup go on",
+        ),
+        'limiter' => array(
+    'type' => 'varchar',
+    'length' => 128,
+    'default' => 'member',
+    'not null' => true,
+    'description' => "Does this markup only get displayed for certain people",
+),
+            'tab' => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => 'all',
+                'not null' => true,
+                'description' => "What tab does this markup go on",
+            ),
+            'beginning_date' => array(
+                'type' => 'varchar',
+                'length' => 128,
+                'default' => '1/1/2023',
+                'not null' => true,
+                'description' => "start of when this should be displayed",
+            ),
+            'end_date' => array(
+                'type' => 'varchar',
+                'length' => 128,
+                'default' => '12/31/2023',
+                'not null' => true,
+                'description' => "end of when this should be displayed",
+            ),
+            'active' => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => 'yes',
+                'not null' => true,
+                'description' => "active_override",
+            ),
+            'markup' => array(
+                'type' => 'blob',
+                'not null' => FALSE,
+                'size' => 'big',
+                'description' => "Serialized markup array",
+            ),
+
+
 
             ),
-        ),
     );
 
 
