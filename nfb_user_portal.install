@@ -43,6 +43,11 @@ function nfb_user_portal_schema()
                 'description' => 'Primary Key: content id'
             ),
             'markup_type' => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => 'member',
+                'not null' => true,
+                'description' => ""
 
             ),
         ),
