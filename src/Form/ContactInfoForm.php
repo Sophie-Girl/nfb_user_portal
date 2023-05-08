@@ -44,16 +44,28 @@ class ContactInfoForm extends FormBase
         $form['change_password'] = array(
             '#type' => 'password',
             '#title' => "Change Your Password",
-            '#required' => True,
             '#min' => 5,
             '#size' => 20,
+            '#states' => [
+                'visible' =>[
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]],
+                'and',
+                'required' => [
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]]
+            ]
         );
         $form['confirm_password'] = array(
             '#type' => 'password',
             '#title' => "Confirm Your New Password",
-            '#required' => True,
             '#min' => 5,
             '#size' => 20,
+            '#states' => [
+                'visible' =>[
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]],
+                'and',
+                'required' => [
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]]
+            ]
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-main';
         $form['submit'] = array(
