@@ -2,6 +2,7 @@
 Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\facets\Exception\Exception;
 use Drupal\nfb_user_portal\html_builder\core_markup;
 use Drupal\user\Entity\User;
 class ContactInfoForm extends FormBase
@@ -56,6 +57,13 @@ class ContactInfoForm extends FormBase
         $entity->setEmail($form_state->getValue("change_username"));
         $entity->setUsername($form_state->getValue("change_username"));
         $entity->setPassword($form_state->getValue("change_password"));
+        try{
+        $entity->save(); }
+        catch (Exception $e)
+        {
+            $messager = \Drupal::messenger();
+            $messager->addError("Couldn't save user ".$e->getMessage());
+        }
         $uname =  $entity->getAccountName();
         \Drupal::logger("username_check")->notice("username check ".$uname);
     }
