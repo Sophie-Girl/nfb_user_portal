@@ -41,7 +41,7 @@ class memberhisp_markup
 
 
         }
-        $this->markup = $markup."<p>In order to keep your membership status current, you must pay dues to your chapter or affiliate every January. If you are a member of a national division, you will need to pay dues separate from your chapter/affiliate dues to maintain a current membership with the division as well. Contact the treasurer of your chapter, affiliate, and or division for payment options. If you find discrepancies in membership information, contact the designated membership coordinator.</p>";
+        $this->markup = $markup."<p tabindex='0'>In order to keep your membership status current, you must pay dues to your chapter or affiliate every January. If you are a member of a national division, you will need to pay dues separate from your chapter/affiliate dues to maintain a current membership with the division as well. Contact the treasurer of your chapter, affiliate, and or division for payment options. If you find discrepancies in membership information, contact the designated membership coordinator.</p>";
     }
     public function subscription_loop()
     {
