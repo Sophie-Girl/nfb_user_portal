@@ -19,12 +19,27 @@ class ContactInfoForm extends FormBase
             '#markup' => $page_builder->create_core_markup(),
             '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
+        $form['desire_change_uanme'] = array(
+          '#type' => 'checkbox',
+          '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
+        );
         $form['change_username'] = array(
           '#type' => 'textfield',
           '#title' => "Change User Name",
-          '#required' => True,
           '#min' => 5,
-          '#size' => 20
+          '#size' => 20,
+            '#states' => [
+        'visible' =>[
+            [':input[name="desire_change_uanme"]' => ['checked' => true]]],
+            'and',
+            'required' => [
+                [':input[name="desire_change_uanme"]' => ['checked' => true]]]
+            ]
+
+        );
+        $form['desire_change_pword'] = array(
+            '#type' => 'checkbox',
+            '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
         );
         $form['change_password'] = array(
             '#type' => 'password',
