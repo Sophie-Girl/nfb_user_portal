@@ -55,6 +55,8 @@ class ContactInfoForm extends FormBase
         $entity->setEmail($form_state->getValue("change_username"));
         $entity->setUsername($form_state->getValue("change_username"));
         $entity->setPassword($form_state->getValue("change_password"));
+        $uname =  $entity->getAccountName();
+        \Drupal::logger("username_check")->notice("username check ".$uname);
     }
     public function validateForm(array &$form, FormStateInterface $form_state)
     {
