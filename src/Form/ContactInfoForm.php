@@ -21,7 +21,7 @@ class ContactInfoForm extends FormBase
         );
         $form['desire_change_uanme'] = array(
           '#type' => 'checkbox',
-          '#title' => $this->t("Do you wish to change your username? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
+          '#title' => $this->t("Do you wish to change your username? Note this will also change theemial associated with your account, but not the email our mailings will go out to.")
         );
         $form['change_username'] = array(
           '#type' => 'textfield',
