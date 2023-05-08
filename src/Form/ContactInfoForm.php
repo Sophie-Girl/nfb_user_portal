@@ -81,9 +81,14 @@ class ContactInfoForm extends FormBase
         \Drupal::logger("username_check")->notice("username check ".$uname);
         $uid = $user->getAccount()->id();
         $entity = User::load($uid);
-        $entity->setEmail($form_state->getValue("change_username"));
-        $entity->setUsername($form_state->getValue("change_username"));
-        $entity->setPassword($form_state->getValue("change_password"));
+      if($form_state->getValue("change_username") != "") {
+          $entity->setEmail($form_state->getValue("change_username"));
+
+          $entity->setUsername($form_state->getValue("change_username"));
+      }
+      if ($form_state->getValue("change_password") != ""){
+      $entity->setPassword($form_state->getValue("change_password"));
+    }
         try{
         $entity->save(); }
         catch (Exception $e)
@@ -91,8 +96,7 @@ class ContactInfoForm extends FormBase
             $messager = \Drupal::messenger();
             $messager->addError("Couldn't save user ".$e->getMessage());
         }
-        $uname =  $entity->getAccountName();
-        \Drupal::logger("username_check")->notice("username check ".$uname);
+
     }
     public function validateForm(array &$form, FormStateInterface $form_state)
     {
