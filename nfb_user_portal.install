@@ -101,6 +101,8 @@ function nfb_user_portal_schema()
 
 
             ),
+        'primary key' => 'pid',
+
     );
 
 
