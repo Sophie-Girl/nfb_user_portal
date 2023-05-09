@@ -28,7 +28,8 @@ class memberhisp_markup
     }
     public function membership_markup()
     {
-        $markup = "<h2 tabindex='0'>Member Status</h2>";
+        $markup = "<h2 tabindex='0'>Member Status</h2>
+<p tabindex='0'>If you need to update your subscription information for the Braille Monitor or Future Reflections, please contact XXXX. Based on the distribution schedule, it may take up to two months for your change to take effect.</p>";
         foreach ($this->user_data->get_membership_array() as $membership)
         {
             if($membership[1] != "7" && $membership[1] != "6"
