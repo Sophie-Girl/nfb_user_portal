@@ -1094,7 +1094,7 @@
                 }
                 else if(vfeildarray[1]  == "dog")
                 {
-                    document.getElementById("dog_replace").innerText = "Guide Dog User? "+info[0];
+                    document.getElementById("dog_replace").innerText = "Guide Dog Handler? "+info[0];
                     document.getElementById("dog_edit_div").style.display = "None";
                     document.getElementById("dog_new_val").style.display = "None";
                     document.getElementById("cancel_dog").style.display = "None";
