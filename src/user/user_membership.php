@@ -73,6 +73,7 @@ class user_membership extends user_civi {
                 ['qty', '!=', 0],
                 ['entity_id', '=', $membership_id],
             ],
+            'checkPermissions' => FALSE,
             'limit' => 25,
         ];
         $civi->civi_api_v4_query();
