@@ -28,8 +28,8 @@ class memberhisp_markup
     }
     public function membership_markup()
     {
-        $markup = "<h2 tabindex='0'>Member Status</h2>
-<p tabindex='0'>If you need to update your subscription information for the Braille Monitor or Future Reflections, please contact XXXX. Based on the distribution schedule, it may take up to two months for your change to take effect.</p>";
+        $markup = "<h2 tabindex='0'>Member Status</h2>"."<p tabindex='0'>In order to keep your membership status current, you must pay dues to your chapter or affiliate every January. If you are a member of a national division, you will need to pay dues separate from your chapter/affiliate dues to maintain a current membership with the division as well. Contact the treasurer of your chapter, affiliate, and or division for payment options. If you find discrepancies in membership information, contact the designated membership coordinator.</p>";
+
         foreach ($this->user_data->get_membership_array() as $membership)
         {
             if($membership[1] != "7" && $membership[1] != "6"
@@ -42,21 +42,22 @@ class memberhisp_markup
 
 
         }
-        $this->markup = $markup."<p tabindex='0'>In order to keep your membership status current, you must pay dues to your chapter or affiliate every January. If you are a member of a national division, you will need to pay dues separate from your chapter/affiliate dues to maintain a current membership with the division as well. Contact the treasurer of your chapter, affiliate, and or division for payment options. If you find discrepancies in membership information, contact the designated membership coordinator.</p>";
+        $this->markup = $markup;
     }
     public function subscription_loop()
     {
-        $markup = "<h2 tabindex='0'>Subscription</h2>";
+        $markup = "<h2 tabindex='0'>Subscription Status</h2>"
+        ."<p class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>".
+            "<p tabindex='0'>If you need to update your subscription information for the Braille Monitor or Future Reflections, please contact XXXX. Based on the distribution schedule, it may take up to two months for your change to take effect.</p>";
         foreach ($this->user_data->get_membership_array() as $membership)
         {
             if($membership[1] == "7" || $membership[1] == "6" )
             {
                 $membership_id = $membership[6];
                 $type = $membership[1];
-                $markup = $markup."<p tabindex='0' class='right-side'>".$membership[0].": &nbsp;<span>".$this->user_data->find_media_type($membership_id, $type)."</span></p>";
+                $markup = $markup."<p tabindex='0' class='right-side'><i>".$membership[0]."</i>: &nbsp;<span>".$this->user_data->find_media_type($membership_id, $type)."</span></p>";
             }
         }
-        $this->markup = $this->get_markup().$markup
-        ."<p class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>";
+        $this->markup = $this->get_markup().$markup;
     }
 }
