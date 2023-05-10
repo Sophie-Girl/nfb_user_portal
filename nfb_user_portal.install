@@ -63,12 +63,12 @@ function nfb_user_portal_schema()
     'not null' => true,
     'description' => "Does this markup only get displayed for certain people",
 ),
-            'tab' => array(
+            'civi_entity' => array(
                 'type' => 'varchar',
                 'length' => 64,
                 'default' => 'all',
                 'not null' => true,
-                'description' => "What tab does this markup go on",
+                'description' => "What civi table does the limiter apply to",
             ),
             'beginning_date' => array(
                 'type' => 'varchar',
@@ -102,7 +102,6 @@ function nfb_user_portal_schema()
 
             ),
         'primary key' => 'pid',
-
     );
 
 
