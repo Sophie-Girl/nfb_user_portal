@@ -103,6 +103,9 @@ function nfb_user_portal_schema()
             ),
         'primary key' => 'pid',
     );
+    $query = Database::getConnection()->schema();
+    $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
+
 
 
 }
