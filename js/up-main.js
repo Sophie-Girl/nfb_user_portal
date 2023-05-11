@@ -205,7 +205,7 @@
             });
             $('#save_lang_pref').once().click(function () {
                 var vfeildarray;
-                var feild_data = document.getElementById('lang_pref_new_vall').value;
+                var feild_data = document.getElementById('lang_pref_new_val').value;
                 if (feild_data == "") {
                     vfeildarray = "not_run";
                 } else {
