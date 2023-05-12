@@ -517,109 +517,33 @@
                 if (editstatus == "Not Open") {
                     document.getElementById("prim_street_edit_div").style.display = "Block";
                     document.getElementById("prim_street_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_street").style.display = "inline-block";
-                    document.getElementById("save_prim_street").style.display = "inline-block";
+                    document.getElementById("prim_address_2_edit_div").style.display = "Block";
+                    document.getElementById("prim_address_2_new_val").style.display = "Block";
+                    document.getElementById("prim_city_edit_div").style.display = "Block";
+                    document.getElementById("prim_city_new_val").style.display = "Block";
+                    document.getElementById("prim_state_edit_div").style.display = "Block";
+                    document.getElementById("prim_state_new_val").style.display = "Block";
+                    document.getElementById("prim_state_new_val_lab").style.display = "inline-block";
+                    document.getElementById("prim_country_new_val_lab").style.display = "inline-block";
+                    document.getElementById("prim_country_new_val").style.display = "Block";
+                    document.getElementById("prim_zip_edit_div").style.display = "Block";
+                    document.getElementById("prim_zip_new_val").style.display = "Block";
+                    document.getElementById("cancel_prim_zip").style.display = "inline-block";
+                    document.getElementById("save_prim_zip").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Street Address";
                     document.getElementById("prim_street_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Street Address") {
                     document.getElementById("prim_street_edit_div").style.display = "None";
                     document.getElementById("prim_street_new_val").style.display = "None";
-                    document.getElementById("cancel_prim_street").style.display = "None";
-                    document.getElementById("save_prim_street").style.display = "None";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
-
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_prim_address_2').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("prim_address_2_edit_div").style.display = "Block";
-                    document.getElementById("prim_address_2_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_address_2").style.display = "inline-block";
-                    document.getElementById("save_prim_address_2").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "Address Line 2";
-                    document.getElementById("prim_address_2_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "Address Line 2") {
-                    document.getElementById("prim_address_2_edit_div").style.display = "None";
-                    document.getElementById("prim_address_2_new_val").style.display = "None";
-                    document.getElementById("cancel_prim_address_2").style.display = "None";
-                    document.getElementById("save_prim_address_2").style.display = "None";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
-
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_prim_city').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("prim_city_edit_div").style.display = "Block";
-                    document.getElementById("prim_city_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_city").style.display = "inline-block";
-                    document.getElementById("save_prim_city").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "City";
-                    document.getElementById("prim_city_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "City") {
                     document.getElementById("prim_city_edit_div").style.display = "None";
                     document.getElementById("prim_city_new_val").style.display = "None";
-                    document.getElementById("cancel_prim_city").style.display = "None";
-                    document.getElementById("save_prim_city").style.display = "None";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
-
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_prim_state').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("prim_state_edit_div").style.display = "Block";
-                    document.getElementById("prim_state_new_val").style.display = "Block";
-                    document.getElementById("prim_state_new_val_lab").style.display = "inline-block";
-                    document.getElementById("prim_country_new_val_lab").style.display = "inline-block";
-                    document.getElementById("prim_country_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_state").style.display = "inline-block";
-                    document.getElementById("save_prim_state").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "State";
-                    document.getElementById("prim_country_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "State") {
+                    document.getElementById("prim_address_2_edit_div").style.display = "None";
+                    document.getElementById("prim_address_2_new_val").style.display = "None";
                     document.getElementById("prim_state_edit_div").style.display = "None";
                     document.getElementById("prim_state_new_val").style.display = "None";
-                    document.getElementById("cancel_prim_state").style.display = "None";
                     document.getElementById("prim_state_new_val_lab").style.display = "None";
                     document.getElementById("prim_country_new_val_lab").style.display = "None";
-                    document.getElementById("save_prim_city").style.display = "None";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
-
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_prim_zip').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("prim_zip_edit_div").style.display = "Block";
-                    document.getElementById("prim_zip_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_zip").style.display = "inline-block";
-                    document.getElementById("save_prim_zip").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "Zip Code";
-                    document.getElementById("prim_zip_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "Zip Code") {
                     document.getElementById("prim_zip_edit_div").style.display = "None";
                     document.getElementById("prim_zip_new_val").style.display = "None";
                     document.getElementById("cancel_prim_zip").style.display = "None";
@@ -929,33 +853,20 @@
                 document.getElementById("prim_zip_new_val").style.display = "None";
                 document.getElementById("cancel_prim_zip").style.display = "None";
                 document.getElementById("save_prim_zip").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_prim_city').once().click(function () {
-                document.getElementById("prim_city_edit_div").style.display = "None";
-                document.getElementById("prim_city_new_val").style.display = "None";
-                document.getElementById("cancel_prim_city").style.display = "None";
-                document.getElementById("save_prim_city").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_prim_address_2').once().click(function () {
                 document.getElementById("prim_address_2_edit_div").style.display = "None";
                 document.getElementById("prim_address_2_new_val").style.display = "None";
-                document.getElementById("cancel_prim_address_2").style.display = "None";
-                document.getElementById("save_prim_address_2").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_prim_street').once().click(function () {
                 document.getElementById("prim_street_edit_div").style.display = "None";
                 document.getElementById("prim_street_new_val").style.display = "None";
-                document.getElementById("cancel_prim_street").style.display = "None";
-                document.getElementById("save_prim_street").style.display = "None";
+                document.getElementById("prim_city_edit_div").style.display = "None";
+                document.getElementById("prim_city_new_val").style.display = "None";
+                document.getElementById("prim_state_edit_div").style.display = "None";
+                document.getElementById("prim_state_new_val").style.display = "None";
+                document.getElementById("prim_state_new_val_lab").style.display = "None";
+                document.getElementById("prim_country_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
+
             $('#cancel_prim_phone').once().click(function () {
                 document.getElementById("prim_phone_edit_div").style.display = "None";
                 document.getElementById("prim_phone_new_val").style.display = "None";
@@ -1170,21 +1081,13 @@ function hide_user_id()
     document.getElementById("save_prim_phone").style.display = "None";
     document.getElementById("prim_street_edit_div").style.display = "None";
     document.getElementById("prim_street_new_val").style.display = "None";
-    document.getElementById("cancel_prim_street").style.display = "None";
-    document.getElementById("save_prim_street").style.display = "None";
     document.getElementById("prim_address_2_edit_div").style.display = "None";
     document.getElementById("prim_address_2_new_val").style.display = "None";
-    document.getElementById("cancel_prim_address_2").style.display = "None";
-    document.getElementById("save_prim_address_2").style.display = "None";
     document.getElementById("prim_city_edit_div").style.display = "None";
     document.getElementById("prim_city_new_val").style.display = "None";
-    document.getElementById("cancel_prim_city").style.display = "None";
-    document.getElementById("save_prim_city").style.display = "None";
     document.getElementById("prim_state_edit_div").style.display = "None";
     document.getElementById("prim_state_new_val").style.display = "None";
     document.getElementById("prim_country_new_val").style.display = "None";
-    document.getElementById("cancel_prim_state").style.display = "None";
-    document.getElementById("save_prim_state").style.display = "None";
     document.getElementById("prim_country_new_val_lab").style.display = "None";
     document.getElementById("prim_state_new_val_lab").style.display = "None";
     document.getElementById("prim_zip_edit_div").style.display = "None";
