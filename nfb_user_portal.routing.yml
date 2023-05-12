@@ -1,5 +1,5 @@
 nfb_user_portal.main_tab:
-  path: 'member_portal/member_info'
+  path: 'member_portal'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\ContactInfoForm'
     _title: 'Member Contact Info'
