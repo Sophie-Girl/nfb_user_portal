@@ -58,9 +58,15 @@ class EditFieldController extends ControllerBase
         $this->contact_id = $this->get_field_map()[0];
         $this->field = $this->get_field_map()[1];
         $this->new_val = $this->get_field_map()[2];
-        if($this->get_field() == "State")
+        if($this->get_field() == "zip")
         {
-            $this->new_val_2 = $this->get_field_map()[3];
+            $array[1] = $this->get_field_map()[2]; // zip
+            $array[2] = $this->get_field_map()[3]; // street
+            $array[3] = $this->get_field_map()[4]; // line 2
+            $array[4] = $this->get_field_map()[5]; // city
+            $array[5] = $this->get_field_map()[6]; // state
+            $array[6] = $this->get_field_map()[7]; // country
+            $this->new_val = $array;
         }
         \Drupal::logger("country_check")->notice("field_map_array ".print_r($this->get_field_map(), true));
         $this->civi_query($cool);
@@ -299,6 +305,7 @@ class EditFieldController extends ControllerBase
                         'city' => $this->get_new_val(),
                     ],
                     'where' => [
+                    'where' => [
                         ['id', '=', $this->get_contact_data_id()],
                     ],
                     'checkPermissions' => FALSE,
@@ -306,7 +313,12 @@ class EditFieldController extends ControllerBase
             case "zip":
                 $civi->params = [
                     'values' => [
-                        'postal_code' => $this->get_new_val(),
+                        'street_address' => $this->get_new_val()[2],
+                        'supplemental_address_1' => $this->get_new_val()[3],
+                        'city' => $this->get_new_val()[4],
+                        'state_province_id' => $this->get_new_val()[5],
+                        'country_id' => $this->get_new_val()[6],
+                        'postal_code' => $this->get_new_val()[1],
                     ],
                     'where' => [
                         ['id', '=', $this->get_contact_data_id()],
@@ -349,7 +361,7 @@ class EditFieldController extends ControllerBase
     public function make_update(query_base  $civi)
     {
         $civi->civi_api_v4_query();
-        if($this->get_field() == "State")
+        if($this->get_field() == "zip")
         {
             $data[0] = $this->get_state_name($civi);
             $data[1] = $this->find_country_name($civi);
@@ -443,7 +455,7 @@ class EditFieldController extends ControllerBase
                 '*',
             ],
             'where' => [
-                ['id', '=', $this->get_new_val()],
+                ['id', '=', $this->get_new_val()[6]],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
@@ -463,7 +475,7 @@ class EditFieldController extends ControllerBase
                 '*',
             ],
             'where' => [
-                ['id', '=', $this->get_new_val_2()],
+                ['id', '=', $this->get_new_val()[7]],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
