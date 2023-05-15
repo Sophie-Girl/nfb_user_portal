@@ -12,4 +12,4 @@ nfb_user_portal.account:
   route_name: nfb_user_portal.manage_account
   title: "Manage Account"
   basse_route: nfb_user_portal.main
-  weight: 800
+  weight: 300

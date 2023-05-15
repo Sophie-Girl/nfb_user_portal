@@ -35,7 +35,7 @@ class MemberAccountForm extends FormBase
             '#type' => 'submit',
             '#value' => $this->t('Submit'),
         );
-
+           return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
