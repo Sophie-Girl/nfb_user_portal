@@ -398,6 +398,7 @@
                 } else if (editstatus == "Open" && openfeild == "Last Name") {
                     document.getElementById("last_name_edit_div").style.display = "None";
                     document.getElementById("l_name_new_val").style.display = "None";
+                    document.getElementById("l_name_new_val").value = "";
                     document.getElementById("cancel_l_name").style.display = "None";
                     document.getElementById("save_l_name").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
