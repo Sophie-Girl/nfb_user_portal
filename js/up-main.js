@@ -576,10 +576,13 @@
                     document.getElementById("save_pronouns").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Pronouns";
+                    var text = document.getElementById("pronouns_replace").innerText;
+                    document.getElementById("pronouns_new_val").value = text.replace("Pronouns: ", "");
                     document.getElementById("pronouns_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Pronouns") {
                     document.getElementById("pronouns_edit_div").style.display = "None";
                     document.getElementById("pronouns_new_val").style.display = "None";
+                    document.getElementById("pronouns_new_val").value = "";
                     document.getElementById("cancel_pronouns").style.display = "None";
                     document.getElementById("save_pronouns").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
@@ -620,12 +623,15 @@
                     document.getElementById("disability_new_val").style.display = "Block";
                     document.getElementById("cancel_disability").style.display = "inline-block";
                     document.getElementById("save_disability").style.display = "inline-block";
+                    var text = document.getElementById("disability_replace").innerText;
+                    document.getElementById("disability_new_val").value = text.replace("Other Disability: ", "");
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "disability";
                     document.getElementById("disability_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "disability") {
                     document.getElementById("disability_edit_div").style.display = "None";
                     document.getElementById("disability_new_val").style.display = "None";
+                    document.getElementById("disability_new_val").value = "";
                     document.getElementById("cancel_disability").style.display = "None";
                     document.getElementById("save_disability").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
