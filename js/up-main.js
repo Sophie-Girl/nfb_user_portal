@@ -368,7 +368,7 @@
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "First Name";
                     var text = document.getElementById("first_name_repalce").innerText;
-                    document.getElementById("f_name_new_val").value = text.replace("First Name:", "");
+                    document.getElementById("f_name_new_val").value = text.replace("First Name: ", "");
                     document.getElementById("f_name_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "First Name") {
                     document.getElementById("first_name_edit_div").style.display = "None";
@@ -393,7 +393,7 @@
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Last Name";
                     var text = document.getElementById("last_name_repalce").innerText;
-                    document.getElementById("l_name_new_val").value = text.replace("Last Name:", "");
+                    document.getElementById("l_name_new_val").value = text.replace("Last Name: ", "");
                     document.getElementById("l_name_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Last Name") {
                     document.getElementById("last_name_edit_div").style.display = "None";
