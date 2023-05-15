@@ -461,10 +461,13 @@
                     document.getElementById("save_prim_email").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Email";
+                    var text = document.getElementById("email_repalce").innerText;
+                    document.getElementById("prim_email_new_val").value = text.replace("Email: ", "");
                     document.getElementById("prim_email_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Email") {
                     document.getElementById("prim_email_edit_div").style.display = "None";
                     document.getElementById("prim_email_new_val").style.display = "None";
+                    document.getElementById("prim_email_new_val").value = "";
                     document.getElementById("cancel_prim_email").style.display = "None";
                     document.getElementById("save_prim_email").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
@@ -483,12 +486,15 @@
                     document.getElementById("save_prim_phone").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Phone";
+                    var text = document.getElementById("phone_replace").innerText;
+                    document.getElementById("prim_phone_new_val").value = text.replace("Phone: ", "");
                     document.getElementById("prim_phone_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Phone") {
                     document.getElementById("prim_phone_edit_div").style.display = "None";
                     document.getElementById("prim_phone_new_val").style.display = "None";
                     document.getElementById("cancel_prim_phone").style.display = "None";
                     document.getElementById("save_prim_phone").style.display = "None";
+                    document.getElementById("prim_phone_new_val").value = ""
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
 
@@ -503,12 +509,18 @@
                     document.getElementById("prim_street_edit_div").style.display = "Block";
                     document.getElementById("prim_street_new_val").style.display = "Block";
                     document.getElementById("prim_street_new_val_lab").style.display = "inline-block";
+                    var text = document.getElementById("street_replace").innerText;
+                    document.getElementById("prim_street_new_val").value = text.replace("Street Address Line 1: ", "");
                     document.getElementById("prim_address_2_edit_div").style.display = "Block";
                     document.getElementById("prim_address_2_new_val").style.display = "Block";
                     document.getElementById("prim_address_2_new_val_lab").style.display = "inline-block";
+                    var text = document.getElementById("line_2_replace").innerText;
+                    document.getElementById("prim_address_2_new_val").value = text.replace("Street Address Line 2: ", "");
                     document.getElementById("prim_city_edit_div").style.display = "Block";
                     document.getElementById("prim_city_new_val").style.display = "Block";
                     document.getElementById("prim_city_new_val_lab").style.display = "inline-block";
+                    var text = document.getElementById("city_replace").innerText;
+                    document.getElementById("prim_city_new_val").value = text.replace("City: ", "");
                     document.getElementById("prim_state_edit_div").style.display = "Block";
                     document.getElementById("prim_state_new_val").style.display = "Block";
                     document.getElementById("prim_state_new_val_lab").style.display = "inline-block";
@@ -517,6 +529,8 @@
                     document.getElementById("prim_zip_edit_div").style.display = "Block";
                     document.getElementById("prim_zip_new_val").style.display = "Block";
                     document.getElementById("prim_zip_new_val_lab").style.display = "inline-lock";
+                    var text = document.getElementById("postal_repalce").innerText;
+                    document.getElementById("prim_zip_new_val").value = text;
                     document.getElementById("cancel_prim_zip").style.display = "inline-block";
                     document.getElementById("save_prim_zip").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
@@ -525,12 +539,15 @@
                 } else if (editstatus == "Open" && openfeild == "Street Address") {
                     document.getElementById("prim_street_edit_div").style.display = "None";
                     document.getElementById("prim_street_new_val").style.display = "None";
+                    document.getElementById("prim_street_new_val").value = "";
                     document.getElementById("prim_street_new_val_lab").style.display = "None";
                     document.getElementById("prim_city_edit_div").style.display = "None";
                     document.getElementById("prim_city_new_val").style.display = "None";
+                    document.getElementById("prim_city_new_val").value = "";
                     document.getElementById("prim_city_new_val_lab").style.display = "None";
                     document.getElementById("prim_address_2_edit_div").style.display = "None";
                     document.getElementById("prim_address_2_new_val").style.display = "None";
+                    document.getElementById("prim_address_2_new_val").value = "";
                     document.getElementById("prim_address_2_new_val_lab").style.display = "None";
                     document.getElementById("prim_state_edit_div").style.display = "None";
                     document.getElementById("prim_state_new_val").style.display = "None";
@@ -538,6 +555,7 @@
                     document.getElementById("prim_country_new_val_lab").style.display = "None";
                     document.getElementById("prim_zip_edit_div").style.display = "None";
                     document.getElementById("prim_zip_new_val").style.display = "None";
+                    document.getElementById("prim_state_new_val").value = "";
                     document.getElementById("prim_zip_new_val").style.display = "None";
                     document.getElementById("cancel_prim_zip").style.display = "None";
                     document.getElementById("save_prim_zip").style.display = "None";
