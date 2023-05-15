@@ -3,28 +3,62 @@ Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\Exception\Exception;
-use Drupal\nfb_user_portal\html_builder\core_markup;
 use Drupal\user\Entity\User;
-class ContactInfoForm extends FormBase
+
+class MemberAccountForm extends FormBase
 {
     public function getFormId()
     {
-        return "user_portal_page_one";
+       return "nfb_user_manage_account";
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
-        $page_builder = new core_markup();
-        $form['portal_markup'] = array(
-          '#type' => "item",
-            '#markup' => $page_builder->create_core_markup(),
-            '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
+        $form['change_username'] = array(
+          '#type' => 'textfield',
+          '#title' => "Change User Name",
+          '#min' => 5,
+          '#size' => 20,
         );
-        $form['#attached']['library'][] = 'nfb_user_portal/up-main';
+        $form['change_password'] = array(
+            '#type' => 'password',
+            '#title' => "Change Your Password",
+            '#min' => 5,
+            '#size' => 20,
+        );
+        $form['confirm_password'] = array(
+            '#type' => 'password',
+            '#title' => "Confirm Your New Password",
+            '#min' => 5,
+            '#size' => 20,
+        );
+           $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => $this->t('Submit'),
+        );
 
-        return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
+        $user = \Drupal::currentUser(); // get the user.
+        $uname =  $user->getAccountName();
+        \Drupal::logger("username_check")->notice("username check ".$uname);
+        $uid = $user->getAccount()->id();
+        $entity = User::load($uid);
+        if($form_state->getValue("change_username") != "") {
+            $entity->setEmail($form_state->getValue("change_username"));
+
+            $entity->setUsername($form_state->getValue("change_username"));
+        }
+        if ($form_state->getValue("change_password") != ""){
+            $entity->setPassword($form_state->getValue("change_password"));
+        }
+        try{
+            $entity->save(); }
+        catch (Exception $e)
+        {
+            $messager = \Drupal::messenger();
+            $messager->addError("Couldn't save user ".$e->getMessage());
+        }
 
     }
     public function validateForm(array &$form, FormStateInterface $form_state)
@@ -111,22 +145,22 @@ class ContactInfoForm extends FormBase
             $form_state->setErrorByName("change_password", "Entered passwords do not match");
         }
         else{
-           $check =  $this->check_password($pword);
-           if($check == "No")
-           {
-               $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
-           }
-           elseif (strlen($pword) < 8)
-           {
-               $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
-           }
+            $check =  $this->check_password($pword);
+            if($check == "No")
+            {
+                $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
+            }
+            elseif (strlen($pword) < 8)
+            {
+                $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
+            }
         }
     }
     public function check_password($pword)
     {
         if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $pword))
         {
-          $char_good = true;
+            $char_good = true;
         }
         else{
             $char_good = false;
@@ -143,7 +177,7 @@ class ContactInfoForm extends FormBase
             $cap_good = true;
         }
         else {
-         $cap_good = false;
+            $cap_good = false;
         }
         if(preg_match('/[a-z]/', $pword)) {
             $low_good = true;
@@ -151,15 +185,15 @@ class ContactInfoForm extends FormBase
         else{
             $low_good = false;
         }
-    if( $cap_good == true && $low_good == true &&
-        $char_good == true && $num_good == true)
-    {
-        $clear = "Yes";
-    }
-    else{
-        $clear = "No";
-    }
-    return $clear;
+        if( $cap_good == true && $low_good == true &&
+            $char_good == true && $num_good == true)
+        {
+            $clear = "Yes";
+        }
+        else{
+            $clear = "No";
+        }
+        return $clear;
     }
 
 }

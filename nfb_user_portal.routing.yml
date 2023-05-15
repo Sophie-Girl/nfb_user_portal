@@ -14,6 +14,14 @@ nfb_user_portal.member_tab:
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
+nfb_user_portal.manage_account:
+  path: 'member_portal/manage_account'
+  defaults:
+    _form: 'Drupal\nfb_user_portal\Form\MemberAccountForm'
+    _title: 'Manage Account'
+  requirements:
+    _permission: 'access content'
+    _role: 'authenticated'
 nfb_user_portal.page_laod:
   path: '/member_portal/ajax/page_load'
   defaults:
