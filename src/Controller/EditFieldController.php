@@ -413,7 +413,7 @@ class EditFieldController extends ControllerBase
                 '*',
             ],
             'where' => [
-                ['id', '=', $this->get_new_val()[6]],
+                ['id', '=', $this->get_new_val()[5]],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
@@ -433,7 +433,7 @@ class EditFieldController extends ControllerBase
                 '*',
             ],
             'where' => [
-                ['id', '=', $this->get_new_val()[7]],
+                ['id', '=', $this->get_new_val()[6]],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
