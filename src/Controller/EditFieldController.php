@@ -279,37 +279,6 @@ class EditFieldController extends ControllerBase
                     ],
                     'checkPermissions' => FALSE,
                 ]; break;
-            case "street_address":
-                $civi->params = [
-                    'values' => [
-                        'street_address' => $this->get_new_val(),
-                    ],
-                    'where' => [
-                        ['id', '=', $this->get_contact_data_id()],
-                    ],
-                    'checkPermissions' => FALSE,
-                ]; break;
-            case "Line 2":
-                $civi->params = [
-                    'values' => [
-                        'supplemental_address_1' => $this->get_new_val(),
-                    ],
-                    'where' => [
-                        ['id', '=', $this->get_contact_data_id()],
-                    ],
-                    'checkPermissions' => FALSE,
-                ]; break;
-            case "City":
-                $civi->params = [
-                    'values' => [
-                        'city' => $this->get_new_val(),
-                    ],
-                    'where' => [
-                    'where' => [
-                        ['id', '=', $this->get_contact_data_id()],
-                    ],
-                    'checkPermissions' => FALSE,
-                ]; break;
             case "zip":
                 $civi->params = [
                     'values' => [
@@ -319,17 +288,6 @@ class EditFieldController extends ControllerBase
                         'state_province_id' => $this->get_new_val()[5],
                         'country_id' => $this->get_new_val()[6],
                         'postal_code' => $this->get_new_val()[1],
-                    ],
-                    'where' => [
-                        ['id', '=', $this->get_contact_data_id()],
-                    ],
-                    'checkPermissions' => FALSE,
-                ]; break;
-            case "State":
-                $civi->params = [
-                    'values' => [
-                        'state_province_id' => $this->get_new_val(),
-                        'country_id' => $this->get_new_val_2(),
                     ],
                     'where' => [
                         ['id', '=', $this->get_contact_data_id()],
