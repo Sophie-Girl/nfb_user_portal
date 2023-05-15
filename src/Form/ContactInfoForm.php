@@ -19,7 +19,7 @@ class ContactInfoForm extends FormBase
             '#markup' => $page_builder->create_core_markup(),
             '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
-        $form['desire_change_uanme'] = array(
+   /*     $form['desire_change_uanme'] = array(
           '#type' => 'checkbox',
           '#title' => $this->t("Do you wish to change your username? Note this will also change the email associated with your account, but not the email our mailings will go out to.")
         );
@@ -67,11 +67,13 @@ class ContactInfoForm extends FormBase
                     [':input[name="desire_change_pword"]' => ['checked' => true]]]
             ]
         );
-        $form['#attached']['library'][] = 'nfb_user_portal/up-main';
-        $form['submit'] = array(
+           $form['submit'] = array(
             '#type' => 'submit',
             '#value' => $this->t('Submit'),
         );
+   */
+        $form['#attached']['library'][] = 'nfb_user_portal/up-main';
+
         return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
