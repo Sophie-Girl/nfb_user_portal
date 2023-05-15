@@ -34,28 +34,6 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_prim_street').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('prim_street_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "street_address";
-                    vfeildarray[2] = document.getElementById('prim_street_new_val').value
-                }
-                ajax_change_call(vfeildarray);
-                document.getElementById("street_replace").innerText = "Street Address: "+document.getElementById('prim_street_new_val').value;
-                document.getElementById("prim_street_edit_div").style.display = "None";
-                document.getElementById("prim_street_new_val").style.display = "None";
-                document.getElementById("cancel_prim_street").style.display = "None";
-                document.getElementById("save_prim_street").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-                document.getElementById("street_replace").focus();
-                alert("Changes made successfully");
-            });
             $('#save_prim_address_2').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_address_2_new_val').value;
@@ -203,21 +181,7 @@
                 document.getElementById("disability_replace").focus();
                 alert("Changes made successfully");
             });
-            $('#save_prim_state').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('prim_country_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "State";
-                    vfeildarray[2] = document.getElementById('prim_state_new_val').value;
-                    vfeildarray[3] = document.getElementById('prim_country_new_val').value;
-                }
-                ajax_change_call(vfeildarray);
-                alert("Changes made successfully");
-            });
+
             $('#save_lang_pref').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('lang_pref_new_val').value;
