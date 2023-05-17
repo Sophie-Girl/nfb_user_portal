@@ -18,6 +18,9 @@ class OtherInfoForm extends FormBase
             '#markup' => $builder->create_other_markup(),
             '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
+        $form['#attached']['library'][] = 'nfb_user_portal/up-other';
+
+        return $form;
 
     }
     public function submitForm(array &$form, FormStateInterface $form_state)

@@ -22,6 +22,14 @@ nfb_user_portal.manage_account:
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
+nfb_user_portal.ohter:
+  path: 'member_portal/other_data'
+  defaults:
+    _form: 'Drupal\nfb_user_portal\Form\OtherInfoForm'
+    _title: 'Other'
+  requirements:
+    _permission: 'access content'
+    _role: 'authenticated'
 nfb_user_portal.page_laod:
   path: '/member_portal/ajax/page_load'
   defaults:

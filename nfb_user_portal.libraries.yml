@@ -12,3 +12,10 @@ up-membership:
       css/up-membership.css: {}
   js:
     js/up-membership.js: {}
+up-other:
+  version: 1.x
+  css:
+    theme:
+      css/up-other.css: {}
+  js:
+    js/up-other.js: {}
