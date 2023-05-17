@@ -9,7 +9,7 @@ nfb_user_portal.membership:
   base_route: nfb_user_portal.main
   weight: 200
 nfb_user_portal.event:
-  route_name: nfb_user_portal.member_tab
+  route_name: nfb_user_portal.other
   title: 'Events and Contributions'
   base_route: nfb_user_portal.main
   weight: 300
