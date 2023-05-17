@@ -2,6 +2,8 @@
 Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\nfb_user_portal\html_builder\other_markup;
+
 class OtherInfoForm extends FormBase
 {
     public function getFormId()
@@ -10,7 +12,13 @@ class OtherInfoForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
-        // TODO: Implement buildForm() method.
+       $builder =  new other_markup();
+        $form['other_info'] = array(
+            '#type' => "item",
+            '#markup' => $builder->create_other_markup(),
+            '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
+        );
+
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
     {

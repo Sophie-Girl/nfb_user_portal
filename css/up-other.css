@@ -1,0 +1,9 @@
+.hidden_val {
+    display: none;
+}
+.right_side{
+
+}
+.right_side span {
+    float: right; text-align: right;
+}
