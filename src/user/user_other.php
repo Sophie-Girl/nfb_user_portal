@@ -40,7 +40,7 @@ class user_other extends user_membership
         $count = $result->count();
         $current = 0;
         $array = [];
-        while($current >= $count )
+        while($current <= $count )
         {
             $contribution = $result->itemat($current);
             $array[$current]['date'] = $contribution['receive_date'];
@@ -72,7 +72,7 @@ class user_other extends user_membership
         $count = $result->count();
         $current = 0;
         $array = [];
-        while($current >= $count)
+        while($current <= $count)
         {
             $event = $result->itemat($current);
             $array[$current]['title'] = $event['event.title'];
