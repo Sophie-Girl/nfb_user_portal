@@ -105,7 +105,47 @@ function nfb_user_portal_schema()
     );
     $query = Database::getConnection()->schema();
     $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
+    $database = \Drupal::database();
+    if($database->schema()->tableExists('nfb_user_portal_user_request'))
+    {
 
-
+        \Drupal::logger('nfb_user_portal')->notice("Dropping Table");
+        $database->schema()->dropTable('nfb_user_portal_user_request');
+    }
+    $schema['nfb_user_portal_content'] = array(
+        'description' => 'Stores all user requests for the NFB User Portal',
+        'fields' => array(
+            'pid' => array(
+                'type' => 'serial',
+                'size' => 'big',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'description' => 'Primary Key: request id'
+            ),
+            'civi_contact_id' => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => '1',
+                'not null' => true,
+                'description' => "What civi contact."
+            ),
+            'status' => array(
+                'type' => 'varchar',
+                'length' => 128,
+                'default' => 'Not Created',
+                'not null' => true,
+                'description' => "What status is the potential user."
+            ),
+            'comment' => array(
+              'type' => 'varchar',
+              'length' => 512,
+              'default' => 'None',
+                'not null' => true,
+                'description' => "Additional Notes."
+            ),
+        ),
+        'primary key' => 'pid',
+    );
+    $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
 
 }
