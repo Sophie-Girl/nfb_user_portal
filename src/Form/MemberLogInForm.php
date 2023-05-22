@@ -57,11 +57,13 @@ class MemberLogInForm extends FormBase
      *   The renderer.
      */
 
-    public function getFormId() {
+    public function getFormId()
+    {
         return 'member_user_login_form';
     }
 
-    public function buildForm(array $form, FormStateInterface $form_state) {
+    public function buildForm(array $form, FormStateInterface $form_state)
+    {
 
         $user_interface = UserInterface::USERNAME_MAX_LENGTH;
         // Display login form:
@@ -72,7 +74,7 @@ class MemberLogInForm extends FormBase
             '#size' => 60,
             '#maxlength' => $user_interface,
             '#description' => $this
-                ->t('Enter your NFB Member Profile username.' ),
+                ->t('Enter your NFB Member Profile username.'),
             '#required' => TRUE,
             '#attributes' => [
                 'autocorrect' => 'none',
@@ -103,7 +105,9 @@ class MemberLogInForm extends FormBase
         $form['#validate'][] = '::validateFinal';
         return $form;
     }
-    public function submitForm(array &$form, FormStateInterface $form_state) {
+
+    public function submitForm(array &$form, FormStateInterface $form_state)
+    {
         if (empty($uid = $form_state
             ->get('uid'))) {
             return;
@@ -120,8 +124,7 @@ class MemberLogInForm extends FormBase
                     'user' => $account
                         ->id(),
                 ]);
-        }
-        else {
+        } else {
             $this
                 ->getRequest()->query
                 ->set('destination', $this
@@ -131,7 +134,8 @@ class MemberLogInForm extends FormBase
         user_login_finalize($account);
     }
 
-    public function validateName(array &$form, FormStateInterface $form_state) {
+    public function validateName(array &$form, FormStateInterface $form_state)
+    {
         if (!$form_state
                 ->isValueEmpty('name') && user_is_blocked($form_state
                 ->getValue('name'))) {
@@ -152,7 +156,7 @@ class MemberLogInForm extends FormBase
      * If successful, $form_state->get('uid') is set to the matching user ID.
      */
     public function validateAuthentication(array &$form, FormStateInterface $form_state) {
-       $this->userFloodControl = new  \Drupal\user\UserFloodControlInterface;
+        $this->userFloodControl = new  \Drupal\user\UserFloodControlInterface;
         $password = trim($form_state
             ->getValue('pass'));
         $flood_config = $this
@@ -168,12 +172,11 @@ class MemberLogInForm extends FormBase
             if (!$this->userFloodControl
                 ->isAllowed('user.failed_login_ip', $flood_config
                     ->get('ip_limit'), $flood_config
-                    ->get('ip_window'))) {
-                    ->get('ip_window'))) {
-                $form_state
-                    ->set('flood_control_triggered', 'ip');
-                return;
-            }
+                    ->get('ip_window')->get('ip_window'))) {
+                    $form_state
+                        ->set('flood_control_triggered', 'ip');
+                    return;
+                }
             $accounts = $this->userStorage
                 ->loadByProperties([
                     'name' => $form_state
@@ -223,115 +226,115 @@ class MemberLogInForm extends FormBase
             $form_state
                 ->set('uid', $uid);
         }
-    }
+        }
 
-    /**
-     * Checks if user was not authenticated, or if too many logins were attempted.
-     *
-     * This validation function should always be the last one.
-     */
-    public function validateFinal(array &$form, FormStateInterface $form_state) {
-        $flood_config = $this
-            ->config('user.flood');
-        if (!$form_state
-            ->get('uid')) {
+        /**
+         * Checks if user was not authenticated, or if too many logins were attempted.
+         *
+         * This validation function should always be the last one.
+         */
+        public function validateFinal(array &$form, FormStateInterface $form_state) {
+            $flood_config = $this
+                ->config('user.flood');
+            if (!$form_state
+                ->get('uid')) {
 
-            // Always register an IP-based failed login event.
-            $this->userFloodControl
-                ->register('user.failed_login_ip', $flood_config
-                    ->get('ip_window'));
-
-            // Register a per-user failed login event.
-            if ($flood_control_user_identifier = $form_state
-                ->get('flood_control_user_identifier')) {
+                // Always register an IP-based failed login event.
                 $this->userFloodControl
-                    ->register('user.failed_login_user', $flood_config
-                        ->get('user_window'), $flood_control_user_identifier);
-            }
-            if ($flood_control_triggered = $form_state
-                ->get('flood_control_triggered')) {
-                if ($flood_control_triggered == 'user') {
-                    $message = $this
-                        ->formatPlural($flood_config
-                            ->get('user_limit'), 'There has been more than one failed login attempt for this account. It is temporarily blocked. Try again later or <a href=":url">request a new password</a>.', 'There have been more than @count failed login attempts for this account. It is temporarily blocked. Try again later or <a href=":url">request a new password</a>.', [
-                            ':url' => Url::fromRoute('user.pass')
-                                ->toString(),
-                        ]);
+                    ->register('user.failed_login_ip', $flood_config
+                        ->get('ip_window'));
+
+                // Register a per-user failed login event.
+                if ($flood_control_user_identifier = $form_state
+                    ->get('flood_control_user_identifier')) {
+                    $this->userFloodControl
+                        ->register('user.failed_login_user', $flood_config
+                            ->get('user_window'), $flood_control_user_identifier);
+                }
+                if ($flood_control_triggered = $form_state
+                    ->get('flood_control_triggered')) {
+                    if ($flood_control_triggered == 'user') {
+                        $message = $this
+                            ->formatPlural($flood_config
+                                ->get('user_limit'), 'There has been more than one failed login attempt for this account. It is temporarily blocked. Try again later or <a href=":url">request a new password</a>.', 'There have been more than @count failed login attempts for this account. It is temporarily blocked. Try again later or <a href=":url">request a new password</a>.', [
+                                ':url' => Url::fromRoute('user.pass')
+                                    ->toString(),
+                            ]);
+                    }
+                    else {
+
+                        // We did not find a uid, so the limit is IP-based.
+                        $message = $this
+                            ->t('Too many failed login attempts from your IP address. This IP address is temporarily blocked. Try again later or <a href=":url">request a new password</a>.', [
+                                ':url' => Url::fromRoute('user.pass')
+                                    ->toString(),
+                            ]);
+                    }
+                    $response = $this->bareHtmlPageRenderer
+                        ->renderBarePage([
+                            '#markup' => $message,
+                        ], $this
+                            ->t('Login failed'), 'maintenance_page');
+                    $response
+                        ->setStatusCode(403);
+                    $form_state
+                        ->setResponse($response);
                 }
                 else {
 
-                    // We did not find a uid, so the limit is IP-based.
-                    $message = $this
-                        ->t('Too many failed login attempts from your IP address. This IP address is temporarily blocked. Try again later or <a href=":url">request a new password</a>.', [
-                            ':url' => Url::fromRoute('user.pass')
-                                ->toString(),
-                        ]);
-                }
-                $response = $this->bareHtmlPageRenderer
-                    ->renderBarePage([
-                        '#markup' => $message,
-                    ], $this
-                        ->t('Login failed'), 'maintenance_page');
-                $response
-                    ->setStatusCode(403);
-                $form_state
-                    ->setResponse($response);
-            }
-            else {
-
-                // Use $form_state->getUserInput() in the error message to guarantee
-                // that we send exactly what the user typed in. The value from
-                // $form_state->getValue() may have been modified by validation
-                // handlers that ran earlier than this one.
-                $user_input = $form_state
-                    ->getUserInput();
-                $query = isset($user_input['name']) ? [
-                    'name' => $user_input['name'],
-                ] : [];
-                $form_state
-                    ->setErrorByName('name', $this
-                        ->t('Unrecognized username or password. <a href=":password">Forgot your password?</a>', [
-                            ':password' => Url::fromRoute('user.pass', [], [
-                                'query' => $query,
-                            ])
-                                ->toString(),
-                        ]));
-                $accounts = $this->userStorage
-                    ->loadByProperties([
-                        'name' => $form_state
-                            ->getValue('name'),
-                    ]);
-                if (!empty($accounts)) {
-                    $this
-                        ->logger('user')
-                        ->notice('Login attempt failed for %user.', [
-                            '%user' => $form_state
+                    // Use $form_state->getUserInput() in the error message to guarantee
+                    // that we send exactly what the user typed in. The value from
+                    // $form_state->getValue() may have been modified by validation
+                    // handlers that ran earlier than this one.
+                    $user_input = $form_state
+                        ->getUserInput();
+                    $query = isset($user_input['name']) ? [
+                        'name' => $user_input['name'],
+                    ] : [];
+                    $form_state
+                        ->setErrorByName('name', $this
+                            ->t('Unrecognized username or password. <a href=":password">Forgot your password?</a>', [
+                                ':password' => Url::fromRoute('user.pass', [], [
+                                    'query' => $query,
+                                ])
+                                    ->toString(),
+                            ]));
+                    $accounts = $this->userStorage
+                        ->loadByProperties([
+                            'name' => $form_state
                                 ->getValue('name'),
                         ]);
-                }
-                else {
+                    if (!empty($accounts)) {
+                        $this
+                            ->logger('user')
+                            ->notice('Login attempt failed for %user.', [
+                                '%user' => $form_state
+                                    ->getValue('name'),
+                            ]);
+                    }
+                    else {
 
-                    // If the username entered is not a valid user,
-                    // only store the IP address.
-                    $this
-                        ->logger('user')
-                        ->notice('Login attempt failed from %ip.', [
-                            '%ip' => $this
-                                ->getRequest()
-                                ->getClientIp(),
-                        ]);
+                        // If the username entered is not a valid user,
+                        // only store the IP address.
+                        $this
+                            ->logger('user')
+                            ->notice('Login attempt failed from %ip.', [
+                                '%ip' => $this
+                                    ->getRequest()
+                                    ->getClientIp(),
+                            ]);
+                    }
                 }
             }
-        }
-        elseif ($flood_control_user_identifier = $form_state
-            ->get('flood_control_user_identifier')) {
+            elseif ($flood_control_user_identifier = $form_state
+                ->get('flood_control_user_identifier')) {
 
-            // Clear past failures for this user so as not to block a user who might
-            // log in and out more than once in an hour.
-            $this->userFloodControl
-                ->clear('user.failed_login_user', $flood_control_user_identifier);
+                // Clear past failures for this user so as not to block a user who might
+                // log in and out more than once in an hour.
+                $this->userFloodControl
+                    ->clear('user.failed_login_user', $flood_control_user_identifier);
+            }
         }
+
+
     }
-
-
-}
