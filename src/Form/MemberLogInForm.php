@@ -7,7 +7,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
 use  Drupal\user\UserFloodControl;
 use \Drupal\user\UserAuthInterface;
+use \Drupal\Core\Render\RendererInterface;
 use \Drupal\user\UserStorageInterface;
+use \Drupal\Core\Render\BareHtmlPageRendererInterface;
 class MemberLogInForm extends FormBase
 {
     /**
