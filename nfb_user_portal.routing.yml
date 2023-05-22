@@ -25,7 +25,7 @@ nfb_user_portal.manage_account:
 nfb_user_portal.stephanie:
   path: 'member_portal/login'
   defaults:
-    _form: 'Drupal\nfb_user_portal\Form\MemberAccountForm'
+    _form: 'Drupal\nfb_user_portal\Form\MemberLogInForm'
     _title: 'Log In'
   requirements:
     _permission: 'access content'
