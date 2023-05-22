@@ -6,6 +6,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
 use  Drupal\user\UserFloodControl;
+use \Drupal\user\UserAuthInterface;
 use \Drupal\user\UserStorageInterface;
 class MemberLogInForm extends FormBase
 {
@@ -82,7 +83,7 @@ class MemberLogInForm extends FormBase
             ->get('user.flood_control'), $container
             ->get('entity_type.manager')
             ->getStorage('user'), $container
-            ->get('user.auth'), $container
+            ->get('user.authinterface'), $container
             ->get('renderer'), $container
             ->get('bare_html_page_renderer'));
     }
