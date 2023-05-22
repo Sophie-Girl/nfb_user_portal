@@ -2,7 +2,7 @@
 Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-class MemberLoginForm extends FormBase
+class MemberLogInForm extends FormBase
 {
     /**
      * The user flood control service.
