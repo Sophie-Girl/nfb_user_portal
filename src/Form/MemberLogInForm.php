@@ -3,7 +3,7 @@ Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
-use  Drupal\user\UserFloodControlInterface;
+use  Drupal\user\UserFloodControl;
 use \Drupal\user\UserStorageInterface;
 class MemberLogInForm extends FormBase
 {
@@ -152,6 +152,7 @@ class MemberLogInForm extends FormBase
      * If successful, $form_state->get('uid') is set to the matching user ID.
      */
     public function validateAuthentication(array &$form, FormStateInterface $form_state) {
+       $this->userFloodControl = new  \Drupal\user\UserFloodControlInterface;
         $password = trim($form_state
             ->getValue('pass'));
         $flood_config = $this
@@ -167,6 +168,7 @@ class MemberLogInForm extends FormBase
             if (!$this->userFloodControl
                 ->isAllowed('user.failed_login_ip', $flood_config
                     ->get('ip_limit'), $flood_config
+                    ->get('ip_window'))) {
                     ->get('ip_window'))) {
                 $form_state
                     ->set('flood_control_triggered', 'ip');
