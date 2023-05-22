@@ -2,7 +2,7 @@
 Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\DependencyInjection;
 use \Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\core\Form\FormBase;
+use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
 use  Drupal\user\UserFloodControl;
