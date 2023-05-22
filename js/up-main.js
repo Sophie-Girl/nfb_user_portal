@@ -874,6 +874,7 @@
                 document.getElementById("prim_country_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById('edit_prim_street').focus();
             });
 
             $('#cancel_prim_phone').once().click(function () {
