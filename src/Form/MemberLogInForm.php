@@ -67,22 +67,9 @@ class MemberLogInForm extends FormBase
     }
 
     public function buildForm(array $form, FormStateInterface $form_state) {
-        if (!$user_flood_control instanceof UserFloodControlInterface) {
-            @trigger_error('Passing the flood service to ' . __METHOD__ . ' is deprecated in drupal:9.1.0 and is replaced by user.flood_control in drupal:10.0.0. See https://www.drupal.org/node/3067148', E_USER_DEPRECATED);
-            $user_flood_control = \Drupal::service('user.flood_control');
-        }
-        if (!$bare_html_renderer instanceof BareHtmlPageRendererInterface) {
-            @trigger_error('Calling UserLoginForm::__construct() without the $bare_html_renderer argument is deprecated in drupal:9.4.0 and will be required before drupal:10.0.0. See https://www.drupal.org/node/3251987.', E_USER_DEPRECATED);
-            $bare_html_renderer = \Drupal::service('bare_html_page_renderer');
-        }
-        $this->userFloodControl = $user_flood_control;
-        $this->userStorage = $user_storage;
-        $this->userAuth = $user_auth;
-        $this->renderer = $renderer;
-        $this->bareHtmlPageRenderer = $bare_html_renderer;
 
         $config = $this
-            ->config('system.site');
+        ->config('system.site');
 
         // Display login form:
         $form['name'] = [
