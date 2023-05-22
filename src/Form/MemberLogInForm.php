@@ -53,15 +53,7 @@ class MemberLogInForm extends FormBase
      * @param \Drupal\Core\Render\BareHtmlPageRendererInterface $bare_html_renderer
      *   The renderer.
      */
-    public static function create(ContainerInterface $container) {
-        return new static($container
-            ->get('user.flood_control'), $container
-            ->get('entity_type.manager')
-            ->getStorage('user'), $container
-            ->get('user.auth'), $container
-            ->get('renderer'), $container
-            ->get('bare_html_page_renderer'));
-    }
+
     public function getFormId() {
         return 'member_user_login_form';
     }
