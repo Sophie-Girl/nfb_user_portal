@@ -83,7 +83,7 @@ class MemberLogInForm extends FormBase
             ->get('user.flood_control'), $container
             ->get('entity_type.manager')
             ->getStorage('user'), $container
-            ->get('user.authinterface'), $container
+            ->get('user.auth'), $container
             ->get('renderer'), $container
             ->get('bare_html_page_renderer'));
     }
