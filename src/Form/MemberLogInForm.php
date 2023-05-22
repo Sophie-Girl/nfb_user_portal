@@ -154,7 +154,7 @@ class MemberLogInForm extends FormBase
             ->getRequest()->request
             ->has('destination')) {
             $form_state
-                ->setRedirect('entity.user.canonical', [
+                ->setRedirect('nfb_user_portal.main_tab', [
                     'user' => $account
                         ->id(),
                 ]);
