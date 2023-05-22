@@ -206,7 +206,7 @@ class MemberLogInForm extends FormBase
             if (!$this->userFloodControl
                 ->isAllowed('user.failed_login_ip', $flood_config
                     ->get('ip_limit'), $flood_config
-                    ->get('ip_window')->get('ip_window'))) {
+                    ->get('ip_window'))) {
                     $form_state
                         ->set('flood_control_triggered', 'ip');
                     return;
