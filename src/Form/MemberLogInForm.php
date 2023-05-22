@@ -61,8 +61,6 @@ class MemberLogInForm extends FormBase
 
     public function buildForm(array $form, FormStateInterface $form_state) {
 
-        $config = $this
-        ->config('system.site');
         $user_interface = UserInterface::USERNAME_MAX_LENGTH;
         // Display login form:
         $form['name'] = [
@@ -72,10 +70,7 @@ class MemberLogInForm extends FormBase
             '#size' => 60,
             '#maxlength' => $user_interface,
             '#description' => $this
-                ->t('Enter your @s username.', [
-                    '@s' => $config
-                        ->get('name'),
-                ]),
+                ->t('Enter your NFB Member Profile username.' ),
             '#required' => TRUE,
             '#attributes' => [
                 'autocorrect' => 'none',
@@ -104,8 +99,6 @@ class MemberLogInForm extends FormBase
         $form['#validate'][] = '::validateName';
         $form['#validate'][] = '::validateAuthentication';
         $form['#validate'][] = '::validateFinal';
-        $this->renderer
-            ->addCacheableDependency($form, $config);
         return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state) {
