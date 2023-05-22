@@ -187,7 +187,7 @@ class MemberLogInForm extends FormBase
      * If successful, $form_state->get('uid') is set to the matching user ID.
      */
     public function validateAuthentication(array &$form, FormStateInterface $form_state) {
-        $this->userFloodControl = new  \Drupal\user\UserFloodControlInterface;
+
         $password = trim($form_state
             ->getValue('pass'));
         $flood_config = $this
