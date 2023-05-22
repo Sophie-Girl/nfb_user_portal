@@ -2,6 +2,7 @@
 Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\UserInterface;
 class MemberLogInForm extends FormBase
 {
     /**
@@ -62,14 +63,14 @@ class MemberLogInForm extends FormBase
 
         $config = $this
         ->config('system.site');
-
+        $user_interface = UserInterface::USERNAME_MAX_LENGTH;
         // Display login form:
         $form['name'] = [
             '#type' => 'textfield',
             '#title' => $this
                 ->t('Username'),
             '#size' => 60,
-            '#maxlength' => UserInterface::USERNAME_MAX_LENGTH,
+            '#maxlength' => $user_interface,
             '#description' => $this
                 ->t('Enter your @s username.', [
                     '@s' => $config
