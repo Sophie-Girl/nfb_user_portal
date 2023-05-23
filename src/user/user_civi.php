@@ -100,6 +100,7 @@ class user_civi extends user_base
         $civi->civi_api_v4_query();
         $contact = $civi->get_civi_result();
         $contact = $contact->first();
+        \Drupal::logger("check_the_vibe")->notice("results has pref lang at: ".$contact['preferred_language']);
         $this->first_name = $contact['first_name'];
         $this->last_name = $contact['last_name'];
         $this->dob = $contact['birth_date'];
