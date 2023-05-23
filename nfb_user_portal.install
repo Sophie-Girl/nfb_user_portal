@@ -112,10 +112,10 @@ function nfb_user_portal_schema()
         \Drupal::logger('nfb_user_portal')->notice("Dropping Table");
         $database->schema()->dropTable('nfb_user_portal_user_request');
     }
-    $schema['nfb_user_portal_content'] = array(
+    $schema['nfb_user_portal_user_request'] = array(
         'description' => 'Stores all user requests for the NFB User Portal',
         'fields' => array(
-            'pid' => array(
+            'rid' => array(
                 'type' => 'serial',
                 'size' => 'big',
                 'unsigned' => TRUE,
@@ -144,7 +144,7 @@ function nfb_user_portal_schema()
                 'description' => "Additional Notes."
             ),
         ),
-        'primary key' => 'pid',
+        'primary key' => 'rid',
     );
     $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
 

@@ -378,6 +378,7 @@ class EditFieldController extends ControllerBase
             {
                 $data[0] = "English";
             }
+            \drupal::logger("beth_issue")->notice($data[0]." data for lang");
         }
         elseif ($this->get_field() == "media")
         {

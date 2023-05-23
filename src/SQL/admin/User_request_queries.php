@@ -11,7 +11,7 @@ class User_request_queries
     public function select_query($query, $key)
     {
         $this->database = \Drupal::database();
-        $this->result = $this->database->query($query,  $key)->execute();
+        $this->result = $this->database->query($query)->fetchAllAssoc($key);
         $this->database = null;
     }
     public function update_query($query)
