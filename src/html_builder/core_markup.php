@@ -190,10 +190,12 @@ To update your contact or demographic information, navigate to the appropriate f
         $result = $civi->get_civi_result();
         $count = $result->count();
         $current = 0;
-        $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
+        $options = "<option value='' >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>
+        <option value= '344'>&nbsp;&nbsp;&nbsp;English (United States)&nbsp;&nbsp;&nbsp;</option>";
+
         while ($current <= $count) {
             $gender = $result->itemat($current);
-            if($gender['id'] != "") {
+            if($gender['id'] != "" && $gender['id'] != '344') {
                 $options = $options . "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['label'] . "&nbsp;&nbsp;&nbsp;</option>";
             }
             $current++;
