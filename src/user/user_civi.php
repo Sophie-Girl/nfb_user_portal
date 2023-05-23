@@ -152,7 +152,7 @@ class user_civi extends user_base
             ],
             'where' => [
                 ['option_group_id', '=', 50],
-                ['name', '=', $this->get_preferred_language()],
+                ['id', '=', $this->get_preferred_language()],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
