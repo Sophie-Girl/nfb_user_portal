@@ -863,7 +863,7 @@
                 document.getElementById("save_prim_email").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_prime_email").focus();
+                document.getElementById("edit_prim_email").focus();
             });
             $('#cancel_l_name').once().click(function () {
                 document.getElementById("last_name_edit_div").style.display = "None";
