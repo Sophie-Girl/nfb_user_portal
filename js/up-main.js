@@ -836,6 +836,7 @@
                 document.getElementById("save_disability").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById("edit_disability").focus();
             });
             $('#cancel_pronouns').once().click(function () {
                 document.getElementById("pronouns_edit_div").style.display = "None";
@@ -844,6 +845,7 @@
                 document.getElementById("save_pronouns").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById("edit_pronouns").focus();
             });
             $('#cancel_dob').once().click(function () {
                 document.getElementById("dob_edit_div").style.display = "None";
@@ -852,6 +854,7 @@
                 document.getElementById("save_dob").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById('edit_dob').focus();
             });
             $('#cancel_prim_zip').once().click(function () {
                 document.getElementById("prim_zip_edit_div").style.display = "None";
