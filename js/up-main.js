@@ -288,8 +288,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
                 document.getElementById("first_name_repalce").focus();
-                document.getElementById("edit_f_name").focus();
                 alert("Changes made successfully");
+                document.getElementById("edit_f_name").focus();
+
             });
             $('#save_l_name').once().click(function () {
                 var vfeildarray;
