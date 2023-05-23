@@ -378,6 +378,24 @@ class EditFieldController extends ControllerBase
             {
                 $data[0] = "English";
             }
+            else{
+                $civi->mode = "get";
+                $civi->entity = "OptionValue";
+                $civi->params = [
+                    'select' => [
+                        '*',
+                    ],
+                    'where' => [
+                        ['option_group_id', '=', 50],
+                        ['id', '=', $data[0]],
+                    ],
+                    'limit' => 25,
+                ];
+                $civi->civi_api_v4_query();
+                $result = $civi->get_civi_result();
+                $gp = $result->first();
+                $data[0] = $gp['label'];
+            }
             \drupal::logger("beth_issue")->notice($data[0]." data for lang");
         }
         elseif ($this->get_field() == "media")
