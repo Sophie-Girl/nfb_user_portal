@@ -949,7 +949,7 @@
                     document.getElementById("save_lang_pref").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("lang_repalce").focus();
+                    document.getElementById("edit_lang_pref").focus();
                 }
                 else if(vfeildarray[1] == "gender")
                 {
@@ -961,7 +961,7 @@
                     document.getElementById("save_gender").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("gender_change").focus();
+                    document.getElementById("eidt_gender").focus();
                 }
                 else if(vfeildarray[1] == "blind")
                 {
@@ -973,7 +973,7 @@
                     document.getElementById("save_blind").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("blind_replace").focus();
+                    document.getElementById("edit_blind").focus();
 
                 }
                 else if(vfeildarray[1] == "deaf")
@@ -986,7 +986,7 @@
                     document.getElementById("save_deaf").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("deaf_replace").focus();
+                    document.getElementById("edit_deaf").focus();
                 }
                 else if(vfeildarray[1]  == "media")
                 {
@@ -998,7 +998,7 @@
                     document.getElementById("save_media_type").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("media_replace").focus();
+                    document.getElementById("edit_media_pref").focus();
                 }
                 else if(vfeildarray[1]  == "braille")
                 {
@@ -1009,7 +1009,7 @@
                     document.getElementById("save_braille").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("braille_replace").focus();
+                    document.getElementById("edit_braille").focus();
                 }
                 else if(vfeildarray[1]  == "dog")
                 {
@@ -1020,7 +1020,7 @@
                     document.getElementById("save_dog").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("dog_replace").focus();
+                    document.getElementById("edit_dog").focus();
                 }
             });
 
