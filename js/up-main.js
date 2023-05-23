@@ -493,7 +493,6 @@
                     document.getElementById("prim_zip_edit_div").style.display = "Block";
                     document.getElementById("prim_zip_new_val").style.display = "Block";
                     document.getElementById("prim_zip_new_val_lab").style.display = "inline-lock";
-                    document.getElementById("prim_zip_new_val").value = text.replace("ZIP / Postal Code: ", "");
                     var text = document.getElementById("postal_repalce").innerText;
                     document.getElementById("prim_zip_new_val").value = text;
                     document.getElementById("cancel_prim_zip").style.display = "inline-block";
