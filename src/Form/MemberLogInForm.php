@@ -101,6 +101,10 @@ class MemberLogInForm extends FormBase
 
         $user_interface = UserInterface::USERNAME_MAX_LENGTH;
         // Display login form:
+        $form['intro'] = [
+          '#type' => "item",
+          '#markup' => "<p>This is just a test</p>"
+        ];
         $form['name'] = [
             '#type' => 'textfield',
             '#title' => $this
