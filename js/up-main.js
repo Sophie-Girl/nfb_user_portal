@@ -34,50 +34,6 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_prim_address_2').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('prim_address_2_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "Line 2";
-                    vfeildarray[2] = document.getElementById('prim_address_2_new_val').value
-                }
-                ajax_change_call(vfeildarray);
-                document.getElementById("line_2_replace").innerText = "Street Address Line 2: "+document.getElementById('prim_address_2_new_val').value;
-                document.getElementById("prim_address_2_edit_div").style.display = "None";
-                document.getElementById("prim_address_2_new_val").style.display = "None";
-                document.getElementById("cancel_prim_address_2").style.display = "None";
-                document.getElementById("save_prim_address_2").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-                document.getElementById("line_2_replace").focus();
-                alert("Changes made successfully");
-            });
-            $('#save_prim_city').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('prim_city_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "City";
-                    vfeildarray[2] = document.getElementById('prim_city_new_val').value
-                }
-                ajax_change_call(vfeildarray);
-                document.getElementById("city_replace").innerText = "City: "+document.getElementById('prim_city_new_val').value;
-                document.getElementById("prim_city_edit_div").style.display = "None";
-                document.getElementById("prim_city_new_val").style.display = "None";
-                document.getElementById("cancel_prim_city").style.display = "None";
-                document.getElementById("save_prim_city").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-                document.getElementById("city_replace").focus();
-                alert("Changes made successfully");
-            });
             $('#save_prim_zip').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_zip_new_val').value;
@@ -111,7 +67,7 @@
                 document.getElementById("prim_street_new_val").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("street_replace").focus();
+                document.getElementById("edit_prim_street").focus();
                 alert("Changes made successfully");
             });
             $('#save_pronouns').once().click(function () {
@@ -133,7 +89,7 @@
                 document.getElementById("save_pronouns").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("pronouns_replace").focus();
+                document.getElementById("edit_pronouns").focus();
 
                 alert("Changes made successfully");
             });
@@ -156,7 +112,7 @@
                 document.getElementById("save_dob").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("dob_replace").focus();
+                document.getElementById("edit_dob").focus();
                 alert("Changes made successfully");
             });
             $('#save_disability').once().click(function () {
@@ -178,7 +134,7 @@
                 document.getElementById("save_disability").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("disability_replace").focus();
+                document.getElementById("edit_disability").focus();
                 alert("Changes made successfully");
             });
 
@@ -285,7 +241,7 @@
                 document.getElementById("save_prim_phone").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("phone_replace").focus();
+                document.getElementById("edit_prim_phone").focus();
                 alert("Changes made successfully");
             });
             $('#save_prim_email').once().click(function () {
@@ -308,7 +264,7 @@
                 document.getElementById("save_prim_email").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("email_repalce").focus();
+                document.getElementById("edit_prim_email").focus();
                 alert("Changes made successfully");
 
             });
@@ -332,6 +288,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
                 document.getElementById("first_name_repalce").focus();
+                document.getElementById("edit_f_name").focus();
                 alert("Changes made successfully");
             });
             $('#save_l_name').once().click(function () {
@@ -354,7 +311,7 @@
                 document.getElementById("save_l_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("last_name_repalce").focus();
+                document.getElementById("edit_l_name").focus();
                 alert("Changes made successfully");
             });
             $('#edit_f_name').once().click(function () {
@@ -378,6 +335,7 @@
                     document.getElementById("f_name_new_val").value = "";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_f_name").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -403,6 +361,7 @@
                     document.getElementById("save_l_name").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_l_name").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -425,6 +384,7 @@
                     document.getElementById("save_braille").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_braille").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -447,6 +407,7 @@
                     document.getElementById("save_dog").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_dog").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -472,6 +433,7 @@
                     document.getElementById("save_prim_email").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_prim_email").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -497,7 +459,7 @@
                     document.getElementById("prim_phone_new_val").value = ""
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-
+                    document.getElementById("edit_prim_phone").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -561,6 +523,7 @@
                     document.getElementById("save_prim_zip").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_prim_street").focus();
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -587,7 +550,7 @@
                     document.getElementById("save_pronouns").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-
+                    document.getElementById("edit_pronouns").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -610,7 +573,7 @@
                     document.getElementById("save_dob").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-
+                    document.getElementById("edit_dob").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -636,6 +599,7 @@
                     document.getElementById("save_disability").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_disability").focus();
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -661,6 +625,7 @@
                     document.getElementById("save_blind").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_blind").focus()
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -686,6 +651,7 @@
                     document.getElementById("save_deaf").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_deaf").focus()
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -711,7 +677,7 @@
                     document.getElementById("save_gender").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-
+                    document.getElementById("edit_gender").focus();
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -736,6 +702,7 @@
                     document.getElementById("save_lang_pref").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
+                    document.getElementById("edit_lang_pref").focus();
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -887,6 +854,7 @@
                 document.getElementById("save_prim_phone").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById("edit_prim_phone").focus();
             });
             $('#cancel_prim_email').once().click(function () {
                 document.getElementById("prim_email_edit_div").style.display = "None";
@@ -895,6 +863,7 @@
                 document.getElementById("save_prim_email").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById("edit_prime_email").focus();
             });
             $('#cancel_l_name').once().click(function () {
                 document.getElementById("last_name_edit_div").style.display = "None";
@@ -903,6 +872,7 @@
                 document.getElementById("save_l_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById("edit_l_name").focus();
             });
             $('#cancel_f_name').once().click(function () {
                 document.getElementById("first_name_edit_div").style.display = "None";
@@ -911,6 +881,7 @@
                 document.getElementById("save_f_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
+                document.getElementById("edit_f_name").focus();
             });
             $('#prim_country_new_val').once().change(function ()
             {
