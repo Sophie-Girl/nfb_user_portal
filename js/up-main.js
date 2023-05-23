@@ -62,7 +62,7 @@
                 document.getElementById("line_2_replace").innerText = "Street Address Line 2: "+document.getElementById('prim_address_2_new_val').value;
                 document.getElementById("prim_address_2_edit_div").style.display = "None";
                 document.getElementById("prim_address_2_new_val").style.display = "None";
-                document.getElementById("street_replace").innerText = "Street Address: "+document.getElementById('prim_street_new_val').value;
+                document.getElementById("street_replace").innerText = "Street Address Line 1: "+document.getElementById('prim_street_new_val').value;
                 document.getElementById("prim_street_edit_div").style.display = "None";
                 document.getElementById("prim_street_new_val").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
@@ -474,6 +474,7 @@
                     document.getElementById("prim_street_new_val_lab").style.display = "inline-block";
                     var text = document.getElementById("street_replace").innerText;
                     document.getElementById("prim_street_new_val").value = text.replace("Street Address Line 1: ", "");
+                    document.getElementById("prim_street_new_val").value = text.replace("Street Address: ", "");"
                     document.getElementById("prim_address_2_edit_div").style.display = "Block";
                     document.getElementById("prim_address_2_new_val").style.display = "Block";
                     document.getElementById("prim_address_2_new_val_lab").style.display = "inline-block";
@@ -492,6 +493,8 @@
                     document.getElementById("prim_zip_edit_div").style.display = "Block";
                     document.getElementById("prim_zip_new_val").style.display = "Block";
                     document.getElementById("prim_zip_new_val_lab").style.display = "inline-lock";
+                    document.getElementById("prim_zip_new_val").value = text.replace("ZIP / Postal
+                    Code: "", "");
                     var text = document.getElementById("postal_repalce").innerText;
                     document.getElementById("prim_zip_new_val").value = text;
                     document.getElementById("cancel_prim_zip").style.display = "inline-block";
