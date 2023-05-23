@@ -473,8 +473,8 @@
                     document.getElementById("prim_street_new_val").style.display = "Block";
                     document.getElementById("prim_street_new_val_lab").style.display = "inline-block";
                     var text = document.getElementById("street_replace").innerText;
-                    document.getElementById("prim_street_new_val").value = text.replace("Street Address Line 1: ", "");
-                    document.getElementById("prim_street_new_val").value = text.replace("Street Address: ", "");
+                    var text_check = text.replace("Street Address Line 1: ", "");
+                    document.getElementById("prim_street_new_val").value = text_check.replace("Street Address: ", "");
                     document.getElementById("prim_address_2_edit_div").style.display = "Block";
                     document.getElementById("prim_address_2_new_val").style.display = "Block";
                     document.getElementById("prim_address_2_new_val_lab").style.display = "inline-block";
