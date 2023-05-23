@@ -144,7 +144,7 @@ class user_civi extends user_base
     {
         $civi = new query_base();
         $civi->mode = "get";
-        $civi->entity = "Contact";
+        $civi->entity = "OptionValue";
         $civi->params = [
             'select' => [
                 '*',
