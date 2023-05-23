@@ -51,7 +51,7 @@
                     vfeildarray[7] = document.getElementById('prim_country_new_val').value;
                 }
                 ajax_change_call(vfeildarray);
-                document.getElementById("postal_repalce").innerText = "ZIP/Postal Code: "+document.getElementById('prim_zip_new_val').value;
+                document.getElementById("postal_repalce").innerText = document.getElementById('prim_zip_new_val').value;
                 document.getElementById("prim_zip_edit_div").style.display = "None";
                 document.getElementById("prim_zip_new_val").style.display = "None";
                 document.getElementById("city_replace").innerText = "City: "+document.getElementById('prim_city_new_val').value;
