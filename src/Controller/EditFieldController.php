@@ -390,6 +390,7 @@ class EditFieldController extends ControllerBase
                         ['id', '=', $data[0]],
                     ],
                     'limit' => 25,
+                    'checkPermissions' => FALSE,
                 ];
                 $civi->civi_api_v4_query();
                 $result = $civi->get_civi_result();

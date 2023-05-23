@@ -85,6 +85,7 @@ class user_civi extends user_base
         $civi->params = array(
             'select' => [
                 'first_name',
+                'preferred_language',
                 'last_name',
                 'birth_date',
                 'gender_id:label',
@@ -110,6 +111,7 @@ class user_civi extends user_base
             $this->is_blind = "No";
         }
         $this->preferred_language = $contact['preferred_language'];
+        $this->prefered_lang_changeover();
         $this->deaf = $contact['Medical_Issues.Is_Deaf'];
         if($this->get_deaf() == "1")
         {
@@ -137,6 +139,28 @@ class user_civi extends user_base
         $this->ethnicity = $contact['Individual_s_Information.Race_Ethnicity'];
         $this->media_type = $contact['Media_Preference.Media_Preference'];
         $civi = null;
+    }
+    public function prefered_lang_changeover()
+    {
+        $civi = new query_base();
+        $civi->mode = "get";
+        $civi->entity = "Contact";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['option_group_id', '=', 50],
+                ['name', '=', $this->get_preferred_language()],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $gp  = $result->first();
+        $this->preferred_language = $gp['label'];
+
     }
     public function email_set()
     {
