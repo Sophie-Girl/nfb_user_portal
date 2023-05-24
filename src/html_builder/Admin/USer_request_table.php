@@ -6,67 +6,104 @@ use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 class USer_request_table extends User_request_activate
 {
     public $sql;
+
     public function __construct()
     {
         $this->sql = new User_request_queries;
     }
+
     public $last_id;
+
     public function get_last_id()
     {
         return $this->last_id;
     }
+
     public $markup;
+
     public function get_markup()
     {
         return $this->markup;
     }
+
     public $limiter;
+
     public function get_limiter()
-    {return $this->limiter;}
+    {
+        return $this->limiter;
+    }
+
     public $page_need;
+
     public function get_page_need()
-    {return $this->page_need;}
+    {
+        return $this->page_need;
+    }
+
     public $page_max_id;
+
     public function get_page_max_id()
-    {return $this->page_max_id;}
+    {
+        return $this->page_max_id;
+    }
+
     public $first_id;
+
     public function get_first_id()
-    {return $this->first_id;}
+    {
+        return $this->first_id;
+    }
 
     public function build_form(&$form, FormStateInterface $form_state)
     {
 
     }
+
     public function search_form_submissions()
     {
         $this->start_of_page();
         $sql_result = $this->initial_query();
-
+        $this->foreach_loop_for_initial($sql_result);
 
     }
+
     public function start_of_page()
     {
         $this->markup = "<p tabindex='0'>Bellow are submissions form the ENw member Form, and Member at Large form. From here you can approve a member request if there is no issue 
 or review an issue with a potential account.</p>
  <table>
- <tr><th class='t_header'>Request ID</th><th class='t_header'>Civi Contact ID</th><th class='t_header'>Status</th><th class='t_header'>Comments</th></tr>";
+ <tr><th class='t_header'>Request ID</th><th class='t_header'>Civi Contact ID</th><th class='t_header'>Status</th><th class='t_header'>Comments</th><th class='t_header'>Process</th></tr>";
 
     }
+
     public function foreach_loop_for_initial($sql_result)
     {
-        $first_id = null; $count = 0;
-        foreach ( $sql_result as $result) {
+        $first_id = null;
+        $count = 0;
+        foreach ($sql_result as $result) {
             $result = get_object_vars($result);
             if ($count == 0) {
                 $this->last_id = $result['rid'];
             }
             if ($this->limiter == "1") {
-
+                $this->build_row($result);
             }
             $count++;
+
         }
 
     }
+
+    public function find_page_need()
+    {
+        $page_need = $this->get_last_id() / 50;
+        if (ctype_digit((string)$page_need)) {
+            $this->page_need = $page_need;
+        } else {
+            $this->page_need = ceil($page_need);
+        }
+    }
+
     public function initial_query()
     {
         $query = "Select * from nfb_user_portal_user_request order by rid desc limit 50;";
@@ -76,4 +113,49 @@ or review an issue with a potential account.</p>
         return $sql_result;
     }
 
+    public function build_row($result)
+    {
+        $this->markup = $this->get_markup() . "<tr><td>" . $result['rid'] . "</td>
+<td>" . $result['civi_contact_id'] . "</td><td>" . $result['status'] . "</td><td>" . $result['comment'] . "</td><td>&nbsp;&nbsp;&nbsp;<a href='/member_rpfoile_admin.chest' class=''>&nbsp;&nbsp;&nbsp;Process&nbsp;&nbsp;&nbsp;</a></td></tr>";
+    }
+
+
+    public function get_current_max_id()
+    {
+        $multiple = $this->get_limiter() - 1;
+        $subtractor = $multiple * 50;
+        $max_id = $this->get_last_id() - $subtractor;
+        $this->page_max_id = $max_id;
+    }
+
+    public function additional_page_query()
+    {
+        $query = "Select * from nfb_contribution_submission where sub_id <= '" . $this->get_page_max_id() . "' order by sub_id desc limit 50;";
+        $key = "sub_id";
+
+        $sql_result = $this->database->query($query)->fetchAllAssoc($key);
+        foreach ($sql_result as $result) {
+            $result = get_object_vars($result);
+            $sub_array = get_object_vars(json_decode($result['form_submission_values']));
+            $this->build_row($result, $sub_array);
+        }
+    }
+
+    public function paging_markup()
+    {
+        $page = 1;
+        $this->markup = $this->get_markup() . "<tr class='nfb-t-header'></tr></table>
+    <p><a href='/nfb_contribution/admin/submissions/1' class='view_button' role='button'>&nbsp;&nbsp;First&nbsp;&nbsp;</a> " . $this->paging_links($page) . " <a href='/nfb_contribution/admin/submissions/" . $this->get_page_need() . "' class='view_button' role='button'>&nbsp;&nbsp;Last&nbsp;&nbsp;</a></p>";
+
+    }
+
+    public function paging_links($page)
+    {
+        $pager = '';
+        while ($page <= $this->get_page_need()) {
+            $pager = $pager . " <a href='/nfb_contribution/admin/submissions/" . $page . "' class='view_button' role='button'>&nbsp;&nbsp;" . $page . "&nbsp;&nbsp;</a>";
+            $page++;
+        }
+        return $pager;
+    }
 }

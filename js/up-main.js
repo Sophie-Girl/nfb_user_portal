@@ -51,6 +51,7 @@
                     vfeildarray[7] = document.getElementById('prim_country_new_val').value;
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_prim_street").focus();
                 document.getElementById("postal_repalce").innerText = document.getElementById('prim_zip_new_val').value;
                 document.getElementById("prim_zip_edit_div").style.display = "None";
                 document.getElementById("prim_zip_new_val").style.display = "None";
@@ -67,7 +68,6 @@
                 document.getElementById("prim_street_new_val").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_prim_street").focus();
                 alert("Changes made successfully");
             });
             $('#save_pronouns').once().click(function () {
@@ -82,6 +82,7 @@
                     vfeildarray[2] = document.getElementById('pronouns_new_val').value
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_pronouns").focus();
                 document.getElementById("pronouns_replace").innerText = "Pronouns: "+document.getElementById('pronouns_new_val').value;
                 document.getElementById("pronouns_edit_div").style.display = "None";
                 document.getElementById("pronouns_new_val").style.display = "None";
@@ -89,8 +90,6 @@
                 document.getElementById("save_pronouns").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_pronouns").focus();
-
                 alert("Changes made successfully");
             });
             $('#save_dob').once().click(function () {
@@ -105,6 +104,7 @@
                     vfeildarray[2] = document.getElementById('dob_new_val').value
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_dob").focus();
                 document.getElementById("dob_replace").innerText = "Date of Birth: "+document.getElementById('dob_new_val').value;
                 document.getElementById("dob_edit_div").style.display = "None";
                 document.getElementById("dob_new_val").style.display = "None";
@@ -112,7 +112,7 @@
                 document.getElementById("save_dob").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_dob").focus();
+
                 alert("Changes made successfully");
             });
             $('#save_disability').once().click(function () {
@@ -127,6 +127,7 @@
                     vfeildarray[2] = document.getElementById('disability_new_val').value
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_disability").focus();
                 document.getElementById("disability_replace").innerText = "Other Disability: "+document.getElementById('disability_new_val').value;
                 document.getElementById("disability_edit_div").style.display = "None";
                 document.getElementById("disability_new_val").style.display = "None";
@@ -134,7 +135,7 @@
                 document.getElementById("save_disability").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_disability").focus();
+
                 alert("Changes made successfully");
             });
 
@@ -234,6 +235,7 @@
                     vfeildarray[2] = document.getElementById('prim_phone_new_val').value
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_prim_phone").focus();
                 document.getElementById("phone_replace").innerText = "Phone: "+document.getElementById('prim_phone_new_val').value;
                 document.getElementById("prim_phone_edit_div").style.display = "None";
                 document.getElementById("prim_phone_new_val").style.display = "None";
@@ -241,7 +243,6 @@
                 document.getElementById("save_prim_phone").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_prim_phone").focus();
                 alert("Changes made successfully");
             });
             $('#save_prim_email').once().click(function () {
@@ -257,6 +258,7 @@
 
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_prim_email").focus();
                 document.getElementById("email_repalce").innerText = "Email: "+document.getElementById('prim_email_new_val').value;
                 document.getElementById("prim_email_edit_div").style.display = "None";
                 document.getElementById("prim_email_new_val").style.display = "None";
@@ -264,7 +266,7 @@
                 document.getElementById("save_prim_email").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_prim_email").focus();
+
                 alert("Changes made successfully");
 
             });
@@ -280,6 +282,7 @@
                     vfeildarray[2] = document.getElementById('f_name_new_val').value;
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_f_name").focus();
                 document.getElementById("first_name_repalce").innerText = "First Name: "+document.getElementById('f_name_new_val').value;
                 document.getElementById("first_name_edit_div").style.display = "None";
                 document.getElementById("f_name_new_val").style.display = "None";
@@ -289,7 +292,7 @@
                 document.getElementById("open_field").innerText = "None";
                 document.getElementById("first_name_repalce").focus();
                 alert("Changes made successfully");
-                document.getElementById("edit_f_name").focus();
+
 
             });
             $('#save_l_name').once().click(function () {
@@ -305,6 +308,7 @@
 
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("edit_l_name").focus();
                 document.getElementById("last_name_repalce").innerText = "Last Name: "+document.getElementById('l_name_new_val').value;
                 document.getElementById("last_name_edit_div").style.display = "None";
                 document.getElementById("l_name_new_val").style.display = "None";
@@ -312,7 +316,7 @@
                 document.getElementById("save_l_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_l_name").focus();
+
                 alert("Changes made successfully");
             });
             $('#edit_f_name').once().click(function () {
@@ -329,6 +333,7 @@
                     document.getElementById("f_name_new_val").value = text.replace("First Name: ", "");
                     document.getElementById("f_name_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "First Name") {
+                    document.getElementById("edit_f_name").focus();
                     document.getElementById("first_name_edit_div").style.display = "None";
                     document.getElementById("f_name_new_val").style.display = "None";
                     document.getElementById("cancel_f_name").style.display = "None";
@@ -336,7 +341,7 @@
                     document.getElementById("f_name_new_val").value = "";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_f_name").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -355,6 +360,7 @@
                     document.getElementById("l_name_new_val").value = text.replace("Last Name: ", "");
                     document.getElementById("l_name_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Last Name") {
+                    document.getElementById("edit_l_name").focus();
                     document.getElementById("last_name_edit_div").style.display = "None";
                     document.getElementById("l_name_new_val").style.display = "None";
                     document.getElementById("l_name_new_val").value = "";
@@ -362,7 +368,7 @@
                     document.getElementById("save_l_name").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_l_name").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -379,13 +385,14 @@
                     document.getElementById("open_field").innerText = "Braille Reader";
                     document.getElementById("braille_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Braille Reader") {
+                    document.getElementById("edit_braille").focus();
                     document.getElementById("braille_edit_div").style.display = "None";
                     document.getElementById("braille_new_val").style.display = "None";
                     document.getElementById("cancel_braille").style.display = "None";
                     document.getElementById("save_braille").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_braille").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -402,13 +409,14 @@
                     document.getElementById("open_field").innerText = "Guide Dog User";
                     document.getElementById("dog_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Guide Dog User") {
+                    document.getElementById("edit_dog").focus();
                     document.getElementById("dog_edit_div").style.display = "None";
                     document.getElementById("dog_new_val").style.display = "None";
                     document.getElementById("cancel_dog").style.display = "None";
                     document.getElementById("save_dog").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_dog").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -427,6 +435,7 @@
                     document.getElementById("prim_email_new_val").value = text.replace("Email: ", "");
                     document.getElementById("prim_email_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Email") {
+                    document.getElementById("edit_prim_email").focus();
                     document.getElementById("prim_email_edit_div").style.display = "None";
                     document.getElementById("prim_email_new_val").style.display = "None";
                     document.getElementById("prim_email_new_val").value = "";
@@ -434,7 +443,7 @@
                     document.getElementById("save_prim_email").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_prim_email").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -453,6 +462,7 @@
                     document.getElementById("prim_phone_new_val").value = text.replace("Phone: ", "");
                     document.getElementById("prim_phone_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Phone") {
+                    document.getElementById("edit_prim_phone").focus();
                     document.getElementById("prim_phone_edit_div").style.display = "None";
                     document.getElementById("prim_phone_new_val").style.display = "None";
                     document.getElementById("cancel_prim_phone").style.display = "None";
@@ -460,7 +470,7 @@
                     document.getElementById("prim_phone_new_val").value = ""
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_prim_phone").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -501,6 +511,7 @@
                     document.getElementById("open_field").innerText = "Street Address";
                     document.getElementById("prim_street_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Street Address") {
+                    document.getElementById("edit_prim_street").focus();
                     document.getElementById("prim_street_edit_div").style.display = "None";
                     document.getElementById("prim_street_new_val").style.display = "None";
                     document.getElementById("prim_street_new_val").value = "";
@@ -525,7 +536,7 @@
                     document.getElementById("save_prim_zip").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_prim_street").focus();
+
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -545,6 +556,7 @@
                     document.getElementById("pronouns_new_val").value = text.replace("Pronouns: ", "");
                     document.getElementById("pronouns_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Pronouns") {
+                    document.getElementById("edit_pronouns").focus();
                     document.getElementById("pronouns_edit_div").style.display = "None";
                     document.getElementById("pronouns_new_val").style.display = "None";
                     document.getElementById("pronouns_new_val").value = "";
@@ -552,7 +564,7 @@
                     document.getElementById("save_pronouns").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_pronouns").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -569,13 +581,14 @@
                     document.getElementById("open_field").innerText = "Date of Birth";
                     document.getElementById("dob_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Date of Birth") {
+                    document.getElementById("edit_dob").focus();
                     document.getElementById("dob_edit_div").style.display = "None";
                     document.getElementById("dob_new_val").style.display = "None";
                     document.getElementById("cancel_dob").style.display = "None";
                     document.getElementById("save_dob").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_dob").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -594,6 +607,7 @@
                     document.getElementById("open_field").innerText = "disability";
                     document.getElementById("disability_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "disability") {
+                    document.getElementById("edit_disability").focus();
                     document.getElementById("disability_edit_div").style.display = "None";
                     document.getElementById("disability_new_val").style.display = "None";
                     document.getElementById("disability_new_val").value = "";
@@ -601,7 +615,7 @@
                     document.getElementById("save_disability").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_disability").focus();
+
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -620,6 +634,7 @@
                     document.getElementById("open_field").innerText = "blindness status";
                     document.getElementById("blind_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "blindness status") {
+                    document.getElementById("edit_blind").focus()
                     document.getElementById("blind_edit_div").style.display = "None";
                     document.getElementById("blind_new_val").style.display = "None";
                     document.getElementById("blind_new_val_lab").style.display = "None";
@@ -627,7 +642,7 @@
                     document.getElementById("save_blind").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_blind").focus()
+
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -646,6 +661,7 @@
                     document.getElementById("open_field").innerText = "deaf blind status";
                     document.getElementById("deaf_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "deaf blind status") {
+                    document.getElementById("edit_deaf").focus()
                     document.getElementById("deaf_edit_div").style.display = "None";
                     document.getElementById("deaf_new_val").style.display = "None";
                     document.getElementById("deaf_new_val_lab").style.display = "None";
@@ -653,7 +669,7 @@
                     document.getElementById("save_deaf").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_deaf").focus()
+
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -672,6 +688,7 @@
                     document.getElementById("open_field").innerText = "gender";
                     document.getElementById("gender_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "gender") {
+                    document.getElementById("edit_gender").focus();
                     document.getElementById("gender_edit_div").style.display = "None";
                     document.getElementById("gender_new_val").style.display = "None";
                     document.getElementById("gender_new_val_lab").style.display = "None";
@@ -679,7 +696,7 @@
                     document.getElementById("save_gender").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_gender").focus();
+
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
@@ -697,6 +714,7 @@
                     document.getElementById("open_field").innerText = "language preference";
                     document.getElementById("lang_pref_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "language preference") {
+                    document.getElementById("edit_lang_pref").focus();
                     document.getElementById("lang_pref_edit_div").style.display = "None";
                     document.getElementById("lang_pref_new_val").style.display = "None";
                     document.getElementById("lang_pref_new_val_lab").style.display = "None";
@@ -704,7 +722,7 @@
                     document.getElementById("save_lang_pref").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_lang_pref").focus();
+
 
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
@@ -723,6 +741,7 @@
                     document.getElementById("open_field").innerText = "Media preference";
                     document.getElementById("media_type_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Media preference") {
+                    document.getElementById("edit_media_type").focus();
                     document.getElementById("media_type_edit_div").style.display = "None";
                     document.getElementById("media_type_new_val").style.display = "None";
                     document.getElementById("media_type_new_val_lab").style.display = "None";
@@ -736,6 +755,7 @@
                 }
             });
             $('#cancel_media_type').once().click(function () {
+                document.getElementById("edit_media_type").focus();
                 document.getElementById("media_type_edit_div").style.display = "None";
                 document.getElementById("media_type_new_val").style.display = "None";
                 document.getElementById("cancel_media_type").style.display = "None";
@@ -745,6 +765,7 @@
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_dog').once().click(function () {
+                document.getElementById("edit_dog").focus();
                 document.getElementById("dog_edit_div").style.display = "None";
                 document.getElementById("dog_new_val").style.display = "None";
                 document.getElementById("cancel_dog").style.display = "None";
@@ -754,6 +775,7 @@
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_braille').once().click(function () {
+                document.getElementById("edit_braille").focus();
                 document.getElementById("braille_edit_div").style.display = "None";
                 document.getElementById("braille_new_val").style.display = "None";
                 document.getElementById("cancel_braille").style.display = "None";
@@ -763,6 +785,7 @@
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_blind').once().click(function () {
+                document.getElementById("edit_blind").focus();
                 document.getElementById("blind_edit_div").style.display = "None";
                 document.getElementById("blind_new_val").style.display = "None";
                 document.getElementById("cancel_blind").style.display = "None";
@@ -772,6 +795,7 @@
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_deaf').once().click(function () {
+                document.getElementById("edit_deaf").focus();
                 document.getElementById("deaf_edit_div").style.display = "None";
                 document.getElementById("deaf_new_val").style.display = "None";
                 document.getElementById("cancel_deaf").style.display = "None";
@@ -781,6 +805,7 @@
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_gender').once().click(function () {
+                document.getElementById("edit_gender").focus();
                 document.getElementById("gender_edit_div").style.display = "None";
                 document.getElementById("gender_new_val").style.display = "None";
                 document.getElementById("cancel_gender").style.display = "None";
@@ -799,6 +824,7 @@
                 document.getElementById("open_field").innerText = "None";
             });
             $('#cancel_disability').once().click(function () {
+                document.getElementById("edit_disability").focus();
                 document.getElementById("disability_edit_div").style.display = "None";
                 document.getElementById("disability_new_val").style.display = "None";
                 document.getElementById("cancel_disability").style.display = "None";
@@ -808,24 +834,27 @@
                 document.getElementById("edit_disability").focus();
             });
             $('#cancel_pronouns').once().click(function () {
+                document.getElementById("edit_pronouns").focus();
                 document.getElementById("pronouns_edit_div").style.display = "None";
                 document.getElementById("pronouns_new_val").style.display = "None";
                 document.getElementById("cancel_pronouns").style.display = "None";
                 document.getElementById("save_pronouns").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_pronouns").focus();
+
             });
             $('#cancel_dob').once().click(function () {
+                document.getElementById('edit_dob').focus();
                 document.getElementById("dob_edit_div").style.display = "None";
                 document.getElementById("dob_new_val").style.display = "None";
                 document.getElementById("cancel_dob").style.display = "None";
                 document.getElementById("save_dob").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById('edit_dob').focus();
+
             });
             $('#cancel_prim_zip').once().click(function () {
+                document.getElementById('edit_prim_street').focus();
                 document.getElementById("prim_zip_edit_div").style.display = "None";
                 document.getElementById("prim_zip_new_val").style.display = "None";
                 document.getElementById("prim_zip_new_val_lab").style.display = "None";
@@ -846,44 +875,48 @@
                 document.getElementById("prim_country_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById('edit_prim_street').focus();
+
             });
 
             $('#cancel_prim_phone').once().click(function () {
+                document.getElementById("edit_prim_phone").focus();
                 document.getElementById("prim_phone_edit_div").style.display = "None";
                 document.getElementById("prim_phone_new_val").style.display = "None";
                 document.getElementById("cancel_prim_phone").style.display = "None";
                 document.getElementById("save_prim_phone").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_prim_phone").focus();
+
             });
             $('#cancel_prim_email').once().click(function () {
+                document.getElementById("edit_prim_email").focus();
                 document.getElementById("prim_email_edit_div").style.display = "None";
                 document.getElementById("prim_email_new_val").style.display = "None";
                 document.getElementById("cancel_prim_email").style.display = "None";
                 document.getElementById("save_prim_email").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_prim_email").focus();
+
             });
             $('#cancel_l_name').once().click(function () {
+                document.getElementById("edit_l_name").focus();
                 document.getElementById("last_name_edit_div").style.display = "None";
                 document.getElementById("l_name_new_val").style.display = "None";
                 document.getElementById("cancel_l_name").style.display = "None";
                 document.getElementById("save_l_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_l_name").focus();
+
             });
             $('#cancel_f_name').once().click(function () {
+                document.getElementById("edit_f_name").focus();
                 document.getElementById("first_name_edit_div").style.display = "None";
                 document.getElementById("f_name_new_val").style.display = "None";
                 document.getElementById("cancel_f_name").style.display = "None";
                 document.getElementById("save_f_name").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-                document.getElementById("edit_f_name").focus();
+
             });
             $('#prim_country_new_val').once().change(function ()
             {
@@ -926,6 +959,7 @@
                 }
                 else if(vfeildarray[1] == "gender")
                 {
+                    document.getElementById("eidt_gender").focus();
                     document.getElementById("gender_change").innerText = "Gender: "+info[0];
                     document.getElementById("gender_edit_div").style.display = "None";
                     document.getElementById("gender_new_val").style.display = "None";
@@ -934,10 +968,11 @@
                     document.getElementById("save_gender").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("eidt_gender").focus();
+
                 }
                 else if(vfeildarray[1] == "blind")
                 {
+                    document.getElementById("edit_blind").focus();
                     document.getElementById("blind_replace").innerText = "Blindness Status: "+info[0];
                     document.getElementById("blind_edit_div").style.display = "None";
                     document.getElementById("blind_new_val").style.display = "None";
@@ -946,11 +981,12 @@
                     document.getElementById("save_blind").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_blind").focus();
+
 
                 }
                 else if(vfeildarray[1] == "deaf")
                 {
+                    document.getElementById("edit_deaf").focus();
                     document.getElementById("deaf_replace").innerText = "Deafblind Status: "+info[0];
                     document.getElementById("deaf_edit_div").style.display = "None";
                     document.getElementById("deaf_new_val").style.display = "None";
@@ -959,10 +995,11 @@
                     document.getElementById("save_deaf").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_deaf").focus();
+
                 }
                 else if(vfeildarray[1]  == "media")
                 {
+                    document.getElementById("edit_media_pref").focus();
                     document.getElementById("media_replace").innerText = "Media Preference: "+info[0];
                     document.getElementById("media_type_edit_div").style.display = "None";
                     document.getElementById("media_type_new_val").style.display = "None";
@@ -971,10 +1008,11 @@
                     document.getElementById("save_media_type").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_media_pref").focus();
+
                 }
                 else if(vfeildarray[1]  == "braille")
                 {
+                    document.getElementById("edit_braille").focus();
                     document.getElementById("braille_replace").innerText = "Braille Reader? "+info[0];
                     document.getElementById("braille_edit_div").style.display = "None";
                     document.getElementById("braille_new_val").style.display = "None";
@@ -982,10 +1020,11 @@
                     document.getElementById("save_braille").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_braille").focus();
+
                 }
                 else if(vfeildarray[1]  == "dog")
                 {
+                    document.getElementById("edit_dog").focus();
                     document.getElementById("dog_replace").innerText = "Guide Dog Handler? "+info[0];
                     document.getElementById("dog_edit_div").style.display = "None";
                     document.getElementById("dog_new_val").style.display = "None";
@@ -993,7 +1032,7 @@
                     document.getElementById("save_dog").style.display = "None";
                     document.getElementById("edit_open").innerText = "Not Open";
                     document.getElementById("open_field").innerText = "None";
-                    document.getElementById("edit_dog").focus();
+
                 }
             });
 

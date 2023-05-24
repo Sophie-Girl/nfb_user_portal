@@ -6,11 +6,15 @@ class FaqTabForm extends FormBase
 {
     public function getFormId()
     {
-        // TODO: Implement getFormId() method.
+       return "user_login_faq";
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
-        // TODO: Implement buildForm() method.
+        $form['faq_text'] = array(
+          '#type' => 'item',
+          '#markup' => "<p>This is a place holder</p>"
+        );
+        return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
