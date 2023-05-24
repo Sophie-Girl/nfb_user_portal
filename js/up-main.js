@@ -755,7 +755,7 @@
                 }
             });
             $('#cancel_media_type').once().click(function () {
-                document.getElementById("edit_media_type").focus();
+                document.getElementById("edit_media_pref").focus();
                 document.getElementById("media_type_edit_div").style.display = "None";
                 document.getElementById("media_type_new_val").style.display = "None";
                 document.getElementById("cancel_media_type").style.display = "None";
