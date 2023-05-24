@@ -741,7 +741,7 @@
                     document.getElementById("open_field").innerText = "Media preference";
                     document.getElementById("media_type_new_val").focus();
                 } else if (editstatus == "Open" && openfeild == "Media preference") {
-                    document.getElementById("edit_media_type").focus();
+                    document.getElementById("edit_media_pref").focus();
                     document.getElementById("media_type_edit_div").style.display = "None";
                     document.getElementById("media_type_new_val").style.display = "None";
                     document.getElementById("media_type_new_val_lab").style.display = "None";
