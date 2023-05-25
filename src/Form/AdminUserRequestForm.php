@@ -2,18 +2,24 @@
 Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\nfb_user_portal\html_builder\Admin\USer_request_table;
 class AdminUserRequestForm extends FormBase
 {
+    public $table_builder;
     public function getFormId()
     {
-        // TODO: Implement getFormId() method.
+       return "nfb_user_admin_u_request";
     }
+    public function buildForm(array $form, FormStateInterface $form_state, $limiter = '1')
+    {
+        $this->table_builder = new USer_request_table();
+        $this->table_builder->build_form($form, $form_state, $limiter);
+        return $form;
+    }
+
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
         // TODO: Implement submitForm() method.
     }
-    public function buildForm(array $form, FormStateInterface $form_state)
-    {
-        // TODO: Implement buildForm() method.
-    }
+
 }
