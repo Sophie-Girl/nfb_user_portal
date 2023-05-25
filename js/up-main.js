@@ -516,9 +516,10 @@
                     document.getElementById("prim_zip_new_val_lab").style.display = "block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Street Address";
+                    var ms = 1;
+                    sleep(ms);
                     document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                     document.getElementById("prim_street_new_val").focus();
-                    document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                     console.log("inner state: "+ document.getElementById("state_val").innerText);
                 } else if (editstatus == "Open" && openfeild == "Street Address") {
                     document.getElementById("edit_prim_street").focus();
@@ -1084,6 +1085,9 @@ function replace_title()
    header[0].innerText = "Member: "+document.getElementById("member_name").innerText;}
    else {   header = document.getElementsByClassName("page-title");
        header[0].innerText ="Member: "+document.getElementById("member_name").innerText;}
+}
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 function replace_old_value(lab_id, new_val)
 {
