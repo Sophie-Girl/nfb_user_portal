@@ -511,6 +511,7 @@
                     document.getElementById("prim_zip_new_val").value = text;
                     document.getElementById("cancel_prim_zip").style.display = "inline-block";
                     document.getElementById("save_prim_zip").style.display = "inline-block";
+                    document.getElementById("prim_zip_new_val_lab").style.display = "block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Street Address";
                     document.getElementById("prim_street_new_val").focus();
@@ -534,6 +535,7 @@
                     document.getElementById("prim_country_new_val_lab").style.display = "None";
                     document.getElementById("prim_zip_edit_div").style.display = "None";
                     document.getElementById("prim_zip_new_val").style.display = "None";
+                    document.getElementById("prim_zip_new_val_lab").style.display = "None";
                     document.getElementById("prim_state_new_val").value = "";
                     document.getElementById("prim_zip_new_val").style.display = "None";
                     document.getElementById("cancel_prim_zip").style.display = "None";
