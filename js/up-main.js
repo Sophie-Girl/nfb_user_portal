@@ -516,8 +516,10 @@
                     document.getElementById("prim_zip_new_val_lab").style.display = "block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Street Address";
+                    document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                     document.getElementById("prim_street_new_val").focus();
                     document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
+                    console.log("inner state: "+ document.getElementById("state_val").innerText;)
                 } else if (editstatus == "Open" && openfeild == "Street Address") {
                     document.getElementById("edit_prim_street").focus();
                     document.getElementById("prim_street_edit_div").style.display = "None";
