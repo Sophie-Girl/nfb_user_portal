@@ -552,7 +552,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#prim_street_new_val').once().onblur(function ()
+            $('#prim_street_new_val').once().blur(function ()
                 {
                     document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                 }
