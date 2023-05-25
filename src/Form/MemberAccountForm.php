@@ -16,6 +16,8 @@ class MemberAccountForm extends FormBase
     public function buildForm(array $form, FormStateInterface $form_state)
     {
         $page_builder = new core_markup();
+        $page_builder->user_data->set_user_data();
+        $page_builder->user_data->set_civi_useR_data();
         $form['vals'] = array(
           '#type' => 'item',
           '#markup' => "<p class='hidden_val' id='yoshi'>".\Drupal::currentUser()->getAccountName()."</p>
