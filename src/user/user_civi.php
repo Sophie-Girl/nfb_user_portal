@@ -100,7 +100,6 @@ class user_civi extends user_base
         $civi->civi_api_v4_query();
         $contact = $civi->get_civi_result();
         $contact = $contact->first();
-        \Drupal::logger("check_the_vibe")->notice("results has pref lang at: ".$contact['preferred_language']);
         $this->first_name = $contact['first_name'];
         $this->last_name = $contact['last_name'];
         $this->dob = $contact['birth_date'];
@@ -181,7 +180,6 @@ class user_civi extends user_base
         );
         $civi->civi_api_v4_query();
         $email =  $civi->get_civi_result();
-        \Drupal::logger("interesting")->notice("contact ".print_r($email, true));
         $email = $email->first();
         $this->prime_email = $email['email'];
         $civi = null;
@@ -232,7 +230,6 @@ class user_civi extends user_base
         $civi->civi_api_v4_query();
         $address =  $civi->get_civi_result();
         $address = $address->first();
-        \Drupal::logger("country_lol")->notice("address ".print_r($address, true));
         $this->prime_street = $address['street_address'];
         $this->prime_line_2 = $address['supplemental_address_1'];
         $this->prime_city = $address['city'];
