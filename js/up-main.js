@@ -500,6 +500,8 @@
                     document.getElementById("prim_country_new_val").value = document.getElementById("country_val").innerText;
                     document.getElementById("prim_state_edit_div").style.display = "Block";
                     document.getElementById("prim_state_new_val").style.display = "Block";
+                    var vcountry = document.getElementById("prim_country_new_val").value;
+                    ajax_change_state_call(vcountry);
                     document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                     document.getElementById("prim_state_new_val_lab").style.display = "inline-block";
                     document.getElementById("prim_country_new_val_lab").style.display = "inline-block";
