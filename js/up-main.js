@@ -51,6 +51,8 @@
                     vfeildarray[7] = document.getElementById('prim_country_new_val').value;
                 }
                 ajax_change_call(vfeildarray);
+                document.getElementById("state_val").innerText =  document.getElementById('prim_state_new_val').value;
+                document.getElementById("country_val").innerText = document.getElementById('prim_country_new_val').value;
                 document.getElementById("edit_prim_street").focus();
                 document.getElementById("postal_repalce").innerText = document.getElementById('prim_zip_new_val').value;
                 document.getElementById("prim_zip_edit_div").style.display = "None";
@@ -495,8 +497,10 @@
                     document.getElementById("prim_city_new_val_lab").style.display = "inline-block";
                     var text = document.getElementById("city_replace").innerText;
                     document.getElementById("prim_city_new_val").value = text.replace("City: ", "");
+                    document.getElementById("prim_country_new_val").value = document.getElementById("country_val").innerText;
                     document.getElementById("prim_state_edit_div").style.display = "Block";
                     document.getElementById("prim_state_new_val").style.display = "Block";
+                    document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                     document.getElementById("prim_state_new_val_lab").style.display = "inline-block";
                     document.getElementById("prim_country_new_val_lab").style.display = "inline-block";
                     document.getElementById("prim_country_new_val").style.display = "Block";

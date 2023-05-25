@@ -27,6 +27,8 @@ class core_markup
  Review information in your profile, membership, FAQs, and more. Thank you for your active participation in the organized blind movement.
 <br> <br>
 To update your contact or demographic information, navigate to the appropriate field and select Edit. Enter the correct information (or select it from the menu) and select Save. Once you select Edit, you must Cancel or Save before editing another field.</p>
+<p class='hidden_val' id='state_val'>".$this->user_data->get_prim_state_id()."</p>
+<p class='hidden_val' id='country_val'>".$this->user_data->get_prim_country_id()."</p>
 <p class='hidden_val' tabindex='0' id='user_id_val'>".\Drupal::currentUser()->getAccount()->id()."</p>
 <p class='hidden_val' tabindex='0' id = 'civi_id_val'>".$this->user_data->get_user_civi_id()."</p>
 <p class='hidden_val' tabindex='0' id = 'user_name_val'>".\Drupal::currentUser()->getAccountName()."</p>

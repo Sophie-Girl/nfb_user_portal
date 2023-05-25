@@ -27,12 +27,23 @@ class user_civi extends user_base
     public $prime_state;
     public function get_prime_state()
     {return $this->prime_state;}
+    public  $prim_state_id;
+    public function get_prim_state_id()
+    {
+        return $this->prim_state_id;
+    }
     public $prime_zip;
+
     public function get_prime_zip()
     {return $this->prime_zip;}
     public $prime_country;
     public function get_prime_country()
     {return $this->prime_country;}
+    public $prim_country_id;
+    public function get_prim_country_id()
+    {
+        return $this->prim_country_id;
+    }
     public  $dob;
     public function get_dob()
     {return $this->dob;}
@@ -219,6 +230,8 @@ class user_civi extends user_base
                 'state_province_id:label',
                 'country_id:label',
                 'postal_code',
+                'country_id',
+                'state_province_id',
             ],
             'where' => [
                 ['contact_id', '=', $this->get_user_civi_id()],
@@ -234,7 +247,9 @@ class user_civi extends user_base
         $this->prime_line_2 = $address['supplemental_address_1'];
         $this->prime_city = $address['city'];
         $this->prime_state = $address['state_province_id:label'];
+        $this->prim_state_id = $address['state_province_id'];
         $this->prime_country = $address['country_id:label'];
+        $this->prim_country_id = $address['country_id'];
         $this->prime_zip = $address['postal_code'];
         $civi = null;
     }
