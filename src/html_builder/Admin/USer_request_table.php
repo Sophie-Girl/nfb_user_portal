@@ -54,9 +54,14 @@ class USer_request_table extends User_request_activate
         return $this->first_id;
     }
 
-    public function build_form(&$form, FormStateInterface $form_state)
+    public function build_form(&$form, FormStateInterface $form_state, $limiter)
     {
-
+        $this->limiter = $limiter;
+        $this->search_form_submissions();
+        $form['sub_table'] = array(
+          '#type' => 'item',
+          '#markup' => $this->get_markup(),
+        );
     }
 
     public function search_form_submissions()
@@ -64,7 +69,6 @@ class USer_request_table extends User_request_activate
         $this->start_of_page();
         $sql_result = $this->initial_query();
         $this->foreach_loop_for_initial($sql_result);
-
     }
 
     public function start_of_page()
@@ -91,7 +95,23 @@ or review an issue with a potential account.</p>
             $count++;
 
         }
+        if($this->get_limiter() == 1)
+        {
+            $this->find_page_need();
+            $this->get_current_max_id();
+        }
+        if($this->get_limiter() != 1)
+        {
+            $this->establish_paging();
+        }
+        $this->end_table();
+        $this->paging_markup();
 
+    }
+    public function end_table()
+    {
+        $this->markup = $this->get_markup()."
+        </table>";
     }
 
     public function find_page_need()
@@ -130,7 +150,7 @@ or review an issue with a potential account.</p>
 
     public function additional_page_query()
     {
-        $query = "Select * from nfb_contribution_submission where sub_id <= '" . $this->get_page_max_id() . "' order by sub_id desc limit 50;";
+        $query = "Select * from nfb_user_portal_user_request where rid <= '" . $this->get_page_max_id() . "' order by sub_id desc limit 50;";
         $key = "sub_id";
 
         $sql_result = $this->database->query($query)->fetchAllAssoc($key);
@@ -145,7 +165,7 @@ or review an issue with a potential account.</p>
     {
         $page = 1;
         $this->markup = $this->get_markup() . "<tr class='nfb-t-header'></tr></table>
-    <p><a href='/nfb_contribution/admin/submissions/1' class='view_button' role='button'>&nbsp;&nbsp;First&nbsp;&nbsp;</a> " . $this->paging_links($page) . " <a href='/nfb_contribution/admin/submissions/" . $this->get_page_need() . "' class='view_button' role='button'>&nbsp;&nbsp;Last&nbsp;&nbsp;</a></p>";
+    <p><a href='/nfb_member/admin/user_requests/1' class='view_button' role='button'>&nbsp;&nbsp;First&nbsp;&nbsp;</a> " . $this->paging_links($page) . " <a href='/nfb_member/admin/user_requests/" . $this->get_page_need() . "' class='view_button' role='button'>&nbsp;&nbsp;Last&nbsp;&nbsp;</a></p>";
 
     }
 
@@ -153,7 +173,7 @@ or review an issue with a potential account.</p>
     {
         $pager = '';
         while ($page <= $this->get_page_need()) {
-            $pager = $pager . " <a href='/nfb_contribution/admin/submissions/" . $page . "' class='view_button' role='button'>&nbsp;&nbsp;" . $page . "&nbsp;&nbsp;</a>";
+            $pager = $pager . " <a href='/nfb_member/admin/user_requests/" . $page . "' class='view_button' role='button'>&nbsp;&nbsp;" . $page . "&nbsp;&nbsp;</a>";
             $page++;
         }
         return $pager;
