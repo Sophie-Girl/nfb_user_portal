@@ -19,3 +19,10 @@ up-other:
       css/up-other.css: {}
   js:
     js/up-other.js: {}
+up-account:
+      version: 1.x
+      css:
+        theme:
+          css/up-account.css: { }
+      js:
+        js/up-account.js: { }

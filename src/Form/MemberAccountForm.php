@@ -4,6 +4,8 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\Exception\Exception;
 use Drupal\user\Entity\User;
+use Drupal\nfb_user_portal\html_builder\core_markup;
+
 
 class MemberAccountForm extends FormBase
 {
@@ -13,6 +15,12 @@ class MemberAccountForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
+        $page_builder = new core_markup();
+        $form['vals'] = array(
+          '#type' => 'item',
+          '#markup' => "<p class='hidden_val' id='yoshi'>".\Drupal::currentUser()->getAccountName()."</p>
+                <p class='hidden_val' id='member_name'>".$page_builder->user_data->get_first_name()." ".$page_builder->user_data->get_last_name()."</p>"
+        );
         $form['change_username'] = array(
           '#type' => 'textfield',
           '#title' => "Change User Name",
@@ -35,6 +43,7 @@ class MemberAccountForm extends FormBase
             '#type' => 'submit',
             '#value' => $this->t('Submit'),
         );
+        $form['#attached']['library'][] = 'nfb_user_portal/up-account';
            return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)

@@ -15,7 +15,7 @@ class OtherInfoForm extends FormBase
        $builder =  new other_markup();
         $form['other_info'] = array(
             '#type' => "item",
-            '#markup' => $builder->create_other_markup(),
+            '#markup' => "<p>This are is under construction.</p>",//$builder->create_other_markup(),
             '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-other';

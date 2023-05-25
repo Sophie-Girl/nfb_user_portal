@@ -13,3 +13,8 @@ nfb_user_portal.account:
   title: "Manage Account"
   base_route: nfb_user_portal.main
   weight: 400
+nfb_user_portal.logout:
+  route_name: user.logout
+  title: "Logout"
+  base_route: nfb_user_portal.main
+  weight: 400
