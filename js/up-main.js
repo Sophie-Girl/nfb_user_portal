@@ -516,8 +516,6 @@
                     document.getElementById("prim_zip_new_val_lab").style.display = "block";
                     document.getElementById("edit_open").innerText = "Open";
                     document.getElementById("open_field").innerText = "Street Address";
-                    var ms = 1;
-                    sleep(ms);
                     document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                     document.getElementById("prim_street_new_val").focus();
                     console.log("inner state: "+ document.getElementById("state_val").innerText);
@@ -554,6 +552,11 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
+            $('#prim_street_new_val').once().onblur(function ()
+                {
+                    document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
+                }
+            );
             $('#edit_pronouns').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
