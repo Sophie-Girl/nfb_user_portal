@@ -28,7 +28,7 @@ function nfb_user_portal_install()
      *
      * @see hook_schema()
      *
-     * @ingroup nfb_bell
+     * @ingroup nfb_user_portal
      */
 }
 function nfb_user_portal_schema()
@@ -165,6 +165,13 @@ function nfb_user_portal_schema()
               'default' => 'None',
                 'not null' => true,
                 'description' => "Additional Notes."
+            ),
+            'active' => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => 'yes',
+                'not null' => true,
+                'description' => "active_override",
             ),
         ),
         'primary key' => ['rid'],
