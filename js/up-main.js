@@ -1096,6 +1096,11 @@ function replace_old_value(lab_id, new_val)
 {
     document.getElementById(lab_id).innerText = new_val;
 }
+function more_logout_fun()
+{
+    let get = document.querySelectorAll('[href="/user/logout"]');
+    get[1].innerHTML = "href='/user/logout' onclick='return confirm('Are you sure?')'";
+}
 function hide_user_id()
 {
     document.getElementById("user_id_val").style.display = "None";

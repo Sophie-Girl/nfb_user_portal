@@ -124,13 +124,17 @@ or review an issue with a potential account.</p>
         }
     }
 
-    public function initial_query()
+    public function initial_query(FormStateInterface  $form_state)
     {
         $query = "Select * from nfb_user_portal_user_request order by rid desc limit 50;";
         $key = "rid";
         $this->sql->select_query($query, $key);
         $sql_result = $this->sql->get_result();
         return $sql_result;
+    }
+    public function query_switch()
+    {
+
     }
 
     public function build_row($result)
