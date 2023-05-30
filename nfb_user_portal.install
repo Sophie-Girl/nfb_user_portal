@@ -138,14 +138,14 @@ function nfb_user_portal_schema()
                 'not null' => true,
                 'description' => "What civi contact."
             ),
-            'name' => array(
+            'member_name' => array(
                 'type' => 'varchar',
                 'length' => 128,
                 'default' => 'Not Created',
                 'not null' => true,
                 'description' => "What is the users name, the people kind of name"
             ),
-            'email' => array(
+            'member_email' => array(
                 'type' => 'varchar',
                 'length' => 128,
                 'default' => 'Not Created',
