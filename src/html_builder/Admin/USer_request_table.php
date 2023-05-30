@@ -117,7 +117,7 @@ class USer_request_table extends User_request_activate
         $this->markup = "<p tabindex='0'>Bellow are submissions form the ENw member Form, and Member at Large form. From here you can approve a member request if there is no issue 
 or review an issue with a potential account.</p>
  <table>
- <tr><th class='t_header'>Request ID</th><th class='t_header'>Civi Contact ID</th><th class='t_header'>Status</th><th class='t_header'>Comments</th><th class='t_header'>Process</th></tr>";
+ <tr><th class='t_header'>Request ID</th><th class='t_header'>Civi Contact ID</th><th class='t_header'>Name</th><th class='t_header'>Email</th><th class='t_header'>Status</th><th class='t_header'>Comments</th><th class='t_header'>Process</th></tr>";
 
     }
 
@@ -239,10 +239,8 @@ or review an issue with a potential account.</p>
     public function build_row($result)
     {
         $this->markup = $this->get_markup() . "<tr><td>" . $result['rid'] . "</td>
-<td>" . $result['civi_contact_id'] . "</td><td>" . $result['status'] . "</td><td>" . $result['comment'] . "</td><td>&nbsp;&nbsp;&nbsp;<a href='/member_rpfoile_admin.chest' class=''>&nbsp;&nbsp;&nbsp;Process&nbsp;&nbsp;&nbsp;</a></td></tr>";
+<td>" . $result['civi_contact_id'] . "</td><td>".$result['member_name']."</td><td>".$result['member_email']."</td><td>" . $result['status'] . "</td><td>" . $result['comment'] . "</td><td>&nbsp;&nbsp;&nbsp;<a href='/member_rpfoile_admin.chest' class=''>&nbsp;&nbsp;&nbsp;Process&nbsp;&nbsp;&nbsp;</a></td></tr>";
     }
-
-
     public function get_current_max_id()
     {
         $multiple = $this->get_limiter() - 1;
