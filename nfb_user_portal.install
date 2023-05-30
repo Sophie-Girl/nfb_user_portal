@@ -161,6 +161,8 @@ function nfb_user_portal_schema()
         ),
         'primary key' => ['rid'],
     );
-    $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
+    if(!$database->schema()->tableExists('nfb_user_portal_user_request')) {
+        $query->createTable('nfb_user_portal_user_request', $schema['nfb_user_portal_user_request'])
+    };
 
 }
