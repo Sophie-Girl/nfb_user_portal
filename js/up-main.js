@@ -5,6 +5,7 @@
                 hide_user_id();
                 replace_title();
                 console.log("I am running");
+                more_logout_fun();
             }
             $('#save_brialle').once().click(function () {
                 var vfeildarray;
