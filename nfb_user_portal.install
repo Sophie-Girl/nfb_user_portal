@@ -101,7 +101,8 @@ function nfb_user_portal_schema()
 
 
             ),
-        'primary key' => 'cid',
+        'primary key' => ['cid'],
+
     );
     $query = Database::getConnection()->schema();
     $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
@@ -134,7 +135,7 @@ function nfb_user_portal_schema()
                 'length' => 128,
                 'default' => 'Not Created',
                 'not null' => true,
-                'description' => "What si the users name, the people kind of name"
+                'description' => "What is the users name, the people kind of name"
             ),
             'email' => array(
                 'type' => 'varchar',
@@ -158,7 +159,7 @@ function nfb_user_portal_schema()
                 'description' => "Additional Notes."
             ),
         ),
-        'primary key' => 'rid',
+        'primary key' => ['rid'],
     );
     $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
 
