@@ -76,6 +76,29 @@ class USer_request_table extends User_request_activate
     {
         $this->limiter = $limiter;
         $this->search_form_submissions();
+        $form['name_filt'] = array(
+          '#type' => "textfield",
+          '#title' => "Filter By Name",
+           '#description' => "Enter the full first and last name or partial name to search for a specific member request",
+           '#size' => 20
+        );
+        $form['email_filt'] = array(
+            '#type' => "textfield",
+            '#title' => "Filter By Email",
+            '#description' => "Enter the full email  or partial email to search for a specific member request",
+            '#size' => 20
+        );
+        $form['status_filt'] = array(
+          '#type' => 'select',
+          '#require' => array(
+            'Pending' => "Pending",
+            'Complete' => "Complete",
+            "Rejected" => "Rejected",
+            "Duplicate Email" => "Duplicate Email",
+            "Duplicate Name" => "Duplicate Name"
+          ),
+          "#description" => "Filter by request status"
+        );
         $form['sub_table'] = array(
           '#type' => 'item',
           '#markup' => $this->get_markup(),
