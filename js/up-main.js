@@ -1099,7 +1099,7 @@ function replace_old_value(lab_id, new_val)
 }
 function more_logout_fun()
 {
-    let get = document.querySelectorAll('[href="/user/logout"]').innerHTML = "href='/user/logout' onclick='return confirm('Are you sure?')'";;
+   document.querySelectorAll('[href="/user/logout"]').innerHTML = "href='/user/logout' onclick='return confirm('Are you sure?')'";;
 
 }
 function hide_user_id()
