@@ -21,7 +21,15 @@ use Drupal\Core\Database\Database;
  */
 function nfb_user_portal_install()
 {
-
+    /**
+     * Implements hook_schema().
+     *
+     * Defines the database tables used by this module.
+     *
+     * @see hook_schema()
+     *
+     * @ingroup nfb_bell
+     */
 }
 function nfb_user_portal_schema()
 {
