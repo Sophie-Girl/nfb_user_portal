@@ -1101,9 +1101,6 @@ function more_logout_fun()
 {
     let get = document.querySelectorAll('[href="/user/logout"]');
     get.forEach(element => add_inner_html(element))
-    {
-
-    }
 }
 function add_inner_html(element)
 {
