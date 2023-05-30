@@ -4,11 +4,21 @@
             window.onload = function () {
            var uname = document.getElementById("yoshi").innerText;
            document.getElementById("edit-change-username").value = uname;
-                replace_title()
+                replace_title();
+                more_logout_fun();
             }
         }
     }
 })(jQuery, Drupal);
+function more_logout_fun()
+{
+    let get = document.querySelectorAll('[href="/user/logout"]');
+    get.forEach(element => add_inner_html(element))
+}
+function add_inner_html(element)
+{
+    element.setAttribute("onclick", "return confirm('Are you sure?')");
+}
 function replace_title()
 {
     document.title = "Member: "+document.getElementById("member_name").innerText;
