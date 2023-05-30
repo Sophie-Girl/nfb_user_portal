@@ -1100,7 +1100,14 @@ function replace_old_value(lab_id, new_val)
 function more_logout_fun()
 {
     let get = document.querySelectorAll('[href="/user/logout"]');
-    console.log("The element fetched by href attribute is:", get);
+    get.forEach(element => add_inner_html(element))
+    {
+
+    }
+}
+function add_inner_html(element)
+{
+    element.setAttribute("onclick", "return confirm('Are you sure?')");
 }
 function hide_user_id()
 {
