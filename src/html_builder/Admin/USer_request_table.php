@@ -149,6 +149,10 @@ or review an issue with a potential account.</p>
         $this->paging_markup();
 
     }
+    public function establish_paging()
+    {
+
+    }
     public function end_table()
     {
         $this->markup = $this->get_markup()."
