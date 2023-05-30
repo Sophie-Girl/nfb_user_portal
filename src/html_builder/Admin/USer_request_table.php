@@ -53,6 +53,24 @@ class USer_request_table extends User_request_activate
     {
         return $this->first_id;
     }
+    public $name_filter;
+    public function get_name_filter()
+    {return $this->name_filter;}
+    public $email_filter;
+    public function get_email_filter()
+    {
+        return $this->email_filter;
+    }
+    public $status_filter;
+    public function get_status_filter()
+    {
+        return $this->status_filter;
+    }
+    public $sort_field;
+    public function get_sort_field()
+    {
+        return $this->sort_field;
+    }
 
     public function build_form(&$form, FormStateInterface $form_state, $limiter)
     {
@@ -126,15 +144,73 @@ or review an issue with a potential account.</p>
 
     public function initial_query(FormStateInterface  $form_state)
     {
-        $query = "Select * from nfb_user_portal_user_request order by rid desc limit 50;";
+        $query = $this->query_switch();
         $key = "rid";
         $this->sql->select_query($query, $key);
         $sql_result = $this->sql->get_result();
         return $sql_result;
     }
-    public function query_switch()
+    public function set_filter_values(FormStateInterface $form_state)
     {
 
+    }
+
+    public function query_switch()
+    {
+        if($this->get_name_filter() == "")
+        {
+            $name = false;
+        }
+        else{
+            $name = true;
+        }
+        if($this->get_email_filter() == "")
+        {
+            $email = false;
+        }
+        else{
+            $email = true;
+        }
+        if($this->get_status_filter() == "")
+        {
+            $status = false;
+        }
+        else{
+            $status = true;
+        }
+        if($name == false && $email == false && $status == false)
+        {
+            $query = "Select * from nfb_user_portal_user_request order by rid desc limit 50;";
+        }
+        elseif ($name == true && $email == false && $status == false)
+        {
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".'"'.$this->get_name_filter().'"'."%' order by rid desc limit 50;";
+        }
+        elseif ($name == true && $email == true && $status == false)
+        {
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".'"'.$this->get_name_filter().'"'."%' and member_email like '%".'"'.$this->get_email_filter().'"'."%' order by rid desc limit 50;";
+        }
+        elseif ($name == true && $email == true && $status == true)
+        {
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".'"'.$this->get_name_filter().'"'."%' and member_email like '%".'"'.$this->get_email_filter().'"'."%' and member_status like '%".'"'.$this->get_status_filter().'"'."%' order by rid desc limit 50;";
+        }
+        elseif ($name == false && $email == true && $status == false)
+        {
+            $query = "Select * from nfb_user_portal_user_request where  member_email like '%".'"'.$this->get_email_filter().'"'."%' order by rid desc limit 50;";
+        }
+        elseif ($name == false && $email == true && $status == true)
+        {
+            $query = "Select * from nfb_user_portal_user_request where member_email like '%".'"'.$this->get_email_filter().'"'."%' and member_status like '%".'"'.$this->get_status_filter().'"'."%' order by rid desc limit 50;";
+        }
+        elseif ($name == false && $email == false && $status == true)
+        {
+            $query = "Select * from nfb_user_portal_user_request where  member_status like '%".'"'.$this->get_status_filter().'"'."%' order by rid desc limit 50;";
+        }
+        else
+        {
+            $query = "";
+        }
+        return $query;
     }
 
     public function build_row($result)
