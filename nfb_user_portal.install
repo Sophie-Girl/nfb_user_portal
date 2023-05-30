@@ -35,12 +35,12 @@ function nfb_user_portal_schema()
     $schema['nfb_user_portal_content'] = array(
         'description' => 'Stores all markup content for the NFB User Portal',
         'fields' => array(
-            'pid' => array(
+            'cid' => array(
                 'type' => 'serial',
                 'size' => 'big',
                 'unsigned' => TRUE,
                 'not null' => TRUE,
-                'description' => 'Primary Key: content id'
+                'description' => 'Primary Key: cid'
             ),
             'markup_type' => array(
                 'type' => 'varchar',
@@ -101,7 +101,7 @@ function nfb_user_portal_schema()
 
 
             ),
-        'primary key' => 'pid',
+        'primary key' => 'cid',
     );
     $query = Database::getConnection()->schema();
     $query->createTable('nfb_user_portal_content', $schema['nfb_user_portal_content']);
@@ -120,7 +120,7 @@ function nfb_user_portal_schema()
                 'size' => 'big',
                 'unsigned' => TRUE,
                 'not null' => TRUE,
-                'description' => 'Primary Key: request id'
+                'description' => 'Primary Key: rid'
             ),
             'civi_contact_id' => array(
                 'type' => 'varchar',
