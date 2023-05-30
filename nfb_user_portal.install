@@ -129,6 +129,20 @@ function nfb_user_portal_schema()
                 'not null' => true,
                 'description' => "What civi contact."
             ),
+            'name' => array(
+                'type' => 'varchar',
+                'length' => 128,
+                'default' => 'Not Created',
+                'not null' => true,
+                'description' => "What si the users name, the people kind of name"
+            ),
+            'email' => array(
+                'type' => 'varchar',
+                'length' => 128,
+                'default' => 'Not Created',
+                'not null' => true,
+                'description' => "primary email address"
+            ),
             'status' => array(
                 'type' => 'varchar',
                 'length' => 128,
