@@ -22,23 +22,54 @@ class MemberAccountForm extends FormBase
           '#markup' => "<p class='hidden_val' id='yoshi'>".\Drupal::currentUser()->getAccountName()."</p>
                 <p class='hidden_val' id='member_name'>".$page_builder->user_data->get_first_name()." ".$page_builder->user_data->get_last_name()."</p>"
         );
+        $form['desire_change_uanme'] = array(
+            '#type' => 'checkbox',
+            '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
+        );
         $form['change_username'] = array(
           '#type' => 'textfield',
           '#title' => "Change User Name",
           '#min' => 5,
           '#size' => 20,
+            '#states' => [
+                'visible' =>[
+                    [':input[name="desire_change_uanme"]' => ['checked' => true]]],
+                'and',
+                'required' => [
+                    [':input[name="desire_change_uanme"]' => ['checked' => true]]]
+            ]
+        );
+        $form['desire_change_pword'] = array(
+            '#type' => 'checkbox',
+            '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
         );
         $form['change_password'] = array(
             '#type' => 'password',
             '#title' => "Change Your Password",
             '#min' => 5,
             '#size' => 20,
+            '#states' => [
+                'visible' =>[
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]],
+                'and',
+                'required' => [
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]]
+            ]
+
         );
         $form['confirm_password'] = array(
             '#type' => 'password',
             '#title' => "Confirm Your New Password",
             '#min' => 5,
             '#size' => 20,
+            '#states' => [
+                'visible' =>[
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]],
+                'and',
+                'required' => [
+                    [':input[name="desire_change_pword"]' => ['checked' => true]]]
+            ]
+
         );
            $form['submit'] = array(
             '#type' => 'submit',
@@ -54,12 +85,12 @@ class MemberAccountForm extends FormBase
         \Drupal::logger("username_check")->notice("username check ".$uname);
         $uid = $user->getAccount()->id();
         $entity = User::load($uid);
-        if($form_state->getValue("change_username") != "") {
+        if($form_state->getValue("desire_change_uanme") == 1) {
             $entity->setEmail($form_state->getValue("change_username"));
 
             $entity->setUsername($form_state->getValue("change_username"));
         }
-        if ($form_state->getValue("change_password") != ""){
+        if ($form_state->getValue("desire_change_pword") != 1){
             $entity->setPassword($form_state->getValue("change_password"));
         }
         try{
@@ -69,7 +100,6 @@ class MemberAccountForm extends FormBase
             $messager = \Drupal::messenger();
             $messager->addError("Couldn't save user ".$e->getMessage());
         }
-
     }
     public function validateForm(array &$form, FormStateInterface $form_state)
     {
@@ -78,24 +108,22 @@ class MemberAccountForm extends FormBase
         $this->validate_password($form, $form_state);
 
     }
-    public function validate_username(&$form, FormStateInterface $form_state){
+    public function validate_username(&$form, FormStateInterface $form_state)
+    {
         $username = $form_state->getValue("change_username");
+        if ($form_state->getValue("desire_change_uanme") == 1) {
         $email_entered = $this->check_if_email($username);
-        if($email_entered == "No")
-        {
+        if ($email_entered == "No") {
             $form_state->setErrorByName("change_username", "You must enter an email address for your username");
-        }
-        else{
+        } else {
             $email_status = $this->check_if_email_is_already_used($username);
-            if($email_status == "Not New")
-            {
+            if ($email_status == "Not New") {
                 $form_state->setErrorByName("change_username", "That email address already is in use, please pick another one");
-            }
-            else if( $email_status == "no change")
-            {
+            } else if ($email_status == "no change") {
                 $form_state->setErrorByName("change_username", "If you are changing your username, please enter a enw email address.");
             }
         }
+    }
     }
     public function check_if_email($username)
     {
@@ -148,21 +176,18 @@ class MemberAccountForm extends FormBase
     }
     public function validate_password(&$form, FormStateInterface $form_state)
     {
-        $pword = $form_state->getValue("change_password");
-        $confirm_pword = $form_state->getValue("confirm_password");
-        if($pword != $confirm_pword)
-        {
-            $form_state->setErrorByName("change_password", "Entered passwords do not match");
-        }
-        else{
-            $check =  $this->check_password($pword);
-            if($check == "No")
-            {
-                $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
-            }
-            elseif (strlen($pword) < 8)
-            {
-                $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
+        if($form_state->getValue("desire_change_pword") == 1) {
+            $pword = $form_state->getValue("change_password");
+            $confirm_pword = $form_state->getValue("confirm_password");
+            if ($pword != $confirm_pword) {
+                $form_state->setErrorByName("change_password", "Entered passwords do not match");
+            } else {
+                $check = $this->check_password($pword);
+                if ($check == "No") {
+                    $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
+                } elseif (strlen($pword) < 8) {
+                    $form_state->setErrorByName("change_password", "Entered password must contain at least one special character, one number, and one upper and lower case letter. Passwords must also be at least eight characters in length. ");
+                }
             }
         }
     }

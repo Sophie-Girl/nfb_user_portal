@@ -151,7 +151,9 @@ or review an issue with a potential account.</p>
     }
     public function establish_paging()
     {
-
+        $this->find_page_need();
+        $this->get_current_max_id();
+        $this->additional_page_query();
     }
     public function end_table()
     {
