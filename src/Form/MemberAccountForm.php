@@ -24,7 +24,7 @@ class MemberAccountForm extends FormBase
         );
         $form['desire_change_uanme'] = array(
             '#type' => 'checkbox',
-            '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
+            '#title' => $this->t("Do you wish to change your username?")
         );
         $form['change_username'] = array(
           '#type' => 'textfield',
@@ -41,7 +41,7 @@ class MemberAccountForm extends FormBase
         );
         $form['desire_change_pword'] = array(
             '#type' => 'checkbox',
-            '#title' => $this->t("Do you wish to change your user name? Note this will also change theemial associated with your account, but not the email our mailings will do out to.")
+            '#title' => $this->t("Do you wish to change your password?")
         );
         $form['change_password'] = array(
             '#type' => 'password',
@@ -74,6 +74,18 @@ class MemberAccountForm extends FormBase
            $form['submit'] = array(
             '#type' => 'submit',
             '#value' => $this->t('Submit'),
+               '#states' => [
+                   'visible' =>[
+                       [':input[name="desire_change_pword"]' => ['checked' => true]],
+                   'or',
+                   [':input[name="desire_change_uanme"]' => ['checked' => true]]],
+
+                   'and',
+                   'required' => [
+                       [':input[name="desire_change_pword"]' => ['checked' => true]],
+                       'or',
+                       [':input[name="desire_change_uanme"]' => ['checked' => true]]]
+               ]
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-account';
            return $form;
@@ -90,7 +102,7 @@ class MemberAccountForm extends FormBase
 
             $entity->setUsername($form_state->getValue("change_username"));
         }
-        if ($form_state->getValue("desire_change_pword") != 1){
+        if ($form_state->getValue("desire_change_pword") == 1){
             $entity->setPassword($form_state->getValue("change_password"));
         }
         try{
