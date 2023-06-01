@@ -16,6 +16,10 @@ class AdminUserRequestForm extends FormBase
         $this->table_builder->build_form($form, $form_state, $limiter);
         return $form;
     }
+    public function table_stuff($form, $form_state, $limiter)
+    {
+        return    $form['sub_table'];
+    }
 
     public function submitForm(array &$form, FormStateInterface $form_state)
     {

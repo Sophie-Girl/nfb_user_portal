@@ -99,9 +99,19 @@ class USer_request_table extends User_request_activate
           ),
           "#description" => "Filter by request status"
         );
+        $form['ajax_button'] = array(
+          '#type' => "button",
+          '#title' => "Search",
+            '#ajax' => array(
+                'callback' => "table_stuff",
+                'wrapper' => "table_markup_id",
+                'event' => 'click',),
+        );
         $form['sub_table'] = array(
+            '#prefix' => "<div id='table_markup_id'>",
           '#type' => 'item',
           '#markup' => $this->get_markup(),
+            '#suffix' => "</div>",
         );
     }
 
