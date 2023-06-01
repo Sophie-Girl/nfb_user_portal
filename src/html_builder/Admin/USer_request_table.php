@@ -75,7 +75,7 @@ class USer_request_table extends User_request_activate
     public function build_form(&$form, FormStateInterface $form_state, $limiter)
     {
         $this->limiter = $limiter;
-        $this->search_form_submissions();
+        $this->search_form_submissions($form_state);
         $form['name_filt'] = array(
           '#type' => "textfield",
           '#title' => "Filter By Name",
@@ -105,10 +105,10 @@ class USer_request_table extends User_request_activate
         );
     }
 
-    public function search_form_submissions()
+    public function search_form_submissions($form_state)
     {
         $this->start_of_page();
-        $sql_result = $this->initial_query();
+        $sql_result = $this->initial_query($form_state);
         $this->foreach_loop_for_initial($sql_result);
     }
 
