@@ -54,7 +54,7 @@ nfb_user_portal.state:
 nfb_user_portal.userrequest:
   path: 'member_portal/admin/user_request'
   defaults:
-    _form: 'Drupal\nfb_user_portal\Form\OtherInfoForm'
+    _form: 'Drupal\nfb_user_portal\Form\AdminUserRequestForm'
     _title: 'Manage Account'
   requirements:
     _permission: 'access content'
