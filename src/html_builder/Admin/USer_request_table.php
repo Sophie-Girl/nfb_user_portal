@@ -102,7 +102,7 @@ class USer_request_table extends User_request_activate
         );
         $form['ajax_button'] = array(
           '#type' => "button",
-          '#title' => "Search",
+          '#value' => "Search",
             '#ajax' => array(
                 'callback' => "::table_stuff",
                 'wrapper' => "table_markup_id",
