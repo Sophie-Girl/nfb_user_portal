@@ -90,6 +90,7 @@ class USer_request_table extends User_request_activate
         );
         $form['status_filt'] = array(
           '#type' => 'select',
+          '#title' => "Filter by Status",
           '#require' => array(
             'Pending' => "Pending",
             'Complete' => "Complete",
@@ -103,7 +104,7 @@ class USer_request_table extends User_request_activate
           '#type' => "button",
           '#title' => "Search",
             '#ajax' => array(
-                'callback' => "table_stuff",
+                'callback' => "::table_stuff",
                 'wrapper' => "table_markup_id",
                 'event' => 'click',),
         );
