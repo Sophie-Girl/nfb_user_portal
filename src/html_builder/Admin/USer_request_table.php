@@ -134,13 +134,13 @@ class USer_request_table extends User_request_activate
         $string = substr($orig_string, 0, $end);
         $this->limiter = $this->string_parser($string);
         $new_end = strpos(substr($orig_string, $end+2), "%&");
-        $string = substr($orig_string, $end+5, $new_end);
+        $string = substr($orig_string, $end+2, $new_end);
         $this->name_filter = $this->string_parser($string);
         $end = strpos(substr($orig_string, $new_end+2), "%&");
         $string = substr($orig_string, $new_end+2, $end);
         $this->email_filter = $this->string_parser($string);
         $new_end = strpos(substr($orig_string, $end+2), "%&");
-        $string = substr($orig_string, $end+5, $new_end);
+        $string = substr($orig_string, $end+2, $new_end);
         $this->status_filter = $this->string_parser($string);
 
 
