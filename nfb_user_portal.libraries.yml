@@ -20,9 +20,13 @@ up-other:
   js:
     js/up-other.js: {}
 up-account:
-      version: 1.x
-      css:
-        theme:
-          css/up-account.css: { }
-      js:
-        js/up-account.js: { }
+  version: 1.x
+  css:
+    theme:
+      css/up-account.css: { }
+  js:
+    js/up-account.js: { }
+admin-table:
+  version: 1.x
+  js:
+    js/main-table.js: { }
