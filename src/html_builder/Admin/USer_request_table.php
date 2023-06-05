@@ -102,7 +102,8 @@ class USer_request_table extends User_request_activate
             "Duplicate Email" => "Duplicate Email",
             "Duplicate Name" => "Duplicate Name"
           ),
-          "#description" => "Filter by request status"
+          "#description" => "Filter by request status",
+            '#required' => false,
         );
         $form['search_value'] = [
             '#type' => "textfield",
