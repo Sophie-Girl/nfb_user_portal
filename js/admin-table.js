@@ -3,7 +3,7 @@
         attach: function (context, settings) {
             window.onload = function () {
                 document.getElementById('edit-search-value').style.display = 'none';
-                document.getElementsByClassName("webform-readonly form-item js-form-item form-type-textfield js-form-type-textfield form-item-search-value js-form-item-search-value")['0'].style.display = 'none';
+                document.getElementsByClassName("form-item js-form-item form-type-select js-form-type-select form-item-status-filt js-form-item-status-filt")['0'].style.display = 'none';
                 var limiter = document.getElementById('page_val');
                 document.getElementById('edit-search-value').value = limiter;
                 onload_parser();
