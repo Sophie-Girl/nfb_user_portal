@@ -16,6 +16,7 @@
                 var email = document.getElementById("edit-email-filt").value;
                 var status = document.getElementById("edit-status-filt").value;
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
             });
             $('#edit-email-filt').once().blur(function ()
             {
@@ -24,6 +25,7 @@
                 var name = document.getElementById("edit-name-filt").value;
                 var status = document.getElementById("edit-status-filt").value;
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
             });
             $('#edit-status-filt').once().blur(function ()
             {
@@ -32,6 +34,7 @@
                 var email = document.getElementById("edit-email-filt").value;
                 var name = document.getElementById("edit-name-filt").value;
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
             });
         }
     }
