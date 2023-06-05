@@ -302,7 +302,8 @@ or review an issue with a potential account.</p>
     }
     public function get_current_max_id()
     {
-        $multiple = $this->get_limiter() - 1;
+        \Drupal::logger("filter_issue")->notice("sight ". $this->get_limiter());
+        $multiple = (int)$this->get_limiter() - 1;
         $subtractor = $multiple * 50;
         $max_id = $this->get_last_id() - $subtractor;
         $this->page_max_id = $max_id;
