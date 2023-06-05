@@ -52,10 +52,11 @@ nfb_user_portal.state:
   requirements:
     _permission: 'access content'
 nfb_user_portal.userrequest:
-  path: 'member_portal/admin/user_request'
+  path: 'member_portal/admin/user_request/{limiter}'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminUserRequestForm'
     _title: 'Manage Account'
+    limiter: '1'
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
