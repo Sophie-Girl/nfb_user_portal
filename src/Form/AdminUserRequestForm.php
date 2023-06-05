@@ -18,6 +18,7 @@ class AdminUserRequestForm extends FormBase
         }
         $this->table_builder = new USer_request_table();
         $this->table_builder->build_form($form, $form_state, $limiter);
+        $form['#attached']['library'][] = 'nfb_user_portal/admin-table';
         return $form;
     }
     public function table_stuff($form, $form_state, $limiter)
