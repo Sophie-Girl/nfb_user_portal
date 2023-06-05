@@ -29,4 +29,4 @@ up-account:
 admin-table:
   version: 1.x
   js:
-    js/main-table.js: { }
+    js/admin-table.js: { }
