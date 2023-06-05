@@ -95,7 +95,7 @@ class USer_request_table extends User_request_activate
         $form['status_filt'] = array(
           '#type' => 'select',
           '#title' => "Filter by Status",
-          '#require' => array(
+          '#options' => array(
             'Pending' => "Pending",
             'Complete' => "Complete",
             "Rejected" => "Rejected",
