@@ -129,7 +129,7 @@ class USer_request_table extends User_request_activate
     public function set_paging_requirments()
     {
         $orig_string = $this->get_limiter();
-        $end = strpos($orig_string, "%25%26");
+        $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
         $this->limiter = $this->string_parser($string);
         $new_end = strpos(substr($orig_string, $end+2), "%&");
@@ -302,7 +302,7 @@ or review an issue with a potential account.</p>
     }
     public function get_current_max_id()
     {
-        \Drupal::logger("filter_issue")->notice("sight ". $this->get_limiter());
+        \Drupal::logger("filter_issue")->notice("sigh ". $this->get_limiter());
         $multiple = (int)$this->get_limiter() - 1;
         $subtractor = $multiple * 50;
         $max_id = $this->get_last_id() - $subtractor;
