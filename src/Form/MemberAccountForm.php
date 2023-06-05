@@ -15,6 +15,7 @@ class MemberAccountForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
+
         $page_builder = new core_markup();
         $page_builder->user_data->civi_contact_set();
         $form['vals'] = array(

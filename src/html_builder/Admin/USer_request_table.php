@@ -75,6 +75,10 @@ class USer_request_table extends User_request_activate
     public function build_form(&$form, FormStateInterface $form_state, $limiter)
     {
         $this->limiter = $limiter;
+        if ($form_state->getValue("search_value") != "")
+        {
+                $this->limiter =   $form_state->getValue("search_value");
+        }
         $this->search_form_submissions($form_state);
         $form['name_filt'] = array(
           '#type' => "textfield",
@@ -100,6 +104,12 @@ class USer_request_table extends User_request_activate
           ),
           "#description" => "Filter by request status"
         );
+        $form['search_value'] = [
+            '#type' => "textfield",
+            '#prefix' => "<div id='page_val'>".$limiter."</div>
+            <div id='page_num'>".$this->get_limiter()."</div>",
+            '#title' => "Filter By Name",
+        ];
         $form['ajax_button'] = array(
           '#type' => "button",
           '#value' => "Search",
@@ -108,6 +118,7 @@ class USer_request_table extends User_request_activate
                 'wrapper' => "table_markup_id",
                 'event' => 'click',),
         );
+
         $form['sub_table'] = array(
             '#prefix' => "<div id='table_markup_id'>",
           '#type' => 'item',
@@ -115,12 +126,43 @@ class USer_request_table extends User_request_activate
             '#suffix' => "</div>",
         );
     }
+    public function set_paging_requirments()
+    {
+        $orig_string = $this->get_limiter();
+        $end = strpos($orig_string, "%25%26");
+        $string = substr($orig_string, 0, $end);
+        $this->limiter = $this->string_parser($string);
+        $new_end = strpos(substr($orig_string, $end+2), "%&");
+        $string = substr($orig_string, $end+5, $new_end);
+        $this->name_filter = $this->string_parser($string);
+        $end = strpos(substr($orig_string, $new_end+2), "%&");
+        $string = substr($orig_string, $new_end+2, $end);
+        $this->email_filter = $this->string_parser($string);
+        $new_end = strpos(substr($orig_string, $end+2), "%&");
+        $string = substr($orig_string, $end+5, $new_end);
+        $this->status_filter = $this->string_parser($string);
+
+
+
+    }
+    public function string_parser($string){
+        $string = str_replace("%20", " ", $string);
+        $string = str_replace("%26", "&", $string);
+        $string = str_replace("%25", "%", $string);
+        $string = str_replace("%23", "#", $string);
+        $string = str_replace("%40", "@", $string);
+        $string = str_replace("%2E", ".", $string);
+        $string = str_replace("%2F", "/", $string);
+        return $string;
+    }
 
     public function search_form_submissions($form_state)
     {
+        $this->set_paging_requirments();
         $this->start_of_page();
         $sql_result = $this->initial_query($form_state);
         $this->foreach_loop_for_initial($sql_result);
+
     }
 
     public function start_of_page()
@@ -197,21 +239,21 @@ or review an issue with a potential account.</p>
 
     public function query_switch()
     {
-        if($this->get_name_filter() == "")
+        if($this->get_name_filter() == "  ")
         {
             $name = false;
         }
         else{
             $name = true;
         }
-        if($this->get_email_filter() == "")
+        if($this->get_email_filter() == "  ")
         {
             $email = false;
         }
         else{
             $email = true;
         }
-        if($this->get_status_filter() == "")
+        if($this->get_status_filter() == "  ")
         {
             $status = false;
         }
