@@ -249,6 +249,7 @@ or review an issue with a potential account.</p>
 
     public function query_switch()
     {
+        \Drupal::logger("name_filter_check")->notice("name filter".$this->get_name_filter());
         if($this->get_name_filter() == " ")
         {
             $name = false;
@@ -256,6 +257,7 @@ or review an issue with a potential account.</p>
         else{
             $name = true;
         }
+        \Drupal::logger("email_filter_check")->notice("email filter".$this->get_email_filter());
         if($this->get_email_filter() == " ")
         {
             $email = false;
@@ -263,6 +265,7 @@ or review an issue with a potential account.</p>
         else{
             $email = true;
         }
+        \Drupal::logger("status_filter_check")->notice("status filter".$this->get_status_filter());
         if($this->get_status_filter() == " ")
         {
             $status = false;
