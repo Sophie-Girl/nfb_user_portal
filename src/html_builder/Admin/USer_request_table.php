@@ -135,10 +135,10 @@ class USer_request_table extends User_request_activate
         $string = substr($orig_string, 0, $end);
         \Drupal::logger("filter_check")->notice("string 1 ".$string);
         $this->limiter = $this->string_parser($string);
-        $new_end = strpos(substr($orig_string, $end+2), "&%");
+        $new_end = strpos(substr($orig_string, $end+3), "&%");
         $string = substr($orig_string, $end+2, $new_end);
         $this->name_filter = $this->string_parser($string);
-        $start = $new_end + 2;
+        $start = $new_end + 3;
         $post_name = substr($orig_string, $start, 200);
         \Drupal::logger("nfb_uer_portal")->notice("post_name ".$post_name);
         $end = strpos($post_name, "&%");
