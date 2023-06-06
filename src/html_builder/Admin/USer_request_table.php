@@ -133,17 +133,19 @@ class USer_request_table extends User_request_activate
         \Drupal::logger("filter_check")->notice("original_string ".$orig_string);
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
-        \Drupal::logger("filter_check")->notice("string 1".$string);
+        \Drupal::logger("filter_check")->notice("string 1 ".$string);
         $this->limiter = $this->string_parser($string);
         $new_end = strpos(substr($orig_string, $end+2), "&%");
         $string = substr($orig_string, $end+2, $new_end);
-        \Drupal::logger("filter_check")->notice("string 2".$string);
+        \Drupal::logger("filter_check")->notice("string 2 ".$string);
         $this->name_filter = $this->string_parser($string);
         $end = strpos(substr($orig_string, $new_end+2), "&%");
         $string = substr($orig_string, $new_end+2, $end);
+        \Drupal::logger("filter_check")->notice("string 3 ".$string);
         $this->email_filter = $this->string_parser($string);
         $new_end = strpos(substr($orig_string, $end+2), "&%");
         $string = substr($orig_string, $end+2, $new_end);
+        \Drupal::logger("filter_check")->notice("string 4 ".$string);
         $this->status_filter = $this->string_parser($string);
 
 
