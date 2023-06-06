@@ -170,6 +170,10 @@ class USer_request_table extends User_request_activate
         $end = strpos($post_status, "&%");
         $string = substr($post_status, 0, $end);
         $this->sort_field = $this->string_parser($string);
+        if($this->get_sort_field() == "")
+        {
+            $this->sort_field = "rid";
+        }
 
 
 
