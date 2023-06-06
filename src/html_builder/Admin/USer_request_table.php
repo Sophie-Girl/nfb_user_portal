@@ -137,11 +137,9 @@ class USer_request_table extends User_request_activate
         $this->limiter = $this->string_parser($string);
         $new_end = strpos(substr($orig_string, $end+2), "&%");
         $string = substr($orig_string, $end+2, $new_end);
-        \Drupal::logger("filter_check")->notice("string 2 ".$string);
         $this->name_filter = $this->string_parser($string);
         $start = $new_end + 3;
         $post_name = substr($orig_string, $start, 200);
-        \Drupal::logger("filter_check")->notice("string 2 ".$string);
         $end = strpos($post_name, "&%");
         $string = substr($post_name, $start, $end);
         \Drupal::logger("filter_check")->notice("string 3 ".$string);
@@ -304,6 +302,7 @@ or review an issue with a potential account.</p>
         {
             $query = "";
         }
+        \drupal::logger("query_check")->notice("query text ". $query);
         return $query;
     }
 
