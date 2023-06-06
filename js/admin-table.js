@@ -27,8 +27,13 @@
                 {
                     status = " ";
                 }
-                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status;
-                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status;
+                var sort = document.getElementById("edit-sort-field").value;
+                if(sort === "")
+                {
+                    sort = "rid";
+                }
+                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
             });
             $('#edit-email-filt').once().blur(function ()
             {
@@ -48,8 +53,13 @@
                 {
                     status = " ";
                 }
-                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status;
-                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status;
+                var sort = document.getElementById("edit-sort-field").value;
+                if(sort === "")
+                {
+                    sort = "rid";
+                }
+                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
             });
             $('#edit-status-filt').once().blur(function ()
             {
@@ -69,8 +79,39 @@
                 {
                     name = " ";
                 }
-                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status;
-                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status;
+                var sort = document.getElementById("edit-sort-field").value;
+                if(sort === "")
+                {
+                    sort = "rid";
+                }
+                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
+            });
+            $('#edit-sort-field').once().blur(function ()
+            {
+                var sort = document.getElementById("edit-sort-field").value;
+                if(sort === "")
+                {
+                    sort = "rid";
+                }
+                var status = document.getElementById("edit-status-filt").value;
+                if(status === "")
+                {
+                    status = " ";
+                }
+                var page = 1;
+                var email = document.getElementById("edit-email-filt").value;
+                if(email === "")
+                {
+                    email = " ";
+                }
+                var name = document.getElementById("edit-name-filt").value;
+                if(name === "")
+                {
+                    name = " ";
+                }
+                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
             });
         }
     }
@@ -83,6 +124,7 @@ function onload_parser()
     document.getElementById("page_num").value = vals[0];
     document.getElementById("edit-email-filt").value = vals[2];
     document.getElementById("edit-status-filt").value = vals[3];
+    document.getElementById("edit-sort-field").value = vals[4];
 }
 function compile_string()
 {
@@ -121,7 +163,11 @@ function parse_limiter_form_fields(limiter)
     var new_limiter = limiter.substr(end, 200);
     var new_end = new_limiter.indexOf("%&");
     var status = new_limiter.substr(end, new_end);
-    var array = [page, name, email, status];
+    new_end = new_end + 2;
+    var  limiter  = new_limiter.substr(new_end, 200);
+    var end = limiter.indexOf("%&");
+    var sort = limiter.substr(new_end, end);
+    var array = [page, name, email, status, sort];
     return array;
 }
 

@@ -14,7 +14,7 @@ class AdminUserRequestForm extends FormBase
     {
         if($limiter == 1)
         {
-            $limiter = "1&% &% &% ";
+            $limiter = "1&% &% &% &%rid";
         }
         $this->table_builder = new USer_request_table();
         $this->table_builder->build_form($form, $form_state, $limiter);

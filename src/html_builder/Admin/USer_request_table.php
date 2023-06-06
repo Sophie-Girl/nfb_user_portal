@@ -93,16 +93,16 @@ class USer_request_table extends User_request_activate
             '#size' => 20
         );
         $form['status_filt'] = array(
-          '#type' => 'select',
-          '#title' => "Filter by Status",
-          '#options' => array(
-            'Pending' => "Pending",
-            'Complete' => "Complete",
-            "Rejected" => "Rejected",
-            "Duplicate Email" => "Duplicate Email",
-            "Duplicate Name" => "Duplicate Name"
-          ),
-          "#description" => "Filter by request status",
+            '#type' => 'select',
+            '#title' => "Filter by Status",
+            '#options' => array(
+                'Pending' => "Pending",
+                'Complete' => "Complete",
+                "Rejected" => "Rejected",
+                "Duplicate Email" => "Duplicate Email",
+                "Duplicate Name" => "Duplicate Name"
+            ),
+            "#description" => "Filter by request status",
             '#required' => false,
         );
         $form['search_value'] = [
@@ -111,6 +111,18 @@ class USer_request_table extends User_request_activate
             <div id='page_num'>".$this->get_limiter()."</div>",
             '#title' => "Filter By Name",
         ];
+        $form['sort_field'] = array(
+            '#type' => 'select',
+            '#title' => "Sort By:",
+            '#options' => array(
+                'rid' => "Request ID",
+                'member_name' => "Name",
+                "member_email" => "Email",
+                "member_status" => "Status",
+            ),
+            "#description" => "Sort Results by",
+            '#required' => false,
+        );
         $form['ajax_button'] = array(
           '#type' => "button",
           '#value' => "Search",
@@ -153,6 +165,11 @@ class USer_request_table extends User_request_activate
         $string = substr($post_email, 0, $end);
         \Drupal::logger("filter_check")->notice("string 4 ".$string);
         $this->status_filter = $this->string_parser($string);
+        $start = $end + 2;
+        $post_status = substr($post_email, $start, 200);
+        $end = strpos($post_status, "&%");
+        $string = substr($post_status, 0, $end);
+        $this->sort_field = $this->string_parser($string);
 
 
 
@@ -277,31 +294,31 @@ or review an issue with a potential account.</p>
         }
         if($name == false && $email == false && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request order by rid desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request order by ".$this->get_sort_field()." desc limit 50;";
         }
         elseif ($name == true && $email == false && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' order by rid desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' order by ".$this->get_sort_field()." desc limit 50;";
         }
         elseif ($name == true && $email == true && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".$this->get_email_filter()."%' order by rid desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".$this->get_email_filter()."%' order by ".$this->get_sort_field()." desc limit 50;";
         }
         elseif ($name == true && $email == true && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".$this->get_email_filter()."%' and status like '%".'"'.$this->get_status_filter().'"'."%' order by rid desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".$this->get_email_filter()."%' and status like '%".'"'.$this->get_status_filter().'"'."%' order by ".$this->get_sort_field()." desc limit 50;";
         }
         elseif ($name == false && $email == true && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request where  member_email like '%".$this->get_email_filter()."%' order by rid desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where  member_email like '%".$this->get_email_filter()."%' order by ".$this->get_sort_field()." desc limit 50;";
         }
         elseif ($name == false && $email == true && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_email like '%".$this->get_email_filter()."%' and status like '%".$this->get_status_filter()."%' order by rid desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_email like '%".$this->get_email_filter()."%' and status like '%".$this->get_status_filter()."%' order by ".$this->get_sort_field()." desc limit 50;";
         }
         elseif ($name == false && $email == false && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where  status like '%".'"'.$this->get_status_filter().'"'."%' order by rid desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where  status like '%".'"'.$this->get_status_filter().'"'."%' order by ".$this->get_sort_field()." desc limit 50;";
         }
         else
         {
