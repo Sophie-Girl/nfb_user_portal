@@ -146,8 +146,11 @@ class USer_request_table extends User_request_activate
         $string = substr($post_name, $start, $end);
         \Drupal::logger("filter_check")->notice("string 3 ".$string);
         $this->email_filter = $this->string_parser($string);
-        $new_end = strpos(substr($orig_string, $end+3), "&%");
-        $string = substr($orig_string, $end+3, $new_end);
+        $start = $end + 3;
+
+        $post_email = substr($post_name, $start, 200);
+        $end = strpos($post_email, "&%");
+        $string = substr($post_name, $start, $end);
         \Drupal::logger("filter_check")->notice("string 4 ".$string);
         $this->status_filter = $this->string_parser($string);
 
