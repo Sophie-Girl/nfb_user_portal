@@ -240,21 +240,21 @@ or review an issue with a potential account.</p>
 
     public function query_switch()
     {
-        if($this->get_name_filter() == "")
+        if($this->get_name_filter() == " ")
         {
             $name = false;
         }
         else{
             $name = true;
         }
-        if($this->get_email_filter() == "")
+        if($this->get_email_filter() == " ")
         {
             $email = false;
         }
         else{
             $email = true;
         }
-        if($this->get_status_filter() == "")
+        if($this->get_status_filter() == " ")
         {
             $status = false;
         }

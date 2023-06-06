@@ -12,27 +12,63 @@
             $('#edit-name-filt').once().blur(function ()
             {
                 var name = document.getElementById("edit-name-filt").value;
+                if(name === "")
+                {
+                    name = " ";
+                }
                 var page = 1;
                 var email = document.getElementById("edit-email-filt").value;
+                if(email === "")
+                {
+                    email = " ";
+                }
                 var status = document.getElementById("edit-status-filt").value;
+                if(status === "")
+                {
+                    status = " ";
+                }
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
                 document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
             });
             $('#edit-email-filt').once().blur(function ()
             {
                 var email = document.getElementById("edit-email-filt").value;
+                if(email === "")
+                {
+                    email = " ";
+                }
                 var page = 1;
                 var name = document.getElementById("edit-name-filt").value;
+                if(name === "")
+                {
+                    name = " ";
+                }
                 var status = document.getElementById("edit-status-filt").value;
+                if(status === "")
+                {
+                    status = " ";
+                }
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
                 document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
             });
             $('#edit-status-filt').once().blur(function ()
             {
                 var status = document.getElementById("edit-status-filt").value;
+                if(status === "")
+                {
+                    status = " ";
+                }
                 var page = 1;
                 var email = document.getElementById("edit-email-filt").value;
+                if(email === "")
+                {
+                    email = " ";
+                }
                 var name = document.getElementById("edit-name-filt").value;
+                if(name === "")
+                {
+                    name = " ";
+                }
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
                 document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
             });
