@@ -48,8 +48,8 @@
                 {
                     status = " ";
                 }
-                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
-                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
+                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status;
             });
             $('#edit-status-filt').once().blur(function ()
             {
@@ -69,8 +69,8 @@
                 {
                     name = " ";
                 }
-                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
-                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+"&%"+email+"&%"+status;
+                document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status;
+                document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status;
             });
         }
     }
