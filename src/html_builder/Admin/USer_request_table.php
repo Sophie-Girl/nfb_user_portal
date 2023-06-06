@@ -140,11 +140,10 @@ class USer_request_table extends User_request_activate
         $string = substr($post_page, $start, $new_end);
         $this->name_filter = $this->string_parser($string);
         \Drupal::logger("filter_check")->notice("string 1 ".$string);
-        $start = $new_end + 2;
         $post_name = substr($post_page, $start, 200);
         \Drupal::logger("nfb_uer_portal")->notice("post_name ".$post_name);
         $end = strpos($post_name, "&%");
-        $string = substr($post_name, $start, $end);
+        $string = substr($post_name, 0, $end);
         \Drupal::logger("filter_check")->notice("string 3 ".$string);
         $this->email_filter = $this->string_parser($string);
         $start = $end + 3;
