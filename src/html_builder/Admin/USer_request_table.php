@@ -132,10 +132,10 @@ class USer_request_table extends User_request_activate
         $orig_string = $this->get_limiter();
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
-
         $this->limiter = $this->string_parser($string);
         $start = $end + 2;
         $post_page = substr($orig_string, $start, 200);
+        \Drupal::logger("sigh")->notice("aiya ".$post_page);
         $new_end = strpos($post_page, "&%");
         $string = substr($post_page, $start, $new_end);
         $this->name_filter = $this->string_parser($string);
