@@ -265,8 +265,17 @@ or review an issue with a potential account.</p>
         $sql_result = $this->sql->get_result();
         return $sql_result;
     }
-    public function set_filter_values(FormStateInterface $form_state)
+    public function set_filter_values()
     {
+        $string= "&%".$this->get_name_filter()."&%".$this->get_email_filter()."&%".$this->get_status_filter()."&%".$this->get_sort_field();
+        $string = str_replace( " ","%20", $string);
+        $string = str_replace( "&","%26", $string);
+        $string = str_replace( "%", "%25", $string);
+        $string = str_replace( "#", "%23", $string);
+        $string = str_replace( "@", "%40",$string);
+        $string = str_replace( ".", "%2E", $string);
+        $string = str_replace( "/", "%2F", $string);
+        return $string;
 
     }
 
@@ -363,7 +372,7 @@ or review an issue with a potential account.</p>
     {
         $page = 1;
         $this->markup = $this->get_markup() . "<tr class='nfb-t-header'></tr></table>
-    <p><a href='/nfb_member/admin/user_requests/1' class='view_button' role='button'>&nbsp;&nbsp;First&nbsp;&nbsp;</a> " . $this->paging_links($page) . " <a href='/nfb_member/admin/user_requests/" . $this->get_page_need() . "' class='view_button' role='button'>&nbsp;&nbsp;Last&nbsp;&nbsp;</a></p>";
+    <p><a href='/nfb_member/admin/user_requests/1.".$this->set_filter_values()."' class='view_button' role='button'>&nbsp;&nbsp;First&nbsp;&nbsp;</a> " . $this->paging_links($page) . " <a href='/nfb_member/admin/user_requests/" . $this->get_page_need().$this->set_filter_values() . "' class='view_button' role='button'>&nbsp;&nbsp;Last&nbsp;&nbsp;</a></p>";
 
     }
 
@@ -371,7 +380,7 @@ or review an issue with a potential account.</p>
     {
         $pager = '';
         while ($page <= $this->get_page_need()) {
-            $pager = $pager . " <a href='/nfb_member/admin/user_requests/" . $page . "' class='view_button' role='button'>&nbsp;&nbsp;" . $page . "&nbsp;&nbsp;</a>";
+            $pager = $pager . " <a href='/nfb_member/admin/user_requests/" . $page.$this->set_filter_values() . "' class='view_button' role='button'>&nbsp;&nbsp;" . $page . "&nbsp;&nbsp;</a>";
             $page++;
         }
         return $pager;
