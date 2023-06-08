@@ -48,7 +48,7 @@ class memberhisp_markup
     {
         $markup = "<h2 tabindex='0'>Subscription Status</h2>"
         ."<p class='hidden_val' id='member_name'>".$this->user_data->get_first_name()." ".$this->user_data->get_last_name()."</p>".
-            "<p tabindex='0'>If you need to update your subscription information for the Braille Monitor or Future Reflections, please contact XXXX. Based on the distribution schedule, it may take up to two months for your change to take effect.</p>";
+            "<p tabindex='0'>If you need to update your subscription information for the <i>Braille Monitor</i> or <i>Future Reflections</i>, please contact XXXX. Based on the distribution schedule, it may take up to two months for your change to take effect.    </p>";
         foreach ($this->user_data->get_membership_array() as $membership)
         {
             if($membership[1] == "7" || $membership[1] == "6" )
