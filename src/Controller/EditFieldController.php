@@ -200,6 +200,7 @@ class EditFieldController extends ControllerBase
                     'checkPermissions' => FALSE,
                 ]; break;
             case "gender":
+                \Drupal::logger("I_hate_this")->notice("gender_sent ".$this->get_new_val());
                 $civi->params = [
                     'values' => [
                         'gender_id' => $this->get_new_val(),
