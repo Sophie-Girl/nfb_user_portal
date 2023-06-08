@@ -2,6 +2,8 @@
 Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
+
 class AdminCompleteRequestForm extends FormBase
 {
     public $rid;
@@ -28,6 +30,10 @@ class AdminCompleteRequestForm extends FormBase
         return $this->page;
     }
     public  $sort;
+    public function get_sort()
+    {
+        return $this->sort;
+    }
     public function getFormId()
     {
        return "nfb_user_admin_complete";
@@ -90,11 +96,17 @@ class AdminCompleteRequestForm extends FormBase
         $string = substr($orig_string, 0, $end);
         $this->rid = $this->string_parser($string);
         $start = $end + 2;
+
+        $post_rid = substr($orig_string, $start, 200);
+        $new_end = strpos($post_rid, "&%");
+        $string = substr($post_rid,0, $new_end);
+        $this->page = $string;
+        $start = $new_end + 2;
         $post_page = substr($orig_string, $start, 200);
-        \Drupal::logger("sigh")->notice("aiya ".$post_page);
         $new_end = strpos($post_page, "&%");
+        \Drupal::logger("sigh")->notice("aiya ".$post_page);
         $string = substr($post_page,0, $new_end);
-        $this->name_filter = $this->string_parser($string);
+        $this->name = $this->string_parser($string);
         \Drupal::logger("filter_check")->notice("string 1 ".$string);
         $start = $new_end+2;
         $post_name = substr($post_page, $start, 200);
@@ -102,23 +114,42 @@ class AdminCompleteRequestForm extends FormBase
         $end = strpos($post_name, "&%");
         $string = substr($post_name, 0, $end);
         \Drupal::logger("filter_check")->notice("string 3 ".$string);
-        $this->email_filter = $this->string_parser($string);
+        $this->email = $this->string_parser($string);
         $start = $end + 2;
         $post_email = substr($post_name, $start, 200);
         $end = strpos($post_email, "&%");
         $string = substr($post_email, 0, $end);
         \Drupal::logger("filter_check")->notice("string 4 ".$string);
-        $this->status_filter = $this->string_parser($string);
+        $this->status = $this->string_parser($string);
         $start = $end + 2;
         $post_status = substr($post_email, $start, 200);
         $end = strpos($post_status, "&%");
         $string = substr($post_status, 0, $end);
-        $this->sort_field = $this->string_parser($string);
-        if($this->get_sort_field() == "")
+        $this->sort = $this->string_parser($string);
+        if($this->get_sort() == "")
         {
             $this->sort_field = "rid";
         }
 
+
+
+    }
+    public function string_parser($string){
+        $string = str_replace("%20", " ", $string);
+        $string = str_replace("%26", "&", $string);
+        $string = str_replace("%25", "%", $string);
+        $string = str_replace("%23", "#", $string);
+        $string = str_replace("%40", "@", $string);
+        $string = str_replace("%2E", ".", $string);
+        $string = str_replace("%2F", "/", $string);
+        return $string;
+    }
+    public function sql_query()
+    {
+        $query = "Select * from nfb_user_portal_user_request where  rid = '".$this->get_rid()."' desc limit 50;";
+        $key = 'rid';
+        $sql = new User_request_queries();
+        $sql->select_query($query, $key);
 
 
     }

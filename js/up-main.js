@@ -974,7 +974,7 @@
                 }
                 else if(vfeildarray[1] == "gender")
                 {
-                    document.getElementById("eidt_gender").focus();
+                    document.getElementById("edit_gender").focus();
                     document.getElementById("gender_change").innerText = "Gender: "+info[0];
                     document.getElementById("gender_edit_div").style.display = "None";
                     document.getElementById("gender_new_val").style.display = "None";

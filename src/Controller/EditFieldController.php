@@ -337,7 +337,7 @@ class EditFieldController extends ControllerBase
         }
         elseif($this->get_field() == "gender")
         {
-            $civi->mode = "get";
+         /*   $civi->mode = "get";
             $civi->entity = "OptionValue";
             $civi->params = [
                 'select' => [
@@ -352,8 +352,8 @@ class EditFieldController extends ControllerBase
             ];
             $civi->civi_api_v4_query();
             $result = $civi->get_civi_result();
-            $state = $result->first();
-            $data = $state['label'];
+            $state = $result->first(); */
+            $data = $this->get_new_val();
         }
         elseif($this->get_field() == "lang")
         {

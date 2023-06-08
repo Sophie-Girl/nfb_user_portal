@@ -198,7 +198,7 @@ To update your contact or demographic information, navigate to the appropriate f
         while ($current <= $count) {
             $gender = $result->itemat($current);
             if($gender['id'] != "" && $gender['id'] != '344') {
-                $options = $options . "<option value='" . $gender['id'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['label'] . "&nbsp;&nbsp;&nbsp;</option>";
+                $options = $options . "<option value='" . $gender['label'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['label'] . "&nbsp;&nbsp;&nbsp;</option>";
             }
             $current++;
         }
