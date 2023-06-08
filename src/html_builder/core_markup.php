@@ -22,7 +22,7 @@ class core_markup
     }
     public function header_2(){
         $markup = "
-<p tabindex='0' class='lead'>Welcome to your National Federation of the Blind member profile. Achieving our shared goals of equality, opportunity, and security for the blind are impossible without you as member.
+<p tabindex='0' class='lead'>Welcome to your National Federation of the Blind member profile. Achieving our shared goals of equality, opportunity, and security for the blind are impossible without you as a member.
  In your account, maintain your personal information and review membership status. The member profile is under construction and expanding; you’ll find several tabs to different areas of the member profile. 
  Review information in your profile, membership, FAQs, and more. Thank you for your active participation in the organized blind movement.
 <br> <br>
