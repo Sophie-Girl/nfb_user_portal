@@ -50,7 +50,8 @@ class AdminCompleteRequestForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_stat, $rid = "1")
     {
-        $string = $rid;
+        $this->set_paging_requirments($rid);
+        $this->sql_query();
         $form['intro_text'] = array(
            '#type' => "item",
            '#makrup' => "<p> Placeholder text: Uh jsut odn't reuse emails. IDK</p>"
@@ -93,7 +94,7 @@ class AdminCompleteRequestForm extends FormBase
             '#title' => "Notes:",
             '#max' => 500,
         );
-
+        return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
