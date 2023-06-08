@@ -34,6 +34,16 @@ class AdminCompleteRequestForm extends FormBase
     {
         return $this->sort;
     }
+    public $name_value;
+    public function get_name_value()
+    {
+        return $this->name_value;
+    }
+    public  $email_vlaue;
+    public function get_email_value()
+    {
+      return   $this->email_vlaue;
+    }
     public function getFormId()
     {
        return "nfb_user_admin_complete";
@@ -64,7 +74,7 @@ class AdminCompleteRequestForm extends FormBase
             '#type' => "textfield",
             '#title' => "Member email",
             '#size' => 20,
-            '#value' => $this->get_email(),
+            '#prefix' =>"<div id='email_val'>". $this->get_email()."</div>",
             '#attributes' => array('readonly' => 'readonly'),
         );
         $form['status'] = array(
@@ -150,7 +160,14 @@ class AdminCompleteRequestForm extends FormBase
         $key = 'rid';
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
+        $result = $sql->get_result();
+        foreach ($result as $info)
+        {
+            $info = get_object_vars($info);
+            $this->name_value = $info['member_name'];
+            $this->email_vlaue = $info['member_email'];
 
+        }
 
     }
 }
