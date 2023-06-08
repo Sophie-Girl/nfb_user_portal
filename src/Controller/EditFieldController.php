@@ -203,7 +203,7 @@ class EditFieldController extends ControllerBase
                 \Drupal::logger("I_hate_this")->notice("gender_sent ".$this->get_new_val());
                 $civi->params = [
                     'values' => [
-                        'gender_id' => $this->get_new_val(),
+                        'gender_id:name' => $this->get_new_val(),
                     ],
                     'where' => [
                         ['id', '=', $this->get_contact_id()],
