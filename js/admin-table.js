@@ -3,6 +3,8 @@
         attach: function (context, settings) {
             window.onload = function () {
                 document.getElementById('edit-search-value').style.display = 'none';
+                document.getElementById('page_val').style.display = 'none';
+                document.getElementById('page_num').style.display = 'none';
                 document.getElementsByClassName("form-item js-form-item form-type-textfield js-form-type-textfield form-item-search-value js-form-item-search-value")['0'].style.display = 'none';
                 var limiter = document.getElementById('page_val');
                 document.getElementById('edit-search-value').value = limiter;
