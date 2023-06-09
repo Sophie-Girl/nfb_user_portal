@@ -185,7 +185,7 @@ class MemberAccountForm extends FormBase
         {
             $exists = "no change";
         }
-        return $match;
+        return $exists;
     }
     public function validate_password(&$form, FormStateInterface $form_state)
     {
