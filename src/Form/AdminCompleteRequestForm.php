@@ -56,9 +56,16 @@ class AdminCompleteRequestForm extends FormBase
            '#type' => "item",
            '#makrup' => "<p> Placeholder text: Uh jsut odn't reuse emails. IDK</p>"
        );
+        $form['pass_along'] = array(
+            '#type' => "textfield",
+            '#title' => "pass along",
+            '#size' => 20,
+            '#value' => $rid,
+            '#attributes' => array('readonly' => 'readonly'),
+        );
        $form['rid'] = array(
            '#type' => "textfield",
-           '#title' => "Member Name",
+           '#title' => "Request ID",
            '#size' => 20,
            '#value' => $this->get_rid(),
            '#attributes' => array('readonly' => 'readonly'),
@@ -76,7 +83,7 @@ class AdminCompleteRequestForm extends FormBase
             '#title' => "Member email",
             '#size' => 20,
             '#prefix' =>"<div id='email_val'>". $this->get_email()."</div>",
-            '#attributes' => array('readonly' => 'readonly'),
+
         );
         $form['status'] = array(
             '#type' => 'select',
