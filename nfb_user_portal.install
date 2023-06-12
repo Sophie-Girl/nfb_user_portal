@@ -179,5 +179,44 @@ function nfb_user_portal_schema()
     if(!$database->schema()->tableExists('nfb_user_portal_user_request')) {
         $query->createTable('nfb_user_portal_user_request', $schema['nfb_user_portal_user_request']);
     }
+    $database = \Drupal::database();
+    if($database->schema()->tableExists('nfb_user_portal_templates'))
+    {
+
+        \Drupal::logger('nfb_user_portal')->notice("Dropping Table");
+        $database->schema()->dropTable('nfb_user_portal_templates');
+    }
+    $schema['nfb_user_portal_templates'] = array(
+        'description' => 'Stores all email templates',
+        'fields' => array(
+            'tid' => array(
+                'type' => 'serial',
+                'size' => 'big',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'description' => 'Primary Key: tid'
+            ),
+            'type_id' => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => '1',
+                'not null' => true,
+                'description' => "What civi contact."
+            ),
+            'template_id' => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => 'Not Created',
+                'not null' => true,
+                'description' => "What is the users name, the people kind of name"
+            ),
+        ),
+        'primary key' => ['tid'],
+    );
+    if(!$database->schema()->tableExists('nfb_user_portal_templates')) {
+        $query->createTable('nfb_user_portal_templates', $schema['nfb_user_portal_templates']);
+    }
+
+
 
 }
