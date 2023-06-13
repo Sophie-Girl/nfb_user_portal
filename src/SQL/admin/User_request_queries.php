@@ -20,5 +20,4 @@ class User_request_queries
         $this->result = $this->database->query($query)->execute();
         $this->database = null;
     }
-
 }
