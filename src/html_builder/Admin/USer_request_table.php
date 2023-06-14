@@ -372,7 +372,7 @@ or review an issue with a potential account.</p>
     {
         $page = 1;
         $this->markup = $this->get_markup() . "<tr class='nfb-t-header'></tr></table>
-    <p><a href='/nfb_member/admin/user_requests/1.".$this->set_filter_values()."' class='view_button' role='button'>&nbsp;&nbsp;First&nbsp;&nbsp;</a> " . $this->paging_links($page) . " <a href='/nfb_member/admin/user_requests/" . $this->get_page_need().$this->set_filter_values() . "' class='view_button' role='button'>&nbsp;&nbsp;Last&nbsp;&nbsp;</a></p>";
+    <p><a href='/nfb_member/admin/user_requests/1.".$this->set_filter_values()."' class='view_button' role='button' aria-label='First Page'>&nbsp;&nbsp;First&nbsp;&nbsp;</a> " . $this->paging_links($page) . " <a href='/nfb_member/admin/user_requests/" . $this->get_page_need().$this->set_filter_values() . "' class='view_button' role='button' aria-label='Last Page'>&nbsp;&nbsp;Last&nbsp;&nbsp;</a></p>";
 
     }
 
@@ -380,7 +380,7 @@ or review an issue with a potential account.</p>
     {
         $pager = '';
         while ($page <= $this->get_page_need()) {
-            $pager = $pager . " <a href='/nfb_member/admin/user_requests/" . $page.$this->set_filter_values() . "' class='view_button' role='button'>&nbsp;&nbsp;" . $page . "&nbsp;&nbsp;</a>";
+            $pager = $pager . " <a href='/nfb_member/admin/user_requests/" . $page.$this->set_filter_values() . "' class='view_button' role='button' aria-label='Page Number ".$page."'>&nbsp;&nbsp;" . $page . "&nbsp;&nbsp;</a>";
             $page++;
         }
         return $pager;
