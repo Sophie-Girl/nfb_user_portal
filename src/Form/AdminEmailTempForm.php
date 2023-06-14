@@ -125,7 +125,7 @@ class AdminEmailTempForm extends FormBase {
         return $options;
     }
     public function create_database_records(FormStateInterface  $form_state)
-    {
+    {\drupal::logger("insert_test")->notice("I got here");
         $database = \Drupal::database();
         if ($database->schema()->tableExists("nfb_user_portal_templates")) {
             $fields = array(
