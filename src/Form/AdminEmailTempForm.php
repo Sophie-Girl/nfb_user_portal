@@ -83,15 +83,16 @@ class AdminEmailTempForm extends FormBase {
         foreach ($sql->get_result() as $template)
         {
             $template = get_object_vars($template);
-            if($template['type_id'] == 1)
+            \Drupal::logger("sql_issue")->notice("results ".print_r($template, true));
+            if($template['type_id'] == '1')
             {
                 $this->completed_request = $template['template_id'];
             }
-            elseif($template['type_id'] == 2)
+            elseif($template['type_id'] == '2')
             {
                 $this->reset_user_name = $template['template_id'];
             }
-            elseif ($template['type_id'] == 3)
+            elseif ($template['type_id'] == '3')
             {
                $this->request_pass_word = $template['template_id'];
             }
