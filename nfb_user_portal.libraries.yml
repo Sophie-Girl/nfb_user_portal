@@ -36,4 +36,4 @@ admin-template:
     theme:
       css/up-account.css: { }
   js:
-    js/admin-table.js: { }
+    js/admin-template.js: { }
