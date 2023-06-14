@@ -7,7 +7,8 @@ use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 use Drupal\nfb_washington\civicrm\civi_query;
 use Drupal\user;
 use Drupal\civicrm\Civicrm;
-Drupal\nfb_user_portal\civi_query;
+use Symfony\Component\HttpFoundation;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 class AdminCompleteRequestForm extends FormBase
 {
     public $rid;
@@ -167,7 +168,7 @@ class AdminCompleteRequestForm extends FormBase
             $this->update_database($form_state); // finalize the datbase change
             $this->emial_functions(); // send Email
         }
-
+        $this->url__Re_directy($form_state);
     }
 
     public function validateForm(array &$form, FormStateInterface $form_state)
@@ -461,8 +462,29 @@ where type_id = '1';";
         $sql->update_query($query);
     }
 
-    public function url__Redirecty(FormStateInterface $form_state)
+    public function url__Re_directy(FormStateInterface $form_state)
     {
+        $rid = $form_state->getValue("rid");
+        $orig_string = $rid;
+        $end = strpos($orig_string, "&%");
+        $string = substr($orig_string, 0, $end);
+        $this->rid = $this->string_parser($string);
+        $start = $end + 2;
+        $post_rid = substr($orig_string, $start, 200);
+        $url = $this->set_rediect_url($post_rid);
+        $ender = new RedirectResponse($url);
+        $ender->send(); exit;
 
+    }
+    public function set_rediect_url($post_rid)
+    {
+        $post_rid = str_replace(" ", "%20", $post_rid);
+        $post_rid = str_replace("&", "%26", $post_rid);
+        $post_rid = str_replace("%", "%25",  $post_rid);
+        $post_rid = str_replace("#", "%23",  $post_rid);
+        $post_rid = str_replace("@", "%40",  $post_rid);
+        $post_rid = str_replace(".", "%2E",  $post_rid);
+        $post_rid = str_replace( "/", "%2F", $post_rid);
+        return $post_rid;
     }
 }
