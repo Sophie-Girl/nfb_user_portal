@@ -108,7 +108,6 @@ class AdminEmailTempForm extends FormBase {
                 'limit' => 500,
                 'checkPermissions' => FALSE,
             ];
-
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $total = $result->count();
