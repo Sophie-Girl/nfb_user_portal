@@ -80,10 +80,11 @@ class AdminEmailTempForm extends FormBase {
         $key = "tid";
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
+        \Drupal::logger("sql_issue")->notice("results ".print_r($sql->get_result(), true));
         foreach ($sql->get_result() as $template)
         {
             $template = get_object_vars($template);
-            \Drupal::logger("sql_issue")->notice("results ".print_r($template, true));
+
             if($template['type_id'] == '1')
             {
                 $this->completed_request = $template['template_id'];
