@@ -154,17 +154,17 @@ class AdminEmailTempForm extends FormBase {
     {
         $sql = new User_request_queries();
         $query = " update nfb_user_portal_templates
-        set tempalte_id = '".$form_state->getValue("completed_temp")."'
+        set template_id = '".$form_state->getValue("completed_temp")."'
         where tid = 1; 
         ";
         $sql->update_query($query);
         $query = " update nfb_user_portal_templates
-        set tempalte_id = '".$form_state->getValue("user_name")."'
+        set template_id = '".$form_state->getValue("user_name")."'
         where tid = 2; 
         ";
         $sql->update_query($query);
         $query = " update nfb_user_portal_templates
-        set tempalte_id = '".$form_state->getValue("password_change")."'
+        set template_id = '".$form_state->getValue("password_change")."'
         where tid = 3; 
         ";
         $sql->update_query($query);
