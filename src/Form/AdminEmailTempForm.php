@@ -56,6 +56,10 @@ class AdminEmailTempForm extends FormBase {
             '#required' => true,
             '#description' => "This Template Goes out when the user changes their password.",
         );
+        $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => $this->t('Submit'),)
+        ;
         $form['#attached']['library'][] =  'nfb_user_portal/admin-template';
         return $form;
     }
