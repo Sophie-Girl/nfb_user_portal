@@ -100,15 +100,15 @@ class AdminEmailTempForm extends FormBase {
         $civi= new query_base();
         $civi->entity = "MessageTemplate";
         $civi->mode = "get";
-        $civi->params = array(
+        $civi->params =
             [
                 'select' => [
                     '*',
                 ],
                 'limit' => 500,
                 'checkPermissions' => FALSE,
-            ]
-        );
+            ];
+
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $total = $result->count();
