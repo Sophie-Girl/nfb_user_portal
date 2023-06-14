@@ -135,19 +135,19 @@ class AdminEmailTempForm extends FormBase {
                 'template_id' => $form_state->getValue("completed_temp"),
             );
             $table = 'nfb_user_portal_templates';
-            $database->insert($table, $fields)->execute();
+            $database->insert($table)->fields($fields)->execute();
             $fields = array(
                 'type_id' => 2,
                 'template_id' => $form_state->getValue("user_name"),
             );
             $table = 'nfb_user_portal_templates';
-            $database->insert($table, $fields)->execute();
+            $database->insert($table)->fields($fields)->execute();
             $fields = array(
                 'type_id' => 3,
                 'template_id' => $form_state->getValue("password_change"),
             );
             $table = 'nfb_user_portal_templates';
-            $database->insert($table, $fields)->execute();
+            $database->insert($table)->fields($fields)->execute();
         }
     }
     public function update_databse_records(FormStateInterface  $form_state)
