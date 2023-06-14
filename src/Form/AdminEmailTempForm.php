@@ -66,7 +66,7 @@ class AdminEmailTempForm extends FormBase {
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
         $this->sql_query();
-        if($this->get_reset_user_name())
+        if($this->get_reset_user_name() != "")
         {
             $this->update_databse_records($form_state);
         }
