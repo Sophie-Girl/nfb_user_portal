@@ -271,7 +271,6 @@ or review an issue with a potential account.</p>
         $string = str_replace( "%", "%25", $string);
         $string = str_replace( "&","%26", $string);
         $string = str_replace( " ","%20", $string);
-
         $string = str_replace( "#", "%23", $string);
         $string = str_replace( "@", "%40",$string);
         $string = str_replace( ".", "%2E", $string);
