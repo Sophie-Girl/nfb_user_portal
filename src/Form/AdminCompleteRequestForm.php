@@ -246,6 +246,7 @@ class AdminCompleteRequestForm extends FormBase
         $result = $user->save();
         $this->user_id = $user->id();
         $this->reset_link = user_pass_reset_url($user);
+        \Drupal::logger("url_check")->notice("usl: ".$this->get_reset_link());
     }
 
     public function civi_user_set_up()
