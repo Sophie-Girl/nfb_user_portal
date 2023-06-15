@@ -55,17 +55,17 @@ nfb_user_portal.userrequest:
   path: 'member_portal/admin/user_request/{limiter}'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminUserRequestForm'
-    _title: 'Manage Account'
+    _title: 'User Requests'
     limiter: '1'
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.completerequest:
-  path: 'member_portal/admin/complete_request/{limiter}'
+  path: 'member_portal/admin/complete_request/{rid}'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminCompleteRequestForm'
     _title: 'Complete User Request'
-    limiter: '1'
+    rid: '1'
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
