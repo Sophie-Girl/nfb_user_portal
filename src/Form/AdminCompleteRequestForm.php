@@ -93,7 +93,7 @@ class AdminCompleteRequestForm extends FormBase
         return "nfb_user_admin_complete";
     }
 
-    public function buildForm(array $form, FormStateInterface $form_stat, $rid = "1")
+    public function buildForm(array $form, FormStateInterface $form_state, $rid = "1")
     {
         $this->set_paging_requirments($rid);
         $this->sql_query();
