@@ -18,7 +18,7 @@ class AdminCompleteRequestForm extends FormBase
         return $this->rid;
     }
 
-    public $name;
+    public $name;1
 
     public function get_name()
     {
@@ -374,7 +374,7 @@ class AdminCompleteRequestForm extends FormBase
 
     public function sql_query()
     {
-        $query = "Select * from nfb_user_portal_user_request where  rid = '" . $this->get_rid() . "' desc limit 50;";
+        $query = "Select * from nfb_user_portal_user_request where  rid = '" . $this->get_rid() . "';";
         $key = 'rid';
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
