@@ -321,6 +321,7 @@ class AdminCompleteRequestForm extends FormBase
         \Drupal::logger("rid_check")->notice("aigo: ".$rid);
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
+        \Drupal::logger("rid_check")->notice("aigo: ".$string);
         $this->rid = $this->string_parser($string);
         $start = $end + 2;
         $post_rid = substr($orig_string, $start, 200);
