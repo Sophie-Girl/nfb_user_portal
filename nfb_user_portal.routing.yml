@@ -61,9 +61,9 @@ nfb_user_portal.userrequest:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.completerequest:
-  path: 'member_portal/admin/user_request/{limiter}'
+  path: 'member_portal/admin/complete_request/{limiter}'
   defaults:
-    _form: 'Drupal\nfb_user_portal\Form\AdminUserRequestForm'
+    _form: 'Drupal\nfb_user_portal\Form\AdminCompleteRequestForm'
     _title: 'Complete User Request'
     limiter: '1'
   requirements:

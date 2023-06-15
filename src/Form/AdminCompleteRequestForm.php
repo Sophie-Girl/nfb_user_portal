@@ -322,7 +322,6 @@ class AdminCompleteRequestForm extends FormBase
         $string = substr($orig_string, 0, $end);
         $this->rid = $this->string_parser($string);
         $start = $end + 2;
-
         $post_rid = substr($orig_string, $start, 200);
         $new_end = strpos($post_rid, "&%");
         $string = substr($post_rid, 0, $new_end);
