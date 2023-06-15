@@ -19,7 +19,6 @@ class AdminCompleteRequestForm extends FormBase
     }
 
     public $name;
-
     public function get_name()
     {
         return $this->name;
@@ -127,11 +126,12 @@ class AdminCompleteRequestForm extends FormBase
             '#type' => "textfield",
             '#title' => "Member Name",
             '#size' => 20,
-            '#value' => $this->get_name(),
+            '#value' => $this->get_name_value(),
             '#attributes' => array('readonly' => 'readonly'),
 
         );
         $form['email'] = array(
+            '#prefix' => '<div class="hidden_val" id="default_email">'.$this->get_email_value().'</div>',
             '#type' => "textfield",
             '#title' => "Member email",
             '#size' => 20,
@@ -140,7 +140,7 @@ class AdminCompleteRequestForm extends FormBase
         );
         $form['status'] = array(
             '#type' => 'select',
-            '#title' => "Filter by Status",
+            '#title' => "Status",
             '#options' => array(
                 'Pending' => "Pending",
                 'Complete' => "Complete",
@@ -150,10 +150,15 @@ class AdminCompleteRequestForm extends FormBase
             ),
         );
         $form['comments'] = array(
-            '#type' => '#textarea',
+            '#type' =>  'textarea',
             '#title' => "Notes:",
             '#max' => 500,
         );
+        $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => $this->t('Submit'),)
+        ;
+        $form['#attached']['library'][] =  'nfb_user_portal/admin-template';
         return $form;
     }
 
