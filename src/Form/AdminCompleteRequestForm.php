@@ -141,7 +141,9 @@ class AdminCompleteRequestForm extends FormBase
         $form['status'] = array(
             '#type' => 'select',
             '#title' => "Status",
+            '#required' => true,
             '#options' => array(
+                '' => ' - select - ',
                 'Pending' => "Pending",
                 'Complete' => "Complete",
                 "Rejected" => "Rejected",
