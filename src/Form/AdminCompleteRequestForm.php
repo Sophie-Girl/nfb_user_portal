@@ -328,7 +328,7 @@ class AdminCompleteRequestForm extends FormBase
         $string = substr($post_rid, 0, $new_end);
         $this->page = $string;
         $start = $new_end + 2;
-        $post_page = substr($orig_string, $start, 200);
+        $post_page = substr($post_rid, $start, 200);
         $new_end = strpos($post_page, "&%");
         \Drupal::logger("sigh")->notice("aiya " . $post_page);
         $string = substr($post_page, 0, $new_end);
