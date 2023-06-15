@@ -268,9 +268,10 @@ or review an issue with a potential account.</p>
     public function set_filter_values()
     {
         $string= "&%".$this->get_name_filter()."&%".$this->get_email_filter()."&%".$this->get_status_filter()."&%".$this->get_sort_field();
-        $string = str_replace( " ","%20", $string);
-        $string = str_replace( "&","%26", $string);
         $string = str_replace( "%", "%25", $string);
+        $string = str_replace( "&","%26", $string);
+        $string = str_replace( " ","%20", $string);
+
         $string = str_replace( "#", "%23", $string);
         $string = str_replace( "@", "%40",$string);
         $string = str_replace( ".", "%2E", $string);
@@ -344,7 +345,7 @@ or review an issue with a potential account.</p>
     public function build_row($result)
     {
         $this->markup = $this->get_markup() . "<tr><td>" . $result['rid'] . "</td>
-<td>" . $result['civi_contact_id'] . "</td><td>".$result['member_name']."</td><td>".$result['member_email']."</td><td>" . $result['status'] . "</td><td>" . $result['comment'] . "</td><td>&nbsp;&nbsp;&nbsp;<a href='/member_rpfoile_admin.chest' class=''>&nbsp;&nbsp;&nbsp;Process&nbsp;&nbsp;&nbsp;</a></td></tr>";
+<td>" . $result['civi_contact_id'] . "</td><td>".$result['member_name']."</td><td>".$result['member_email']."</td><td>" . $result['status'] . "</td><td>" . $result['comment'] . "</td><td>&nbsp;&nbsp;&nbsp;<a href='member_portal/admin/user_request/".$result['rid']."%26%25".$this->get_limiter()."%26%25".$this->set_filter_values()."' class=''>&nbsp;&nbsp;&nbsp;Process&nbsp;&nbsp;&nbsp;</a></td></tr>";
     }
     public function get_current_max_id()
     {
