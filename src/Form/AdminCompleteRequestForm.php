@@ -318,6 +318,7 @@ class AdminCompleteRequestForm extends FormBase
     public function set_paging_requirments($rid)
     {
         $orig_string = $rid;
+        \Drupal::logger("rid_check")->notice("aigo: ".$rid);
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
         $this->rid = $this->string_parser($string);
