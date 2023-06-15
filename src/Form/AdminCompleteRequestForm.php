@@ -18,7 +18,7 @@ class AdminCompleteRequestForm extends FormBase
         return $this->rid;
     }
 
-    public $name;1
+    public $name;
 
     public function get_name()
     {
