@@ -34,6 +34,13 @@ admin-template:
   version: 1.x
   css:
     theme:
-      css/up-account.css: { }
+      css/admin-template.css: { }
   js:
     js/admin-template.js: { }
+admin-complete:
+  version: 1.x
+  css:
+    theme:
+      css/admin-complete.css: { }
+  js:
+    js/admin-complete.js: { }

@@ -102,14 +102,14 @@ class AdminCompleteRequestForm extends FormBase
         );
         $form['pass_along'] = array(
             '#type' => "textfield",
-            '#title' => "pass along",
+            '#title' => "",
             '#size' => 20,
             '#value' => $rid,
             '#attributes' => array('readonly' => 'readonly'),
         );
         $form['rid'] = array(
             '#type' => "textfield",
-            '#title' => "Request ID",
+            '#title' => "",
             '#size' => 20,
             '#value' => $this->get_rid(),
             '#attributes' => array('readonly' => 'readonly'),
@@ -135,7 +135,7 @@ class AdminCompleteRequestForm extends FormBase
             '#type' => "textfield",
             '#title' => "Member email",
             '#size' => 20,
-            '#prefix' => "<div id='email_val'>" . $this->get_email() . "</div>",
+
 
         );
         $form['status'] = array(
@@ -158,7 +158,7 @@ class AdminCompleteRequestForm extends FormBase
             '#type' => 'submit',
             '#value' => $this->t('Submit'),)
         ;
-        $form['#attached']['library'][] =  'nfb_user_portal/admin-template';
+        $form['#attached']['library'][] =  'nfb_user_portal/admin-complete';
         return $form;
     }
 
