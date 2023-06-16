@@ -455,7 +455,7 @@ where type_id = '1';";
         where rid = '" . $form_state->getValue("rid") . "';";
         $sql->update_query($query);
         $query = "update nfb_user_portal_user_request
-        set member_name  = '" . $form_state->getValue("email") . "'
+        set member_email  = '" . $form_state->getValue("email") . "'
         where rid = '" . $form_state->getValue("rid") . "';";
         $sql->update_query($query);
         $query = "update nfb_user_portal_user_request
