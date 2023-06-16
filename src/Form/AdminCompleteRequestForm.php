@@ -361,7 +361,7 @@ class AdminCompleteRequestForm extends FormBase
         $end = strpos($post_status, "&%");
         $string = substr($post_status, 0, $end);
         $this->sort = $this->string_parser($string);
-        if ($this->get_sort() == "") {
+        if ($this->get_sort() == "" || $this->get_sort() == " ") {
             $this->sort= "rid";
         }
 
