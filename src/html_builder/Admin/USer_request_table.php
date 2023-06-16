@@ -357,10 +357,12 @@ or review an issue with a potential account.</p>
 
     public function additional_page_query()
     {
-        $query = "Select * from nfb_user_portal_user_request where rid <= '" . $this->get_page_max_id() . "' order by sub_id desc limit 50;";
+        $this->get_current_max_id();
+        $sql = \Drupal::database();
+        $query = "Select * from nfb_user_portal_user_request where rid <= '" . $this->get_page_max_id() . "' order by rid desc limit 50;";
         \Drupal::logger("page_reload_issue")->notice("query val ".$query);
         $key = "sub_id";
-        $sql_result = $this->database->query($query)->fetchAllAssoc($key);
+        $sql_result = $sql query($query)->fetchAllAssoc($key);
         foreach ($sql_result as $result) {
             $result = get_object_vars($result);
             $sub_array = get_object_vars(json_decode($result['form_submission_values']));
