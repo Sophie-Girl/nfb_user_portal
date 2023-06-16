@@ -261,7 +261,7 @@ class AdminCompleteRequestForm extends FormBase
         $civi->entity = "UFMatch";
         $civi->mode = "get";
         $civi->params = array(
-            [
+
                 'select' => [
                     '*',
                 ],
@@ -270,7 +270,7 @@ class AdminCompleteRequestForm extends FormBase
                 ],
                 'limit' => 25,
                 'checkPermissions' => FALSE,
-            ]
+
         );
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
