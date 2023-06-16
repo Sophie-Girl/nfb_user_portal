@@ -326,10 +326,8 @@ class AdminCompleteRequestForm extends FormBase
     public function set_paging_requirments($rid)
     {
         $orig_string = $rid;
-        \Drupal::logger("rid_check")->notice("aigo: ".$rid);
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
-        \Drupal::logger("rid_check")->notice("aigo: ".$this->string_parser($string));
         $this->rid = $this->string_parser($string);
         $start = $end + 2;
         $post_rid = substr($orig_string, $start, 200);
@@ -339,28 +337,22 @@ class AdminCompleteRequestForm extends FormBase
         $start = $new_end + 2;
         $post_page = substr($post_rid, $start, 200);
         $new_end = strpos($post_page, "&%");
-        \Drupal::logger("sigh")->notice("aiya " . $post_page);
         $string = substr($post_page, 0, $new_end);
         $this->name = $this->string_parser($string);
-        \Drupal::logger("filter_check")->notice("string 1 " . $string);
         $start = $new_end + 2;
         $post_name = substr($post_page, $start, 200);
-        \Drupal::logger("nfb_uer_portal")->notice("post_name " . $post_name);
         $end = strpos($post_name, "&%");
         $string = substr($post_name, 0, $end);
-        \Drupal::logger("filter_check")->notice("string 3 " . $string);
         $this->email = $this->string_parser($string);
         $start = $end + 2;
         $post_email = substr($post_name, $start, 200);
         $end = strpos($post_email, "&%");
         $string = substr($post_email, 0, $end);
-        \Drupal::logger("filter_check")->notice("string 4 " . $string);
         $this->status = $this->string_parser($string);
         $start = $end + 2;
         $post_status = substr($post_email, $start, 200);
         $end = strpos($post_status, "&%");
         $string = substr($post_status, 0, $end);
-        \Drupal::logger("filter_check")->notice("string 5 " . $string);
         $this->sort = $this->string_parser($string);
         if ($this->get_sort() == "" || $this->get_sort() == " ") {
             $this->sort= "rid";

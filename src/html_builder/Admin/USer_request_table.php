@@ -141,36 +141,29 @@ class USer_request_table extends User_request_activate
     }
     public function set_paging_requirments()
     {
-        \Drupal::logger("debug_redirect")->notice("limiter value ".$this->get_limiter());
         $orig_string = $this->get_limiter();
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
         $this->limiter = $this->string_parser($string);
         $start = $end + 2;
         $post_page = substr($orig_string, $start, 200);
-        \Drupal::logger("sigh")->notice("aiya ".$post_page);
         $new_end = strpos($post_page, "&%");
         $string = substr($post_page,0, $new_end);
         $this->name_filter = $this->string_parser($string);
-        \Drupal::logger("filter_check")->notice("string 1 ".$string);
         $start = $new_end+2;
         $post_name = substr($post_page, $start, 200);
-        \Drupal::logger("nfb_uer_portal")->notice("post_name ".$post_name);
         $end = strpos($post_name, "&%");
         $string = substr($post_name, 0, $end);
-        \Drupal::logger("filter_check")->notice("string 3 ".$string);
         $this->email_filter = $this->string_parser($string);
         $start = $end + 2;
         $post_email = substr($post_name, $start, 200);
         $end = strpos($post_email, "&%");
         $string = substr($post_email, 0, $end);
-        \Drupal::logger("filter_check")->notice("string 4 ".$string);
         $this->status_filter = $this->string_parser($string);
         $start = $end + 2;
         $post_status = substr($post_email, $start, 200);
         $end = strpos($post_status, "&%");
         $string = substr($post_status, 0, $end);
-        \Drupal::logger("filter_check")->notice("string 5 " . $string);
         $this->sort_field = $this->string_parser($string);
         if($this->get_sort_field() == "" || $this->get_sort_field() == " ")
         {
