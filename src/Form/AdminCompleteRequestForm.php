@@ -289,7 +289,7 @@ class AdminCompleteRequestForm extends FormBase
         } else {
             $uf_match = $result->first();
             $id = $uf_match['id'];
-            $civi->entity = "update";
+            $civi->mode = "update";
             $civi->params = array(
                 'values' => [
                     'contact_id' => $this->get_civi_id(),
