@@ -360,6 +360,7 @@ class AdminCompleteRequestForm extends FormBase
         $post_status = substr($post_email, $start, 200);
         $end = strpos($post_status, "&%");
         $string = substr($post_status, 0, $end);
+        \Drupal::logger("filter_check")->notice("string 5 " . $string);
         $this->sort = $this->string_parser($string);
         if ($this->get_sort() == "" || $this->get_sort() == " ") {
             $this->sort= "rid";
