@@ -473,7 +473,7 @@ where type_id = '1';";
 
     public function url__Re_directy(FormStateInterface $form_state)
     {
-        $rid = $form_state->getValue("rid");
+        $rid = $form_state->getValue("pass_along");
         $orig_string = $rid;
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
@@ -487,9 +487,9 @@ where type_id = '1';";
     }
     public function set_rediect_url($post_rid)
     {
+        $post_rid = str_replace("%", "%25",  $post_rid);
         $post_rid = str_replace(" ", "%20", $post_rid);
         $post_rid = str_replace("&", "%26", $post_rid);
-        $post_rid = str_replace("%", "%25",  $post_rid);
         $post_rid = str_replace("#", "%23",  $post_rid);
         $post_rid = str_replace("@", "%40",  $post_rid);
         $post_rid = str_replace(".", "%2E",  $post_rid);
