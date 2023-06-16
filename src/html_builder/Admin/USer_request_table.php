@@ -141,6 +141,7 @@ class USer_request_table extends User_request_activate
     }
     public function set_paging_requirments()
     {
+        \Drupal::logger("debug_redirect")->notice("limiter value ".$this->get_limiter());
         $orig_string = $this->get_limiter();
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
