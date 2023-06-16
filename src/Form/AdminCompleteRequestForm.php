@@ -480,6 +480,7 @@ where type_id = '1';";
         $this->rid = $this->string_parser($string);
         $start = $end + 2;
         $post_rid = substr($orig_string, $start, 200);
+        \drupal::logger("i_hate_my_life")->notice("post_rid ".$post_rid );
         $url = "/member_portal/admin/user_request/".$this->set_rediect_url($post_rid);
         $ender = new RedirectResponse($url);
         $ender->send(); exit;
