@@ -473,7 +473,13 @@ where type_id = '1';";
 
     public function url__Re_directy(FormStateInterface $form_state)
     {
-        $post_rid = $form_state->getValue("pass_along");
+        $rid = $form_state->getValue("pass_along");
+        $orig_string = $rid;
+        $end = strpos($orig_string, "&%");
+        $string = substr($orig_string, 0, $end);
+        $this->rid = $this->string_parser($string);
+        $start = $end + 2;
+        $post_rid = substr($orig_string, $start, 200);
         $url = "/member_portal/admin/user_request/".$this->set_rediect_url($post_rid);
         $ender = new RedirectResponse($url);
         $ender->send(); exit;
