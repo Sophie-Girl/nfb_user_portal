@@ -3,12 +3,41 @@ Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\Exception\Exception;
+use Drupal\nfb_user_portal\civi_query\query_base;
+use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 use Drupal\user\Entity\User;
 use Drupal\nfb_user_portal\html_builder\core_markup;
 
 
 class MemberAccountForm extends FormBase
 {
+    public $old_user_name;
+    public function get_old_user_name()
+    {
+        return $this->old_user_name;
+    }
+    public $new_user_name;
+    public function get_new_user_name(){
+        return $this->new_user_name;
+    }
+    public $user_name_email_template;
+    public function get_user_name_email_template()
+    {return $this->user_name_email_template;}
+    public $password_email_template;
+    public function get_password_email_template()
+    {return $this->password_email_template;}
+    public $user_id;
+    public function get_user_id()
+    {return $this->user_id;}
+    public $user_first_name;
+    public function get_user_first_name()
+    {return $this->user_first_name;}
+    public $user_last_name;
+    public function get_user_last_name()
+    {return $this->user_last_name;}
+    public $message_subject;
+    public function get_message_subject()
+    { return $this->message_subject;}
     public function getFormId()
     {
        return "nfb_user_manage_account";
@@ -95,13 +124,16 @@ class MemberAccountForm extends FormBase
     {
         $user = \Drupal::currentUser(); // get the user.
         $uname =  $user->getAccountName();
+        $this->old_user_name = $uname;
         \Drupal::logger("username_check")->notice("username check ".$uname);
         $uid = $user->getAccount()->id();
+        $this->user_id = $uid;
         $entity = User::load($uid);
         if($form_state->getValue("desire_change_uanme") == 1) {
             $entity->setEmail($form_state->getValue("change_username"));
 
             $entity->setUsername($form_state->getValue("change_username"));
+            $this->new_user_name = $form_state->getValue("change_username");
         }
         if ($form_state->getValue("desire_change_pword") == 1){
             $entity->setPassword($form_state->getValue("change_password"));
@@ -113,6 +145,7 @@ class MemberAccountForm extends FormBase
             $messager = \Drupal::messenger();
             $messager->addError("Couldn't save user ".$e->getMessage());
         }
+        $this->Email_functions($form_state);
     }
     public function validateForm(array &$form, FormStateInterface $form_state)
     {
@@ -242,6 +275,158 @@ class MemberAccountForm extends FormBase
             $clear = "No";
         }
         return $clear;
+    }
+    public function Email_functions(FormStateInterface $form_state)
+    {
+        $this->find_member_name();
+        if($form_state->getValue("desire_change_pword") == 1)
+        {
+            $this->find_password_email_template();
+            $this->password_mail_manager($form_state);
+        }
+        if($form_state->getValue("desire_change_uname" ) == 1)
+        {
+            $this->find_user_name_tempalte();
+            $this->user_name_mail_manager($form_state);
+        }
+
+    }
+    public function find_user_name_tempalte()
+    {
+        $sql =  new User_request_queries();
+        $query = "select * from nfb_user_portal_templates where type_id = '2';";
+        $key = "tid";
+        $sql->select_query($query, $key);
+        foreach ($sql->get_result() as $template)
+        {
+            $template = get_object_vars($template);
+            $this->user_name_email_template = $template['template_id'];
+        }
+        $sql = null;
+    }
+    public function find_password_email_template()
+    {
+        $sql =  new User_request_queries();
+        $query = "select * from nfb_user_portal_templates where type_id = '3';";
+        $key = "tid";
+        $sql->select_query($query, $key);
+        foreach ($sql->get_result() as $template)
+        {
+            $template = get_object_vars($template);
+            $this->password_email_template = $template['template_id'];
+        }
+        $sql = null;
+    }
+    public function find_member_name()
+    {
+        $civi = new query_base();
+        $civi->entity = "UFMatch";
+        $civi->mode = "get";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['uf_id', '=', $this->get_user_id()],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();; $result = $civi->get_civi_result();
+        $uf_match = $result->first();
+        $contact = $uf_match['contact_id'];
+        $civi->entity = "Contact";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['id', '=', $contact],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query(); $result = $civi->get_civi_result();
+        $contact_info = $result->first();
+        $this->user_first_name =  $contact_info['first_name'];
+        $this->user_last_name = $contact_info['last_name'];
+    }
+    public function repalce_tempalte_text($template)
+    {
+        $template = str_replace("[old_uname]", $this->get_old_user_name(), $template);
+        $template = str_replace("[new_uname]", $this->get_new_user_name(), $template);
+        $template = str_replace("[f_name]", $this->get_user_first_name(), $template);
+        $template = str_replace("[l_name]", $this->get_user_last_name(), $template);
+        return $template;
+    }
+    public function find_tempalte_text_and_subject($template)
+    {
+        $civi = new query_base();
+        $civi->entity = "MessageTemplate";
+        $civi->mode = "get";
+        $civi->entity = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['id', '=', ''],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query(); $result = $civi->get_civi_result();
+        $array = $result->first();
+        $template = $array['msg_text'];
+        $this->message_subject = $array['msg_subject'];
+        return $template;
+    }
+    public function password_mail_manager(FormStateInterface  $form_state)
+    {
+
+        $template = $this->get_password_email_template();
+        $template = $this->find_tempalte_text_and_subject($template);
+        $this->password_email_template = $this->repalce_tempalte_text($template);
+        if($form_state->getValue("desire_change_uanme") == 1){
+        $recipient_email = $this->get_new_user_name();}
+        else{
+            $recipient_email = $this->get_old_user_name();
+        }
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $module = 'nfb_user_portal';
+        $key = 'nfb_user_portal_pass_wrod';
+        $to = $recipient_email;
+        $send = true;
+        $params['message'] = $this->get_password_email_template();
+        $params['subject'] = $this->get_message_subject();
+        $langcode = "en";
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
+    }
+    public function user_name_mail_manager(FormStateInterface  $form_state)
+    {
+
+        $template = $this->get_user_name_email_template();
+        $template = $this->find_tempalte_text_and_subject($template);
+        $this->user_name_email_template = $this->repalce_tempalte_text($template);
+            $recipient_email = $this->get_old_user_name();
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $module = 'nfb_user_portal';
+        $key = 'nfb_user_portal_u_name_1';
+        $to = $recipient_email;
+        $send = true;
+        $params['message'] = $this->get_user_name_email_template();
+        $params['subject'] = $this->get_message_subject();
+        $langcode = "en";
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
+        $recipient_email = $this->get_new_user_name()
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $module = 'nfb_user_portal';
+        $key = 'nfb_user_portal_u_name_2';
+        $to = $recipient_email;
+        $send = true;
+        $params['message'] = $this->get_user_name_email_template();
+        $params['subject'] = $this->get_message_subject();
+        $langcode = "en";
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
     }
 
 }
