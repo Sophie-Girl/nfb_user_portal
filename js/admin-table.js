@@ -14,6 +14,11 @@
             $('#edit-name-filt').once().blur(function ()
             {
                 var name = document.getElementById("edit-name-filt").value;
+                if(name.indexOf(";") != -1)
+                {
+                    name = " ";
+                    alert("Invalid Search provided, Semi Colons are not allowed")
+                }
                 if(name === "")
                 {
                     name = " ";
@@ -40,6 +45,11 @@
             $('#edit-email-filt').once().blur(function ()
             {
                 var email = document.getElementById("edit-email-filt").value;
+                if(email.indexOf(";") != -1)
+                {
+                    email = " ";
+                    alert("Invalid Search provided, Semi Colons are not allowed")
+                }
                 if(email === "")
                 {
                     email = " ";
