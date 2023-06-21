@@ -163,7 +163,7 @@ class AdminCompleteRequestForm extends FormBase
         $start = $end + 2;
         $post_rid = substr($orig_string, $start, 200);
         $end = strpos($orig_string, "&%");
-        $start = $end +2
+        $start = $end +2;
         $string = substr($post_rid,$start, 200);
         $post_rid = $string;
         $form['submit'] = array(
