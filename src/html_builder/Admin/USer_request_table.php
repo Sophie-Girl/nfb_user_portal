@@ -326,7 +326,7 @@ or review an issue with a potential account.</p>
         }
         elseif ($name == false && $email == false && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where  status = ".$this->get_status_filter()."' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where  status = '".$this->get_status_filter()."' order by ".$this->get_sort_field()." desc limit 50;";
         }
         else
         {
