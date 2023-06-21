@@ -17,6 +17,7 @@
                 if(name.indexOf(";") != -1)
                 {
                     name = " ";
+                    document.getElementById("edit-name-filt").value = name;
                     alert("Invalid Search provided, Semi Colons are not allowed")
                 }
                 if(name === "")
@@ -48,6 +49,7 @@
                 if(email.indexOf(";") != -1)
                 {
                     email = " ";
+                    document.getElementById("edit-email-filt").value = email;
                     alert("Invalid Search provided, Semi Colons are not allowed")
                 }
                 if(email === "")
