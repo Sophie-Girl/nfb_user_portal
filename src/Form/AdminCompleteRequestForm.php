@@ -162,7 +162,10 @@ class AdminCompleteRequestForm extends FormBase
         $this->rid = $this->string_parser($string);
         $start = $end + 2;
         $post_rid = substr($orig_string, $start, 200);
-
+        $end = strpos($orig_string, "&%");
+        $start = $end +2
+        $string = substr($post_rid,$start, 200);
+        $post_rid = $string;
         $form['submit'] = array(
            '#prefix' => "<a href='/member_portal/admin/user_request/".$this->set_rediect_url($post_rid)."' style='display: inline-block' class='btn btn-primary' role='button' aria-label='Go Back to User Request Table'>&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</a>",
             '#type' => 'submit',
