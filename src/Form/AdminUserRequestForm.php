@@ -12,9 +12,11 @@ class AdminUserRequestForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_state, $limiter = '1')
     {
+
         if($limiter == 1)
         {
             $limiter = "1&% &% &% &%rid";
+            // 1&%%26%25con%26%25%20%26%25Duplicate%20Email%26%25rid
         }
         $this->table_builder = new USer_request_table();
         $this->table_builder->build_form($form, $form_state, $limiter);

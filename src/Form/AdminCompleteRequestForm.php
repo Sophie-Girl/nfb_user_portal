@@ -495,6 +495,7 @@ where type_id = '1';";
         $post_rid = str_replace("@", "%40",  $post_rid);
         $post_rid = str_replace(".", "%2E",  $post_rid);
         $post_rid = str_replace( "/", "%2F", $post_rid);
+        $post_rid = str_replace("%26%25%26%25", "%26%25", $post_rid);
         return $post_rid;
     }
 }
