@@ -156,8 +156,15 @@ class AdminCompleteRequestForm extends FormBase
             '#title' => "Notes:",
             '#max' => 500,
         );
+        $orig_string = $rid;
+        $end = strpos($orig_string, "&%");
+        $string = substr($orig_string, 0, $end);
+        $this->rid = $this->string_parser($string);
+        $start = $end + 2;
+        $post_rid = substr($orig_string, $start, 200);
+
         $form['submit'] = array(
-       //     '#prefix' => "<a href='' style='display: inline-block' class='btn btn-primary'>&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</a>",
+           '#prefix' => "<a href='/member_portal/admin/user_request/".$this->set_rediect_url($post_rid)."' style='display: inline-block' class='btn btn-primary' role='button' aria-label='Go Back to User Request Table'>&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</a>",
             '#type' => 'submit',
             '#value' => $this->t('Submit'),)
         ;
