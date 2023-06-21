@@ -417,7 +417,7 @@ class MemberAccountForm extends FormBase
         $params['subject'] = $this->get_message_subject();
         $langcode = "en";
         $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
-        $recipient_email = $this->get_new_user_name()
+        $recipient_email = $this->get_new_user_name();
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'nfb_user_portal';
         $key = 'nfb_user_portal_u_name_2';
