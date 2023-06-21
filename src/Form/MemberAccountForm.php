@@ -157,6 +157,10 @@ class MemberAccountForm extends FormBase
     public function validate_username(&$form, FormStateInterface $form_state)
     {
         $username = $form_state->getValue("change_username");
+        if(strpos(" ".$username, ";") > 0)
+        {
+            $form_state->setErrorByName("change_username", "Entered password cannot contain a semi colon.");
+        }
         if ($form_state->getValue("desire_change_uanme") == 1) {
         $email_entered = $this->check_if_email($username);
         if ($email_entered == "No") {
@@ -224,6 +228,10 @@ class MemberAccountForm extends FormBase
     {
         if($form_state->getValue("desire_change_pword") == 1) {
             $pword = $form_state->getValue("change_password");
+            if(strpos(" ".$pword, ";") > 0)
+            {
+                $form_state->setErrorByName("change_password", "Entered password cannot contain a semi colon.");
+            }
             $confirm_pword = $form_state->getValue("confirm_password");
             if ($pword != $confirm_pword) {
                 $form_state->setErrorByName("change_password", "Entered passwords do not match");
@@ -239,6 +247,7 @@ class MemberAccountForm extends FormBase
     }
     public function check_password($pword)
     {
+
         if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $pword))
         {
             $char_good = true;
