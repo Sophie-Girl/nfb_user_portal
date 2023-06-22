@@ -126,6 +126,7 @@ class USer_request_table extends User_request_activate
             '#required' => false,
         );
         $form['ajax_button'] = array(
+            '#prifx' => "<div id='clear-filter' style='display: inline-block' role='button' class='btn btn-primary'>&nbsp;&nbsp;&nbsp;Clear&nbsp;&nbsp;&nbsp;</div>",
           '#type' => "button",
           '#value' => "Search",
             '#ajax' => array(

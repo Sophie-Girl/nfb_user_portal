@@ -101,6 +101,13 @@
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
                 document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
             });
+            $('#clear-filter').once().click(function (){
+                document.getElementById("edit-name-filt").value = " ";
+                document.getElementById("edit-email-filt").value = " ";
+                document.getElementById("edit-status-filt").value = "";
+                document.getElementById("edit-sort-field").value = "";
+                document.getElementById("page-vale").innerText = "1&% &% &% &%";
+            });
             $('#edit-sort-field').once().blur(function ()
             {
                 var sort = document.getElementById("edit-sort-field").value;
