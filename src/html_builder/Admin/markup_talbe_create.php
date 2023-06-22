@@ -29,8 +29,9 @@ class markup_talbe_create extends markup_table_edit {
         }
 
     }
-    public function build_table_row()
+    public function build_table_row($content)
     {
+        $this->markup = $this->get_markup()."<tr><td>".$content['cid']."</td><td>".$content['markup_type']."</td></tr>";
 
     }
 
