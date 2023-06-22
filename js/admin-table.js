@@ -106,7 +106,7 @@
                 document.getElementById("edit-email-filt").value = " ";
                 document.getElementById("edit-status-filt").value = "";
                 document.getElementById("edit-sort-field").value = "";
-                document.getElementById("page-vale").innerText = "1&% &% &% &%";
+                document.getElementById("page_val").innerText = "1&% &% &% &%";
             });
             $('#edit-sort-field').once().blur(function ()
             {
