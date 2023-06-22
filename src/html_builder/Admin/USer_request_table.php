@@ -96,6 +96,7 @@ class USer_request_table extends User_request_activate
             '#type' => 'select',
             '#title' => "Filter by Status",
             '#options' => array(
+                '' => "Select",
                 'Pending' => "Pending",
                 'Complete' => "Complete",
                 "Rejected" => "Rejected",
@@ -115,6 +116,7 @@ class USer_request_table extends User_request_activate
             '#type' => 'select',
             '#title' => "Sort By:",
             '#options' => array(
+                '' => "Select",
                 'rid' => "Request ID",
                 'member_name' => "Name",
                 "member_email" => "Email",

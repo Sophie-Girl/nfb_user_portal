@@ -163,10 +163,18 @@ To update your contact or demographic information, navigate to the appropriate f
         $result = $civi->get_civi_result();
         $count = $result->count();
         $current = 0;
-        $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>";
+        $options = "<option >&nbsp;&nbsp;&nbsp;-&nbsp;Select&nbsp;-&nbsp;&nbsp;&nbsp;</option>
+        <option value='Male'>&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;</option>
+        <option value='Female'>&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;</option>
+        <option value='Nonbinary'>&nbsp;&nbsp;&nbsp;Nonbinary&nbsp;&nbsp;&nbsp;</option>
+                <option value='Transgender'>&nbsp;&nbsp;&nbsp;Transgender&nbsp;&nbsp;&nbsp;</option>
+        ";
         while ($current <= $count) {
             $gender = $result->itemat($current);
-            if($gender['id'] != "") {
+            if($gender['id'] != "" && $gender['name'] != "Male" &&
+            $gender['name'] != "Female" && $gender['name'] != "Nonbinary" &&
+            $gender['name'] != "Transgender") // did this the dirty way because they keep changing their mind about order :/
+            {
                 $options = $options . "<option value='" . $gender['name'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['name'] . "&nbsp;&nbsp;&nbsp;</option>";
             }
             $current++;
