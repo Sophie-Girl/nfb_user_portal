@@ -54,7 +54,7 @@ class MemberAccountForm extends FormBase
         );
         $form['desire_change_uanme'] = array(
             '#type' => 'checkbox',
-            '#title' => $this->t("Do you wish to change your username?")
+            '#title' => $this->t("Select to change your username. Important note: Username must be an email address. However, changing your username does not change the email address that we use to contact you for most Federation matters.")
         );
         $form['change_username'] = array(
           '#type' => 'textfield',
@@ -71,7 +71,7 @@ class MemberAccountForm extends FormBase
         );
         $form['desire_change_pword'] = array(
             '#type' => 'checkbox',
-            '#title' => $this->t("Do you wish to change your password?")
+            '#title' => $this->t("Select to change your password. Password must be at least eight characters long and include one lowercase letter, one uppercase letter, one number, and one special character (such as !, #, or %).")
         );
         $form['change_password'] = array(
             '#type' => 'password',
