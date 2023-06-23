@@ -124,9 +124,10 @@ class USer_request_table extends User_request_activate
             ),
             "#description" => "Sort Results by",
             '#required' => false,
+            '#suffix' => "<div id='clear-filter' style='display: inline-block' role='button' class='btn btn-primary'>&nbsp;&nbsp;&nbsp;Clear&nbsp;&nbsp;&nbsp;</div>",
         );
         $form['ajax_button'] = array(
-            '#prefix' => "<div id='clear-filter' style='display: inline-block' role='button' class='btn btn-primary'>&nbsp;&nbsp;&nbsp;Clear&nbsp;&nbsp;&nbsp;</div>",
+
           '#type' => "button",
           '#value' => "Search",
             '#ajax' => array(
