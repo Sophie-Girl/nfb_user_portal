@@ -107,6 +107,7 @@
                 document.getElementById("edit-status-filt").value = "";
                 document.getElementById("edit-sort-field").value = "";
                 document.getElementById("page_val").innerText = "1&% &% &% &%";
+                document.getElementById("edit-search-value").value = "";
             });
             $('#edit-sort-field').once().blur(function ()
             {
