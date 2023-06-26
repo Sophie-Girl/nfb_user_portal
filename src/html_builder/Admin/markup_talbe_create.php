@@ -29,9 +29,10 @@ class markup_talbe_create extends markup_table_edit {
         }
 
     }
-    public function build_table_row($content)
+    public function build_table_row($content, $markup_array)
     {
-        $this->markup = $this->get_markup()."<tr><td>".$content['cid']."</td><td>".$content['markup_type']."</td></tr>";
+        $this->markup = $this->get_markup()."<tr><td>".$content['cid']."</td><td>".$content['markup_type']."</td><td>".$markup_array['title']."</td><td>".$content['tab']."</td>
+        <td>".$content['limiter']."</td><td>".$content['civi_entity']."</td><td>".$content['active']."</td><td>".$markup_array['weight']."</td><td><a href='/member_portal/admin/markup/".$content['cid']."' role='button' aria-label='Edit '>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></td></tr>";
 
     }
 
