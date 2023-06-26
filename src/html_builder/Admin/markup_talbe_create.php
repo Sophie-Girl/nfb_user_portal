@@ -25,7 +25,10 @@ class markup_talbe_create extends markup_table_edit {
         foreach ($this->sql->get_result() as $content)
         {
             $content = get_object_vars($content);
-
+            $array_markup = $content['markup'];
+            $array_markup = json_decode($array_markup);
+            $array_markup = get_object_vars($array_markup);
+            $this->build_table_row($content, $array_markup);
         }
 
     }
