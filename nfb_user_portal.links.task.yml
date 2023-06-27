@@ -8,18 +8,23 @@ nfb_user_portal.membership:
   title: 'Membership'
   base_route: nfb_user_portal.main
   weight: 200
+nfb_user_portal.faquestion:
+  route_name: nfb_user_portal.faq
+  title: 'FAQ'
+  base_route: nfb_user_portal.main
+  weight: 300
 nfb_user_portal.other:
   route_name: nfb_user_portal.othertab
   title: 'Other'
   base_route: nfb_user_portal.main
-  weight: 300
+  weight: 400
 nfb_user_portal.account:
   route_name: nfb_user_portal.manage_account
   title: "Manage Account"
   base_route: nfb_user_portal.main
-  weight: 400
+  weight: 500
 nfb_user_portal.logout:
   route_name: user.logout
   title: "Logout"
   base_route: nfb_user_portal.main
-  weight: 400
+  weight: 600
