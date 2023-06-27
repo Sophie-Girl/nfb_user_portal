@@ -12,8 +12,40 @@ class markup_talbe_create extends markup_table_edit {
     {
         return $this->markup;
     }
-    public function build_form_array(&$form, FormStateInterface  $form_state)
+    public $type_filt;
+    public function get_type_filt()
     {
+        return $this->type_filt;
+    }
+    public $title_filt;
+    public function get_title_filt()
+    {
+        return $this->title_filt;
+    }
+    public $active_filter;
+    public function get_active_filter()
+    {
+        return $this->active_filter;
+    }
+    public $sort_field;
+    public function get_sort_feidl()
+    {
+        return $this->sort_field;
+    }
+    public $limiter_filt;
+    public function get_lmiter_filt()
+    {
+        return $this->limiter_filt;
+    }
+    public $params;
+    public function get_params()
+    {
+      return  $this->params;
+    }
+
+    public function build_form_array(&$form, FormStateInterface  $form_state, $params)
+    {
+        $this->params = $params;
 
     }
     public function sql_query()
@@ -32,11 +64,25 @@ class markup_talbe_create extends markup_table_edit {
         }
 
     }
+    public function query_switch(FormStateInterface  $form_State)
+    {
+
+    }
     public function build_table_row($content, $markup_array)
     {
         $this->markup = $this->get_markup()."<tr><td>".$content['cid']."</td><td>".$content['markup_type']."</td><td>".$markup_array['title']."</td><td>".$content['tab']."</td>
         <td>".$content['limiter']."</td><td>".$content['civi_entity']."</td><td>".$content['active']."</td><td>".$markup_array['weight']."</td><td><a href='/member_portal/admin/markup/".$content['cid']."' role='button' aria-label='Edit '>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></td></tr>";
 
+    }
+    public function header_build()
+    {
+        $this->markup = "<table>
+<tr><th>Content ID</th><th>Markup Type</th><th>Markup Title</th><th>Tab</th><th>Limiter</th><th>Civi Entity</th><th>Active</th>
+<th>Weight</th><th>Edit</th></tr>";
+    }
+    public function end_table()
+    {
+        $this->markup = $this->get_markup()."</table>";
     }
 
 
