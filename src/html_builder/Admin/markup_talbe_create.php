@@ -64,9 +64,36 @@ class markup_talbe_create extends markup_table_edit {
         }
 
     }
-    public function query_switch(FormStateInterface  $form_State)
+    public function query_switch(FormStateInterface  $form_state)
     {
-
+        $this->set_values($form_state);
+    }
+    public function set_values(FormStateInterface  $form_State)
+    {
+        $orig_string = $this->get_params();
+        $end = strpos($orig_string, "&%");
+        $string = substr($orig_string, 0, $end);
+        $this->limiter_filt = $this->string_parser($string);
+        $start = $end + 2;
+        $post_page = substr($orig_string, $start, 200);
+        $new_end = strpos($post_page, "&%");
+        $string = substr($post_page,0, $new_end);
+        $this->title_filt = $this->string_parser($string);
+        $start = $new_end + 2;
+        $post_title = substr($post_page, $start, 200);
+        $new_end = strpos($post_page, "&%");
+        $string = substr($post_page,0, $new_end);
+        $this->type_filt = $this->string_parser($string);
+        $start = $new_end + 2;
+        $post_page = substr($post_title, $start, 200);
+        $end = strpos($post_page, "&%");
+        $string = substr($post_page,0, $end);
+        $this->active_filter = $this->string_parser($string);
+        $start = $end + 2;
+        $post_page = substr($post_page, $start, 200);
+        $end = strpos($post_page, "&%");
+        $string = substr($post_page,0, $end);
+        $this->sort_field = $this->string_parser($string);
     }
     public function build_table_row($content, $markup_array)
     {
