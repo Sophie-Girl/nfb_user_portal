@@ -68,12 +68,44 @@ class markup_talbe_create extends markup_table_edit {
     {
         $this->set_values($form_state);
     }
+    public function assign_filters()
+    {
+        \Drupal::logger("type_filter_check")->notice("name filter".$this->get_name_filter());
+        if($this->get_type_filt() == " " || $this->get_type_filt() == "")
+        {
+            $type = false;
+        }
+        else{
+            $type = true;
+        }
+        if($this->get_title_filt() == " " || $this->get_email_filter() == "")
+        {
+            $title = false;
+        }
+        else{
+            $title = true;
+        }
+        \Drupal::logger("status_filter_check")->notice("status filter".$this->get_status_filter());
+        if($this->get_active_filter() == " "  || $this->get_active_filter() == "")
+        {
+            $active = false;
+        }
+        else{
+            $active = true;
+        }
+        if($this->get_sort_field() == " "  || $this->get_sort_field()== "")
+        {
+          $this->sort_field = "cid";
+        }
+
+
+    }
     public function set_values(FormStateInterface  $form_State)
     {
         $orig_string = $this->get_params();
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
-        $this->limiter_filt = $this->string_parser($string);
+        $this->limiter = $this->string_parser($string);
         $start = $end + 2;
         $post_page = substr($orig_string, $start, 200);
         $new_end = strpos($post_page, "&%");
