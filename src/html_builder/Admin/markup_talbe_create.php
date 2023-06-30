@@ -64,9 +64,10 @@ class markup_talbe_create extends markup_table_edit {
         }
 
     }
-    public function query_switch(FormStateInterface  $form_state)
+    public function query_setup(FormStateInterface  $form_state)
     {
         $this->set_values($form_state);
+        $this->assign_filters();
     }
     public function assign_filters()
     {
@@ -98,6 +99,10 @@ class markup_talbe_create extends markup_table_edit {
           $this->sort_field = "cid";
         }
 
+
+    }
+    public function query_switches($type, $title, $active )
+    {
 
     }
     public function set_values(FormStateInterface  $form_State)
