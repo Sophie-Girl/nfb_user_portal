@@ -42,7 +42,11 @@ class markup_talbe_create extends markup_table_edit {
     {
       return  $this->params;
     }
-
+    public $title_status;
+    public function get_title_status()
+    {
+        return $this->title_status;
+    }
     public function build_form_array(&$form, FormStateInterface  $form_state, $params)
     {
         $this->params = $params;
@@ -98,12 +102,42 @@ class markup_talbe_create extends markup_table_edit {
         {
           $this->sort_field = "cid";
         }
-
-
+        $query = $this->query_switches($type, $title, $active);
+        return $query;
     }
     public function query_switches($type, $title, $active )
     {
-
+            If($type == false && $title == false && $active == false)
+            {
+                $query = "select * from nfb_user_portal_content order by  ".$this->get_sort_field()." desc";
+                $this->title_status = false;
+            }
+            elseif($type == True && $title == false && $active == false)
+            {
+                $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."'order by  ".$this->get_sort_field()." desc";
+                $this->title_status = false;
+            }
+            elseif($type == True && $title == true && $active == false)
+            {
+                $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."'order by  ".$this->get_sort_field()." desc";
+                $this->title_status = true;
+            }
+            elseif($type == True && $title == true && $active == true)
+            {
+                $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."' and active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
+                $this->title_status = true;
+            }
+            elseif($type == false && $title == true && $active == true)
+            {
+                $query = "select * from nfb_user_portal_content where  active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
+                $this->title_status = true;
+            }
+            elseif($type == false && $title == false && $active == true)
+            {
+                $query = "select * from nfb_user_portal_content where  active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
+                $this->title_status = false;
+            }
+            return $query;
     }
     public function set_values(FormStateInterface  $form_State)
     {
