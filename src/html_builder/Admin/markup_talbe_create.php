@@ -182,6 +182,21 @@ class markup_talbe_create extends markup_table_edit {
     {
         $this->markup = $this->get_markup()."</table>";
     }
+    public function other_additional_page_query()
+    {
+        $this->get_current_max_id();
+        $sql = \Drupal::database();
+        $query = "Select * from nfb_user_portal_content where cid <= '" . $this->get_page_max_id() . "' order by rid desc limit 50;";
+        \Drupal::logger("page_reload_issue")->notice("query val ".$query);
+        $key = "sub_id";
+        $sql_result = $sql->query($query)->fetchAllAssoc($key);
+        foreach ($sql_result as $result) {
+            $result = get_object_vars($result);
+            $sub_array = get_object_vars(json_decode($result['form_submission_values']));
+            $this->build_row($result, $sub_array);
+        }
+    }
+
 
 
 }
