@@ -51,6 +51,46 @@ class markup_talbe_create extends markup_table_edit {
     {
         $this->params = $params;
 
+        $forms['type_filt'] = array(
+            '#type' => "select",
+            '#title' => "Filter By Markup Type",
+            '#options' => array(
+              'intro_text' => "Intro Text",
+                "member_benefit" => "Member Benefit",
+                'faq' => "FAQ",
+                'content_text' => "Conent Text"
+            ),
+        );
+        $form['title_filt'] = array(
+          '#title' => "Filter By Markup Title",
+            "#type" => "textfield",
+            '#size' => "20",
+        );
+        $form['active_filt'] = array(
+            '#type' => "select",
+            '#title' => "Filter By Markup Type",
+            '#options' => array(
+                '0' => "No",
+                '1'=> "Yes",
+            ),
+        );
+        $form['ajax_button'] = array(
+            '#prefix' => "<div id='clear-filter' style='display: inline-block' role='button' class='btn btn-primary'>&nbsp;&nbsp;&nbsp;Clear&nbsp;&nbsp;&nbsp;</div>",
+            '#type' => "button",
+            '#value' => "Search",
+            '#ajax' => array(
+                'callback' => "::table_stuff",
+                'wrapper' => "table_markup_id",
+                'event' => 'click',),
+        );
+
+        $form['sub_table'] = array(
+            '#prefix' => "<div id='table_markup_id'>",
+            '#type' => 'item',
+            '#markup' => $this->get_markup(),
+            '#suffix' => "</div>",
+        );
+
     }
     public function sql_query()
     {
