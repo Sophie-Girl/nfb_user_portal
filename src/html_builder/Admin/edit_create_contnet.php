@@ -8,13 +8,21 @@ class edit_create_contnet
     {
         $form['markup_type']  = array(
             '#type' => "select",
-            '#title' => "Filter By Markup Type",
+            '#title' => "Markup Type",
             '#options' => array(
                 'intro_text' => "Intro Text",
                 "member_benefit" => "Member Benefit",
                 'faq' => "FAQ",
                 'content_text' => "Content Text"
             ),
+            '#required' => "true"
         );
+        $form['Markup_title'] = array(
+            '#type' => "textfield",
+            '#title' => "Content Title",
+            '#required' => true,
+            '#size' => "20"
+        );
+
     }
 }
