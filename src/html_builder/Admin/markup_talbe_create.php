@@ -105,8 +105,21 @@ class markup_talbe_create extends markup_table_edit {
             $array_markup = $content['markup'];
             $array_markup = json_decode($array_markup);
             $array_markup = get_object_vars($array_markup);
-            $this->build_table_row($content, $array_markup);
-        }
+            if($this->get_title_status() == true){
+            if($this->get_title_filt() != "" and $this->get_title_filt() != " ")
+            {
+                $filter_value = strtolower(trim($this->get_title_filt()));
+                $actual_value = strtolower(trim($array_markup['title']));
+                if(strpos(" ".$actual_value, $filter_value) > 0)
+                {
+                    $this->build_table_row($content, $array_markup);
+                }
+            }
+            }
+            else {
+                $this->build_table_row($content, $array_markup);
+            }
+            }
 
     }
     public function query_setup(FormStateInterface  $form_state)
