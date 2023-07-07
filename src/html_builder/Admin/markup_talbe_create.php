@@ -50,6 +50,7 @@ class markup_talbe_create extends markup_table_edit {
     public function build_form_array(&$form, FormStateInterface  $form_state, $params)
     {
         $this->params = $params;
+        $this->set_values($form_state);
 
         $forms['type_filt'] = array(
             '#type' => "select",
@@ -111,7 +112,7 @@ class markup_talbe_create extends markup_table_edit {
     public function query_setup(FormStateInterface  $form_state)
     {
         $this->set_values($form_state);
-        $this->assign_filters();
+        $query =  $this->assign_filters();
     }
     public function assign_filters()
     {
@@ -179,7 +180,7 @@ class markup_talbe_create extends markup_table_edit {
             }
             return $query;
     }
-    public function set_values(FormStateInterface  $form_State)
+    public function set_values(FormStateInterface  $form_state)
     {
         $orig_string = $this->get_params();
         $end = strpos($orig_string, "&%");
