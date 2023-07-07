@@ -51,7 +51,7 @@ class markup_talbe_create extends markup_table_edit {
     {
         $this->params = $params;
         $this->set_values($form_state);
-
+        $this->sql_query();
         $forms['type_filt'] = array(
             '#type' => "select",
             '#title' => "Filter By Markup Type",
