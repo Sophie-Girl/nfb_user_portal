@@ -87,13 +87,31 @@ class edit_create_contnet
 
         );
         $form['start_date'] = array(
+            '#type' => 'date',
+            "#title" => "Display Start Date",
 
         );
         $form['end_date'] = array(
+            '#type' => 'date',
+            "#title" => "Display End Date",
+            '#states' => [
+                'visible' =>[
+                    [':input[name="limited_by"]' => ['value' => "date"]],
 
+                    'and',
+                    'required' => [
+                        [':input[name="limited_by"]' => ['value' => "date"]],
+                    ]]
+            ],
         );
         $form['active'] = array(
-
+            '#type' => 'select',
+            "#title" => "Active",
+            '#required' => "True",
+            "#options" => array(
+              '0' => "Yes",
+              "1" => "No"
+            ),
         );
         $form['notes'] = array(
 
