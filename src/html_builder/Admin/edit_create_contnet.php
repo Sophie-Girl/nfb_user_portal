@@ -114,7 +114,10 @@ class edit_create_contnet
             ),
         );
         $form['notes'] = array(
-
+            '#type' => "textarea",
+            '#title' => "Any Notes",
+            '#size' => "500",
+            '#required' => false,
         );
         $form['content'] = array(
             '#type' => 'text_format',
