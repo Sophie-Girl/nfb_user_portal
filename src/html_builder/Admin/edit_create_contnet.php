@@ -258,7 +258,7 @@ class edit_create_contnet
         {
             $markup = get_object_vars($markup);
             $array = json_decode($markup['markup']);
-            $array = get_object_vars($markup['markup']);
+            $array = get_object_vars($array);
             $this->set_prefill_values($markup, $array);
         }
     }
