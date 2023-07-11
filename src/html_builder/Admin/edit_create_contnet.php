@@ -164,7 +164,7 @@ class edit_create_contnet
             ],
         );
         $form['active'] = array(
-                '#prefix' => "<div class='hidden_val >".$this->get_title()."</div>",
+                '#prefix' => "<div class='hidden_val >".$this->get_active()."</div>",
             '#type' => 'select',
             "#title" => "Active",
             '#required' => "True",
@@ -173,13 +173,8 @@ class edit_create_contnet
               "1" => "No"
             ),
         );
-        $form['notes'] = array(
-            '#type' => "textarea",
-            '#title' => "Any Notes",
-            '#size' => "500",
-            '#required' => false,
-        );
         $form['content'] = array(
+            '#prefix' => "<div>".$this->get_markup_text()."</div>",
             '#type' => 'text_format',
             '#title' => 'Content',
             '#format'=> 'full_html',
