@@ -124,8 +124,15 @@ class edit_create_contnet
             '#title' => 'Content',
             '#format'=> 'full_html',
         );
-
-
-
+        if($content == "new")
+        {
+            $text = "Create";
+        }
+        else {
+            $text = "Edit";
+        }
+        $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => $this->t($text),);
     }
 }
