@@ -17,6 +17,7 @@ class AdminTemplateCreateForm extends FormBase
         $user_request_queries = new User_request_queries();
         $factory =  new edit_create_contnet($user_request_queries);
         $factory->build_form_array($form, $form_state, $content);
+        $form['#attached']['library'][] = 'nfb_user_portal/admin-content-edit';
         return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
