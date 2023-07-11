@@ -65,7 +65,7 @@ class edit_create_contnet
             '#title' => "Content Id"
         );
         $form['markup_type']  = array(
-            '#prefix' => "<div class='hidden_val'>".$this->get_markup_type()."</div>",
+            '#prefix' => "<div id='mk_type' class='hidden_val'>".$this->get_markup_type()."</div>",
             '#type' => "select",
             '#title' => "Markup Type",
             '#options' => array(
@@ -76,15 +76,15 @@ class edit_create_contnet
             ),
             '#required' => "true"
         );
-        $form['Markup_title'] = array(
-            '#prefix' => "<div class='hidden_val >".$this->get_title()."</div>",
+        $form['markup_title'] = array(
+            '#prefix' => "<div class='hidden_val' id='title_val'>".$this->get_title()."</div>",
             '#type' => "textfield",
             '#title' => "Content Title",
             '#required' => true,
             '#size' => "20"
         );
         $form['limited_by'] = array(
-            '#prefix' => "<div class='hidden_val >".$this->get_limiter()."</div>",
+            '#prefix' => "<div class='hidden_val' id='limit_val' >".$this->get_limiter()."</div>",
             '#type' => 'select',
             '#title' => "Markup Up Display Limited By?",
             '#required' => True,
@@ -96,14 +96,14 @@ class edit_create_contnet
             ),
         );
         $form['civi_entity'] = array(
-            '#prefix' => "<div class='hidden_val >".$this->get_civi_entity()."</div>",
+            '#prefix' => "<div class='hidden_val' id='civi_ent'  >".$this->get_civi_entity()."</div>",
             '#type' => "select",
             '#title' => "Civi Entity",
             '#options' => array(
                 'Event' => "By Event Registration",
                 'Group' => "By Group",
                 "Contact Type" => "By Contact Type or Occupation",
-                "MemberhsipType" => "Certain Memberships Only"
+                "MembershipType" => "Certain Memberships Only"
                 ),
             '#states' => [
                 'visible' =>[
@@ -116,7 +116,7 @@ class edit_create_contnet
                 ],
         );
         $form['civi_entity_value'] = array(
-            '#prefix' => "<div class='hidden_val >".$this->get_civi_entity()."</div>",
+            '#prefix' => "<div class='hidden_val' id='civi_value' >".$this->get_civi_entity()."</div>",
             '#type' => 'textfield',
             '#title' => "Name of Civi Entity",
             '#size' => "20",
@@ -131,7 +131,7 @@ class edit_create_contnet
             ],
         );
         $form['tab'] = array(
-            '#prefix' => "<div class='hidden_val >".$this->get_tab()."</div>",
+            '#prefix' => "<div class='hidden_val' id='tab_val' >".$this->get_tab()."</div>",
           '#type' => "select",
           "#title" => "What Member Portal Tab is This For?",
           "#required" => true,
@@ -144,13 +144,13 @@ class edit_create_contnet
 
         );
         $form['start_date'] = array(
-            '#prefix' => "<div class='hidden_val >".$this->get_beginning_date()."</div>",
+            '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
             '#type' => 'date',
             "#title" => "Display Start Date",
 
         );
         $form['end_date'] = array(
-            '#prefix' => "<div class='hidden_val >".$this->get_ending_date()."</div>",
+            '#prefix' => "<div class='hidden_val' id='end_val' >".$this->get_ending_date()."</div>",
             '#type' => 'date',
             "#title" => "Display End Date",
             '#states' => [
@@ -164,7 +164,7 @@ class edit_create_contnet
             ],
         );
         $form['active'] = array(
-                '#prefix' => "<div class='hidden_val >".$this->get_active()."</div>",
+                '#prefix' => "<div class='hidden_val' id='act_val' >".$this->get_active()."</div>",
             '#type' => 'select',
             "#title" => "Active",
             '#required' => "True",
@@ -187,6 +187,7 @@ class edit_create_contnet
             $text = "Edit";
         }
         $form['weight'] = array(
+            '#prefix' => "<div class='hidden_val' id='weight_val' >".$this->get_active()."</div>",
             '#type' => 'select',
             '#title' => "Weight (Order for it to be displayed",
             '#required' => True,
