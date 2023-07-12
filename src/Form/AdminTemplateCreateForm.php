@@ -24,7 +24,7 @@ class AdminTemplateCreateForm extends FormBase
     {
        if($form_state->getValue("content_value") == "new")
        {
-
+           $this->new_content_functions($form_state);  // create new context records
        }
        else{
 
@@ -32,10 +32,59 @@ class AdminTemplateCreateForm extends FormBase
     }
     public function new_content_functions(FormStateInterface  $form_state)
     {
-
+        $this->set_limiter_values($form_state, $limiter, $value);
+        $this->set_Date_values($form_state, $end_date, $beginning_date);
+        $fields = array(
+            'markup_type' => $form_state->getValue("markup_type"),
+            'tab' => $form_state->getValue("tab"),
+            'limiter' => $limiter,
+            'civi_entity' => $value,
+            'beginning_date' => $beginning_date,
+            'end_date' => $end_date,
+            'active' => $form_state->getValue("active"),
+            'markup' => $this->create_markup_array($form_state),
+        );
+        $table = "nfb_user_portal_content";
+       $sql =  \Drupal::database();
+       $sql->insert($table, $fields)->execute();
+    }
+    public function create_markup_array(FormStateInterface $form_state)
+    {
+        $array['title'] = $form_state->getValue("markup_title");
+        $array['text'] = $form_state->getValue("content");
+        $array['weight'] = $form_state->getValue("weight");
+        $array = json_encode($array);
+        return $array;
     }
     public function edit_content_functions(FormStateInterface $form_state)
     {
+        $this->set_limiter_values($form_state, $limiter, $value);
+        $this->set_Date_values($form_state, $end_date, $beginning_date);
 
+    }
+    public function set_limiter_values(FormStateInterface $form_state, &$limiter, &$value)
+    {
+        if($form_state->getValue("limited_by") == "civi_entity")
+        {
+            $limiter = $form_state->getValue("civi_entity");
+            $value = $form_state->getValue("civi_entity_value");
+        }
+        else
+        {
+            $limiter = $form_state->getValue("limited_by");
+            $value = "null";
+        }
+    }
+    public function set_Date_values(FormStateInterface $form_state, &$end_date, &$beginning_date)
+    {
+        if($form_state->getValue("limited_by") == "date")
+        {
+            $beginning_date = $form_state->getValue("start_date");
+            $end_date = $form_state->getValue("end_date");
+        }
+        else{
+            $beginning_date =  "null";
+            $end_date = "null";
+        }
     }
 }
