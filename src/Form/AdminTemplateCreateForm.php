@@ -22,6 +22,20 @@ class AdminTemplateCreateForm extends FormBase
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
-        // TODO: Implement submitForm() method.
+       if($form_state->getValue("content_value") == "new")
+       {
+
+       }
+       else{
+
+       }
+    }
+    public function new_content_functions(FormStateInterface  $form_state)
+    {
+
+    }
+    public function edit_content_functions(FormStateInterface $form_state)
+    {
+
     }
 }
