@@ -27,7 +27,7 @@ class AdminTemplateCreateForm extends FormBase
            $this->new_content_functions($form_state);  // create new context records
        }
        else{
-
+           $this->edit_content_functions($form_state); //  edit the current record. 0
        }
     }
     public function new_content_functions(FormStateInterface  $form_state)
@@ -60,6 +60,24 @@ class AdminTemplateCreateForm extends FormBase
     {
         $this->set_limiter_values($form_state, $limiter, $value);
         $this->set_Date_values($form_state, $end_date, $beginning_date);
+        $sql = \Drupal::database();
+        $query = "delete from nfb_user_portal_content
+where cid = '".$form_state->getValue("content_value")."';";
+        $sql->query($query)->execute();
+        $fields = array(
+            'cid' => $form_state->getValue("content_value"),
+            'markup_type' => $form_state->getValue("markup_type"),
+            'tab' => $form_state->getValue("tab"),
+            'limiter' => $limiter,
+            'civi_entity' => $value,
+            'beginning_date' => $beginning_date,
+            'end_date' => $end_date,
+            'active' => $form_state->getValue("active"),
+            'markup' => $this->create_markup_array($form_state),
+        );
+        $table = "nfb_user_portal_content";
+        $sql =  \Drupal::database();
+        $sql->insert($table, $fields)->execute();
 
     }
     public function set_limiter_values(FormStateInterface $form_state, &$limiter, &$value)
