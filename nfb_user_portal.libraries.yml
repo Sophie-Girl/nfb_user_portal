@@ -44,3 +44,10 @@ admin-complete:
       css/admin-complete.css: { }
   js:
     js/admin-complete.js: { }
+admin-content-edit:
+  version: 1.x
+  css:
+    theme:
+      css/admin-content-edit.css: { }
+  js:
+    js/admin-content-edit.js: { }
