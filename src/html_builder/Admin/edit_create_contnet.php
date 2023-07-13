@@ -206,7 +206,7 @@ class edit_create_contnet
         );
         $form['submit'] = array(
             '#type' => 'submit',
-            '#value' => $this->t($text),);
+            '#value' => $text,);
     }
     public function find_content_record($content)
     {
