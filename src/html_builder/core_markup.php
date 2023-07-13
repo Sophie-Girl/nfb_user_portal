@@ -175,7 +175,14 @@ To update your contact or demographic information, navigate to the appropriate f
             $gender['name'] != "Female" && $gender['name'] != "Nonbinary" &&
             $gender['name'] != "Transgender") // did this the dirty way because they keep changing their mind about order :/
             {
+                if ($gender['name'] != "Other") {
+
                 $options = $options . "<option value='" . $gender['name'] . "'>&nbsp;&nbsp;&nbsp;" . $gender['name'] . "&nbsp;&nbsp;&nbsp;</option>";
+            }
+                else{
+                    $options = $options . "<option value='" . $gender['name'] . "'>&nbsp;&nbsp;&nbsp;" . "Not Listed" . "&nbsp;&nbsp;&nbsp;</option>";
+                }
+
             }
             $current++;
         }

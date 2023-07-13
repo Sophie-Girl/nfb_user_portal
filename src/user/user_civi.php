@@ -115,6 +115,10 @@ class user_civi extends user_base
         $this->last_name = $contact['last_name'];
         $this->dob = $contact['birth_date'];
         $this->gender = $contact['gender_id:label'];
+        if($this->get_gender() == "Other")
+        {
+            $this->gender = "Not Listed";
+        }
         $this->is_blind = $contact['Medical_Issues.Is_Blind'];
         if($this->get_is_blimd() == "1")
         {$this->is_blind = "Yes";}

@@ -975,6 +975,10 @@
                 else if(vfeildarray[1] == "gender")
                 {
                     document.getElementById("edit_gender").focus();
+                    if(info == "Other")
+                    {
+                        info = "Not Listed";
+                    }
                     document.getElementById("gender_change").innerText = "Gender: "+info;
                     document.getElementById("gender_edit_div").style.display = "None";
                     document.getElementById("gender_new_val").style.display = "None";
