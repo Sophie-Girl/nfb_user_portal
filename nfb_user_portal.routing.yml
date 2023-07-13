@@ -90,7 +90,7 @@ nfb_user_portal.content:
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminTemplateCreateForm'
     _title: 'Create or Edit Content'
-    content: '1'
+    content: 'new'
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
