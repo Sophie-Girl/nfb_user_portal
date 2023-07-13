@@ -108,11 +108,11 @@ class edit_create_contnet
             '#states' => [
                 'visible' =>[
                     [':input[name="limited_by"]' => ['value' => "civi_entity"]],
-
+],
                 'and',
                 'required' => [
                     [':input[name="limited_by"]' => ['value' => "civi_entity"]],
-            ]]
+            ]
                 ],
         );
         $form['civi_entity_value'] = array(
@@ -123,11 +123,11 @@ class edit_create_contnet
             '#states' => [
                 'visible' =>[
                     [':input[name="limited_by"]' => ['value' => "civi_entity"]],
-
+],
                     'and',
                     'required' => [
                         [':input[name="limited_by"]' => ['value' => "civi_entity"]],
-                    ]]
+                    ]
             ],
         );
         $form['tab'] = array(
@@ -147,7 +147,15 @@ class edit_create_contnet
             '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
             '#type' => 'date',
             "#title" => "Display Start Date",
-
+            '#states' => [
+                'visible' =>[
+                    [':input[name="limited_by"]' => ['value' => "date"]],
+],
+                    'and',
+                    'required' => [
+                        [':input[name="limited_by"]' => ['value' => "date"]],
+                    ]
+            ],
         );
         $form['end_date'] = array(
             '#prefix' => "<div class='hidden_val' id='end_val' >".$this->get_ending_date()."</div>",
@@ -156,11 +164,11 @@ class edit_create_contnet
             '#states' => [
                 'visible' =>[
                     [':input[name="limited_by"]' => ['value' => "date"]],
-
+],
                     'and',
                     'required' => [
                         [':input[name="limited_by"]' => ['value' => "date"]],
-                    ]]
+                    ]
             ],
         );
         $form['active'] = array(
