@@ -195,7 +195,7 @@ class edit_create_contnet
             $text = "Edit";
         }
         $form['weight'] = array(
-            '#prefix' => "<div class='hidden_val' id='weight_val' >".$this->get_active()."</div>",
+            '#prefix' => "<div class='hidden_val' id='weight_val' >".$this->get_weight()."</div>",
             '#type' => 'select',
             '#title' => "Weight (Order for it to be displayed",
             '#required' => True,
