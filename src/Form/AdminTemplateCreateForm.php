@@ -51,7 +51,7 @@ class AdminTemplateCreateForm extends FormBase
     public function create_markup_array(FormStateInterface $form_state)
     {
         $array['title'] = $form_state->getValue("markup_title");
-        $array['text'] = $form_state->getValue("content");
+        $array['text'] = $form_state->getValue("content")['value'];
         $array['weight'] = $form_state->getValue("weight");
         $array = json_encode($array);
         return $array;
