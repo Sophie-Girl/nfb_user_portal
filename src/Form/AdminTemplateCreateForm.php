@@ -46,7 +46,7 @@ class AdminTemplateCreateForm extends FormBase
         );
         $table = "nfb_user_portal_content";
        $sql =  \Drupal::database();
-       $sql->insert($table, $fields)->execute();
+        $sql->insert($table)->fields($fields)->execute();
     }
     public function create_markup_array(FormStateInterface $form_state)
     {
@@ -77,7 +77,7 @@ where cid = '".$form_state->getValue("content_value")."';";
         );
         $table = "nfb_user_portal_content";
         $sql =  \Drupal::database();
-        $sql->insert($table, $fields)->execute();
+        $sql->insert($table)->fields($fields)->execute();
 
     }
     public function set_limiter_values(FormStateInterface $form_state, &$limiter, &$value)
