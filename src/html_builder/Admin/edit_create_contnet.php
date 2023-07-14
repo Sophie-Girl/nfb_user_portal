@@ -262,6 +262,7 @@ class edit_create_contnet
         foreach ($this->user_request_queries->get_result() as $markup)
         {
             $markup = get_object_vars($markup);
+           \Drupal::logger("nfb-user_portal_check")->notice("array ".print_r($markup, true));
             $array = json_decode($markup['markup']);
             $array = get_object_vars($array);
             $this->set_prefill_values($markup, $array);
