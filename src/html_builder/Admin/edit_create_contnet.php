@@ -237,6 +237,7 @@ class edit_create_contnet
         $this->active = $markup['active'];
         $this->title = $array['title'];
         $this->markup_text = $array['text'];
+        \Drupal::logger("content_issue")->notice("content_text ". $array['text']);
         $this->weight = $array['weight'];
     }
     public function blank_values($content)
