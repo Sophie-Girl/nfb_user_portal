@@ -323,6 +323,18 @@ class AdminCompleteRequestForm extends FormBase
         } else {
             $exists = "New";
         }
+        if($exists == "Not New")
+        {
+            $ids = \Drupal::entityQuery('user')
+                ->condition('email', $username)
+                ->range(0, 1)
+                ->execute();
+            if (!empty($ids)) {
+                $exists = "Not New";
+            } else {
+                $exists = "New";
+            }
+        }
         if ($exists == "Not New") {
             $form_state->setValue("status", "Duplicate Email");
             $form_state->setErrorByName("email", "That email address already is in use, please contact member for a new one if needed");
