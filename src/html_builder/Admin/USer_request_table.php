@@ -346,7 +346,7 @@ or review an issue with a potential account.</p>
     public function build_row($result)
     {
         $this->markup = $this->get_markup() . "<tr><td>" . $result['rid'] . "</td>
-<td>" . $result['civi_contact_id'] . "</td><td>".$result['member_name']."</td><td>".$result['member_email']."</td><td>" . $result['status'] . "</td><td>" . $result['comment'] . "</td><td>&nbsp;&nbsp;&nbsp;<a href='/member_portal/admin/complete_request/".$result['rid']."%26%25".$this->get_limiter()."%26%25".$this->set_filter_values()."' class=''>&nbsp;&nbsp;&nbsp;Process&nbsp;&nbsp;&nbsp;</a></td></tr>";
+<td>" . $result['civi_contact_id'] . "</td><td role='rowheader'>".$result['member_name']."</td><td>".$result['member_email']."</td><td>" . $result['status'] . "</td><td>" . $result['comment'] . "</td><td>&nbsp;&nbsp;&nbsp;<a href='/member_portal/admin/complete_request/".$result['rid']."%26%25".$this->get_limiter()."%26%25".$this->set_filter_values()."' class=''>Process</a></td></tr>";
     }
     public function get_current_max_id()
     {
