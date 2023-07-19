@@ -368,8 +368,7 @@ or review an issue with a potential account.</p>
         $sql_result = $sql->query($query)->fetchAllAssoc($key);
         foreach ($sql_result as $result) {
             $result = get_object_vars($result);
-            $sub_array = get_object_vars(json_decode($result['form_submission_values']));
-            $this->build_row($result, $sub_array);
+            $this->build_row($result);
         }
     }
 
