@@ -54,6 +54,12 @@ class edit_create_contnet
     public $weight;
      public function get_weight()
      {return $this->weight;}
+    public  $permanent;
+     public function get_permanent()
+     {
+         return $this->permanent;
+
+     }
     public function build_form_array(&$form, FormStateInterface $form_state, $content)
     {
         $this->find_content_record($content);
@@ -92,7 +98,6 @@ class edit_create_contnet
               'no' => "No Limit to Display",
               "civi_entity" => "Civi Group, Event, or Another Entity",
               "member" => "Active Members Only",
-              "date" => "Date Range"
             ),
         );
         $form['civi_entity'] = array(
@@ -149,11 +154,11 @@ class edit_create_contnet
             "#title" => "Display Start Date",
             '#states' => [
                 'visible' =>[
-                    [':input[name="limited_by"]' => ['value' => "date"]],
+                    [':input[name="markup_type"]' => ['value' => "member_benefit"]],
 ],
                     'and',
                     'required' => [
-                        [':input[name="limited_by"]' => ['value' => "date"]],
+                        [':input[name="markup_type"]' => ['value' => "member_benefit"]],
                     ]
             ],
         );
@@ -163,13 +168,23 @@ class edit_create_contnet
             "#title" => "Display End Date",
             '#states' => [
                 'visible' =>[
-                    [':input[name="limited_by"]' => ['value' => "date"]],
+                    [':input[name="markup_type"]' => ['value' => "member_benefit"]],
 ],
                     'and',
                     'required' => [
-                        [':input[name="limited_by"]' => ['value' => "date"]],
+                        [':input[name="markup_type"]' => ['value' => "member_benefit"]],
                     ]
             ],
+        );
+        $form['permanent'] = array(
+            '#prefix' => "<div class='hidden_val' id='perm_val' >".$this->get_permanent()."</div>",
+            '#type' => 'select',
+            "#title" => "SI this markup Permanent?",
+            '#required' => "True",
+            "#options" => array(
+                '0' => "Yes",
+                "1" => "No"
+            ),
         );
         $form['active'] = array(
                 '#prefix' => "<div class='hidden_val' id='act_val' >".$this->get_active()."</div>",
@@ -235,6 +250,7 @@ class edit_create_contnet
         $this->beginning_date = $markup['beginning_date'];
         $this->ending_date = $markup['end_date'];
         $this->active = $markup['active'];
+        $this->permanent = $markup['permanent'];
         $this->title = $array['title'];
         $this->markup_text = $array['text'];
         \Drupal::logger("content_issue")->notice("content_text ". $array['text']);
@@ -253,6 +269,7 @@ class edit_create_contnet
         $this->title = "new";
         $this->markup_text ="new";
         $this->weight = "new";
+        $this->permanent = "new";
     }
     public function content_query($content)
     {
