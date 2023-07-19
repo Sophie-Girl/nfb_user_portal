@@ -325,6 +325,7 @@ class AdminCompleteRequestForm extends FormBase
         }
         if($exists == "New")
         {
+            \Drupal::logger("error_stuff")->notice("entity:  I get here");
             $ids = \Drupal::entityQuery('user')
                 ->condition('email', $username)
                 ->range(0, 1)
@@ -334,6 +335,7 @@ class AdminCompleteRequestForm extends FormBase
             } else {
                 $exists = "New";
             }
+            \Drupal::logger("error_stuff")->notice("entity:  I get past here");
         }
         if ($exists == "Not New") {
             $form_state->setValue("status", "Duplicate Email");
