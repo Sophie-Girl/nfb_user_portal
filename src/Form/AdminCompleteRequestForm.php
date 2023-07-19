@@ -327,7 +327,7 @@ class AdminCompleteRequestForm extends FormBase
         {
             \Drupal::logger("error_stuff")->notice("entity:  I get here");
             $ids = \Drupal::entityQuery('user')
-                ->condition('email', $username)
+                ->condition('mail', $username)
                 ->range(0, 1)
                 ->execute();
             if (!empty($ids)) {
