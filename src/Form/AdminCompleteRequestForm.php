@@ -470,6 +470,7 @@ where type_id = '1';";
 
     public function update_database(FormStateInterface $form_state)
     {
+
         $sql = new User_request_queries();
         $query = "update nfb_user_portal_user_request
         set status  = '" . $form_state->getValue("status") . "'
