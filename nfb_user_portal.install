@@ -166,6 +166,13 @@ function nfb_user_portal_schema()
                 'not null' => true,
                 'description' => "Additional Notes."
             ),
+            'permanent'  => array(
+                'type' => 'varchar',
+                'length' => 64,
+                'default' => 'No',
+                'not null' => true,
+                'description' => "Should this just always exist unless specified otherwise? ."
+            ),
             'active' => array(
                 'type' => 'varchar',
                 'length' => 64,
