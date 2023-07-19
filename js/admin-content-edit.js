@@ -22,7 +22,7 @@
                         document.getElementById('edit-civi-entity-value').value = "";
                     }
                     document.getElementById('edit-tab').value = document.getElementById('tab_val').innerText;
-                    if(document.getElementById('mk_type').innerText == "member_benefit")
+                    if(document.getElementById('mk_type').innerText === "member_benefit")
                     {
                         document.getElementById('edit-start-date').value = document.getElementById('start_val').innerText;
                         document.getElementById('edit-end-date').value = document.getElementById('end_val').innerText;
