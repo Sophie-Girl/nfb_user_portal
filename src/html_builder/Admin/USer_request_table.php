@@ -317,7 +317,7 @@ or review an issue with a potential account.</p>
         }
         elseif ($name == true && $email == true && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".$this->get_email_filter()."%' and status = ".'"'.$this->get_status_filter().'"'." order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".$this->get_email_filter()."%' and status = '".$this->get_status_filter()."' order by ".$this->get_sort_field()." desc limit 50;";
         }
         elseif ($name == true && $email == false && $status == true)
         {
