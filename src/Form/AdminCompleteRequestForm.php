@@ -323,7 +323,7 @@ class AdminCompleteRequestForm extends FormBase
         } else {
             $exists = "New";
         }
-        if($exists == "Not New")
+        if($exists == "New")
         {
             $ids = \Drupal::entityQuery('user')
                 ->condition('email', $username)
