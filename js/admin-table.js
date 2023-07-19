@@ -43,6 +43,10 @@
                 document.getElementById("edit-search-value").value  = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
                 document.getElementById("page_val").innerText = page+"&%"+name+"&%"+email+"&%"+status+"&%"+sort;
             });
+            $('#edit-ajax-button').once().click(function ()
+            {
+                alert("Results Updated");
+            });
             $('#edit-email-filt').once().blur(function ()
             {
                 var email = document.getElementById("edit-email-filt").value;
