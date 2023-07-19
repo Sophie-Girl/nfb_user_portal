@@ -305,36 +305,36 @@ or review an issue with a potential account.</p>
         }
         if($name == false && $email == false && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request order by ".trim($this->get_sort_field())." desc limit 50;";
         }
         elseif ($name == true && $email == false && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".trim($this->get_name_filter())."%' order by ".trim($this->get_sort_field())." desc limit 50;";
         }
         elseif ($name == true && $email == true && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".trim($this->get_email_filter())."%' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".trim($this->get_name_filter())."%' and member_email like '%".trim($this->get_email_filter())."%' order by ".trim($this->get_sort_field())." desc limit 50;";
         }
         elseif ($name == true && $email == true && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and member_email like '%".trim($this->get_email_filter())."%' and status = '".$this->get_status_filter()."' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".trim($this->get_name_filter())."%' and member_email like '%".trim($this->get_email_filter())."%' and status = '".trim($this->get_status_filter())."' order by ".trim($this->get_sort_field())." desc limit 50;";
         }
 
         elseif ($name == true && $email == false && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_name like '%".$this->get_name_filter()."%' and status = '".$this->get_status_filter()."' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_name like '%".trim($this->get_name_filter())."%' and status = '".trim($this->get_status_filter())."' order by ".trim($this->get_sort_field())." desc limit 50;";
         }
         elseif ($name == false && $email == true && $status == false)
         {
-            $query = "Select * from nfb_user_portal_user_request where  member_email like '%".trim($this->get_email_filter())."%' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where  member_email like '%".trim($this->get_email_filter())."%' order by ".trim($this->get_sort_field())." desc limit 50;";
         }
         elseif ($name == false && $email == true && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where member_email like '%".trim($this->get_email_filter())."%' and status = '".$this->get_status_filter()."' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where member_email like '%".trim($this->get_email_filter())."%' and status = '".trim($this->get_status_filter())."' order by ".trim($this->get_sort_field())." desc limit 50;";
         }
         elseif ($name == false && $email == false && $status == true)
         {
-            $query = "Select * from nfb_user_portal_user_request where  status = '".$this->get_status_filter()."' order by ".$this->get_sort_field()." desc limit 50;";
+            $query = "Select * from nfb_user_portal_user_request where  status = '".trim($this->get_status_filter())."' order by ".trim($this->get_sort_field())." desc limit 50;";
         }
         else
         {
