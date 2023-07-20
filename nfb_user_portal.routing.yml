@@ -94,3 +94,12 @@ nfb_user_portal.content:
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
+nfb_user_portal.content_table:
+  path: 'member_portal/admin/manage_content'
+  defaults:
+    _form: 'Drupal\nfb_user_portal\Form\AdminTemplateCreateForm'
+    _title: 'Create or Edit Content'
+    content: 'new'
+  requirements:
+    _permission: 'access content'
+    _role: 'authenticated'

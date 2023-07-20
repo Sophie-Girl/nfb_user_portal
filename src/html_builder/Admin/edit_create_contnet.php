@@ -58,8 +58,10 @@ class edit_create_contnet
      public function get_permanent()
      {
          return $this->permanent;
-
      }
+     public $group;
+     public function get_group()
+     {return $this->group;}
     public function build_form_array(&$form, FormStateInterface $form_state, $content)
     {
         $this->find_content_record($content);
@@ -202,6 +204,34 @@ class edit_create_contnet
             '#title' => 'Content',
             '#format'=> 'full_html',
         );
+        $form['faq_grouping'] = array(
+            '#prefix' => "<div class='hidden_val' id='gpf_val' >".$this->get_group()."</div>",
+            '#type' => 'text',
+            "#title" => "FAQ Group",
+            '#states' => [
+                'visible' =>[
+                    [':input[name="markup_type"]' => ['value' => "faq"]],
+                ],
+                'and',
+                'required' => [
+                    [':input[name="markup_type"]' => ['value' => "faq"]],
+                ]
+            ],
+        );
+        $form['benefit_group'] = array(
+            '#prefix' => "<div class='hidden_val' id='bgp_val' >".$this->get_group()."</div>",
+            '#type' => 'text',
+            "#title" => "Benefit Group",
+            '#states' => [
+                'visible' =>[
+                    [':input[name="markup_type"]' => ['value' => "member_benefit"]],
+                ],
+                'and',
+                'required' => [
+                    [':input[name="markup_type"]' => ['value' => "member_benefit"]],
+                ]
+            ],
+        );
         if($content == "new")
         {
             $text = "Create";
@@ -225,6 +255,11 @@ class edit_create_contnet
                 '8' => '8',
                 '9' => '9',
                 '10' => '10',
+                '11' => '11',
+                '12' => '12',
+                '13' => '13',
+                "14" => "14",
+                "15" => "15"
             ),
         );
         $form['submit'] = array(
@@ -253,6 +288,7 @@ class edit_create_contnet
         $this->permanent = $markup['permanent'];
         $this->title = $array['title'];
         $this->markup_text = $array['text'];
+        $this->group = $array['group'];
         \Drupal::logger("content_issue")->notice("content_text ". $array['text']);
         $this->weight = $array['weight'];
     }
@@ -269,6 +305,7 @@ class edit_create_contnet
         $this->title = "new";
         $this->markup_text ="new";
         $this->weight = "new";
+        $this->group = "new";
         $this->permanent = "new";
     }
     public function content_query($content)
