@@ -41,6 +41,7 @@ class AdminTemplateCreateForm extends FormBase
             'civi_entity' => $value,
             'beginning_date' => $beginning_date,
             'end_date' => $end_date,
+            'permanent' => $form_state->getValue("permanent"),
             'active' => $form_state->getValue("active"),
             'markup' => $this->create_markup_array($form_state),
         );
@@ -72,6 +73,7 @@ where cid = '".$form_state->getValue("content_value")."';";
             'civi_entity' => $value,
             'beginning_date' => $beginning_date,
             'end_date' => $end_date,
+            'permanent' => $form_state->getValue("permanent"),
             'active' => $form_state->getValue("active"),
             'markup' => $this->create_markup_array($form_state),
         );
