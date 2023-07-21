@@ -396,7 +396,7 @@ class edit_create_contnet
             $result = $civi->get_civi_result();
             $count = $result->count();
             $current = 0;
-            while($current >= $count)
+            while($current <= $count)
             {
                 $entity = $result->itemat($current);
                 if($civi->get_entity() == "MembershipType")
