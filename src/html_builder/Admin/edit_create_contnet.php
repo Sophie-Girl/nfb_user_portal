@@ -412,6 +412,7 @@ class edit_create_contnet
                         $option[$entity['id']] = $entity['title'];
                     }
                 }
+                $current++;
             }
             return $option;
         }
