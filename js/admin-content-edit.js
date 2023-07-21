@@ -27,6 +27,14 @@
                         document.getElementById('edit-start-date').value = document.getElementById('start_val').innerText;
                         document.getElementById('edit-end-date').value = document.getElementById('end_val').innerText;
                     }
+                    if(document.getElementById('mk_type').innerText == "faq")
+                    {
+                        document.getElementById("edit-faq-grouping").value = document.getElementById('gpf_val').innerText
+                    }
+                    if(document.getElementById('mk_type').innerText == "member_benefit")
+                    {
+                        document.getElementById("edit-benefit-group").value = document.getElementById('bgp_val').innerText
+                    }
                     document.getElementById('edit-active').value = document.getElementById('act_val').innerText;
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
