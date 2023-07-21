@@ -28,3 +28,8 @@ nfb_user_portal.logout:
   title: "Logout"
   base_route: nfb_user_portal.main
   weight: 600
+nfb_user_portal.emails:
+  route_name: nfb_user_portal.tempalteform
+  title: "Member Portal Emails"
+  base_route: nfb_member.admin
+  weight: 200
