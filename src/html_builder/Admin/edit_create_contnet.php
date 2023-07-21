@@ -354,6 +354,7 @@ class edit_create_contnet
     }
     public function switch_for_params(query_base $civi)
     {
+        \Drupal::logger("ajax_check")->notice("val_check ".$civi->get_entity());
         switch ($civi->get_entity())
         {
             case "Event":
