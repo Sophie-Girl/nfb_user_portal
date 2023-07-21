@@ -5,13 +5,13 @@ use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 class edit_create_contnet
 {
     /**
-     * The user flood control service.
+     * The user requezst query
      *
      * @var \Drupal\nfb_user_portal\SQL\admin\User_request_queries
      */
     protected $user_request_queries;
      /**
-      * Constructs a new UserLoginForm.
+      * Constructs a new content form
       *
       * @param \Drupal\nfb_user_portal\SQL\admin\User_request_queries $user_request_queriea
       *   Sql functions

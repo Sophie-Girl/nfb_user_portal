@@ -54,6 +54,17 @@ class AdminTemplateCreateForm extends FormBase
         $array['title'] = $form_state->getValue("markup_title");
         $array['text'] = $form_state->getValue("content")['value'];
         $array['weight'] = $form_state->getValue("weight");
+        if ($form_state->getValue("markup_type") == "faq")
+        {
+            $array['group'] =  $form_state->getValue("faq_grouping");
+        }
+        elseif($form_state->getValue("markup_type") == "member_benefit")
+        {
+            $array['group'] =  $form_state->getValue("benefit_group");
+        }
+        else{
+            $array['group'] = "none";
+        }
         $array = json_encode($array);
         return $array;
     }
