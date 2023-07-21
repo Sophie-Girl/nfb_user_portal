@@ -331,6 +331,7 @@ class edit_create_contnet
     }
     public function civi_entity_options(FormStateInterface $form_state)
     {
+        \Drupal::logger("ajax_check")->notice("val_check ".$form_state->getValue("civi_entity"));
         if($form_state->getValue("civi_entity") == "")
         {
             $options = array(
