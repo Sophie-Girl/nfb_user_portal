@@ -118,4 +118,8 @@ where cid = '".$form_state->getValue("content_value")."';";
             $end_date = "null";
         }
     }
+    public function  option_reset(&$form, FormStateInterface  &$form_state)
+    {
+        return $form['civi_entity_value'];
+    }
 }

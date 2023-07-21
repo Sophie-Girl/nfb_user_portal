@@ -1,6 +1,8 @@
 <?php
 Namespace Drupal\nfb_user_portal\html_builder\Admin;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\nfb_civicrm_bridge\civicrm\query;
+use Drupal\nfb_user_portal\civi_query\query_base;
 use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 class edit_create_contnet
 {
@@ -109,9 +111,12 @@ class edit_create_contnet
             '#options' => array(
                 'Event' => "By Event Registration",
                 'Group' => "By Group",
-                "Contact Type" => "By Contact Type or Occupation",
                 "MembershipType" => "Certain Memberships Only"
                 ),
+            '#ajax' => array(
+                'callback' => "::option_reset",
+                'wrapper' => "ajax_wrap",
+                'event' => 'change',),
             '#states' => [
                 'visible' =>[
                     [':input[name="limited_by"]' => ['value' => "civi_entity"]],
@@ -123,10 +128,11 @@ class edit_create_contnet
                 ],
         );
         $form['civi_entity_value'] = array(
-            '#prefix' => "<div class='hidden_val' id='civi_value' >".$this->get_civi_entity()."</div>",
-            '#type' => 'textfield',
+            '#prefix' => "<div class='hidden_val' id='civi_value' >".$this->get_civi_entity()."</div>
+<div id='ajax_wrap'>",
+            '#type' => 'select',
             '#title' => "Name of Civi Entity",
-            '#size' => "20",
+            '#options' => $this->civi_entity_options($form_state),
             '#states' => [
                 'visible' =>[
                     [':input[name="limited_by"]' => ['value' => "civi_entity"]],
@@ -136,6 +142,7 @@ class edit_create_contnet
                         [':input[name="limited_by"]' => ['value' => "civi_entity"]],
                     ]
             ],
+            '#suffix' => "</div>"
         );
         $form['tab'] = array(
             '#prefix' => "<div class='hidden_val' id='tab_val' >".$this->get_tab()."</div>",
@@ -320,6 +327,90 @@ class edit_create_contnet
             $array = json_decode($markup['markup']);
             $array = get_object_vars($array);
             $this->set_prefill_values($markup, $array);
+        }
+    }
+    public function civi_entity_options(FormStateInterface $form_state)
+    {
+        if($form_state->getValue("civi_entity") == "")
+        {
+            $options = array(
+              ''   => "- Select -"
+            );
+        }
+        else{
+            $options = $this->creation_of_entity_options($form_state);
+        }
+       return $options;
+
+    }
+    public function creation_of_entity_options(FormStateInterface $form_state)
+    {
+        $civi = new query_base();
+        $civi->entity = $form_state->getValue("civi_entity");
+        $civi->mode = "get";
+        $options = $this->switch_for_params($civi);
+        return $options;
+    }
+    public function switch_for_params(query_base $civi)
+    {
+        switch ($civi->get_entity())
+        {
+            case "Event":
+                $civi->params = [
+                    'select' => [
+                        'id',
+                        'title',
+                    ],
+                    'limit' => 750,
+                    'checkPermissions' => FALSE,
+                ];
+                break;
+            case "MembershipType":
+                $civi->params = [
+                    'select' => [
+                        'id',
+                        'name',
+                    ],
+                    'limit' => 1000,
+                    'checkPermissions' => FALSE,
+                ];
+                break;
+            case "Group":
+                $civi->params = [
+                    'select' => [
+                        'id',
+                        'title',
+                    ],
+                    'limit' => 1000,
+                    'checkPermissions' => FALSE,
+                ];
+                break;
+        }
+        if($civi->get_params())
+        {
+            $option[''] = "- Select -";
+            $civi->civi_api_v4_query();
+            $result = $civi->get_civi_result();
+            $count = $result->count();
+            $current = 0;
+            while($current >= $count)
+            {
+                $entity = $result->itemat($current);
+                if($civi->get_entity() == "MembershipType")
+                {
+                    if($entity['id'] != '')
+                    {
+                        $option[$entity['id']] = $entity['name'];
+                    }
+                }
+                else{
+                    if($entity['id'] != '')
+                    {
+                        $option[$entity['id']] = $entity['title'];
+                    }
+                }
+            }
+            return $option;
         }
     }
 
