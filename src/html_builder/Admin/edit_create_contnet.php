@@ -181,7 +181,7 @@ class edit_create_contnet
         $form['permanent'] = array(
             '#prefix' => "<div class='hidden_val' id='perm_val' >".$this->get_permanent()."</div>",
             '#type' => 'select',
-            "#title" => "SI this markup Permanent?",
+            "#title" => "Is this markup Permanent?",
             '#required' => "True",
             "#options" => array(
                 '0' => "Yes",
@@ -206,7 +206,7 @@ class edit_create_contnet
         );
         $form['faq_grouping'] = array(
             '#prefix' => "<div class='hidden_val' id='gpf_val' >".$this->get_group()."</div>",
-            '#type' => 'text',
+            '#type' => 'textfield',
             "#title" => "FAQ Group",
             '#states' => [
                 'visible' =>[
@@ -220,7 +220,7 @@ class edit_create_contnet
         );
         $form['benefit_group'] = array(
             '#prefix' => "<div class='hidden_val' id='bgp_val' >".$this->get_group()."</div>",
-            '#type' => 'text',
+            '#type' => 'textfield',
             "#title" => "Benefit Group",
             '#states' => [
                 'visible' =>[
