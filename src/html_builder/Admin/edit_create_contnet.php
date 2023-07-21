@@ -389,6 +389,7 @@ class edit_create_contnet
         }
         if($civi->get_params())
         {
+            \Drupal::logger("ajax_check")->notice("I'm getting here");
             $option[''] = "- Select -";
             $civi->civi_api_v4_query();
             $result = $civi->get_civi_result();
