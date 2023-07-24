@@ -10,7 +10,7 @@
             $('#edit-title-filt').once().blur(function () {
                 set_vals();
             });
-            $('#edit-title-filt').once().blur(function () {
+            $('#edit-active-filt').once().blur(function () {
                 set_vals();
             });
 
