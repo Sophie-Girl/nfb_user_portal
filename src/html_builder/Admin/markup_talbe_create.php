@@ -67,6 +67,10 @@ class markup_talbe_create extends markup_table_edit {
             "#type" => "textfield",
             '#size' => "20",
         );
+        $form['filter_val'] = array(
+          '#type' => "textfield",
+          '#title' => "IGNORE ME!",
+        );
         $form['active_filt'] = array(
             '#type' => "select",
             '#title' => "Filter By Active Status",
