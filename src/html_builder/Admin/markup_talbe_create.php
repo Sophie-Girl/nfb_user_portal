@@ -47,15 +47,16 @@ class markup_talbe_create extends markup_table_edit {
     {
         return $this->title_status;
     }
-    public function build_form_array(&$form, FormStateInterface  $form_state, $params)
+    public function build_form_array(&$form, FormStateInterface  $form_state)
     {
-        $this->params = $params;
+        $this->params = $form_state->getValue("filter_val");
         $this->set_values($form_state);
         $this->sql_query();
         $form['type_filt'] = array(
             '#type' => "select",
             '#title' => "Filter By Markup Type",
             '#options' => array(
+                '' => '- select -',
               'intro_text' => "Intro Text",
                 "member_benefit" => "Member Benefit",
                 'faq' => "FAQ",
@@ -75,6 +76,7 @@ class markup_talbe_create extends markup_table_edit {
             '#type' => "select",
             '#title' => "Filter By Active Status",
             '#options' => array(
+                '' => '- select -',
                 '0' => "No",
                 '1'=> "Yes",
             ),
@@ -97,11 +99,11 @@ class markup_talbe_create extends markup_table_edit {
         );
 
     }
-    public function sql_query()
+    public function sql_query(FormStateInterface $form_state)
     {
 
         $this->sql = new User_request_queries();
-        $query = "select * from nfb_user_portal_content order by active desc";
+        $query = $this->query_setup($form_state);
         $key = "cid";
         $this->sql->select_query($query, $key);
         $this->header_build();
@@ -133,6 +135,7 @@ class markup_talbe_create extends markup_table_edit {
     {
         $this->set_values($form_state);
         $query =  $this->assign_filters();
+        return $query;
     }
     public function assign_filters()
     {
@@ -205,7 +208,7 @@ class markup_talbe_create extends markup_table_edit {
         $orig_string = $this->get_params();
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
-        $this->limiter = $this->string_parser($string);
+        $this->type_filt = $this->string_parser($string);
         $start = $end + 2;
         $post_page = substr($orig_string, $start, 200);
         $new_end = strpos($post_page, "&%");
@@ -215,17 +218,12 @@ class markup_talbe_create extends markup_table_edit {
         $post_title = substr($post_page, $start, 200);
         $new_end = strpos($post_page, "&%");
         $string = substr($post_page,0, $new_end);
-        $this->type_filt = $this->string_parser($string);
+        $this->active_filter_filt = $this->string_parser($string);
         $start = $new_end + 2;
         $post_page = substr($post_title, $start, 200);
         $end = strpos($post_page, "&%");
         $string = substr($post_page,0, $end);
         $this->active_filter = $this->string_parser($string);
-        $start = $end + 2;
-        $post_page = substr($post_page, $start, 200);
-        $end = strpos($post_page, "&%");
-        $string = substr($post_page,0, $end);
-        $this->sort_field = $this->string_parser($string);
     }
     public function build_table_row($content, $markup_array)
     {

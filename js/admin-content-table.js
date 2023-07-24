@@ -25,7 +25,13 @@ function make_filt_val (type, title, active){
 function set_vals()
 {
     var type = document.getElementById("edit-type-filt").value;
+    if(type == "")
+    {type = " ";}
     var title = document.getElementById("edit-title-filt").value;
+    if(title == "")
+    {title = " ";}
     var active = document.getElementById("edit-active-filt").value;
+    if(active == "")
+    {active = " ";}
     make_filt_val(type, title, active);
 }
