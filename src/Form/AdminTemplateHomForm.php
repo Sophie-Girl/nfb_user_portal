@@ -23,4 +23,8 @@ class AdminTemplateHomForm extends FormBase
     {
         // TODO: Implement submitForm() method.
     }
+    public function table_stuff(&$form, FormStateInterface  &$form_state)
+    {
+        return $form['sub_table'];
+    }
 }
