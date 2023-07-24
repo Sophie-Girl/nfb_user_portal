@@ -97,7 +97,7 @@ nfb_user_portal.content:
 nfb_user_portal.content_table:
   path: 'member_portal/admin/manage_content'
   defaults:
-    _form: 'Drupal\nfb_user_portal\Form\AdminTemplateCreateForm'
+    _form: 'Drupal\nfb_user_portal\Form\AdminTemplateHomForm'
     _title: 'Mangage User Portal Content'
     content: 'new'
   requirements:
