@@ -52,7 +52,7 @@ class markup_talbe_create extends markup_table_edit {
         $this->params = $params;
         $this->set_values($form_state);
         $this->sql_query();
-        $forms['type_filt'] = array(
+        $form['type_filt'] = array(
             '#type' => "select",
             '#title' => "Filter By Markup Type",
             '#options' => array(
@@ -69,7 +69,7 @@ class markup_talbe_create extends markup_table_edit {
         );
         $form['active_filt'] = array(
             '#type' => "select",
-            '#title' => "Filter By Markup Type",
+            '#title' => "Filter By Active Status",
             '#options' => array(
                 '0' => "No",
                 '1'=> "Yes",
