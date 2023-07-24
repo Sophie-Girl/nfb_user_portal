@@ -16,6 +16,7 @@ class AdminTemplateHomForm extends FormBase
     {
         $factory = new markup_talbe_create();
         $factory->build_form_array($form, $form_state, $content);
+        $form['#attached']['library'][] = "nfb_user_portal/admin-content-table";
         return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)

@@ -51,3 +51,7 @@ admin-content-edit:
       css/admin-content-edit.css: { }
   js:
     js/admin-content-edit.js: { }
+admin-content-table:
+  version: 1.x
+  js:
+    js/admin-content-table.js: { }
