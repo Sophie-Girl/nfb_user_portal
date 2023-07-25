@@ -218,10 +218,7 @@ class markup_talbe_create extends markup_table_edit {
         $start = $new_end + 2;
         $post_title = substr($post_page, $start, 200);
         $new_end = strpos($post_title, "&%");
-
-        $string = substr($post_title,0, $new_end);
-        \Drupal::logger("wtf")->notice("testing ".$string);
-        $this->active_filter = $this->string_parser($string);
+        $this->active_filter = $post_title;
     }
     public function build_table_row($content, $markup_array)
     {
