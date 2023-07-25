@@ -218,7 +218,7 @@ class markup_talbe_create extends markup_table_edit {
         $post_title = substr($post_page, $start, 200);
         $new_end = strpos($post_page, "&%");
         $string = substr($post_page,0, $new_end);
-        $this->active_filter_filt = $this->string_parser($string);
+        $this->active_filter = $this->string_parser($string);
         $start = $new_end + 2;
         $post_page = substr($post_title, $start, 200);
         $end = strpos($post_page, "&%");
