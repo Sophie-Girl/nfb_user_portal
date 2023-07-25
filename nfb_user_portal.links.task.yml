@@ -30,16 +30,16 @@ nfb_user_portal.logout:
   weight: 600
 nfb_user_portal.emails:
   route_name: nfb_user_portal.tempalteform
-  title: "Member Portal Emails"
+  title: "Member Profile Emails"
   base_route: nfb_member.admin
   weight: 200
 nfb_user_portal.req:
   route_name: nfb_user_portal.userrequest
-  title: "Member Portal Requests"
+  title: "Member Profile Requests"
   base_route: nfb_member.admin
   weight: 300
 nfb_user_portal.content:
   route_name: nfb_user_portal.content_table
-  title: "Member Portal Content"
+  title: "Member Profile Content"
   base_route: nfb_member.admin
   weight: 400
