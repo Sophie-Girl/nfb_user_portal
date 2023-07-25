@@ -206,7 +206,7 @@ class markup_talbe_create extends markup_table_edit {
     public function set_values(FormStateInterface  $form_state)
     {
         $orig_string = $this->get_params();
-        \Drupal::logger("wtf")->notice("testing ".$orig_string);
+
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
         $this->type_filt = $this->string_parser($string);
@@ -218,6 +218,7 @@ class markup_talbe_create extends markup_table_edit {
         $start = $new_end + 2;
         $post_title = substr($post_page, $start, 200);
         $new_end = strpos($post_title, "&%");
+        \Drupal::logger("wtf")->notice("testing ".$post_title);
         $string = substr($post_title,0, $new_end);
         $this->active_filter = $this->string_parser($string);;
     }
