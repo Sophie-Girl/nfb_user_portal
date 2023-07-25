@@ -279,7 +279,6 @@ or review an issue with a potential account.</p>
 
     public function query_switch()
     {
-        \Drupal::logger("name_filter_check")->notice("name filter".$this->get_name_filter());
         if($this->get_name_filter() == " " || $this->get_name_filter() == "")
         {
             $name = false;

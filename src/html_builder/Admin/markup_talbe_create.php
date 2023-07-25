@@ -139,7 +139,6 @@ class markup_talbe_create extends markup_table_edit {
     }
     public function assign_filters()
     {
-        \Drupal::logger("type_filter_check")->notice("name filter".$this->get_type_filt());
         if($this->get_type_filt() == " " || $this->get_type_filt() == "")
         {
             $type = false;
@@ -154,7 +153,6 @@ class markup_talbe_create extends markup_table_edit {
         else{
             $title = true;
         }
-        \Drupal::logger("status_filter_check")->notice("status filter".$this->get_active_filter());
         if($this->get_active_filter() == " "  || $this->get_active_filter() == "")
         {
             $active = false;
@@ -249,7 +247,6 @@ class markup_talbe_create extends markup_table_edit {
         $this->get_current_max_id();
         $sql = \Drupal::database();
         $query = "Select * from nfb_user_portal_content where cid <= '" . $this->get_page_max_id() . "' order by rid desc limit 50;";
-        \Drupal::logger("page_reload_issue")->notice("query val ".$query);
         $key = "sub_id";
         $sql_result = $sql->query($query)->fetchAllAssoc($key);
         foreach ($sql_result as $result) {
