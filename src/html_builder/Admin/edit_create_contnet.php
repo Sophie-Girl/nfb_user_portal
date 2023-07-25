@@ -67,6 +67,19 @@ class edit_create_contnet
     public function build_form_array(&$form, FormStateInterface $form_state, $content)
     {
         $this->find_content_record($content);
+        $form['tab'] = array(
+            '#prefix' => "<div class='hidden_val' id='tab_val' >".$this->get_tab()."</div>",
+            '#type' => "select",
+            "#title" => "What Member Portal Tab is This For?",
+            "#required" => true,
+            "#options" => array(
+                'profile' => "Profile",
+                "membership" => "Membership",
+                "other" => "Other",
+                "manage_account" => "Manage Account",
+            ),
+
+        );
         $form['content_value'] = array(
             '#type' => 'textfield',
             '#value' => $content,
@@ -144,19 +157,7 @@ class edit_create_contnet
             ],
             '#suffix' => "</div>"
         );
-        $form['tab'] = array(
-            '#prefix' => "<div class='hidden_val' id='tab_val' >".$this->get_tab()."</div>",
-          '#type' => "select",
-          "#title" => "What Member Portal Tab is This For?",
-          "#required" => true,
-          "#options" => array(
-            'profile' => "Profile",
-              "membership" => "Membership",
-              "other" => "Other",
-              "manage_account" => "Manage Account",
-          ),
 
-        );
         $form['start_date'] = array(
             '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
             '#type' => 'date',

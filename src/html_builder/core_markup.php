@@ -1,6 +1,7 @@
 <?php
 Namespace Drupal\nfb_user_portal\html_builder;
 use Drupal\nfb_user_portal\civi_query\query_base;
+use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 use Drupal\nfb_user_portal\user\user_civi;
 class core_markup
 {
@@ -20,13 +21,42 @@ class core_markup
         $this->header_2();
         return $this->get_core_markup();
     }
-    public function header_2(){
-        $markup = "
-<p tabindex='0' class='lead'>Welcome to your National Federation of the Blind member profile. Achieving our shared goals of equality, opportunity, and security for the blind are impossible without you as a member.
+    public function look_for_intro_text()
+    {
+        $key = "cid";
+        $query = "select * from nfb_user_portal_content where markup_type = 'intro_text' and tab = 'profile' and active = '0';";
+        $sql = new User_request_queries();
+        $sql->select_query($query, $key);
+        $markup = false;
+        foreach ($sql->get_result() as $cotnent)
+        {
+            $content = get_object_vars($cotnent);
+            $array = json_decode($markup['markup']);
+            $array = get_object_vars($array);
+            if($markup == false)
+            {
+                $markup = $array['text'];
+            }
+        }
+        if($markup == false)
+        {
+            $markup = $this->default_intro_text();
+        }
+        return $markup;
+
+    }
+
+    public function  default_intro_text()
+    {
+        return "<p tabindex='0' class='lead'>Welcome to your National Federation of the Blind member profile. Achieving our shared goals of equality, opportunity, and security for the blind are impossible without you as a member.
  In your account, maintain your personal information and review membership status. The member profile is under construction and expanding; you’ll find several tabs to different areas of the member profile. 
  Review information in your profile, membership, FAQs, and more. Thank you for your active participation in the organized blind movement.
 <br> <br>
-To update your contact or demographic information, navigate to the appropriate field and select Edit. Enter the correct information (or select it from the menu) and select Save. Once you select Edit, you must Cancel or Save before editing another field.</p>
+To update your contact or demographic information, navigate to the appropriate field and select Edit. Enter the correct information (or select it from the menu) and select Save. Once you select Edit, you must Cancel or Save before editing another field.</p>";
+    }
+    public function header_2(){
+        $markup = "
+
 <p class='hidden_val' id='state_val'>".$this->user_data->get_prim_state_id()."</p>
 <p class='hidden_val' id='country_val'>".$this->user_data->get_prim_country_id()."</p>
 <p class='hidden_val' tabindex='0' id='user_id_val'>".\Drupal::currentUser()->getAccount()->id()."</p>

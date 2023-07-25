@@ -14,6 +14,11 @@ class ContactInfoForm extends FormBase
     public function buildForm(array $form, FormStateInterface $form_state)
     {
         $page_builder = new core_markup();
+        $form['intro_text'] = array(
+          '#type' => 'item',
+          '#markup' => $page_builder->look_for_intro_text(),
+            '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
+        );
         $form['portal_markup'] = array(
           '#type' => "item",
             '#markup' => $page_builder->create_core_markup(),
