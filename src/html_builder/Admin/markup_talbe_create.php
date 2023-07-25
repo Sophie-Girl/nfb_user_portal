@@ -139,7 +139,7 @@ class markup_talbe_create extends markup_table_edit {
     }
     public function assign_filters()
     {
-        \Drupal::logger("type_filter_check")->notice("name filter".$this->get_name_filter());
+        \Drupal::logger("type_filter_check")->notice("name filter".$this->get_type_filt());
         if($this->get_type_filt() == " " || $this->get_type_filt() == "")
         {
             $type = false;
