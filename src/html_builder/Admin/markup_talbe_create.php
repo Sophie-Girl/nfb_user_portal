@@ -206,6 +206,7 @@ class markup_talbe_create extends markup_table_edit {
     public function set_values(FormStateInterface  $form_state)
     {
         $orig_string = $this->get_params();
+        \Drupal::logger("wtf")->notice("testing ".$orig_string);
         $end = strpos($orig_string, "&%");
         $string = substr($orig_string, 0, $end);
         $this->type_filt = $this->string_parser($string);
