@@ -77,8 +77,8 @@ class markup_talbe_create extends markup_table_edit {
             '#title' => "Filter By Active Status",
             '#options' => array(
                 '' => '- select -',
-                '0' => "No",
-                '1'=> "Yes",
+                '1' => "No",
+                '0'=> "Yes",
             ),
         );
         $form['ajax_button'] = array(
@@ -223,8 +223,16 @@ class markup_talbe_create extends markup_table_edit {
     public function build_table_row($content, $markup_array)
     {
         $this->markup = $this->get_markup()."<tr><td>".$content['cid']."</td><td>".$content['markup_type']."</td><td>".$markup_array['title']."</td><td>".$content['tab']."</td>
-        <td>".$content['limiter']."</td><td>".$content['civi_entity']."</td><td>".$content['active']."</td><td>".$markup_array['weight']."</td><td><a href='/member_portal/admin/content/".$content['cid']."' role='button' aria-label='Edit '>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></td></tr>";
+        <td>".$content['limiter']."</td><td>".$content['civi_entity']."</td><td>".$this->yes_no($content)."</td><td>".$markup_array['weight']."</td><td><a href='/member_portal/admin/content/".$content['cid']."' role='button' aria-label='Edit '>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></td></tr>";
 
+    }
+    public function yes_no($content)
+    {
+        if($content['actrive'] == 0)
+        {return "Yes"; }
+        else{
+            return "No";
+        }
     }
     public function header_build()
     {
