@@ -108,7 +108,7 @@ where cid = '".$form_state->getValue("content_value")."';";
     }
     public function set_Date_values(FormStateInterface $form_state, &$end_date, &$beginning_date)
     {
-        if($form_state->getValue("limited_by") == "date")
+        if($form_state->getValue("markup_type") == "member_benefit")
         {
             $beginning_date = $form_state->getValue("start_date");
             $end_date = $form_state->getValue("end_date");

@@ -15,6 +15,21 @@ class memberhisp_markup
     {
         return $this->markup;
     }
+    public $beneift_array;
+    public function get_benifit_array()
+    {
+        return $this->beneift_array;
+    }
+    public $base_benefit;
+    public function get_base_benefit()
+    {
+        return $this->base_benefit;
+    }
+    public $additional_benefit;
+    public function get_additional_benefit()
+    {
+        return $this->additional_benefit;
+    }
     public function build_membership_markup()
     {
         $this->user_data = new user_membership();
@@ -139,5 +154,59 @@ class memberhisp_markup
     public function default_content_2_text()
     {
         return "<p tabindex='0'>If you need to update your subscription information for the <i>Braille Monitor</i> or <i>Future Reflections</i>, please contact XXXX. Based on the distribution schedule, it may take up to two months for your change to take effect.    </p>";
+    }
+    public function member_benefits_section()
+    {
+        $markup = "<h2>Membership Benefits</h2>";
+        $this->member_benifit_query();
+
+
+    }
+    public function member_benifit_query()
+    {
+        $key = "cid";
+        $query = "select * from nfb_user_portal_content where markup_type = 'member_benefit' and tab = 'membership' and active = '0';";
+        $sql = new User_request_queries();
+        $sql->select_query($query, $key);
+        $this->beneift_array = $sql->get_result();
+    }
+    public function process_array()
+    {
+        $alternative_benefit = false;
+        $base_benefit = false;
+        foreach ($this->get_benifit_array() as $content)
+        {
+            $content = get_object_vars($content);
+            $array = json_decode($content['markup']);
+            $array = get_object_vars($array);
+            if($markup['group'] == "base")
+            {
+                $base_benefit[$markup['weight']] = array(
+                  'text' => $markup['text'],
+                  'start_date' =>  $content['beginning_date'],
+                  'end_date' => $content['end_date'],
+                    'limiter' => $content['limiter'],
+                    'civi_entity' => $content['civi_entity'],
+                    'cid' => $content['cid'],
+                );
+            }
+            elseif($markup['group'] == "additional")
+            {
+                $alternative_benefit[$markup['weight']] = array(
+                    'text' => $markup['text'],
+                    'start_date' =>  $content['beginning_date'],
+                    'end_date' => $content['end_date'],
+                    'limiter' => $content['limiter'],
+                    'civi_entity' => $content['civi_entity'],
+                    'cid' => $content['cid'],
+                );
+            }
+        }
+        $this->base_benefit = $base_benefit;
+        $this->additional_benefit = $alternative_benefit;
+    }
+    public function process_benefit($benefit)
+    {
+
     }
 }
