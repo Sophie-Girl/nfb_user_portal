@@ -67,8 +67,16 @@ class edit_create_contnet
     public function build_form_array(&$form, FormStateInterface $form_state, $content)
     {
         $this->find_content_record($content);
+        $form['intro_text'] = array(
+          '#type' => "item",
+          "#markup" => "<p>Here is the intro text, I'm not really sure what to say here. 
+For faqs the question should be the title, please tell me what group names your using for member benefits and faqs 
+so I can turn those fields to selects. Permanent means I ignore whether your civi entity 
+still exists, or dates on the markup. You can create a piece of content by clicking this button
+</p><a class='btn btn-primary' role='button' href='/member_portal/admin/content/new'></a>"
+        );
         $form['tab'] = array(
-            '#prefix' => "<div class='hidden_val' id='tab_val' >".$this->get_tab()."</div>",
+            '#prefix' => "<div lass='hidden_val' id='tab_val' >".$this->get_tab()."</div>",
             '#type' => "select",
             "#title" => "What Member Portal Tab is This For?",
             "#required" => true,
