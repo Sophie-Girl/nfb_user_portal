@@ -179,7 +179,7 @@ class memberhisp_markup
             $content = get_object_vars($content);
             $array = json_decode($content['markup']);
             $array = get_object_vars($array);
-            if($markup['group'] == "base")
+            if($content['group'] == "base")
             {
                 $base_benefit[$markup['weight']] = array(
                   'text' => $markup['text'],
