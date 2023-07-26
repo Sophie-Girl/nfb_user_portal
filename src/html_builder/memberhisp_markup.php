@@ -74,6 +74,7 @@ class memberhisp_markup
     }
     public function get_intro_text()
     {
+
         $key = "cid";
         $query = "select * from nfb_user_portal_content where markup_type = 'intro_text' and tab = 'membership' and active = '0';";
         $type = "intro";
@@ -208,5 +209,30 @@ class memberhisp_markup
     public function process_benefit($benefit)
     {
 
+
+    }
+    public function date_comparison($benefit)
+    {
+        $date = date('Y-M-D');
+        if($benefit['start_date'] < $date )
+        {
+            $start_run = true;
+        }
+        else{
+            $start_run = false;
+        }
+        if ($benefit['end_date'] > $date)
+        {
+            $end_run = true;
+        }
+        else{
+            $end_run = false;
+        }
+        if($end_run == true and $start_run == true)
+        {
+            $run = true;
+        }
+        else{
+            $run = false}
     }
 }
