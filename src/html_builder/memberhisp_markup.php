@@ -201,8 +201,8 @@ class memberhisp_markup
             }
             elseif($array['group'] == "additional")
             {
-                $alternative_benefit[$markup['weight']] = array(
-                    'text' => $markup['text'],
+                $alternative_benefit[$array['weight']] = array(
+                    'text' => $array['text'],
                     'permanent' => $content['permanent'],
                     'start_date' =>  $content['beginning_date'],
                     'end_date' => $content['end_date'],
