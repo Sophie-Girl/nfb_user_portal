@@ -1,5 +1,6 @@
 <?php
 Namespace Drupal\nfb_user_portal\html_builder;
+use Drupal\commerce_shipping\Entity\PackageType;
 use Drupal\nfb_user_portal\civi_query\query_base;
 use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 use Drupal\nfb_user_portal\user\user_membership;
@@ -29,6 +30,11 @@ class memberhisp_markup
     public function get_additional_benefit()
     {
         return $this->additional_benefit;
+    }
+    public $benefit_markup;
+    public function get_benefit_markup()
+    {
+     return $this->benefit_markup;
     }
     public function build_membership_markup()
     {
@@ -159,6 +165,7 @@ class memberhisp_markup
     public function member_benefits_section()
     {
         $markup = "<h2>Membership Benefits</h2>";
+        $contact_id = $this->get_civi_id();
         $this->member_benifit_query();
 
 
@@ -180,10 +187,11 @@ class memberhisp_markup
             $content = get_object_vars($content);
             $array = json_decode($content['markup']);
             $array = get_object_vars($array);
-            if($content['group'] == "base")
+            if($array['group'] == "base")
             {
-                $base_benefit[$markup['weight']] = array(
-                  'text' => $markup['text'],
+                $base_benefit[$array['weight']] = array(
+                  'text' => $array['text'],
+                  'permanent' => $content['permanent'],
                   'start_date' =>  $content['beginning_date'],
                   'end_date' => $content['end_date'],
                     'limiter' => $content['limiter'],
@@ -191,10 +199,11 @@ class memberhisp_markup
                     'cid' => $content['cid'],
                 );
             }
-            elseif($markup['group'] == "additional")
+            elseif($array['group'] == "additional")
             {
                 $alternative_benefit[$markup['weight']] = array(
                     'text' => $markup['text'],
+                    'permanent' => $content['permanent'],
                     'start_date' =>  $content['beginning_date'],
                     'end_date' => $content['end_date'],
                     'limiter' => $content['limiter'],
@@ -208,6 +217,14 @@ class memberhisp_markup
     }
     public function process_benefit($benefit)
     {
+        $date_run = $this->date_comparison($benefit);
+        if($date_run == true) {
+            $this->benefit_markup = $this->get_benefit_markup().$benefit['text'];
+        }
+        else{
+            $this->deactivate_expired_record($benefit);
+            // if record is still active outside its date range deactivate it
+        }
 
 
     }
@@ -233,6 +250,53 @@ class memberhisp_markup
             $run = true;
         }
         else{
-            $run = false}
+            $run = false;}
+        if($benefit['permanent'] == "0")
+        {
+            $run = true;
+        }
+        return $run;
+    }
+    public function deactivate_expired_record($benefit)
+    {
+        $query = "update nfb_user_portal_content
+        set active = 1
+        where cid = '".$benefit['cid']."';";
+        $sql = new User_request_queries();
+        $sql->update_query($query);
+
+    }
+    public function get_civi_id()
+    {
+        $user = \drupal::currentUser();
+        $cms_id = $user->getAccount()->id(); // civi uses cms id for drupal account itd
+        $civi =  new query_base();
+        $civi->mode = "get";
+        $civi->entity = "UFMatch";
+        $civi->params = [
+            'select' => [
+                'contact_id',
+            ],
+            'where' => [
+                ['uf_id', '=', $cms_id],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $count = $result->count();
+        $current = 0;
+        $contact_id = false;
+        while ($current < $count)
+        {
+            if($contact_id == false)
+            {
+                $record  = $result->itemat($current);
+                $contact_id = $record['contact_id'];
+                $current++;
+            }
+        }
+        return $contact_id;
     }
 }

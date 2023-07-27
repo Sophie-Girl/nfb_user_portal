@@ -81,7 +81,7 @@ nfb_user_portal.tempalteform:
   path: 'member_portal/admin/templates'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminEmailTempForm'
-    _title: 'Change User Profile Email Templates'
+    _title: 'Change Member Profile Email Templates'
   requirements:
     _permission: 'access content'
     _role: 'authenticated'
@@ -98,7 +98,7 @@ nfb_user_portal.content_table:
   path: 'member_portal/admin/manage_content'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminTemplateHomForm'
-    _title: 'Manage User Profile Content'
+    _title: 'Manage Member Profile Content'
     content: 'new'
   requirements:
     _permission: 'access content'
