@@ -196,7 +196,7 @@ class memberhisp_markup
             $array = json_decode($content['markup']);
             $array = get_object_vars($array);
             \Drupal::logger("query_debug")->notice("query_results ".print_r($array, true));
-            if($array['group'] == "base")
+            if($array['group'] == "Base")
             {
                 $base_benefit[$array['weight']] = array(
                   'text' => $array['text'],
@@ -208,7 +208,7 @@ class memberhisp_markup
                     'cid' => $content['cid'],
                 );
             }
-            elseif($array['group'] == "additional")
+            elseif($array['group'] == "Additional")
             {
                 $alternative_benefit[$array['weight']] = array(
                     'text' => $array['text'],
