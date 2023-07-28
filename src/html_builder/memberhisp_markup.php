@@ -168,10 +168,17 @@ class memberhisp_markup
         $contact_id = $this->get_civi_id();
         $this->member_benifit_query();
         $this->process_array();
+        $array = $this->get_base_benefit();
+        sort($array);
+        $this->base_benefit = $array;
         foreach( $this->get_base_benefit() as $benefit)
         {
             $this-> process_benefit($benefit, $contact_id);
         }
+        $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>"
+        $array = $this->get_additional_benefit();
+        sort($array);
+        $this->additional_benefit = $array;
         foreach ($this->get_additional_benefit() as $benefit)
         {
             $this-> process_benefit($benefit, $contact_id);
