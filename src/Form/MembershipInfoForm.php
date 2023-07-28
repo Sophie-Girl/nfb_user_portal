@@ -21,7 +21,7 @@ class MembershipInfoForm extends FormBase
         $form['member_benefit'] = array(
             '#type' => "item",
             '#markup' => $page_builder->member_benefits_section(),
-            '#allowed_tags' => ['div', 'i', 'span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
+            '#allowed_tags' => ['div', 'i','h3', 'span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-membership';
         return $form;
