@@ -164,11 +164,19 @@ class memberhisp_markup
     }
     public function member_benefits_section()
     {
-        $markup = "<h2>Membership Benefits</h2>";
+        $this->benefit_markup = "<h2>Membership Benefits</h2>";
         $contact_id = $this->get_civi_id();
         $this->member_benifit_query();
-
-
+        $this->process_array();
+        foreach( $this->get_base_benefit() as $benefit)
+        {
+            $this-> process_benefit($benefit, $contact_id);
+        }
+        foreach ($this->get_additional_benefit() as $benefit)
+        {
+            $this-> process_benefit($benefit, $contact_id);
+        }
+        return $this->get_benefit_markup();
     }
     public function member_benifit_query()
     {
@@ -215,19 +223,32 @@ class memberhisp_markup
         $this->base_benefit = $base_benefit;
         $this->additional_benefit = $alternative_benefit;
     }
-    public function process_benefit($benefit)
+    public function process_benefit($benefit, $contact_id)
     {
         $date_run = $this->date_comparison($benefit);
         if($date_run == true) {
-            $this->benefit_markup = $this->get_benefit_markup().$benefit['text'];
+            if($benefit['limiter'] == "Event"){
+                $run = $this->civi_event_check($benefit, $contact_id);
+            }
+            elseif($benefit['limiter'] == "Group")
+            {
+                $run = $this->civi_group_check($benefit, $contact_id);
+            }
+            elseif($benefit['limiter'] == "MembershipType") {
+                $run = $this->civi_membership_check($benefit, $contact_id);
+            }
+            else{
+                $run = true;
+            }
+            if($run = true){
+            $this->benefit_markup = $this->get_benefit_markup().$benefit['text'];}
         }
-        else{
-            $this->deactivate_expired_record($benefit);
-            // if record is still active outside its date range deactivate it
+
         }
 
 
-    }
+
+
     public function date_comparison($benefit)
     {
         $date = date('Y-M-D');
@@ -244,6 +265,8 @@ class memberhisp_markup
         }
         else{
             $end_run = false;
+            $this->deactivate_expired_record($benefit);
+            // if record is still active outside its date range deactivate it
         }
         if($end_run == true and $start_run == true)
         {
@@ -264,7 +287,6 @@ class memberhisp_markup
         where cid = '".$benefit['cid']."';";
         $sql = new User_request_queries();
         $sql->update_query($query);
-
     }
     public function get_civi_id()
     {
@@ -298,5 +320,96 @@ class memberhisp_markup
             }
         }
         return $contact_id;
+    }
+    public function civi_event_check($benefit, $contact_id)
+    {
+        $user = \drupal::currentUser();
+        $cms_id = $user->getAccount()->id(); // civi uses cms id for drupal account itd
+        $civi =  new query_base();
+        $civi->mode = "get";
+        $civi->entity = "Participant";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['contact_id', '=', $contact_id],
+                ['event_id', '=', $benefit['civi_benefit']],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $count = $result->count();
+        If($count > 0)
+        {
+            $run = true;
+        }
+        else{
+            $run = false;
+        }
+        return $run;
+    }
+    public function civi_group_check($benefit, $contact_id)
+    {
+        $user = \drupal::currentUser();
+        $cms_id = $user->getAccount()->id(); // civi uses cms id for drupal account itd
+        $civi =  new query_base();
+        $civi->mode = "get";
+        $civi->entity = "GroupContact";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['group_id', '=', $benefit['civi_entity']],
+                ['contact_id', '=', $contact_id],
+                ['status', '=', 'Added'],
+            ],
+            'limit' => 25,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $count = $result->count();
+        If($count > 0)
+        {
+            $run = true;
+        }
+        else{
+            $run = false;
+        }
+        return $run;
+    }
+    public function civi_membership_check($benefit, $contact_id)
+    {
+        $user = \drupal::currentUser();
+        $cms_id = $user->getAccount()->id(); // civi uses cms id for drupal account itd
+        $civi =  new query_base();
+        $civi->mode = "get";
+        $civi->entity = "Membership";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['membership_type_id', '=', $benefit['civi_entity']],
+                ['contact_id', '=', $contact_id],
+                ['status_id', '!=', 4],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $count = $result->count();
+        If($count > 0)
+        {
+            $run = true;
+        }
+        else{
+            $run = false;
+        }
+        return $run;
     }
 }

@@ -12,12 +12,15 @@ class MembershipInfoForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
-        \Drupal::logger("interesting")->notice("500 happens before injection");
         $page_builder = new memberhisp_markup();
-        \Drupal::logger("interesting")->notice("500 happens before here");
         $form['portal_markup'] = array(
             '#type' => "item",
             '#markup' => $page_builder->build_membership_markup(),
+            '#allowed_tags' => ['div', 'i', 'span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
+        );
+        $form['member_benefit'] = array(
+            '#type' => "item",
+            '#markup' => $page_builder->member_benefits_section(),
             '#allowed_tags' => ['div', 'i', 'span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-membership';
