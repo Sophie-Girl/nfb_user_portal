@@ -253,7 +253,7 @@ class memberhisp_markup
 
     public function date_comparison($benefit)
     {
-        $date = date('Y-mm-dd');
+        $date = date('Y-m-d');
         \drupal::logger("date_compare_debug")->notice("date 1 : ".$date ." date 2: ".$benefit['end_date']);
 
         if($benefit['start_date'] < $date )
