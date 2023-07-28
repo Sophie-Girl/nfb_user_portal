@@ -275,7 +275,7 @@ class memberhisp_markup
             }
             else {
 
-             //   $this->deactivate_expired_record($benefit);
+                $this->deactivate_expired_record($benefit);
                 // if record is still active outside its date range deactivate it
             }
         }
