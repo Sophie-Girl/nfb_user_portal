@@ -267,8 +267,15 @@ class memberhisp_markup
         }
         else{
             $end_run = false;
-            $this->deactivate_expired_record($benefit);
-            // if record is still active outside its date range deactivate it
+            if($benefit['permanent'] == "0")
+            {
+                $end_runrun = true;
+            }
+            else {
+                drupal::logger("date_compare_debug")->notice("date 1 : ".$date ." date 2: ".$benefit['end_date']);
+             //   $this->deactivate_expired_record($benefit);
+                // if record is still active outside its date range deactivate it
+            }
         }
         if($end_run == true and $start_run == true)
         {
