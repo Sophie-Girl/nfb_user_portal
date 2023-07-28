@@ -15,7 +15,6 @@ class FaqTabForm extends FormBase
     {
         $page_builder = new fq_markup_builder();
         $page_builder->user_data->civi_contact_set();
-
         $form['intro_text_text'] = array(
           '#type' => 'item',
           '#markup' => "

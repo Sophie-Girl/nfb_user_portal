@@ -25,7 +25,7 @@ nfb_user_portal.manage_account:
 nfb_user_portal.faq:
   path: 'member_portal/faq'
   defaults:
-    _form: 'Drupal\nfb_user_portal\FaqTabForm'
+    _form: 'Drupal\nfb_user_portal\Form\FaqTabForm'
     _title: 'Place Holder'
   requirements:
     _permission: 'access content'
