@@ -251,7 +251,7 @@ class memberhisp_markup
             else{
                 $run = true;
             }
-            if($run = true){
+            if($run == true){
             $this->benefit_markup = $this->get_benefit_markup().$benefit['text'];}
         }
 
