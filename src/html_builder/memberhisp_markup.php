@@ -354,7 +354,7 @@ class memberhisp_markup
             ],
             'where' => [
                 ['contact_id', '=', $contact_id],
-                ['event_id', '=', $benefit['civi_benefit']],
+                ['event_id', '=', $benefit['civi_entity']],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
