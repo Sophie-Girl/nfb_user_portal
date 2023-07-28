@@ -83,6 +83,7 @@ still exists, or dates on the markup. You can create a piece of content by click
             "#options" => array(
                 'profile' => "Profile",
                 "membership" => "Membership",
+                "faq" => "faq",
                 "other" => "Other",
                 "manage_account" => "Manage Account",
             ),

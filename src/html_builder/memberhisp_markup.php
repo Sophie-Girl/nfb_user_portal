@@ -343,8 +343,6 @@ class memberhisp_markup
     }
     public function civi_event_check($benefit, $contact_id)
     {
-        $user = \drupal::currentUser();
-        $cms_id = $user->getAccount()->id(); // civi uses cms id for drupal account itd
         $civi =  new query_base();
         $civi->mode = "get";
         $civi->entity = "Participant";
@@ -373,8 +371,6 @@ class memberhisp_markup
     }
     public function civi_group_check($benefit, $contact_id)
     {
-        $user = \drupal::currentUser();
-        $cms_id = $user->getAccount()->id(); // civi uses cms id for drupal account itd
         $civi =  new query_base();
         $civi->mode = "get";
         $civi->entity = "GroupContact";
@@ -403,8 +399,7 @@ class memberhisp_markup
     }
     public function civi_membership_check($benefit, $contact_id)
     {
-        $user = \drupal::currentUser();
-        $cms_id = $user->getAccount()->id(); // civi uses cms id for drupal account itd
+
         $civi =  new query_base();
         $civi->mode = "get";
         $civi->entity = "Membership";
