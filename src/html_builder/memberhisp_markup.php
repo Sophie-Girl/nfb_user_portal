@@ -175,7 +175,7 @@ class memberhisp_markup
         {
             $this-> process_benefit($benefit, $contact_id);
         }
-        $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>"
+        $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>";
         $array = $this->get_additional_benefit();
         sort($array);
         $this->additional_benefit = $array;
