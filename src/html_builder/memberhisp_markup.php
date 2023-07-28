@@ -184,6 +184,7 @@ class memberhisp_markup
         $query = "select * from nfb_user_portal_content where markup_type = 'member_benefit' and tab = 'membership' and active = '0';";
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
+        \Drupal::logger("query_debug")->notice("query_results ".print_r($sql->get_result(), true));
         $this->beneift_array = $sql->get_result();
     }
     public function process_array()
