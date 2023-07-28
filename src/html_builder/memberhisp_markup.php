@@ -253,6 +253,7 @@ class memberhisp_markup
 
     public function date_comparison($benefit)
     {
+        \drupal::logger("date_compare_debug")->notice("date 1 : ".$date ." date 2: ".$benefit['end_date']);
         $date = date('Y-M-D');
         if($benefit['start_date'] < $date )
         {
@@ -272,7 +273,7 @@ class memberhisp_markup
                 $end_runrun = true;
             }
             else {
-                drupal::logger("date_compare_debug")->notice("date 1 : ".$date ." date 2: ".$benefit['end_date']);
+
              //   $this->deactivate_expired_record($benefit);
                 // if record is still active outside its date range deactivate it
             }
