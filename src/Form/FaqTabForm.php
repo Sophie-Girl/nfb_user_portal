@@ -25,7 +25,7 @@ class FaqTabForm extends FormBase
             '#type' => 'item',
             '#markup' => $page_builder->build_faq_markup(),
         );
-        $form['#attached']['library'][] = 'nfb_user_portal/up-account';
+        $form['#attached']['library'][] = 'nfb_user_portal/up-faq';
         return $form;
     }
     public function submitForm(array &$form, FormStateInterface $form_state)

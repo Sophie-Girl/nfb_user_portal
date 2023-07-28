@@ -26,6 +26,13 @@ up-account:
       css/up-account.css: { }
   js:
     js/up-account.js: { }
+up-faq:
+  version: 1.x
+  css:
+    theme:
+      css/up-account.css: { }
+  js:
+    js/up-faq.js: { }
 admin-table:
   version: 1.x
   js:
