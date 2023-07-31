@@ -25,10 +25,15 @@ class AdminTemplateCreateForm extends FormBase
        if($form_state->getValue("content_value") == "new")
        {
            $this->new_content_functions($form_state);  // create new context records
+           \Drupal::messenger()->addMessage("New Content Made Successfully");
        }
        else{
            $this->edit_content_functions($form_state); //  edit the current record. 0
+           \Drupal::messenger()->addMessage("Changes Made Successfully");
        }
+
+       $form_state->setRedirect("nfb_user_portal.content_table");
+
     }
     public function new_content_functions(FormStateInterface  $form_state)
     {
