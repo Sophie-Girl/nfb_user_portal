@@ -78,7 +78,7 @@ still exists, or dates on the markup. You can create a piece of content by click
         $form['tab'] = array(
             '#prefix' => "<div lass='hidden_val' id='tab_val' >".$this->get_tab()."</div>",
             '#type' => "select",
-            "#title" => "What Member Portal Tab is This For?",
+            "#title" => "Member Profile Tab for Content",
             "#required" => true,
             "#options" => array(
                 'profile' => "Profile",
@@ -99,7 +99,7 @@ still exists, or dates on the markup. You can create a piece of content by click
         $form['markup_type']  = array(
             '#prefix' => "<div id='mk_type' class='hidden_val'>".$this->get_markup_type()."</div>",
             '#type' => "select",
-            '#title' => "Markup Type",
+            '#title' => "Content Markup Type ",
             '#options' => array(
                 'intro_text' => "Intro Text",
                 "member_benefit" => "Member Benefit",
@@ -118,7 +118,7 @@ still exists, or dates on the markup. You can create a piece of content by click
         $form['limited_by'] = array(
             '#prefix' => "<div class='hidden_val' id='limit_val' >".$this->get_limiter()."</div>",
             '#type' => 'select',
-            '#title' => "Markup Up Display Limited By?",
+            '#title' => "Content Display Filter ",
             '#required' => True,
             "#options" => array(
               'no' => "No Limit to Display",
