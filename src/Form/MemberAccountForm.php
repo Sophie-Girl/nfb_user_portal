@@ -4,6 +4,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\Exception\Exception;
 use Drupal\nfb_user_portal\civi_query\query_base;
+use Drupal\nfb_user_portal\html_builder\member_account;
 use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 use Drupal\user\Entity\User;
 use Drupal\nfb_user_portal\html_builder\core_markup;
@@ -51,6 +52,11 @@ class MemberAccountForm extends FormBase
           '#type' => 'item',
           '#markup' => "<p class='hidden_val' id='yoshi'>".\Drupal::currentUser()->getAccountName()."</p>
                 <p class='hidden_val' id='member_name'>".$page_builder->user_data->get_first_name()." ".$page_builder->user_data->get_last_name()."</p>"
+        );
+        $maker = new member_account();
+        $form['intro_text'] = array(
+          '#type' => 'item',
+          '#markup' => $maker->build_intro_markup(),
         );
         $form['desire_change_uanme'] = array(
             '#type' => 'checkbox',
