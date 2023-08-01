@@ -333,7 +333,6 @@ still exists, or dates on the markup. You can create a piece of content by click
         foreach ($this->user_request_queries->get_result() as $markup)
         {
             $markup = get_object_vars($markup);
-           \Drupal::logger("nfb-user_portal_check")->notice("array ".print_r($markup, true));
             $array = json_decode($markup['markup']);
             $array = get_object_vars($array);
             $this->set_prefill_values($markup, $array);
@@ -341,7 +340,6 @@ still exists, or dates on the markup. You can create a piece of content by click
     }
     public function civi_entity_options(FormStateInterface $form_state)
     {
-        \Drupal::logger("ajax_check")->notice("val_check ".$form_state->getValue("civi_entity"));
         if($form_state->getValue("civi_entity") == "")
         {
             $options = array(
@@ -364,7 +362,6 @@ still exists, or dates on the markup. You can create a piece of content by click
     }
     public function switch_for_params(query_base $civi)
     {
-        \Drupal::logger("ajax_check")->notice("val_check ".$civi->get_entity());
         switch ($civi->get_entity())
         {
             case "Event":
@@ -400,7 +397,6 @@ still exists, or dates on the markup. You can create a piece of content by click
         }
         if($civi->get_params())
         {
-            \Drupal::logger("ajax_check")->notice("I'm getting here");
             $option[''] = "- Select -";
             $civi->civi_api_v4_query();
             $result = $civi->get_civi_result();
