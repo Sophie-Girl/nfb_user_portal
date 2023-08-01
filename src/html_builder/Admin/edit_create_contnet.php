@@ -306,7 +306,6 @@ still exists, or dates on the markup. You can create a piece of content by click
         $this->title = $array['title'];
         $this->markup_text = $array['text'];
         $this->group = $array['group'];
-        \Drupal::logger("content_issue")->notice("content_text ". $array['text']);
         $this->weight = $array['weight'];
     }
     public function blank_values($content)

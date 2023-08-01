@@ -193,7 +193,6 @@ class memberhisp_markup
         $query = "select * from nfb_user_portal_content where markup_type = 'member_benefit' and tab = 'membership' and active = '0';";
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
-        \Drupal::logger("query_debug")->notice("query_results ".print_r($sql->get_result(), true));
         $this->beneift_array = $sql->get_result();
     }
     public function process_array()
@@ -205,7 +204,6 @@ class memberhisp_markup
             $content = get_object_vars($content);
             $array = json_decode($content['markup']);
             $array = get_object_vars($array);
-            \Drupal::logger("query_debug")->notice("query_results ".print_r($array, true));
             if($array['group'] == "Base")
             {
                 $base_benefit[$array['weight']] = array(
@@ -263,8 +261,6 @@ class memberhisp_markup
     public function date_comparison($benefit)
     {
         $date = date('Y-m-d');
-        \drupal::logger("date_compare_debug")->notice("date 1 : ".$date ." date 2: ".$benefit['end_date']);
-
         if($benefit['start_date'] < $date )
         {
             $start_run = true;
