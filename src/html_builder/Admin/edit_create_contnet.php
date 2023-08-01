@@ -237,8 +237,12 @@ still exists, or dates on the markup. You can create a piece of content by click
         );
         $form['benefit_group'] = array(
             '#prefix' => "<div class='hidden_val' id='bgp_val' >".$this->get_group()."</div>",
-            '#type' => 'textfield',
+            '#type' => 'select',
             "#title" => "Benefit Group",
+            '#options' => array(
+                'Base' => "Base",
+                "Additional" => "Additional"
+            ),
             '#states' => [
                 'visible' =>[
                     [':input[name="markup_type"]' => ['value' => "member_benefit"]],

@@ -52,6 +52,11 @@ class markup_talbe_create extends markup_table_edit {
         $this->params = $form_state->getValue("filter_val");
         $this->set_values($form_state);
         $this->sql_query($form_state);
+        $form['intro'] = array(
+          '#type' => 'item',
+            '#markup' => "<p>Below is a table listing every bit of content created for the NFb Member Portal Module
+         You can create a new piece of content by clicking this button</p><a class='btn btn-primary' role='button' href='/member_portal/admin/content/new'>&nbsp;&nbsp;&nbsp;Create&nbsp;&nbsp;&nbsp;</a>"
+        );
         $form['type_filt'] = array(
             '#type' => "select",
             '#title' => "Filter By Markup Type",
