@@ -229,10 +229,6 @@ still exists, or dates on the markup. You can create a piece of content by click
                 'visible' =>[
                     [':input[name="markup_type"]' => ['value' => "faq"]],
                 ],
-                'and',
-                'required' => [
-                    [':input[name="markup_type"]' => ['value' => "faq"]],
-                ]
             ],
         );
         $form['benefit_group'] = array(
