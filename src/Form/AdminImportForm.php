@@ -127,11 +127,10 @@ class AdminImportForm extends FormBase
             } else {
                 $exists = "New";
             }
-            \Drupal::logger("error_stuff")->notice("entity:  I get past here");
         }
-        if ($exists == "Not New") {
-            $form_state->setValue("status", "Duplicate Email");
-            $form_state->setErrorByName("email", "That email address already is in use, please contact member for a new one if needed");
+        if ($exists != "Not New") {
+            $this->create_user($form_state);
+            $this->civi_user_set_up();
         }
 
     }
