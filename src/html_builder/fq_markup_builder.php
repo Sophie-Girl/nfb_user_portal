@@ -24,7 +24,7 @@ class fq_markup_builder extends  other_markup
         {
             sort($faqs);
             foreach($faqs as $faq){
-            $this->build_markup($faqs, $markup);}
+            $this->build_markup($faq, $markup);}
         }
         else{
             $markup = "<p>No Faqs entered </p>";
