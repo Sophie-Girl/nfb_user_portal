@@ -238,6 +238,7 @@ class memberhisp_markup
     {
         $date_run = $this->date_comparison($benefit);
         if($date_run == true) {
+            \Drupal::logger("sigh_date")->notice("passes date");
             if($benefit['limiter'] == "Event"){
                 $run = $this->civi_event_check($benefit, $contact_id);
             }
@@ -268,6 +269,7 @@ class memberhisp_markup
         if($benefit['start_date'] <= $date )
         {
             $start_run = true;
+            \Drupal::logger("sigh")->notice("It passed start date");
         }
         else{
             $start_run = false;
@@ -275,12 +277,14 @@ class memberhisp_markup
         if ($benefit['end_date'] >= $date)
         {
             $end_run = true;
+            \Drupal::logger("sigh")->notice("It passed end date");
         }
         else{
             $end_run = false;
             if($benefit['permanent'] == "0")
             {
                 $end_runrun = true;
+                \Drupal::logger("sigh")->notice("It passed permanent date");
             }
             else {
 
