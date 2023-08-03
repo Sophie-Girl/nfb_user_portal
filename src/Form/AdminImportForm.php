@@ -8,7 +8,7 @@ class AdminImportForm extends FormBase
 {
     public function getFormId()
     {
-        // TODO: Implement getFormId() method.
+        return "nfb_user_import_form";
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
