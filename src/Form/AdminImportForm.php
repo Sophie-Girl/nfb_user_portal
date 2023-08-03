@@ -18,6 +18,22 @@ class AdminImportForm extends FormBase
     {
         // TODO: Implement submitForm() method.
     }
+    Public Function Import_CSV($file, &$contacts)
+    {
+        $contacts = $fields = array(); $i=0;
+        $handle =  @fopen($file, "r" );
+        if ($handle) {
+            while (($row = fgetcsv($handle, 500)) !== false) {
+                if (empty($fields)) {
+                    $fields = $row;
+                    continue;}
+                foreach ($row as $k => $value) {
+                    $contacts[$i][$fields[$k]] = $value;}
+                $i++;}
+            if (!feof($handle)) {
+                echo PHP_EOL . "Error: unexpected fgets() fail\n";}
+            fclose($handle);} // read in file for uplaod and tern it into associative array
+    }
     public function generateRandomString($length = 10)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
