@@ -93,7 +93,7 @@ still exists, or dates on the markup. </p>"
             '#value' => $content,
             '#size' => '20',
             '#attributes' => array('readonly' => 'readonly'),
-            '#title' => "Content Id"
+            '#title' => ""
         );
         $form['markup_type']  = array(
             '#prefix' => "<div id='mk_type' class='hidden_val'>".$this->get_markup_type()."</div>",
