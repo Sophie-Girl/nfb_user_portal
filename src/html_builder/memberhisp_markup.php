@@ -206,7 +206,7 @@ class memberhisp_markup
             $content = get_object_vars($content);
             $array = json_decode($content['markup']);
             $array = get_object_vars($array);
-            if($array['group'] == "Base")
+            if(trim($array['group']) == "Base")
             {
                 $base_benefit[$array['weight']] = array(
                   'text' => $array['text'],
@@ -263,6 +263,8 @@ class memberhisp_markup
     public function date_comparison($benefit)
     {
         $date = date('Y-m-d');
+        \Drupal::logger("sigh")->notice("start ".$date." ".$benefit['start_date'].PHP_EOL.
+        "end ".$date." ".$benefit['end_date']);
         if($benefit['start_date'] <= $date )
         {
             $start_run = true;
