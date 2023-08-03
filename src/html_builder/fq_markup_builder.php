@@ -31,6 +31,30 @@ class fq_markup_builder extends  other_markup
         }
         return $markup;
     }
+    public function look_for_faq_intro_text()
+    {
+        $key = "cid";
+        $query = "select * from nfb_user_portal_content where markup_type = 'intro_text' and tab = 'faq' and active = '0';";
+        $sql = new User_request_queries();
+        $sql->select_query($query, $key);
+        $markup = false;
+        foreach ($sql->get_result() as $cotnent)
+        {
+            $content = get_object_vars($cotnent);
+            $array = json_decode($content['markup']);
+            $array = get_object_vars($array);
+            if($markup == false)
+            {
+                $markup = $array['text'];
+            }
+        }
+        if($markup == false)
+        {
+            $markup = "";
+        }
+        return $markup;
+
+    }
     public function faq_query()
     {
         $key = "cid";
