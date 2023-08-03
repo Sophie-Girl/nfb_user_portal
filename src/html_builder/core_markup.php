@@ -31,7 +31,7 @@ class core_markup
         foreach ($sql->get_result() as $cotnent)
         {
             $content = get_object_vars($cotnent);
-            $array = json_decode($markup['markup']);
+            $array = json_decode($content['markup']);
             $array = get_object_vars($array);
             if($markup == false)
             {
