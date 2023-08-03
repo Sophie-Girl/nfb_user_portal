@@ -261,14 +261,14 @@ class memberhisp_markup
     public function date_comparison($benefit)
     {
         $date = date('Y-m-d');
-        if($benefit['start_date'] < $date )
+        if($benefit['start_date'] <= $date )
         {
             $start_run = true;
         }
         else{
             $start_run = false;
         }
-        if ($benefit['end_date'] > $date)
+        if ($benefit['end_date'] >= $date)
         {
             $end_run = true;
         }
