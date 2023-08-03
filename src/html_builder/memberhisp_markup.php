@@ -251,6 +251,10 @@ class memberhisp_markup
             elseif($benefit['limiter'] == "MembershipType") {
                 $run = $this->civi_membership_check($benefit, $contact_id);
             }
+            elseif($benefit['limiter'] == "member")
+            {
+                $run = $this->member_check( $contact_id);
+            }
             else{
                 $run = true;
             }
@@ -422,6 +426,36 @@ class memberhisp_markup
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $count = $result->count();
+        If($count > 0)
+        {
+            $run = true;
+        }
+        else{
+            $run = false;
+        }
+        return $run;
+    }
+    public function member_check( $contact_id)
+    {
+        $civi =         $civi =  new query_base();
+        $civi->mode = "get";
+        $civi->entity = "Membership";
+        $civi->params =  [ 'select' => [
+        '*',
+    ],
+  'where' => [
+        ['contact_id', '=', $contact_id],
+        ['membership_type_id', '!=', 6],
+        ['membership_type_id', '!=', 7],
+        ['status_id', '!=', 8],
+        ['status_id', '=', 4],
+    ],
+  'limit' => 25,
+  'checkPermissions' => FALSE,
         ];
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
