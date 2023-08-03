@@ -20,7 +20,7 @@ class FaqTabForm extends FormBase
           '#markup' => "
 <p class='hidden_val' id='yoshi'>".\Drupal::currentUser()->getAccountName()."</p>
                 <p class='hidden_val' id='member_name'>".$page_builder->user_data->get_first_name()." ".$page_builder->user_data->get_last_name()."</p>".
-              $page_builder->look_for_faq_intro_text();
+              $page_builder->look_for_faq_intro_text()
         );
         $form['faqs'] = array(
             '#type' => 'item',
