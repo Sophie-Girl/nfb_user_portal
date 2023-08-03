@@ -241,10 +241,12 @@ class memberhisp_markup
             \Drupal::logger("sigh_date")->notice("passes date");
             if($benefit['limiter'] == "Event"){
                 $run = $this->civi_event_check($benefit, $contact_id);
+                \Drupal::logger("sigh_date")->notice("runs ofr event");
             }
             elseif($benefit['limiter'] == "Group")
             {
                 $run = $this->civi_group_check($benefit, $contact_id);
+                \Drupal::logger("sigh_date")->notice("runs ofr group");
             }
             elseif($benefit['limiter'] == "MembershipType") {
                 $run = $this->civi_membership_check($benefit, $contact_id);
@@ -363,6 +365,7 @@ class memberhisp_markup
         ];
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
+        \Drupal::logger("sigh_civi_entity")->notice("civi result event ".print_r($result, true));
         $count = $result->count();
         If($count > 0)
         {
@@ -391,6 +394,7 @@ class memberhisp_markup
         ];
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
+        \Drupal::logger("sigh_civi_entity")->notice("civi group event ".print_r($result, true));
         $count = $result->count();
         If($count > 0)
         {
