@@ -89,7 +89,7 @@ nfb_user_portal.content:
   path: 'member_portal/admin/content/{content}'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminTemplateCreateForm'
-    _title: 'Create or Edit Content'
+    _title: 'Member Profile Admin: Create and Edit Content'
     content: 'new'
   requirements:
     _permission: 'access content'
