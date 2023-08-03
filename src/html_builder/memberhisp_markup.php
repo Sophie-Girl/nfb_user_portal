@@ -195,7 +195,7 @@ class memberhisp_markup
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
         $this->beneift_array = $sql->get_result();
-        \Drupal::logger("sigh")->notice("array: ".print_r($this->get_benifit_array(), true));
+
     }
     public function process_array()
     {
