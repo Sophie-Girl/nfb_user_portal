@@ -87,7 +87,7 @@ class markup_talbe_create extends markup_table_edit {
             ),
         );
         $form['ajax_button'] = array(
-            '#prefix' => "<div id='clear-filter' style='display: inline-block' role='button' class='btn btn-primary'>&nbsp;&nbsp;&nbsp;Clear&nbsp;&nbsp;&nbsp;</div>",
+            '#suffix' => "<div id='clear-filter' style='display: inline-block' role='button' class='btn btn-default'>&nbsp;&nbsp;&nbsp;Clear&nbsp;&nbsp;&nbsp;</div>",
             '#type' => "button",
             '#value' => "Search",
             '#ajax' => array(
