@@ -17,12 +17,12 @@ class ContactInfoForm extends FormBase
         $form['intro_text'] = array(
           '#type' => 'item',
           '#markup' => $page_builder->look_for_intro_text(),
-            '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
+            '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p', 'ui', 'li'],
         );
         $form['portal_markup'] = array(
           '#type' => "item",
             '#markup' => $page_builder->create_core_markup(),
-            '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p'],
+            '#allowed_tags' => ['div','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p', 'ui', 'li'],
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-main';
 
