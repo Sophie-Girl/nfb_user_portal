@@ -174,6 +174,7 @@ class memberhisp_markup
         $this->base_benefit = $array;}
         foreach( $this->get_base_benefit() as $benefit)
         {
+            \Drupal::logger("sigh")->notice("testing_the_issue ".print_r($benefit, true));
             $this-> process_benefit($benefit, $contact_id);
         }
         $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>";
