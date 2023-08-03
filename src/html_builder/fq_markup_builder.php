@@ -11,7 +11,7 @@ class fq_markup_builder extends  other_markup
         return $this->faq_markup;
     }
     public $faq_result;
-    public function faq_result()
+    public function get_faq_result()
     {
         return $this->faq_result;
     }
@@ -38,12 +38,12 @@ class fq_markup_builder extends  other_markup
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
         $this->faq_result = $sql->get_result();
-        \Drupal::logger("sigh")->notice("array: ".print_r($this->get_benifit_array(), true));
+        \Drupal::logger("sigh")->notice("array: ".print_r($this->get_faq_result(), true));
     }
     public function build_array()
     {
         $faqs = false;
-        foreach($this->get_faq_markup() as $content)
+        foreach($this->get_faq_result() as $content)
         {
             $content =  get_object_vars($content);
             $array = json_decode($content['markup']);
