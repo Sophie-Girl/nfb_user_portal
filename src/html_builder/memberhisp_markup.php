@@ -394,6 +394,7 @@ class memberhisp_markup
                 ['contact_id', '=', $contact_id],
                 ['status', '=', 'Added'],
             ],
+            'checkPermissions' => FALSE,
             'limit' => 25,
         ];
         $civi->civi_api_v4_query();
