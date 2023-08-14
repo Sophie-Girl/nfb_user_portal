@@ -170,6 +170,8 @@ still exists, or dates on the markup. </p>"
             '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
             '#type' => 'datetime',
             "#title" => "Display Start Date",
+            '#date_date_element' => 'date',
+            '#date_time_element' => 'none',
             '#date_format' => 'Y-m-d',
             '#states' => [
                 'visible' =>[
@@ -185,6 +187,8 @@ still exists, or dates on the markup. </p>"
             '#prefix' => "<div class='hidden_val' id='end_val' >".$this->get_ending_date()."</div>",
             '#type' => 'datetime',
             "#title" => "Display End Date",
+            '#date_date_element' => 'date',
+            '#date_time_element' => 'none',
             '#date_format' => 'Y-m-d',
             '#states' => [
                 'visible' =>[
