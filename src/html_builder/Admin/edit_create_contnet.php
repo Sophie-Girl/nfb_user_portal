@@ -182,7 +182,7 @@ still exists, or dates on the markup. </p>"
         );
         $form['end_date'] = array(
             '#prefix' => "<div class='hidden_val' id='end_val' >".$this->get_ending_date()."</div>",
-            '#type' => 'date',
+            '#type' => 'datelist',
             "#title" => "Display End Date",
             '#states' => [
                 'visible' =>[
