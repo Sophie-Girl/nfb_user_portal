@@ -175,9 +175,8 @@ class memberhisp_markup
         foreach( $this->get_base_benefit() as $benefit)
         {
             $type = "base";
-            $this-> process_benefit($benefit, $contact_id);
+            $this-> process_benefit($benefit, $contact_id, $type);
         }
-        $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>";
         $array = $this->get_additional_benefit();
         if(is_array($array) ){
         ksort($array);
@@ -185,7 +184,7 @@ class memberhisp_markup
         foreach ($this->get_additional_benefit() as $benefit)
         {
             $type = "additional";
-            $this-> process_benefit($benefit, $contact_id);
+            $this-> process_benefit($benefit, $contact_id, $type);
         }
         return $this->get_benefit_markup();
     }
