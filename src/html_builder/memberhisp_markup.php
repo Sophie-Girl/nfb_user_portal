@@ -174,6 +174,7 @@ class memberhisp_markup
         $this->base_benefit = $array;}
         foreach( $this->get_base_benefit() as $benefit)
         {
+            $type = "base";
             $this-> process_benefit($benefit, $contact_id);
         }
         $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>";
@@ -183,6 +184,7 @@ class memberhisp_markup
         $this->additional_benefit = $array;}
         foreach ($this->get_additional_benefit() as $benefit)
         {
+            $type = "additional";
             $this-> process_benefit($benefit, $contact_id);
         }
         return $this->get_benefit_markup();
@@ -221,6 +223,7 @@ class memberhisp_markup
             {
                 $alternative_benefit[$array['weight']] = array(
                     'text' => $array['text'],
+                    'title' => $array['title'],
                     'permanent' => $content['permanent'],
                     'start_date' =>  $content['beginning_date'],
                     'end_date' => $content['end_date'],
@@ -233,7 +236,7 @@ class memberhisp_markup
         $this->base_benefit = $base_benefit;
         $this->additional_benefit = $alternative_benefit;
     }
-    public function process_benefit($benefit, $contact_id)
+    public function process_benefit($benefit, $contact_id, $type)
     {
         $date_run = $this->date_comparison($benefit);
         if($date_run == true) {
@@ -254,8 +257,14 @@ class memberhisp_markup
             else{
                 $run = true;
             }
-            if($run == true){
-            $this->benefit_markup = $this->get_benefit_markup().$benefit['text'];}
+            if($run == true) {
+                if ($type == "base") {
+                    $this->benefit_markup = $this->get_benefit_markup() . $benefit['text'];
+                }
+                else{
+                    $this->benefit_markup = $this->get_benefit_markup() ."<h4>".$benefit['title']."</h4>". $benefit['text'];
+                }
+            }
         }
 
         }
