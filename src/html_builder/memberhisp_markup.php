@@ -170,7 +170,7 @@ class memberhisp_markup
         $this->process_array();
         $array = $this->get_base_benefit();
         if(is_array($array) ){
-        sort($array);
+       ksort($array);
         $this->base_benefit = $array;}
         foreach( $this->get_base_benefit() as $benefit)
         {
@@ -179,7 +179,7 @@ class memberhisp_markup
         $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>";
         $array = $this->get_additional_benefit();
         if(is_array($array) ){
-        sort($array);
+        ksort($array);
         $this->additional_benefit = $array;}
         foreach ($this->get_additional_benefit() as $benefit)
         {

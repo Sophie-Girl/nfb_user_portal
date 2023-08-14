@@ -22,7 +22,7 @@ class fq_markup_builder extends  other_markup
         $faqs = $this->build_array();
         if(is_array($faqs))
         {
-            sort($faqs);
+            ksort($faqs);
             foreach($faqs as $faq){
             $this->build_markup($faq, $markup);}
         }
