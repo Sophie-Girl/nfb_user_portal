@@ -170,7 +170,8 @@ still exists, or dates on the markup. </p>"
             '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
             '#type' => 'datelist',
             "#title" => "Display Start Date",
-            '#date_time_element' => 'none',
+            '#date_hour_element' => 'none',
+            '#date_minute_element' => 'none',
             '#date_format' => 'Y-m-d',
             '#states' => [
                 'visible' =>[
