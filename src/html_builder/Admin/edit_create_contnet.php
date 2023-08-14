@@ -168,9 +168,8 @@ still exists, or dates on the markup. </p>"
 
         $form['start_date'] = array(
             '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
-            '#type' => 'datetime',
+            '#type' => 'datelist',
             "#title" => "Display Start Date",
-            '#date_date_element' => 'date',
             '#date_time_element' => 'none',
             '#date_format' => 'Y-m-d',
             '#states' => [
