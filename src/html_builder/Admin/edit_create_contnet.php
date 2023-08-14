@@ -170,8 +170,7 @@ still exists, or dates on the markup. </p>"
             '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
             '#type' => 'datelist',
             "#title" => "Display Start Date",
-            '#date_hour_element' => 'none',
-            '#date_minute_element' => 'none',
+            '#date_part_order' =>array( "year", "month", "day"),
             '#date_format' => 'Y-m-d',
             '#states' => [
                 'visible' =>[
@@ -185,10 +184,9 @@ still exists, or dates on the markup. </p>"
         );
         $form['end_date'] = array(
             '#prefix' => "<div class='hidden_val' id='end_val' >".$this->get_ending_date()."</div>",
-            '#type' => 'datetime',
+            '#type' => 'datelist',
             "#title" => "Display End Date",
-            '#date_date_element' => 'date',
-            '#date_time_element' => 'none',
+            '#date_part_order' =>array( "year", "month", "day"),
             '#date_format' => 'Y-m-d',
             '#states' => [
                 'visible' =>[
