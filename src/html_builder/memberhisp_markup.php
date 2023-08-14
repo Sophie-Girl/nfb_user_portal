@@ -174,7 +174,6 @@ class memberhisp_markup
         $this->base_benefit = $array;}
         foreach( $this->get_base_benefit() as $benefit)
         {
-            \Drupal::logger("sigh")->notice("testing_the_issue ".print_r($benefit, true));
             $this-> process_benefit($benefit, $contact_id);
         }
         $this->benefit_markup = $this->get_benefit_markup()."<h3>Additional Benefits</h3>";
@@ -238,15 +237,12 @@ class memberhisp_markup
     {
         $date_run = $this->date_comparison($benefit);
         if($date_run == true) {
-            \Drupal::logger("sigh_date")->notice("passes date");
             if($benefit['limiter'] == "Event"){
                 $run = $this->civi_event_check($benefit, $contact_id);
-                \Drupal::logger("sigh_date")->notice("runs ofr event");
             }
             elseif($benefit['limiter'] == "Group")
             {
                 $run = $this->civi_group_check($benefit, $contact_id);
-                \Drupal::logger("sigh_date")->notice("runs ofr group");
             }
             elseif($benefit['limiter'] == "MembershipType") {
                 $run = $this->civi_membership_check($benefit, $contact_id);
@@ -270,12 +266,10 @@ class memberhisp_markup
     public function date_comparison($benefit)
     {
         $date = date('Y-m-d');
-        \Drupal::logger("sigh")->notice("start ".$date." ".$benefit['start_date'].PHP_EOL.
-        "end ".$date." ".$benefit['end_date']);
         if($benefit['start_date'] <= $date )
         {
             $start_run = true;
-            \Drupal::logger("sigh")->notice("It passed start date");
+
         }
         else{
             $start_run = false;
@@ -283,14 +277,12 @@ class memberhisp_markup
         if ($benefit['end_date'] >= $date)
         {
             $end_run = true;
-            \Drupal::logger("sigh")->notice("It passed end date");
         }
         else{
             $end_run = false;
             if($benefit['permanent'] == "0")
             {
                 $end_runrun = true;
-                \Drupal::logger("sigh")->notice("It passed permanent date");
             }
             else {
 
@@ -369,7 +361,6 @@ class memberhisp_markup
         ];
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
-        \Drupal::logger("sigh_civi_entity")->notice("civi result event ".print_r($result, true));
         $count = $result->count();
         If($count > 0)
         {
@@ -399,7 +390,6 @@ class memberhisp_markup
         ];
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
-        \Drupal::logger("sigh_civi_entity")->notice("civi group event ".print_r($result, true));
         $count = $result->count();
         If($count > 0)
         {
