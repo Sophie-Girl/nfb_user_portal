@@ -27,13 +27,14 @@
                         var  start = document.getElementById('start_val').innerText;
                         var start_year = start.substr(0,4);
                         var start_month = start.substr(5,2);
-                        console.log(start_month);
-                        if(start_month < 10)
+
+                        if(Number(start_month) < 10)
                         {
                             start_month.replace("0", "");
                         }
+                        console.log(start_month);
                         var start_day = start.substr(8, 2);
-                        if(start_day < 10)
+                        if(Number(start_day) < 10)
                         {
                             start_day.replace("0", "");
                         }
