@@ -24,7 +24,13 @@
                     document.getElementById('edit-tab').value = document.getElementById('tab_val').innerText;
                     if(document.getElementById('mk_type').innerText === "member_benefit")
                     {
-                        document.getElementById('edit-start-date').value = document.getElementById('start_val').innerText;
+                        var  start = document.getElementById('start_val').innerText;
+                        var start_year = start.substr(0,4);
+                        var start_month = start.substr(5,2);
+                        var start_day = start.substr(8, 2);
+                        document.getElementById('edit-start-date-year').value = start_year;
+                        document.getElementById('edit-start-date-month').value = start_month;
+                        document.getElementById('edit-start-date-day').value = start_day;
                         document.getElementById('edit-end-date').value = document.getElementById('end_val').innerText;
                     }
                     if(document.getElementById('mk_type').innerText == "faq")
