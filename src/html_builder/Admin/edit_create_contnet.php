@@ -219,7 +219,7 @@ still exists, or dates on the markup. </p>"
             ),
         );
         $form['content'] = array(
-            '#prefix' => "<div>".$this->get_markup_text()."</div>",
+            '#prefix' => "<div id ='content-val'>".$this->get_markup_text()."</div>",
             '#type' => 'text_format',
             '#title' => 'Content',
             '#format'=> 'full_html',
