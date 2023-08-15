@@ -35,11 +35,71 @@
                         {
                             start_month = "2";
                         }
+                        else if(start_month == "03")
+                        {
+                            start_month = "3";
+                        }
+                        else if(start_month == "04")
+                        {
+                            start_month = "4";
+                        }
+                        else if(start_month == "05")
+                        {
+                            start_month = "5";
+                        }
+                        else if(start_month == "06")
+                        {
+                            start_month = "6";
+                        }
+                        else if(start_month == "07")
+                        {
+                            start_month = "7";
+                        }
+                        else if(start_month == "08")
+                        {
+                            start_month = "8";
+                        }
+                        else if(start_month == "09")
+                        {
+                            start_month = "9";
+                        }
                         console.log(start_month);
                         var start_day = start.substr(8, 2);
-                        if(Number(start_day) < 10)
+                        if(start_day == "01")
                         {
-                            start_day.replace("0", "");
+                            start_day = "1";
+                        }
+                        else if(start_day == "02")
+                        {
+                            start_day = "2";
+                        }
+                        else if(start_day == "03")
+                        {
+                            start_day = "3";
+                        }
+                        else if(start_day == "04")
+                        {
+                            start_day = "4";
+                        }
+                        else if(start_day == "05")
+                        {
+                            start_day = "5";
+                        }
+                        else if(start_day == "06")
+                        {
+                            start_day = "6";
+                        }
+                        else if(start_day == "07")
+                        {
+                            start_day = "7";
+                        }
+                        else if(start_day == "08")
+                        {
+                            start_day = "8";
+                        }
+                        else if(start_day == "09")
+                        {
+                            start_day = "9";
                         }
                         document.getElementById('edit-start-date-year').value = start_year;
                         document.getElementById('edit-start-date-month').value = start_month;
