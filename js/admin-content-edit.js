@@ -140,7 +140,7 @@
                         {
                             end_month = "9";
                         }
-                        var end_day = start.substr(8, 2);
+                        var end_day = end.substr(8, 2);
                         if(end_day == "01")
                         {
                             end_day = "1";
