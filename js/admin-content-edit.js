@@ -198,20 +198,22 @@
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
                    var text = document.getElementById('content-val').innerText;
-                   console.log(CKEDITOR.instances);
-                   console.log(text);
-                   CKEDITOR.instances['edit-content-value--2'].setData(text);
-                    console.log(CKEDITOR.instances['edit-content-value--2'].getData());
-                   CKEDITOR.instances['edit-content-value--2'].updateElement();
+
 
 
 
                 }
-                $('#edit-content').once().click(function ()
-                {
-                    CKEDITOR.instances['edit-content-value--2'].updateElement();
-                });
+
 
             }
+            CKEDITOR.on("instanceReady", function()
+            {
+                console.log(CKEDITOR.instances);
+                console.log(text);
+                CKEDITOR.on("")
+                CKEDITOR.instances['edit-content-value--2'].setData(text);
+                console.log(CKEDITOR.instances['edit-content-value--2'].getData());
+                CKEDITOR.instances['edit-content-value--2'].updateElement();
+            });
         }
     }})(jQuery, Drupal);
