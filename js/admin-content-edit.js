@@ -199,7 +199,7 @@
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
                    var text = document.getElementById('content-val').innerText;
                     console.log(CKEDITOR.instances);
-                   CKEDITOR.instances['edit-content'].setData(text);
+                   CKEDITOR.instances['edit-content-value--2'].setData(text);
                 }
 
             }
