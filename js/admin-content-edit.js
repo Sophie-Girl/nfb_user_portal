@@ -198,8 +198,7 @@
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
                    var text = document.getElementById('content-val').innerText;
-                    var editor = $('.jquery_ckeditor').ckeditor().editor;
-                    editor.val(text);
+                    CKEDITOR.instances['edit-content'].setData(text);
                 }
 
             }
