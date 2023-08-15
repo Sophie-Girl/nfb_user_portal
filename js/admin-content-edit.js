@@ -101,10 +101,89 @@
                         {
                             start_day = "9";
                         }
+                        var  end = document.getElementById('end_val').innerText;
+                        var end_year = start.substr(0,4);
+                        var end_month = start.substr(5,2);
+                        if(end_month == "01")
+                        {
+                            end_month = "1";
+                        }
+                        else if(end_month == "02")
+                        {
+                            end_month = "2";
+                        }
+                        else if(end_month == "03")
+                        {
+                            end_month = "3";
+                        }
+                        else if(end_month == "04")
+                        {
+                            end_month = "4";
+                        }
+                        else if(end_month == "05")
+                        {
+                            end_month = "5";
+                        }
+                        else if(end_month == "06")
+                        {
+                            end_month = "6";
+                        }
+                        else if(end_month == "07")
+                        {
+                            end_month = "7";
+                        }
+                        else if(end_month == "08")
+                        {
+                            end_month = "8";
+                        }
+                        else if(end_month == "09")
+                        {
+                            end_month = "9";
+                        }
+                        var end_day = start.substr(8, 2);
+                        if(end_day == "01")
+                        {
+                            end_day = "1";
+                        }
+                        else if(end_day == "02")
+                        {
+                            end_day = "2";
+                        }
+                        else if(end_day == "03")
+                        {
+                            end_day = "3";
+                        }
+                        else if(end_day == "04")
+                        {
+                            end_day = "4";
+                        }
+                        else if(end_day == "05")
+                        {
+                            end_day = "5";
+                        }
+                        else if(end_day == "06")
+                        {
+                            end_day = "6";
+                        }
+                        else if(end_day == "07")
+                        {
+                            end_day = "7";
+                        }
+                        else if(end_day == "08")
+                        {
+                            end_day = "8";
+                        }
+                        else if(end_day == "09")
+                        {
+                            end_day = "9";
+                        }
                         document.getElementById('edit-start-date-year').value = start_year;
                         document.getElementById('edit-start-date-month').value = start_month;
                         document.getElementById('edit-start-date-day').value = start_day;
-                        document.getElementById('edit-end-date').value = document.getElementById('end_val').innerText;
+                        document.getElementById('edit-end-date-year').value = end_year;
+                        document.getElementById('edit-end-date-month').value = end_month;
+                        document.getElementById('edit-end-date-day').value = end_day;
+
                     }
                     if(document.getElementById('mk_type').innerText == "faq")
                     {
