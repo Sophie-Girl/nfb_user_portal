@@ -207,6 +207,10 @@
 
 
                 }
+                $('#edit-content').once().click(function ()
+                {
+                    CKEDITOR.instances['edit-content-value--2'].updateElement();
+                });
 
             }
         }
