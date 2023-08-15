@@ -1,3 +1,4 @@
+
 (function ($, Drupal) {
     Drupal.behaviors.up_other = {
         attach: function (context, settings) {
@@ -197,7 +198,8 @@
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
                    var text = document.getElementById('content-val').innerText;
-                    CKEDITOR.instances.eidtor.insertHtml(text);
+                    var editor = $('.jquery_ckeditor').ckeditor().editor;
+                    editor.val(text);
                 }
 
             }
