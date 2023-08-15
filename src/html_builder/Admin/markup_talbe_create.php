@@ -231,7 +231,7 @@ class markup_talbe_create extends markup_table_edit {
     }
     public function yes_no($content)
     {
-        if($content['actrive'] == 0)
+        if($content['active'] == 0)
         {return "Yes"; }
         else{
             return "No";
