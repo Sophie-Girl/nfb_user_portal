@@ -202,7 +202,9 @@
                    console.log(text);
                    CKEDITOR.instances['edit-content-value--2'].setData(text);
                     console.log(CKEDITOR.instances['edit-content-value--2'].getData());
-                   CKEDITOR.instances['edit-content-value--2'].insertHtml(text);
+                   CKEDITOR.instances['edit-content-value--2'].updateElement();
+
+
 
                 }
 
