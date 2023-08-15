@@ -2,7 +2,7 @@
 (function ($, Drupal) {
     Drupal.behaviors.up_other = {
         attach: function (context, settings) {
-            window.onload = function () {
+            window.onload = function (format) {
                 document.getElementById('edit-content-value').style.display = "none";
                 if(document.getElementById('edit-content-value').value != "new"){
                     document.getElementById('edit-markup-type').value = document.getElementById('mk_type').innerText;
@@ -199,7 +199,9 @@
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
                    var text = document.getElementById('content-val').innerText;
                    console.log(CKEDITOR.instances);
+                   console.log(text);
                    CKEDITOR.instances['edit-content-value--2'].setData(text);
+                    console.log(CKEDITOR.instances['edit-content-value--2'].getData());
                    CKEDITOR.instances['edit-content-value--2'].insertHtml(text);
 
                 }
