@@ -197,7 +197,7 @@
                     document.getElementById('edit-active').value = document.getElementById('act_val').innerText;
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
-                   var text = document.getElementById('content-val').innerText;
+
 
 
 
@@ -208,6 +208,7 @@
             }
             CKEDITOR.on("instanceReady", function()
             {
+                var text = document.getElementById('content-val').innerText;
                 console.log(CKEDITOR.instances);
                 console.log(text);
                 CKEDITOR.on("")
