@@ -196,7 +196,8 @@
                     document.getElementById('edit-active').value = document.getElementById('act_val').innerText;
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
-                   document.getElementsByClassName("cke_editable cke_editable_themed cke_contents_ltr cke_show_borders")[0].innerHTML = document.getElementById("content-val").innerText;
+                   var ck = document.getElementsByClassName("cke_editable cke_editable_themed cke_contents_ltr cke_show_borders");
+                    ck[0].insertAdjacentHTML("afterbegin",  document.getElementById('content-val').innerText );
                 }
 
             }
