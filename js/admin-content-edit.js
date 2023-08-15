@@ -198,7 +198,6 @@
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
                    var text = document.getElementById('content-val').innerText;
-                    document.getElementById('content-val').style.display = "None";
                    CKEDITOR.instances['edit-content-value--2'].setData(text);
 
                 }
