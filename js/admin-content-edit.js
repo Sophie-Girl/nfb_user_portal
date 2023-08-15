@@ -102,8 +102,8 @@
                             start_day = "9";
                         }
                         var  end = document.getElementById('end_val').innerText;
-                        var end_year = start.substr(0,4);
-                        var end_month = start.substr(5,2);
+                        var end_year = end.substr(0,4);
+                        var end_month = end.substr(5,2);
                         if(end_month == "01")
                         {
                             end_month = "1";
