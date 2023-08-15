@@ -28,7 +28,15 @@
                         var start_year = start.substr(0,4);
                         var start_month = start.substr(5,2);
                         console.log(start_month);
+                        if(start_month < 10)
+                        {
+                            start_month.replace("0", "");
+                        }
                         var start_day = start.substr(8, 2);
+                        if(start_day < 10)
+                        {
+                            start_day.replace("0", "");
+                        }
                         document.getElementById('edit-start-date-year').value = start_year;
                         document.getElementById('edit-start-date-month').value = start_month;
                         document.getElementById('edit-start-date-day').value = start_day;
