@@ -197,7 +197,8 @@
                     document.getElementById('edit-weight').value = document.getElementById('weight_val').innerText;
                     document.getElementById('edit-permanent').value = document.getElementById("perm_val").innerText;
                    var ck = document.getElementsByClassName("cke_editable cke_editable_themed cke_contents_ltr cke_show_borders");
-                    CKEDITOR.instances['editor1'].insertHtml( document.getElementById('content-val').innerText);
+                   var  oEditor = CKEDITOR.instances.ckfinder;
+                   oEditor.insertHtml( document.getElementById('content-val').innerText);
                 }
 
             }
