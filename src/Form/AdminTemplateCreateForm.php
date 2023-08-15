@@ -117,6 +117,8 @@ where cid = '".$form_state->getValue("content_value")."';";
         {
             $beginning_date = $form_state->getValue("start_date");
             $end_date = $form_state->getValue("end_date");
+            $end_date = date("Y-m-d", $end_date);
+            $beginning_date = date("Y-m-d", $beginning_date);
         }
         else{
             $beginning_date =  "null";
