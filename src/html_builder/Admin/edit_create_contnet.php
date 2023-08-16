@@ -285,7 +285,7 @@ still exists, or dates on the markup. </p>"
         $form['submit'] = array(
             '#type' => 'submit',
             '#value' => $text,
-            '#suffix' => "<a id='clear-filter' href='/member_portal/admin/manage_content' style='display: inline-block' role='button' class='btn btn-default'>&nbsp;&nbsp;&nbsp;Clear&nbsp;&nbsp;&nbsp;</a>");
+            '#suffix' => "<a id='clear-filter' href='/member_portal/admin/manage_content' style='display: inline-block' role='button' class='btn btn-default'>&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;</a>");
     }
     public function find_content_record($content)
     {
