@@ -41,12 +41,17 @@ class AdminTemplateCreateForm extends FormBase
 
     }
     public function search_for_otherweights($form, FormStateInterface $form_state)
+    {if($form_state->getValue("markup_type") == "member_benefit" && $form_state->getValue("active") == "0")
     {
-
+        $this->sql_query($form_state);
+    }
+    elseif ($form_state->getValue("markup_type") == "faq" && $form_state->getValue("active") == "0")
+    {
+        $this->sql_query($form_state);
+    }
     }
     public function sql_query(FormStateInterface $form_state)
     {
-        $this->get_current_max_id();
         $sql = \Drupal::database();
         $query = "Select * from nfb_user_portal_content where markup_type = '" . $form_state->getValue("markup_type") . "' and active == 0 order by cid desc limit 50;";
         $key = "c_id";
@@ -56,13 +61,13 @@ class AdminTemplateCreateForm extends FormBase
             $content = get_object_vars($content);
             $array = json_decode($content['markup']);
             $array = get_object_vars($array);
-            if($array['group'] == $form_state->getValue("") && $array['weight'] == $form_state->getValue(""))
+            if($array['group'] == $form_state->getValue("benefit_group") && $array['weight'] == $form_state->getValue("weight"))
             {
-
+                $form_state->setErrorByName("weight", "Another Benefit has this weight. Either deactivate it or select a different weight. ");
             }
-            elseif($array['group'] == $form_state->getValue("") && $array['weight'] == $form_state->getValue(""))
+            elseif($array['group'] == $form_state->getValue("faq_grouping") && $array['weight'] == $form_state->getValue("weight"))
             {
-
+                $form_state->setErrorByName("weight", "Another Faq has this weight. Either deactivate it or select a different weight. ");
             }
 
         }
