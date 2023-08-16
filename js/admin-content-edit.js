@@ -208,7 +208,7 @@
             }
             CKEDITOR.on("instanceReady", function()
             {
-                var text = document.getElementById('content-val').innerText;
+                var text = document.getElementById('content-val').innerHtml;
                 CKEDITOR.instances['edit-content-value--2'].setData(text);
                 console.log(CKEDITOR.instances['edit-content-value--2'].getData());
                 CKEDITOR.instances['edit-content-value--2'].updateElement();
