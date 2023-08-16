@@ -128,7 +128,7 @@ still exists, or dates on the markup. </p>"
         $form['civi_entity'] = array(
             '#prefix' => "<div class='hidden_val' id='civi_ent'  >".$this->get_civi_entity()."</div>",
             '#type' => "select",
-            '#title' => "Civi Entity",
+            '#title' => "Civi Entity*",
             '#options' => array(
                 'Event' => "By Event Registration",
                 'Group' => "By Group",
@@ -152,7 +152,7 @@ still exists, or dates on the markup. </p>"
             '#prefix' => "<div class='hidden_val' id='civi_value' >".$this->get_civi_entity()."</div>
 <div id='ajax_wrap'>",
             '#type' => 'select',
-            '#title' => "Name of Civi Entity",
+            '#title' => "Name of Civi Entity*",
             '#options' => $this->civi_entity_options($form_state),
             '#states' => [
                 'visible' =>[
@@ -169,7 +169,7 @@ still exists, or dates on the markup. </p>"
         $form['start_date'] = array(
             '#prefix' => "<div class='hidden_val' id='start_val' >".$this->get_beginning_date()."</div>",
             '#type' => 'datelist',
-            "#title" => "Display Start Date",
+            "#title" => "Display Start Date*",
             '#date_part_order' =>array( "year", "month", "day"),
             '#date_format' => 'Y-m-d',
             '#states' => [
@@ -185,7 +185,7 @@ still exists, or dates on the markup. </p>"
         $form['end_date'] = array(
             '#prefix' => "<div class='hidden_val' id='end_val' >".$this->get_ending_date()."</div>",
             '#type' => 'datelist',
-            "#title" => "Display End Date",
+            "#title" => "Display End Date*",
             '#date_part_order' =>array( "year", "month", "day"),
             '#date_format' => 'Y-m-d',
             '#states' => [
