@@ -1,6 +1,7 @@
 <?php
 Namespace Drupal\nfb_user_portal\html_builder\Admin;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\nfb_user_portal\civi_query\query_base;
 use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 
 class markup_talbe_create extends markup_table_edit {
@@ -226,7 +227,7 @@ class markup_talbe_create extends markup_table_edit {
     public function build_table_row($content, $markup_array)
     {
         $this->markup = $this->get_markup()."<tr><td>".$content['cid']."</td><td>".$content['markup_type']."</td><td>".$markup_array['title']."</td><td>".$content['tab']."</td>
-        <td>".$content['limiter']."</td><td>".$content['civi_entity']."</td><td>".$this->yes_no($content)."</td><td>".$markup_array['weight']."</td><td><a href='/member_portal/admin/content/".$content['cid']."' role='button' aria-label='Edit '>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></td></tr>";
+        <td>".$content['limiter']."</td><td>".$this->find_civi_entity_title($content)."</td><td>".$this->yes_no($content)."</td><td>".$markup_array['weight']."</td><td><a href='/member_portal/admin/content/".$content['cid']."' role='button' aria-label='Edit '>&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a></td></tr>";
 
     }
     public function yes_no($content)
@@ -258,6 +259,66 @@ class markup_talbe_create extends markup_table_edit {
             $result = get_object_vars($result);
             $sub_array = get_object_vars(json_decode($result['form_submission_values']));
             $this->build_row($result, $sub_array);
+        }
+    }
+    public function find_civi_entity_title($content)
+    {
+        $civi = new query_base();
+        $civi->mode = "get";
+        $civi->entity = $content['limiter'];
+        if($civi->get_entity() == "Event" )
+        {
+            $civi->params = [
+                'select' => [
+                    'title',
+                ],
+                'where' => [
+                    ['id', '=', $content['civi_entity']],
+                ],
+                'limit' => 25,
+                'checkPermissions' => FALSE,
+            ];
+            $civi->civi_api_v4_query();
+            $result = $civi->get_civi_result();
+            $first = $result->first();
+            return $first['title'];
+        }
+        elseif ($civi->get_entity() == "Group")
+        {
+            $civi->params = [
+                'select' => [
+                    'title',
+                ],
+                'where' => [
+                    ['id', '=', $content['civi_entity']],
+                ],
+                'limit' => 25,
+                'checkPermissions' => FALSE,
+            ];
+            $civi->civi_api_v4_query();
+            $result = $civi->get_civi_result();
+            $first = $result->first();
+            return $first['title'];
+        }
+        elseif($civi->get_entity() == "MembershipType")
+        {
+            $civi->params = [
+                'select' => [
+                    'name',
+                ],
+                'where' => [
+                    ['id', '=', $content['civi_entity']],
+                ],
+                'limit' => 25,
+                'checkPermissions' => FALSE,
+            ];
+            $civi->civi_api_v4_query();
+            $result = $civi->get_civi_result();
+            $first = $result->first();
+            return $first['name'];
+        }
+        else{
+            return $content['civi_entity'];
         }
     }
 
