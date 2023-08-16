@@ -98,7 +98,7 @@ class memberhisp_markup
     {
         $key = "cid";
         $query = "select * from nfb_user_portal_content where markup_type = 'content_text' and tab = 'membership' and active = '0';";
-        $type = "content_1";
+        $type = "content_2";
         $makrup = $this->query_for_markups($query, $key, $type);
         return $makrup;
     }
@@ -111,7 +111,7 @@ class memberhisp_markup
         foreach ($sql->get_result() as $cotnent)
         {
             $content = get_object_vars($cotnent);
-            $array = json_decode($markup['markup']);
+            $array = json_decode($content['markup']);
             $array = get_object_vars($array);
             if($markup == false)
             {

@@ -35,6 +35,38 @@ class AdminTemplateCreateForm extends FormBase
        $form_state->setRedirect("nfb_user_portal.content_table");
 
     }
+    public function ValidateForm(array &$form, FormStateInterface  $form_state)
+    {
+        parent::validateForm($form, $form_state);
+
+    }
+    public function search_for_otherweights($form, FormStateInterface $form_state)
+    {
+
+    }
+    public function sql_query(FormStateInterface $form_state)
+    {
+        $this->get_current_max_id();
+        $sql = \Drupal::database();
+        $query = "Select * from nfb_user_portal_content where markup_type = '" . $form_state->getValue("markup_type") . "' and active == 0 order by cid desc limit 50;";
+        $key = "c_id";
+        $sql_result = $sql->query($query)->fetchAllAssoc($key);
+        foreach ($sql_result as $content)
+        {
+            $content = get_object_vars($content);
+            $array = json_decode($content['markup']);
+            $array = get_object_vars($array);
+            if($array['group'] == $form_state->getValue("") && $array['weight'] == $form_state->getValue(""))
+            {
+
+            }
+            elseif($array['group'] == $form_state->getValue("") && $array['weight'] == $form_state->getValue(""))
+            {
+
+            }
+
+        }
+    }
     public function new_content_functions(FormStateInterface  $form_state)
     {
         $this->set_limiter_values($form_state, $limiter, $value);
