@@ -425,6 +425,8 @@ still exists, or dates on the markup. </p>"
             }
             return $option;
         }
+        $option[''] = "- Select -";
+        return $option;
     }
 
 }
