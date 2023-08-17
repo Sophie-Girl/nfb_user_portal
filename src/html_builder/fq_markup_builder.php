@@ -62,7 +62,6 @@ class fq_markup_builder extends  other_markup
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
         $this->faq_result = $sql->get_result();
-        \Drupal::logger("sigh")->notice("array: ".print_r($this->get_faq_result(), true));
     }
     public function build_array()
     {
