@@ -107,7 +107,11 @@
                 }
                 ajax_change_call(vfeildarray);
                 document.getElementById("edit_dob").focus();
-                document.getElementById("dob_replace").innerText = "Date of Birth: "+document.getElementById('dob_new_val').value;
+                var dob = document.getElementById('dob_new_val').value;
+                var year = dob.substr(0,4);
+                var month = dob.substr(5,2);
+                var day = dob.substr(8,2);
+                document.getElementById("dob_replace").innerText = "Date of Birth: "+month+"-"+day+"-"+year;
                 document.getElementById("dob_edit_div").style.display = "None";
                 document.getElementById("dob_new_val").style.display = "None";
                 document.getElementById("cancel_dob").style.display = "None";
