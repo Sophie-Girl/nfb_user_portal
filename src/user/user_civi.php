@@ -116,8 +116,9 @@ class user_civi extends user_base
         $this->dob = $contact['birth_date'];
         if($this->get_dob() != "")
         {
-           // $date = date("m-d-Y", $this->get_dob());
-            // $this->dob = $date;
+            $date = strtotime($this->get_dob());
+            $date = date("m-d-Y", $date);
+             $this->dob = $date;
         }
         $this->gender = $contact['gender_id:label'];
         if($this->get_gender() == "Other")
