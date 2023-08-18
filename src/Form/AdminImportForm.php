@@ -6,6 +6,16 @@ use Drupal\nfb_user_portal\civi_query\query_base;
 
 class AdminImportForm extends FormBase
 {
+    public $user_id;
+    public function get_user_id()
+    {
+        return $this->user_id;
+    }
+    public $reset_link;
+    public function get_reset_link()
+    {
+        return $this->reset_link;
+    }
     public function getFormId()
     {
         return "nfb_user_import_form";
@@ -22,8 +32,26 @@ class AdminImportForm extends FormBase
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
         ini_set('max_execution_time', 1300); // make sure it can process big files
+        $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/data.csv";
+        \Drupal::logger("file_reading_text")->notice("File name: ".$file);
+        $this->Import_CSV($file, $contacts);
+        foreach ($contacts as $contact)
+        {
+          $email_test =  $contact['email'];
+            if (filter_var($email_test, FILTER_VALIDATE_EMAIL)){
+                // if email good. Proceed.
+               $run =  $this->check_email_in_user($email_test);
+               if($run == "New")
+               {
+                   $this->create_user($contact);
+                   $civi = new query_base();
+                   $this->find_uf_match($civi, $contact);
 
+               }
+            }
+        }
     }
+
     Public Function Import_CSV($file, &$contacts)
     {
         $contacts = $fields = array(); $i=0;
@@ -50,15 +78,15 @@ class AdminImportForm extends FormBase
         }
         return $randomString;
     }
-    public function create_user(FormStateInterface $form_state)
+    public function create_user($contact)
     {
         $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
         $user = \Drupal\user\Entity\User::create();
         // set_up_needs
         $user->setPassword($this->generateRandomString());
         $user->enforceIsNew();
-        $user->setEmail($form_state->getValue("email"));
-        $user->setUsername($form_state->getValue("email"));
+        $user->setEmail($contact['email']);
+        $user->setUsername($contact['email']);
         // Optional.
         $user->set('init', 'email');
         $user->activate();
@@ -77,7 +105,7 @@ class AdminImportForm extends FormBase
 
     }
 
-    public function find_uf_match(query_base $civi)
+    public function find_uf_match(query_base $civi, $contact)
     {
         $civi->entity = "UFMatch";
         $civi->mode = "get";
@@ -102,7 +130,7 @@ class AdminImportForm extends FormBase
                 'values' => [
                     'domain_id' => 1,
                     'uf_id' => $this->get_user_id(),
-                    'contact_id' => $this->get_civi_id(),
+                    'contact_id' => $contact['civi_id'],
                 ],
                 'checkPermissions' => FALSE,
             );
@@ -113,7 +141,7 @@ class AdminImportForm extends FormBase
             $civi->mode = "update";
             $civi->params = array(
                 'values' => [
-                    'contact_id' => $this->get_civi_id(),
+                    'contact_id' => $contact['civi_id'],
                 ],
                 'where' => [
                     ['id', '=', $id],
@@ -124,10 +152,9 @@ class AdminImportForm extends FormBase
         }
     }
 
-    public function check_email_in_user(FormStateInterface $form_state)
+    public function check_email_in_user($email_test)
     {
-        $username = $form_state->getValue("email");
-
+        $username = $email_test;
         $ids = \Drupal::entityQuery('user')
             ->condition('name', trim($username))
             ->range(0, 1)
@@ -150,10 +177,6 @@ class AdminImportForm extends FormBase
                 $exists = "New";
             }
         }
-        if ($exists != "Not New") {
-            $this->create_user($form_state);
-            $this->civi_user_set_up();
-        }
-
+        return $exists;
     }
 }
