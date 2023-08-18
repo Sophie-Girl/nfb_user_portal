@@ -67,7 +67,7 @@ nfb_user_portal.userrequest:
     limiter: '1'
   requirements:
     _permission: 'access content'
-    _role: 'authenticated'
+    _role: 'content_admin'
 nfb_user_portal.completerequest:
   path: 'member_portal/admin/complete_request/{rid}'
   defaults:
@@ -76,7 +76,7 @@ nfb_user_portal.completerequest:
     rid: '1'
   requirements:
     _permission: 'access content'
-    _role: 'authenticated'
+    _role: 'content_admin'
 nfb_user_portal.tempalteform:
   path: 'member_portal/admin/templates'
   defaults:
@@ -84,7 +84,7 @@ nfb_user_portal.tempalteform:
     _title: 'Change Member Profile Email Templates'
   requirements:
     _permission: 'access content'
-    _role: 'authenticated'
+    _role: 'content_admin'
 nfb_user_portal.content:
   path: 'member_portal/admin/content/{content}'
   defaults:
@@ -93,7 +93,7 @@ nfb_user_portal.content:
     content: 'new'
   requirements:
     _permission: 'access content'
-    _role: 'authenticated'
+    _role: 'content_admin'
 nfb_user_portal.content_table:
   path: 'member_portal/admin/manage_content'
   defaults:
@@ -102,4 +102,4 @@ nfb_user_portal.content_table:
     content: 'new'
   requirements:
     _permission: 'access content'
-    _role: 'authenticated'
+    _role: 'content_admin'
