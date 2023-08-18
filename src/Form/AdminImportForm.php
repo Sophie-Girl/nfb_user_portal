@@ -12,11 +12,17 @@ class AdminImportForm extends FormBase
     }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
-        // TODO: Implement buildForm() method.
+        $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => $this->t('Submit'),
+        );
+        return $form;
+
     }
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
-        // TODO: Implement submitForm() method.
+        ini_set('max_execution_time', 1300); // make sure it can process big files
+
     }
     Public Function Import_CSV($file, &$contacts)
     {
