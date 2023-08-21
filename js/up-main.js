@@ -696,10 +696,7 @@
             });
             $('#edit_gender').once().bind('click keyup', function(event) {
 
-                var type= event.type;
-                var string_type = type.toString();
-                console.log(string_type+" "+event.type)
-                    if (string_type  == 'click') {
+                    if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                         console.log(event.type)
                         var editstatus = document.getElementById("edit_open").innerText;
                         var openfeild = document.getElementById("open_field").innerText;
