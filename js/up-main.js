@@ -695,8 +695,10 @@
                 }
             });
             $('#edit_gender').bind('click keyup', function(event) {
-console.log("this ran "+event.type + " "+ event.click);
-                    if (event.type == event.click || (event.type == 'keyup' && event.which == 13)) {
+
+                var type= event.type;
+                var string_type = type.toString();
+                    if (string_type  == 'click' || (string_type == 'keyup' && event.which == 13)) {
                         var editstatus = document.getElementById("edit_open").innerText;
                         var openfeild = document.getElementById("open_field").innerText;
                         if (editstatus == "Not Open") {
