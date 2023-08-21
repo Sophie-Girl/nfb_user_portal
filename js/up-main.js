@@ -695,7 +695,7 @@
                 }
             });
             $('#edit_gender').bind('click keyup', function(event) {
-console.log("this ran "+event.type + " "event.witch);
+console.log("this ran "+event.type + " "+ event.witch);
                     if (event.type == click) {
                         var editstatus = document.getElementById("edit_open").innerText;
                         var openfeild = document.getElementById("open_field").innerText;
