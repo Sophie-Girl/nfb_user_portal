@@ -698,6 +698,7 @@
 
                 var type= event.type;
                 var string_type = type.toString();
+                console.log(string_type+" "+event.type)
                     if (string_type  == 'click' || (string_type == 'keyup' && event.which == 13)) {
                         var editstatus = document.getElementById("edit_open").innerText;
                         var openfeild = document.getElementById("open_field").innerText;
