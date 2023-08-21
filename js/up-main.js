@@ -6,21 +6,23 @@
                 replace_title();
                 more_logout_fun();
             }
-            $('#save_brialle').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('braille_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "braille";
-                    vfeildarray[2] = document.getElementById('braille_new_val').value
-                }
-                ajax_change_call(vfeildarray);
-                alert("Changes made successfully");
-            });
-            $('#save_dog').once().click(function () {
+            $('#save_brialle').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('braille_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "braille";
+                        vfeildarray[2] = document.getElementById('braille_new_val').value
+                    }
+                    ajax_change_call(vfeildarray);
+                    alert("Changes made successfully");
+                }});
+            $('#save_dog').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('dog_new_val').value;
                 if (feild_data == "") {
@@ -33,8 +35,9 @@
                 }
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
-            });
-            $('#save_prim_zip').once().click(function () {
+            }});
+            $('#save_prim_zip').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_zip_new_val').value;
                 if (feild_data == "") {
@@ -71,8 +74,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
                 alert("Changes made successfully");
-            });
-            $('#save_pronouns').once().click(function () {
+            }});
+            $('#save_pronouns').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('pronouns_new_val').value;
                 if (feild_data == "") {
@@ -93,8 +97,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
                 alert("Changes made successfully");
-            });
-            $('#save_dob').once().click(function () {
+            }});
+            $('#save_dob').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('dob_new_val').value;
                 if (feild_data == "") {
@@ -120,8 +125,9 @@
                 document.getElementById("open_field").innerText = "None";
 
                 alert("Changes made successfully");
-            });
-            $('#save_disability').once().click(function () {
+            }});
+            $('#save_disability').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('disability_new_val').value;
                 if (feild_data == "") {
@@ -143,65 +149,70 @@
                 document.getElementById("open_field").innerText = "None";
 
                 alert("Changes made successfully");
-            });
+            }});
 
-            $('#save_lang_pref').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('lang_pref_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "lang";
-                    vfeildarray[2] = document.getElementById('lang_pref_new_val').value;
-                }
-                ajax_change_call(vfeildarray);
-                alert("Changes made successfully");
-            });
-            $('#save_gender').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('gender_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "gender";
-                    vfeildarray[2] = document.getElementById('gender_new_val').value;
-                }
-                ajax_change_call(vfeildarray);
-                alert("Changes made successfully");
-            });
-            $('#save_blind').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('blind_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "blind";
-                    vfeildarray[2] = document.getElementById('blind_new_val').value;
-                }
-                ajax_change_call(vfeildarray);
-                alert("Changes made successfully");
-            });
-            $('#save_braille').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('braille_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "braille";
-                    vfeildarray[2] = document.getElementById('braille_new_val').value;
-                }
-                ajax_change_call(vfeildarray);
-                alert("Changes made successfully");
-            });
-            $('#save_deaf').once().click(function () {
+            $('#save_lang_pref').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('lang_pref_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "lang";
+                        vfeildarray[2] = document.getElementById('lang_pref_new_val').value;
+                    }
+                    ajax_change_call(vfeildarray);
+                    alert("Changes made successfully");
+                }});
+            $('#save_gender').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('gender_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "gender";
+                        vfeildarray[2] = document.getElementById('gender_new_val').value;
+                    }
+                    ajax_change_call(vfeildarray);
+                    alert("Changes made successfully");
+                }});
+            $('#save_blind').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('blind_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "blind";
+                        vfeildarray[2] = document.getElementById('blind_new_val').value;
+                    }
+                    ajax_change_call(vfeildarray);
+                    alert("Changes made successfully");
+                }});
+            $('#save_braille').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('braille_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "braille";
+                        vfeildarray[2] = document.getElementById('braille_new_val').value;
+                    }
+                    ajax_change_call(vfeildarray);
+                    alert("Changes made successfully");
+                }});
+            $('#save_deaf').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('deaf_new_val').value;
                 if (feild_data == "") {
@@ -214,8 +225,9 @@
                 }
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
-            });
-            $('#save_media_type').once().click(function () {
+            }});
+            $('#save_media_type').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('media_type_new_val').value;
                 if (feild_data == "") {
@@ -228,80 +240,84 @@
                 }
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
-            });
-            $('#save_prim_phone').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('prim_phone_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "phone";
-                    vfeildarray[2] = document.getElementById('prim_phone_new_val').value
-                }
-                ajax_change_call(vfeildarray);
-                document.getElementById("edit_prim_phone").focus();
-                document.getElementById("phone_replace").innerText = "Phone: "+document.getElementById('prim_phone_new_val').value;
-                document.getElementById("prim_phone_edit_div").style.display = "None";
-                document.getElementById("prim_phone_new_val").style.display = "None";
-                document.getElementById("cancel_prim_phone").style.display = "None";
-                document.getElementById("save_prim_phone").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-                alert("Changes made successfully");
-            });
-            $('#save_prim_email').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('prim_email_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "email";
-                    vfeildarray[2] = document.getElementById('prim_email_new_val').value
+            }});
+            $('#save_prim_phone').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('prim_phone_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "phone";
+                        vfeildarray[2] = document.getElementById('prim_phone_new_val').value
+                    }
+                    ajax_change_call(vfeildarray);
+                    document.getElementById("edit_prim_phone").focus();
+                    document.getElementById("phone_replace").innerText = "Phone: " + document.getElementById('prim_phone_new_val').value;
+                    document.getElementById("prim_phone_edit_div").style.display = "None";
+                    document.getElementById("prim_phone_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_phone").style.display = "None";
+                    document.getElementById("save_prim_phone").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    alert("Changes made successfully");
+                }});
+            $('#save_prim_email').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('prim_email_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "email";
+                        vfeildarray[2] = document.getElementById('prim_email_new_val').value
 
-                }
-                ajax_change_call(vfeildarray);
-                document.getElementById("edit_prim_email").focus();
-                document.getElementById("email_repalce").innerText = "Email: "+document.getElementById('prim_email_new_val').value;
-                document.getElementById("prim_email_edit_div").style.display = "None";
-                document.getElementById("prim_email_new_val").style.display = "None";
-                document.getElementById("cancel_prim_email").style.display = "None";
-                document.getElementById("save_prim_email").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
+                    }
+                    ajax_change_call(vfeildarray);
+                    document.getElementById("edit_prim_email").focus();
+                    document.getElementById("email_repalce").innerText = "Email: " + document.getElementById('prim_email_new_val').value;
+                    document.getElementById("prim_email_edit_div").style.display = "None";
+                    document.getElementById("prim_email_new_val").style.display = "None";
+                    document.getElementById("cancel_prim_email").style.display = "None";
+                    document.getElementById("save_prim_email").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
 
-                alert("Changes made successfully");
+                    alert("Changes made successfully");
 
-            });
-            $('#save_f_name').once().click(function () {
-                var vfeildarray;
-                var feild_data = document.getElementById('f_name_new_val').value;
-                if (feild_data == "") {
-                    vfeildarray = "not_run";
-                } else {
-                    vfeildarray = [];
-                    vfeildarray[0] = document.getElementById('civi_id_val').innerText;
-                    vfeildarray[1] = "f_name";
-                    vfeildarray[2] = document.getElementById('f_name_new_val').value;
-                }
-                ajax_change_call(vfeildarray);
-                document.getElementById("edit_f_name").focus();
-                document.getElementById("first_name_repalce").innerText = "First Name: "+document.getElementById('f_name_new_val').value;
-                document.getElementById("first_name_edit_div").style.display = "None";
-                document.getElementById("f_name_new_val").style.display = "None";
-                document.getElementById("cancel_f_name").style.display = "None";
-                document.getElementById("save_f_name").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-                document.getElementById("first_name_repalce").focus();
-                alert("Changes made successfully");
+                }});
+            $('#save_f_name').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var vfeildarray;
+                    var feild_data = document.getElementById('f_name_new_val').value;
+                    if (feild_data == "") {
+                        vfeildarray = "not_run";
+                    } else {
+                        vfeildarray = [];
+                        vfeildarray[0] = document.getElementById('civi_id_val').innerText;
+                        vfeildarray[1] = "f_name";
+                        vfeildarray[2] = document.getElementById('f_name_new_val').value;
+                    }
+                    ajax_change_call(vfeildarray);
+                    document.getElementById("edit_f_name").focus();
+                    document.getElementById("first_name_repalce").innerText = "First Name: " + document.getElementById('f_name_new_val').value;
+                    document.getElementById("first_name_edit_div").style.display = "None";
+                    document.getElementById("f_name_new_val").style.display = "None";
+                    document.getElementById("cancel_f_name").style.display = "None";
+                    document.getElementById("save_f_name").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                    document.getElementById("first_name_repalce").focus();
+                    alert("Changes made successfully");
 
 
-            });
-            $('#save_l_name').once().click(function () {
+                }});
+            $('#save_l_name').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var vfeildarray;
                 var feild_data = document.getElementById('l_name_new_val').value;
                 if (feild_data == "") {
@@ -324,62 +340,65 @@
                 document.getElementById("open_field").innerText = "None";
 
                 alert("Changes made successfully");
-            });
-            $('#edit_f_name').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("first_name_edit_div").style.display = "Block";
-                    document.getElementById("f_name_new_val").style.display = "Block";
-                    document.getElementById("cancel_f_name").style.display = "inline-block";
-                    document.getElementById("save_f_name").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "First Name";
-                    var text = document.getElementById("first_name_repalce").innerText;
-                    document.getElementById("f_name_new_val").value = text.replace("First Name: ", "");
-                    document.getElementById("f_name_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "First Name") {
-                    document.getElementById("edit_f_name").focus();
-                    document.getElementById("first_name_edit_div").style.display = "None";
-                    document.getElementById("f_name_new_val").style.display = "None";
-                    document.getElementById("cancel_f_name").style.display = "None";
-                    document.getElementById("save_f_name").style.display = "None";
-                    document.getElementById("f_name_new_val").value = "";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
+            }});
+            $('#edit_f_name').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var editstatus = document.getElementById("edit_open").innerText;
+                    var openfeild = document.getElementById("open_field").innerText;
+                    if (editstatus == "Not Open") {
+                        document.getElementById("first_name_edit_div").style.display = "Block";
+                        document.getElementById("f_name_new_val").style.display = "Block";
+                        document.getElementById("cancel_f_name").style.display = "inline-block";
+                        document.getElementById("save_f_name").style.display = "inline-block";
+                        document.getElementById("edit_open").innerText = "Open";
+                        document.getElementById("open_field").innerText = "First Name";
+                        var text = document.getElementById("first_name_repalce").innerText;
+                        document.getElementById("f_name_new_val").value = text.replace("First Name: ", "");
+                        document.getElementById("f_name_new_val").focus();
+                    } else if (editstatus == "Open" && openfeild == "First Name") {
+                        document.getElementById("edit_f_name").focus();
+                        document.getElementById("first_name_edit_div").style.display = "None";
+                        document.getElementById("f_name_new_val").style.display = "None";
+                        document.getElementById("cancel_f_name").style.display = "None";
+                        document.getElementById("save_f_name").style.display = "None";
+                        document.getElementById("f_name_new_val").value = "";
+                        document.getElementById("edit_open").innerText = "Not Open";
+                        document.getElementById("open_field").innerText = "None";
 
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_l_name').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("last_name_edit_div").style.display = "Block";
-                    document.getElementById("l_name_new_val").style.display = "Block";
-                    document.getElementById("cancel_l_name").style.display = "inline-block";
-                    document.getElementById("save_l_name").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "Last Name";
-                    var text = document.getElementById("last_name_repalce").innerText;
-                    document.getElementById("l_name_new_val").value = text.replace("Last Name: ", "");
-                    document.getElementById("l_name_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "Last Name") {
-                    document.getElementById("edit_l_name").focus();
-                    document.getElementById("last_name_edit_div").style.display = "None";
-                    document.getElementById("l_name_new_val").style.display = "None";
-                    document.getElementById("l_name_new_val").value = "";
-                    document.getElementById("cancel_l_name").style.display = "None";
-                    document.getElementById("save_l_name").style.display = "None";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
+                    } else {
+                        alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                    }
+                } });
+            $('#edit_l_name').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var editstatus = document.getElementById("edit_open").innerText;
+                    var openfeild = document.getElementById("open_field").innerText;
+                    if (editstatus == "Not Open") {
+                        document.getElementById("last_name_edit_div").style.display = "Block";
+                        document.getElementById("l_name_new_val").style.display = "Block";
+                        document.getElementById("cancel_l_name").style.display = "inline-block";
+                        document.getElementById("save_l_name").style.display = "inline-block";
+                        document.getElementById("edit_open").innerText = "Open";
+                        document.getElementById("open_field").innerText = "Last Name";
+                        var text = document.getElementById("last_name_repalce").innerText;
+                        document.getElementById("l_name_new_val").value = text.replace("Last Name: ", "");
+                        document.getElementById("l_name_new_val").focus();
+                    } else if (editstatus == "Open" && openfeild == "Last Name") {
+                        document.getElementById("edit_l_name").focus();
+                        document.getElementById("last_name_edit_div").style.display = "None";
+                        document.getElementById("l_name_new_val").style.display = "None";
+                        document.getElementById("l_name_new_val").value = "";
+                        document.getElementById("cancel_l_name").style.display = "None";
+                        document.getElementById("save_l_name").style.display = "None";
+                        document.getElementById("edit_open").innerText = "Not Open";
+                        document.getElementById("open_field").innerText = "None";
 
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_braille').once().click(function () {
+                    } else {
+                        alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                    }
+                }});
+            $('#edit_braille').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -402,8 +421,9 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#edit_dog').once().click(function () {
+            }});
+            $('#edit_dog').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -426,8 +446,9 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#edit_prim_email').once().click(function () {
+            }});
+            $('#edit_prim_email').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -453,35 +474,37 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#edit_prim_phone').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("prim_phone_edit_div").style.display = "Block";
-                    document.getElementById("prim_phone_new_val").style.display = "Block";
-                    document.getElementById("cancel_prim_phone").style.display = "inline-block";
-                    document.getElementById("save_prim_phone").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "Phone";
-                    var text = document.getElementById("phone_replace").innerText;
-                    document.getElementById("prim_phone_new_val").value = text.replace("Phone: ", "");
-                    document.getElementById("prim_phone_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "Phone") {
-                    document.getElementById("edit_prim_phone").focus();
-                    document.getElementById("prim_phone_edit_div").style.display = "None";
-                    document.getElementById("prim_phone_new_val").style.display = "None";
-                    document.getElementById("cancel_prim_phone").style.display = "None";
-                    document.getElementById("save_prim_phone").style.display = "None";
-                    document.getElementById("prim_phone_new_val").value = ""
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
+            }});
+            $('#edit_prim_phone').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var editstatus = document.getElementById("edit_open").innerText;
+                    var openfeild = document.getElementById("open_field").innerText;
+                    if (editstatus == "Not Open") {
+                        document.getElementById("prim_phone_edit_div").style.display = "Block";
+                        document.getElementById("prim_phone_new_val").style.display = "Block";
+                        document.getElementById("cancel_prim_phone").style.display = "inline-block";
+                        document.getElementById("save_prim_phone").style.display = "inline-block";
+                        document.getElementById("edit_open").innerText = "Open";
+                        document.getElementById("open_field").innerText = "Phone";
+                        var text = document.getElementById("phone_replace").innerText;
+                        document.getElementById("prim_phone_new_val").value = text.replace("Phone: ", "");
+                        document.getElementById("prim_phone_new_val").focus();
+                    } else if (editstatus == "Open" && openfeild == "Phone") {
+                        document.getElementById("edit_prim_phone").focus();
+                        document.getElementById("prim_phone_edit_div").style.display = "None";
+                        document.getElementById("prim_phone_new_val").style.display = "None";
+                        document.getElementById("cancel_prim_phone").style.display = "None";
+                        document.getElementById("save_prim_phone").style.display = "None";
+                        document.getElementById("prim_phone_new_val").value = ""
+                        document.getElementById("edit_open").innerText = "Not Open";
+                        document.getElementById("open_field").innerText = "None";
 
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_prim_street').once().click(function () {
+                    } else {
+                        alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                    }
+                }});
+            $('#edit_prim_street').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -555,13 +578,14 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
+            }});
             $('#prim_street_new_val').once().blur(function ()
                 {
                     document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                 }
             );
-            $('#edit_pronouns').once().click(function () {
+            $('#edit_pronouns').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -587,8 +611,9 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#edit_dob').once().click(function () {
+            }});
+            $('#edit_dob').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -611,8 +636,9 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#edit_disability').once().click(function () {
+            }});
+            $('#edit_disability').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -639,8 +665,9 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#edit_blind').once().click(function () {
+            }});
+            $('#edit_blind').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -666,8 +693,9 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#edit_deaf').once().click(function () {
+            }});
+            $('#edit_deaf').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -693,11 +721,10 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
+            }});
             $('#edit_gender').once().bind('click keyup', function(event) {
 
                     if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
-                        console.log(event.type)
                         var editstatus = document.getElementById("edit_open").innerText;
                         var openfeild = document.getElementById("open_field").innerText;
                         if (editstatus == "Not Open") {
@@ -723,38 +750,37 @@
                             alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                         }
                     }
-                    else{
-                        console.log("I hate this shit");
-                    }
                 });
-            $('#edit_lang_pref').once().click(function () {
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("lang_pref_edit_div").style.display = "Block";
-                    document.getElementById("lang_pref_new_val").style.display = "Block";
-                    document.getElementById("lang_pref_new_val_lab").style.display = "block";
-                    document.getElementById("cancel_lang_pref").style.display = "inline-block";
-                    document.getElementById("save_lang_pref").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "language preference";
-                    document.getElementById("lang_pref_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "language preference") {
-                    document.getElementById("edit_lang_pref").focus();
-                    document.getElementById("lang_pref_edit_div").style.display = "None";
-                    document.getElementById("lang_pref_new_val").style.display = "None";
-                    document.getElementById("lang_pref_new_val_lab").style.display = "None";
-                    document.getElementById("cancel_lang_pref").style.display = "None";
-                    document.getElementById("save_lang_pref").style.display = "None";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
+            $('#edit_lang_pref').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    var editstatus = document.getElementById("edit_open").innerText;
+                    var openfeild = document.getElementById("open_field").innerText;
+                    if (editstatus == "Not Open") {
+                        document.getElementById("lang_pref_edit_div").style.display = "Block";
+                        document.getElementById("lang_pref_new_val").style.display = "Block";
+                        document.getElementById("lang_pref_new_val_lab").style.display = "block";
+                        document.getElementById("cancel_lang_pref").style.display = "inline-block";
+                        document.getElementById("save_lang_pref").style.display = "inline-block";
+                        document.getElementById("edit_open").innerText = "Open";
+                        document.getElementById("open_field").innerText = "language preference";
+                        document.getElementById("lang_pref_new_val").focus();
+                    } else if (editstatus == "Open" && openfeild == "language preference") {
+                        document.getElementById("edit_lang_pref").focus();
+                        document.getElementById("lang_pref_edit_div").style.display = "None";
+                        document.getElementById("lang_pref_new_val").style.display = "None";
+                        document.getElementById("lang_pref_new_val_lab").style.display = "None";
+                        document.getElementById("cancel_lang_pref").style.display = "None";
+                        document.getElementById("save_lang_pref").style.display = "None";
+                        document.getElementById("edit_open").innerText = "Not Open";
+                        document.getElementById("open_field").innerText = "None";
 
 
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            });
-            $('#edit_media_pref').once().click(function () {
+                    } else {
+                        alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                    }
+                }});
+            $('#edit_media_pref').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -779,8 +805,9 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
-            $('#cancel_media_type').once().click(function () {
+            }});
+            $('#cancel_media_type').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_media_pref").focus();
                 document.getElementById("media_type_edit_div").style.display = "None";
                 document.getElementById("media_type_new_val").style.display = "None";
@@ -789,8 +816,9 @@
                 document.getElementById("media_type_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_dog').once().click(function () {
+            }});
+            $('#cancel_dog').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_dog").focus();
                 document.getElementById("dog_edit_div").style.display = "None";
                 document.getElementById("dog_new_val").style.display = "None";
@@ -799,8 +827,9 @@
                 document.getElementById("dog_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_braille').once().click(function () {
+            }});
+            $('#cancel_braille').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_braille").focus();
                 document.getElementById("braille_edit_div").style.display = "None";
                 document.getElementById("braille_new_val").style.display = "None";
@@ -809,8 +838,9 @@
                 document.getElementById("braille_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_blind').once().click(function () {
+            }});
+            $('#cancel_blind').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_blind").focus();
                 document.getElementById("blind_edit_div").style.display = "None";
                 document.getElementById("blind_new_val").style.display = "None";
@@ -819,8 +849,9 @@
                 document.getElementById("blind_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_deaf').once().click(function () {
+            }});
+            $('#cancel_deaf').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_deaf").focus();
                 document.getElementById("deaf_edit_div").style.display = "None";
                 document.getElementById("deaf_new_val").style.display = "None";
@@ -829,8 +860,9 @@
                 document.getElementById("deaf_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_gender').once().click(function () {
+            }});
+            $('#cancel_gender').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_gender").focus();
                 document.getElementById("gender_edit_div").style.display = "None";
                 document.getElementById("gender_new_val").style.display = "None";
@@ -839,8 +871,9 @@
                 document.getElementById("gender_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_lang_pref').once().click(function () {
+            }});
+            $('#cancel_lang_pref').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("lang_pref_edit_div").style.display = "None";
                 document.getElementById("lang_pref_new_val").style.display = "None";
                 document.getElementById("cancel_lang_pref").style.display = "None";
@@ -848,8 +881,9 @@
                 document.getElementById("lang_pref_new_val_lab").style.display = "None";
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
-            });
-            $('#cancel_disability').once().click(function () {
+            }});
+            $('#cancel_disability').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_disability").focus();
                 document.getElementById("disability_edit_div").style.display = "None";
                 document.getElementById("disability_new_val").style.display = "None";
@@ -858,8 +892,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
                 document.getElementById("edit_disability").focus();
-            });
-            $('#cancel_pronouns').once().click(function () {
+            }});
+            $('#cancel_pronouns').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_pronouns").focus();
                 document.getElementById("pronouns_edit_div").style.display = "None";
                 document.getElementById("pronouns_new_val").style.display = "None";
@@ -868,8 +903,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
 
-            });
-            $('#cancel_dob').once().click(function () {
+            }});
+            $('#cancel_dob').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById('edit_dob').focus();
                 document.getElementById("dob_edit_div").style.display = "None";
                 document.getElementById("dob_new_val").style.display = "None";
@@ -878,8 +914,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
 
-            });
-            $('#cancel_prim_zip').once().click(function () {
+            }});
+            $('#cancel_prim_zip').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById('edit_prim_street').focus();
                 document.getElementById("prim_zip_edit_div").style.display = "None";
                 document.getElementById("prim_zip_new_val").style.display = "None";
@@ -902,9 +939,10 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
 
-            });
+            }});
 
-            $('#cancel_prim_phone').once().click(function () {
+            $('#cancel_prim_phone').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_prim_phone").focus();
                 document.getElementById("prim_phone_edit_div").style.display = "None";
                 document.getElementById("prim_phone_new_val").style.display = "None";
@@ -913,8 +951,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
 
-            });
-            $('#cancel_prim_email').once().click(function () {
+            }});
+            $('#cancel_prim_email').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_prim_email").focus();
                 document.getElementById("prim_email_edit_div").style.display = "None";
                 document.getElementById("prim_email_new_val").style.display = "None";
@@ -923,8 +962,9 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
 
-            });
-            $('#cancel_l_name').once().click(function () {
+            }});
+            $('#cancel_l_name').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
                 document.getElementById("edit_l_name").focus();
                 document.getElementById("last_name_edit_div").style.display = "None";
                 document.getElementById("l_name_new_val").style.display = "None";
@@ -933,16 +973,17 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
 
-            });
-            $('#cancel_f_name').once().click(function () {
-                document.getElementById("edit_f_name").focus();
-                document.getElementById("first_name_edit_div").style.display = "None";
-                document.getElementById("f_name_new_val").style.display = "None";
-                document.getElementById("cancel_f_name").style.display = "None";
-                document.getElementById("save_f_name").style.display = "None";
-                document.getElementById("edit_open").innerText = "Not Open";
-                document.getElementById("open_field").innerText = "None";
-
+            }});
+            $('#cancel_f_name').once().bind('click keyup', function(event) {
+                if (event.type  == 'click' || (event.type = "keyup" && event.which == 13)) {
+                    document.getElementById("edit_f_name").focus();
+                    document.getElementById("first_name_edit_div").style.display = "None";
+                    document.getElementById("f_name_new_val").style.display = "None";
+                    document.getElementById("cancel_f_name").style.display = "None";
+                    document.getElementById("save_f_name").style.display = "None";
+                    document.getElementById("edit_open").innerText = "Not Open";
+                    document.getElementById("open_field").innerText = "None";
+                }
             });
             $('#prim_country_new_val').once().change(function ()
             {
