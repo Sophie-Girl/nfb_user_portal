@@ -720,7 +720,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_lang_pref').onkeypress(function (e) {
+            $('#edit_lang_pref').once().keypress(function (e) {
                 if (e.which == 13) {
                     $('input[id = edit_lang_pref]').click();
                     return false;
