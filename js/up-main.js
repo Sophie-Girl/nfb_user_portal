@@ -6,7 +6,7 @@
                 replace_title();
                 more_logout_fun();
             }
-            $('#save_brialle').bind('click keyup', function () {
+            $('#save_brialle').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('braille_new_val').value;
                 if (feild_data == "") {
@@ -20,7 +20,7 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_dog').bind('click keyup', function () {
+            $('#save_dog').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('dog_new_val').value;
                 if (feild_data == "") {
@@ -34,7 +34,7 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_prim_zip').bind('click keyup', function () {
+            $('#save_prim_zip').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_zip_new_val').value;
                 if (feild_data == "") {
@@ -72,7 +72,7 @@
                 document.getElementById("open_field").innerText = "None";
                 alert("Changes made successfully");
             });
-            $('#save_pronouns').bind('click keyup', function () {
+            $('#save_pronouns').once().click(function () {
                 pronoun_save();
             });
             function pronoun_save()
@@ -98,7 +98,7 @@
                 document.getElementById("open_field").innerText = "None";
                 alert("Changes made successfully");
             }
-            $('#save_dob').bind('click keyup', function () {
+            $('#save_dob').once().click(function () {
                 dob_save();
             });
             function dob_save()
@@ -130,7 +130,7 @@
                 alert("Changes made successfully");
             }
 
-            $('#save_disability').bind('click keyup', function () {
+            $('#save_disability').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('disability_new_val').value;
                 if (feild_data == "") {
@@ -154,7 +154,7 @@
                 alert("Changes made successfully");
             });
 
-            $('#save_lang_pref').bind('click keyup', function () {
+            $('#save_lang_pref').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('lang_pref_new_val').value;
                 if (feild_data == "") {
@@ -168,7 +168,8 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_gender').bind('click keyup', function (){
+            $('#save_gender').bind('click keyup', function (objEvent){
+               if()
                 var vfeildarray;
                 var feild_data = document.getElementById('gender_new_val').value;
                 if (feild_data == "") {
@@ -182,7 +183,7 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_blind').bind('click keyup', function () {
+            $('#save_blind').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('blind_new_val').value;
                 if (feild_data == "") {
@@ -196,7 +197,7 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_braille').bind('click keyup', function () {
+            $('#save_braille').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('braille_new_val').value;
                 if (feild_data == "") {
@@ -210,7 +211,7 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_deaf').bind('click keyup', function (){
+            $('#save_deaf').once().click(function (){
                 var vfeildarray;
                 var feild_data = document.getElementById('deaf_new_val').value;
                 if (feild_data == "") {
@@ -224,7 +225,7 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_media_type').bind('click keyup', function () {
+            $('#save_media_type').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('media_type_new_val').value;
                 if (feild_data == "") {
@@ -238,7 +239,7 @@
                 ajax_change_call(vfeildarray);
                 alert("Changes made successfully");
             });
-            $('#save_prim_phone').bind('click keyup', function () {
+            $('#save_prim_phone').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_phone_new_val').value;
                 if (feild_data == "") {
@@ -260,7 +261,7 @@
                 document.getElementById("open_field").innerText = "None";
                 alert("Changes made successfully");
             });
-            $('#save_prim_email').bind('click keyup', function () {
+            $('#save_prim_email').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('prim_email_new_val').value;
                 if (feild_data == "") {
@@ -285,7 +286,7 @@
                 alert("Changes made successfully");
 
             });
-            $('#save_f_name').bind('click keyup', function () {
+            $('#save_f_name').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('f_name_new_val').value;
                 if (feild_data == "") {
@@ -310,7 +311,7 @@
 
 
             });
-            $('#save_l_name').bind('click keyup', function () {
+            $('#save_l_name').once().click(function () {
                 var vfeildarray;
                 var feild_data = document.getElementById('l_name_new_val').value;
                 if (feild_data == "") {
@@ -334,7 +335,7 @@
 
                 alert("Changes made successfully");
             });
-            $('#edit_f_name').bind('click keyup', function () {
+            $('#edit_f_name').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -361,7 +362,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_l_name').bind('click keyup', function () {
+            $('#edit_l_name').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -388,7 +389,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_braille').bind('click keyup', function () {
+            $('#edit_braille').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -412,7 +413,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_dog').bind('click keyup', function () {
+            $('#edit_dog').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -436,7 +437,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_prim_email').bind('click keyup', function () {
+            $('#edit_prim_email').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -463,7 +464,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_prim_phone').bind('click keyup', function () {
+            $('#edit_prim_phone').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -490,7 +491,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_prim_street').bind('click keyup', function () {
+            $('#edit_prim_street').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -570,7 +571,7 @@
                     document.getElementById("prim_state_new_val").value = document.getElementById("state_val").innerText;
                 }
             );
-            $('#edit_pronouns').bind('click keyup', function () {
+            $('#edit_pronouns').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -597,7 +598,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_dob').bind('click keyup', function () {
+            $('#edit_dob').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -621,7 +622,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_disability').bind('click keyup', function () {
+            $('#edit_disability').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -649,7 +650,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_blind').bind('click keyup', function () {
+            $('#edit_blind').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -676,7 +677,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_deaf').bind('click keyup', function () {
+            $('#edit_deaf').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -703,7 +704,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_gender').bind('click keyup', function () {
+            $('#edit_gender').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -729,7 +730,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_lang_pref').bind('click keyup', function () {
+            $('#edit_lang_pref').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -756,7 +757,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_media_pref').bind('click keyup', function () {
+            $('#edit_media_pref').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -782,7 +783,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#cancel_media_type').bind('click keyup', function () {
+            $('#cancel_media_type').once().click(function () {
                 document.getElementById("edit_media_pref").focus();
                 document.getElementById("media_type_edit_div").style.display = "None";
                 document.getElementById("media_type_new_val").style.display = "None";
@@ -792,7 +793,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_dog').bind('click keyup', function () {
+            $('#cancel_dog').once().click(function () {
                 document.getElementById("edit_dog").focus();
                 document.getElementById("dog_edit_div").style.display = "None";
                 document.getElementById("dog_new_val").style.display = "None";
@@ -802,7 +803,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_braille').bind('click keyup', function () {
+            $('#cancel_braille').once().click(function () {
                 document.getElementById("edit_braille").focus();
                 document.getElementById("braille_edit_div").style.display = "None";
                 document.getElementById("braille_new_val").style.display = "None";
@@ -812,7 +813,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_blind').bind('click keyup', function () {
+            $('#cancel_blind').once().click(function () {
                 document.getElementById("edit_blind").focus();
                 document.getElementById("blind_edit_div").style.display = "None";
                 document.getElementById("blind_new_val").style.display = "None";
@@ -822,7 +823,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_deaf').bind('click keyup', function () {
+            $('#cancel_deaf').once().click(function () {
                 document.getElementById("edit_deaf").focus();
                 document.getElementById("deaf_edit_div").style.display = "None";
                 document.getElementById("deaf_new_val").style.display = "None";
@@ -832,7 +833,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_gender').bind('click keyup', function () {
+            $('#cancel_gender').once().click(function () {
                 document.getElementById("edit_gender").focus();
                 document.getElementById("gender_edit_div").style.display = "None";
                 document.getElementById("gender_new_val").style.display = "None";
@@ -842,7 +843,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_lang_pref').bind('click keyup', function () {
+            $('#cancel_lang_pref').once().click(function () {
                 document.getElementById("lang_pref_edit_div").style.display = "None";
                 document.getElementById("lang_pref_new_val").style.display = "None";
                 document.getElementById("cancel_lang_pref").style.display = "None";
@@ -851,7 +852,7 @@
                 document.getElementById("edit_open").innerText = "Not Open";
                 document.getElementById("open_field").innerText = "None";
             });
-            $('#cancel_disability').bind('click keyup', function () {
+            $('#cancel_disability').once().click(function () {
                 document.getElementById("edit_disability").focus();
                 document.getElementById("disability_edit_div").style.display = "None";
                 document.getElementById("disability_new_val").style.display = "None";
@@ -861,7 +862,7 @@
                 document.getElementById("open_field").innerText = "None";
                 document.getElementById("edit_disability").focus();
             });
-            $('#cancel_pronouns').bind('click keyup', function () {
+            $('#cancel_pronouns').once().click(function () {
                 document.getElementById("edit_pronouns").focus();
                 document.getElementById("pronouns_edit_div").style.display = "None";
                 document.getElementById("pronouns_new_val").style.display = "None";
@@ -871,7 +872,7 @@
                 document.getElementById("open_field").innerText = "None";
 
             });
-            $('#cancel_dob').bind('click keyup', function () {
+            $('#cancel_dob').once().click(function () {
                 document.getElementById('edit_dob').focus();
                 document.getElementById("dob_edit_div").style.display = "None";
                 document.getElementById("dob_new_val").style.display = "None";
@@ -881,7 +882,7 @@
                 document.getElementById("open_field").innerText = "None";
 
             });
-            $('#cancel_prim_zip').bind('click keyup', function () {
+            $('#cancel_prim_zip').once().click(function () {
                 document.getElementById('edit_prim_street').focus();
                 document.getElementById("prim_zip_edit_div").style.display = "None";
                 document.getElementById("prim_zip_new_val").style.display = "None";
@@ -906,7 +907,7 @@
 
             });
 
-            $('#cancel_prim_phone').bind('click keyup', function () {
+            $('#cancel_prim_phone').once().click(function () {
                 document.getElementById("edit_prim_phone").focus();
                 document.getElementById("prim_phone_edit_div").style.display = "None";
                 document.getElementById("prim_phone_new_val").style.display = "None";
@@ -916,7 +917,7 @@
                 document.getElementById("open_field").innerText = "None";
 
             });
-            $('#cancel_prim_email').bind('click keyup', function () {
+            $('#cancel_prim_email').once().click(function () {
                 document.getElementById("edit_prim_email").focus();
                 document.getElementById("prim_email_edit_div").style.display = "None";
                 document.getElementById("prim_email_new_val").style.display = "None";
@@ -926,7 +927,7 @@
                 document.getElementById("open_field").innerText = "None";
 
             });
-            $('#cancel_l_name').bind('click keyup', function () {
+            $('#cancel_l_name').once().click(function () {
                 document.getElementById("edit_l_name").focus();
                 document.getElementById("last_name_edit_div").style.display = "None";
                 document.getElementById("l_name_new_val").style.display = "None";
@@ -936,7 +937,7 @@
                 document.getElementById("open_field").innerText = "None";
 
             });
-            $('#cancel_f_name').bind('click keyup', function () {
+            $('#cancel_f_name').once().click(function () {
                 document.getElementById("edit_f_name").focus();
                 document.getElementById("first_name_edit_div").style.display = "None";
                 document.getElementById("f_name_new_val").style.display = "None";
