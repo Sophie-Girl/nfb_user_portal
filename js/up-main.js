@@ -694,33 +694,35 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_gender').bind('click keyup', function(event) { {
-               if(event.type == "click" || event.witch == 13){
-                var editstatus = document.getElementById("edit_open").innerText;
-                var openfeild = document.getElementById("open_field").innerText;
-                if (editstatus == "Not Open") {
-                    document.getElementById("gender_edit_div").style.display = "Block";
-                    document.getElementById("gender_new_val").style.display = "Block";
-                    document.getElementById("gender_new_val_lab").style.display = "Blcok";
-                    document.getElementById("cancel_gender").style.display = "inline-block";
-                    document.getElementById("save_gender").style.display = "inline-block";
-                    document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "gender";
-                    document.getElementById("gender_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "gender") {
-                    document.getElementById("edit_gender").focus();
-                    document.getElementById("gender_edit_div").style.display = "None";
-                    document.getElementById("gender_new_val").style.display = "None";
-                    document.getElementById("gender_new_val_lab").style.display = "None";
-                    document.getElementById("cancel_gender").style.display = "None";
-                    document.getElementById("save_gender").style.display = "None";
-                    document.getElementById("edit_open").innerText = "Not Open";
-                    document.getElementById("open_field").innerText = "None";
+            $('#edit_gender').bind('click keyup', function(event) {
 
-                } else {
-                    alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
-                }
-            }});
+                    if (event.type == "click" || event.witch == 13) {
+                        var editstatus = document.getElementById("edit_open").innerText;
+                        var openfeild = document.getElementById("open_field").innerText;
+                        if (editstatus == "Not Open") {
+                            document.getElementById("gender_edit_div").style.display = "Block";
+                            document.getElementById("gender_new_val").style.display = "Block";
+                            document.getElementById("gender_new_val_lab").style.display = "Blcok";
+                            document.getElementById("cancel_gender").style.display = "inline-block";
+                            document.getElementById("save_gender").style.display = "inline-block";
+                            document.getElementById("edit_open").innerText = "Open";
+                            document.getElementById("open_field").innerText = "gender";
+                            document.getElementById("gender_new_val").focus();
+                        } else if (editstatus == "Open" && openfeild == "gender") {
+                            document.getElementById("edit_gender").focus();
+                            document.getElementById("gender_edit_div").style.display = "None";
+                            document.getElementById("gender_new_val").style.display = "None";
+                            document.getElementById("gender_new_val_lab").style.display = "None";
+                            document.getElementById("cancel_gender").style.display = "None";
+                            document.getElementById("save_gender").style.display = "None";
+                            document.getElementById("edit_open").innerText = "Not Open";
+                            document.getElementById("open_field").innerText = "None";
+
+                        } else {
+                            alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
+                        }
+                    }
+                });
             $('#edit_lang_pref').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
