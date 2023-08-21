@@ -694,7 +694,8 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_gender').once().keyup(function () {
+            $('#edit_gender').bind('click keyup', function(event) { {
+               if(event.type == "click" || event.witch == 13){
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
@@ -719,7 +720,7 @@
                 } else {
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
-            });
+            }});
             $('#edit_lang_pref').once().click(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
