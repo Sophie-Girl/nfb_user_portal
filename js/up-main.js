@@ -694,7 +694,7 @@
                     alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                 }
             });
-            $('#edit_gender').once().onkeyup(function () {
+            $('#edit_gender').once().keyup(function () {
                 var editstatus = document.getElementById("edit_open").innerText;
                 var openfeild = document.getElementById("open_field").innerText;
                 if (editstatus == "Not Open") {
