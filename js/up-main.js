@@ -700,6 +700,7 @@
                 var string_type = type.toString();
                 console.log(string_type+" "+event.type)
                     if (string_type  == 'click') {
+                        console.log(event.type)
                         var editstatus = document.getElementById("edit_open").innerText;
                         var openfeild = document.getElementById("open_field").innerText;
                         if (editstatus == "Not Open") {
@@ -724,6 +725,9 @@
                         } else {
                             alert("Cannot edit more than one field at a time. Please close the " + openfeild + " edit field and try again.")
                         }
+                    }
+                    else{
+                        console.log("I hate this shit");
                     }
                 });
             $('#edit_lang_pref').once().click(function () {
