@@ -81,7 +81,7 @@ class AdminImportForm extends FormBase
             );
             }
         }
-        $data = $bad_contacts; $fileName = DRUPAL_ROOT."sites/default/files/Bad_user_requests_".date('m-d-y').'.csv';
+        $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/Bad_user_requests_".date('m-d-y').'.csv';
         $this->download_report($fileName, $data);
     }
     public function check_if_civi_id_in_use($contact)
