@@ -3,6 +3,7 @@ Namespace Drupal\nfb_user_portal\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\nfb_user_portal\civi_query\query_base;
+use Drupal\nfb_user_portal\SQL\admin\User_request_queries;
 
 class AdminImportForm extends FormBase
 {
@@ -35,23 +36,80 @@ class AdminImportForm extends FormBase
         $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/data.csv";
         \Drupal::logger("file_reading_text")->notice("File name: ".$file);
         $this->Import_CSV($file, $contacts);
+        $bad_contacts['0'] = array(
+            'first_name' => "first_name",
+            "last_name" => "last_name",
+            "email" => "email",
+            "contact_id" => "contact_id",
+            "reason_for_rejection" => "reason_for_rejection"
+        );
         foreach ($contacts as $contact)
         {
+            $add = "no";
           $email_test =  $contact['email'];
             if (filter_var($email_test, FILTER_VALIDATE_EMAIL)){
                 // if email good. Proceed.
                $run =  $this->check_email_in_user($email_test);
                if($run == "New")
                {
-                   $this->create_user($contact);
-                   $civi = new query_base();
-                   $this->find_uf_match($civi, $contact);
-
+                   $new_user = $this->check_if_civi_id_in_use($contact);
+                   if($new_user == "Yes") {
+                       $this->create_user($contact);
+                       $civi = new query_base();
+                       $this->find_uf_match($civi, $contact);
+                       // $this->emial_functions($contact);
+                   }
+                   else {
+                       $add = "contact ID in use";
+                   }
+               }
+               else{
+                   $add = "email in use";
                }
             }
+            else{
+                $add = "invalid email";
+            }
+            if ($add != "no")
+            {
+                $bad_contacts[$contact['contact_id']] = array(
+                    'first_name' => $contact['first_name'],
+                    "last_name" => $contact['last_name'],
+                    "email" => $contact['email'],
+                    "contact_id" => $contact['contact_id'],
+                    "reason_for_rejection" => $add
+            );
+            }
         }
+        $data = $bad_contacts; $fileName = DRUPAL_ROOT."sites/default/files/Bad_user_requests_".date('m-d-y').'.csv';
+        $this->download_report($fileName, $data);
     }
-
+    public function check_if_civi_id_in_use($contact)
+    {
+        $civi = new query_base();
+        $civi->entity = "UFMatch";
+        $civi->mode = "get";
+        $civi->params = array(
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['contact_id', '=', $contact['id']],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+            );
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        if ($result->count() > 0)
+        {
+            $run = "no";
+        }
+        else{
+            $run = "yes";
+        }
+        return $run;
+    }
     Public Function Import_CSV($file, &$contacts)
     {
         $contacts = $fields = array(); $i=0;
@@ -98,10 +156,10 @@ class AdminImportForm extends FormBase
         \Drupal::logger("url_check")->notice("usl: ".$this->get_reset_link());
     }
 
-    public function civi_user_set_up()
+    public function civi_user_set_up($contact)
     {
         $civi = new query_base();
-        $this->find_uf_match($civi);
+        $this->find_uf_match($civi, $contact);
 
     }
 
@@ -178,5 +236,109 @@ class AdminImportForm extends FormBase
             }
         }
         return $exists;
+    }
+    public function emial_functions($contact)
+    {
+        $array = $this->civi__find_id();
+        $template = $array['text'];
+        $subject = $array['subject'];
+        $template = str_replace("{display_name}", $this->get_name(), $template);
+        $template = str_replace("{display_email}", $this->get_email(), $template);
+        $template = str_replace("{reset_link}", $this->reset_link, $template);
+        $recipient_email = $this->get_email();
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        $module = 'nfb_user_portal';
+        $key = 'nfb_user_portal_complete';
+        $to = $contact['email'];
+        $send = true;
+        $params['message'] = $template;
+        $params['subject'] = $subject;
+        $langcode = "en";
+        $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
+    }
+    public function find_tempalte_id()
+    {
+        $sql = new User_request_queries();
+        $query = "select * from nfb_user_portal_templates 
+where type_id = '1';";
+        $key = 'tid';
+        $sql->select_query($query, $key);
+        $result = $sql->get_result();
+        foreach ($result as $string) {
+            $string = get_object_vars($string);
+            $template_id = $string['tid'];
+        }
+        return $template_id;
+    }
+
+    public function civi__find_id()
+    {
+        $civi = new query_base();
+        $civi->entity = "MessageTemplate";
+        $civi->mode = "get";
+        $civi->params = array(
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['id', '=', $this->find_tempalte_id()],
+            ],
+            'limit' => 1,
+            'checkPermissions' => FALSE,
+        );
+        $civi->civi_api_v4_query();
+        $result = $civi->get_civi_result();
+        $template_array = $result->first();
+        $template['text'] = $template_array['msg_text'];
+        $template['subject'] = $template_array['msg_subject'];
+        return $template;
+    }
+    public function set_headers($fileName)
+    {
+        ob_clean();
+        header('Pragma: public');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Cache-Control: private', false);
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment;filename=' . $fileName);
+    }
+    public function check_file_size($data, $fileName, &$file, &$size)
+    {
+        if (isset($data['0'])) {
+            $fp = fopen($fileName, 'w');
+            fputcsv($fp, array_keys($data['0']));
+            foreach ($data AS $values) {
+                fputcsv($fp, $values);}
+
+            fclose($fp);}
+        ob_flush();
+
+        $file = file_get_contents($fileName);
+        $size = @filesize($fileName);
+    }
+    public function file_download($file, $size, $fileName)
+    {
+        if (strlen($file) > 0) {
+            ob_start();  // buffer all but headers
+            ob_end_clean();  // headers get sent, erase all buffering and enable output
+            header("Content-type: text/csv");
+            header("Content-length: " . $size);
+            header('Pragma: public');
+            header("Content-Description: PHP Generated Data");
+            $new_file_name = str_replace(DRUPAL_ROOT."/sites/default/files/","", $fileName);
+            header('Content-Disposition: attachment; filename="' .$new_file_name. '"');
+            header('Content-Encoding: UTF-8');
+            header('Content-type: text/csv; charset=UTF-8');
+            echo "\xEF\xBB\xBF";
+            echo $file;
+            unlink($fileName);
+            exit;}
+    }
+    public function download_report($fileName, $data)
+    {
+        $this->set_headers($fileName);
+        $this->check_file_size($data, $fileName, $file, $size);
+        $this->file_download($file, $size, $fileName);
     }
 }
