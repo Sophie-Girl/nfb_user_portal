@@ -34,7 +34,7 @@ class AdminImportForm extends FormBase
     {
         ini_set('max_execution_time', 1300); // make sure it can process big files
         $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/upload.csv";
-        \Drupal::logger("file_reading_text")->notice("File name: ".$file);
+
         $this->Import_CSV($file, $contacts);
 
         $bad_contacts['0'] = array(
@@ -47,16 +47,20 @@ class AdminImportForm extends FormBase
         $count_limit = 100; $count = 0;
         foreach ($contacts as $contact)
         {
-            \Drupal::logger("file_reading_text")->notice("contact: ".print_r($contact, true));
+
             if($count <= $count_limit){
             $add = "no";
             $email_test = trim($contact['email']);
             if (filter_var($email_test, FILTER_VALIDATE_EMAIL)) {
                 // if email good. Proceed.
                 $run = $this->check_email_in_user($email_test);
+                \Drupal::logger("file_reading_text")->notice("passes valid email");
                 if ($run == "New") {
+                    \Drupal::logger("file_reading_text")->notice("passes new email");
                     $new_user = $this->check_if_civi_id_in_use($contact);
                     if ($new_user == "Yes") {
+
+                        \Drupal::logger("file_reading_text")->notice("passes user new ");
                         $this->create_user($contact);
                         $civi = new query_base();
                         $this->find_uf_match($civi, $contact);
@@ -74,7 +78,7 @@ class AdminImportForm extends FormBase
                 $bad_contacts[$contact['contact_id']] = array(
                     'first_name' => $contact['first_name'],
                     "last_name" => $contact['last_name'],
-                    "email" => $contact['email'],
+                    "email" => trim($contact['email']),
                     "contact_id" => $contact['contact_id'],
                     "reason_for_rejection" => $add
                 );
@@ -95,7 +99,7 @@ class AdminImportForm extends FormBase
                 '*',
             ],
             'where' => [
-                ['contact_id', '=', $contact['id']],
+                ['contact_id', '=', $contact['contact_id']],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
@@ -144,8 +148,8 @@ class AdminImportForm extends FormBase
         // set_up_needs
         $user->setPassword($this->generateRandomString());
         $user->enforceIsNew();
-        $user->setEmail($contact['email']);
-        $user->setUsername($contact['email']);
+        $user->setEmail(trim($contact['email']));
+        $user->setUsername(trim($contact['email']));
         // Optional.
         $user->set('init', 'email');
         $user->activate();
