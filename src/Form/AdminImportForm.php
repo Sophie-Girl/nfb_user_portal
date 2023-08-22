@@ -36,6 +36,7 @@ class AdminImportForm extends FormBase
         $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/upload.csv";
         \Drupal::logger("file_reading_text")->notice("File name: ".$file);
         $this->Import_CSV($file, $contacts);
+
         $bad_contacts['0'] = array(
             'first_name' => "first_name",
             "last_name" => "last_name",
@@ -43,7 +44,7 @@ class AdminImportForm extends FormBase
             "contact_id" => "contact_id",
             "reason_for_rejection" => "reason_for_rejection"
         );
-        $count_limit = 10; $count = 0;
+        $count_limit = 100; $count = 0;
         foreach ($contacts as $contact)
         {
             if($count <= $count_limit){
@@ -332,7 +333,7 @@ where type_id = '1';";
             echo "\xEF\xBB\xBF";
             echo $file;
             unlink($fileName);
-            exit;}
+            }
     }
     public function download_report($fileName, $data)
     {
