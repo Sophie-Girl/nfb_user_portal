@@ -103,3 +103,11 @@ nfb_user_portal.content_table:
   requirements:
     _permission: 'access content'
     _role: 'content_admin'
+nfb_user_portal.admin_import:
+  path: 'member_portal/admin/import'
+  defaults:
+    _form: 'Drupal\nfb_user_portal\Form\AdminImportForm'
+    _title: 'Manage Member Profile Content'
+  requirements:
+    _permission: 'access content'
+    _role: 'content_admin'

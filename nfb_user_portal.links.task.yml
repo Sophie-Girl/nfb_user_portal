@@ -43,3 +43,8 @@ nfb_user_portal.content:
   title: "Member Profile Content"
   base_route: nfb_member.admin
   weight: 400
+nfb_user_portal.start:
+  route_name: nfb_user_portal.admin_import
+  title: "Member Profile Import"
+  base_route: nfb_member.admin
+  weight: 500
