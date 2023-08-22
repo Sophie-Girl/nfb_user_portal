@@ -193,7 +193,7 @@ class AdminImportForm extends FormBase
                 'values' => [
                     'domain_id' => 1,
                     'uf_id' => $this->get_user_id(),
-                    'contact_id' => $contact['civicrm_id'],
+                    'contact_id' => $contact['contact_id'],
                 ],
                 'checkPermissions' => FALSE,
             );
@@ -204,7 +204,7 @@ class AdminImportForm extends FormBase
             $civi->mode = "update";
             $civi->params = array(
                 'values' => [
-                    'contact_id' => $contact['civi_id'],
+                    'contact_id' => $contact['contact_id'],
                 ],
                 'where' => [
                     ['id', '=', $id],
@@ -250,7 +250,7 @@ class AdminImportForm extends FormBase
         $template = str_replace("{display_name}", $this->get_name(), $template);
         $template = str_replace("{display_email}", $this->get_email(), $template);
         $template = str_replace("{reset_link}", $this->reset_link, $template);
-        $recipient_email = $this->get_email();
+        $recipient_email = trim($contact['email']);
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'nfb_user_portal';
         $key = 'nfb_user_portal_complete';
