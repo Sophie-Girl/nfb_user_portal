@@ -58,7 +58,7 @@ class AdminImportForm extends FormBase
                 if ($run == "New") {
                     \Drupal::logger("file_reading_text")->notice("passes new email");
                     $new_user = $this->check_if_civi_id_in_use($contact);
-                    if ($new_user == "Yes") {
+                    if ($new_user == "yes") {
 
                         \Drupal::logger("file_reading_text")->notice("passes user new ");
                         $this->create_user($contact);
@@ -193,7 +193,7 @@ class AdminImportForm extends FormBase
                 'values' => [
                     'domain_id' => 1,
                     'uf_id' => $this->get_user_id(),
-                    'contact_id' => $contact['civi_id'],
+                    'contact_id' => $contact['civicrm_id'],
                 ],
                 'checkPermissions' => FALSE,
             );
