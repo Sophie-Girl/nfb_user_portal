@@ -43,44 +43,42 @@ class AdminImportForm extends FormBase
             "contact_id" => "contact_id",
             "reason_for_rejection" => "reason_for_rejection"
         );
-        $count = 10;
+        $count_limit = 10; $count = 0;
         foreach ($contacts as $contact)
         {
+            if($count <= $count_limit){
             $add = "no";
-          $email_test =  $contact['email'];
-            if (filter_var($email_test, FILTER_VALIDATE_EMAIL)){
+            $email_test = $contact['email'];
+            if (filter_var($email_test, FILTER_VALIDATE_EMAIL)) {
                 // if email good. Proceed.
-               $run =  $this->check_email_in_user($email_test);
-               if($run == "New")
-               {
-                   $new_user = $this->check_if_civi_id_in_use($contact);
-                   if($new_user == "Yes") {
-                       $this->create_user($contact);
-                       $civi = new query_base();
-                       $this->find_uf_match($civi, $contact);
-                       // $this->emial_functions($contact);
-                   }
-                   else {
-                       $add = "contact ID in use";
-                   }
-               }
-               else{
-                   $add = "email in use";
-               }
-            }
-            else{
+                $run = $this->check_email_in_user($email_test);
+                if ($run == "New") {
+                    $new_user = $this->check_if_civi_id_in_use($contact);
+                    if ($new_user == "Yes") {
+                        $this->create_user($contact);
+                        $civi = new query_base();
+                        $this->find_uf_match($civi, $contact);
+                        // $this->emial_functions($contact);
+                    } else {
+                        $add = "contact ID in use";
+                    }
+                } else {
+                    $add = "email in use";
+                }
+            } else {
                 $add = "invalid email";
             }
-            if ($add != "no")
-            {
+            if ($add != "no") {
                 $bad_contacts[$contact['contact_id']] = array(
                     'first_name' => $contact['first_name'],
                     "last_name" => $contact['last_name'],
                     "email" => $contact['email'],
                     "contact_id" => $contact['contact_id'],
                     "reason_for_rejection" => $add
-            );
+                );
             }
+        }
+           $count ++;
         }
         $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/Bad_user_requests_".date('m-d-y').'.csv';
         $this->download_report($fileName, $data);
