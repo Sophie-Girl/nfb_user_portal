@@ -86,7 +86,7 @@ class AdminImportForm extends FormBase
         }
            $count ++;
         }
-        $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/Bad_user_requests_".date('m-d-y').'.csv';
+        $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/bad_user_requests_".date('m-d-y').'.csv';
         $this->download_report($fileName, $data);
     }
     public function check_if_civi_id_in_use($contact)
@@ -325,6 +325,7 @@ where type_id = '1';";
     public function file_download($file, $size, $fileName)
     {
         if (strlen($file) > 0) {
+            \Drupal::logger("download_issue")->notice("i should be downloading");
             ob_start();  // buffer all but headers
             ob_end_clean();  // headers get sent, erase all buffering and enable output
             header("Content-type: text/csv");
