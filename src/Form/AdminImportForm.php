@@ -47,9 +47,10 @@ class AdminImportForm extends FormBase
         $count_limit = 100; $count = 0;
         foreach ($contacts as $contact)
         {
+            \Drupal::logger("file_reading_text")->notice("contact: ".print_r($contact, true));
             if($count <= $count_limit){
             $add = "no";
-            $email_test = $contact['email'];
+            $email_test = trim($contact['email']);
             if (filter_var($email_test, FILTER_VALIDATE_EMAIL)) {
                 // if email good. Proceed.
                 $run = $this->check_email_in_user($email_test);
