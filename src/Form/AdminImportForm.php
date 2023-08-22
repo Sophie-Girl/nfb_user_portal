@@ -43,6 +43,7 @@ class AdminImportForm extends FormBase
             "contact_id" => "contact_id",
             "reason_for_rejection" => "reason_for_rejection"
         );
+        $count = 10;
         foreach ($contacts as $contact)
         {
             $add = "no";
