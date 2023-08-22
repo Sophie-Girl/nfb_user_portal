@@ -33,7 +33,7 @@ class AdminImportForm extends FormBase
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
         ini_set('max_execution_time', 1300); // make sure it can process big files
-        $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/data.csv";
+        $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/upload.csv";
         \Drupal::logger("file_reading_text")->notice("File name: ".$file);
         $this->Import_CSV($file, $contacts);
         $bad_contacts['0'] = array(
