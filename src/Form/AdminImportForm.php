@@ -56,7 +56,7 @@ class AdminImportForm extends FormBase
                     $new_user = $this->check_if_civi_id_in_use($contact);
                     if ($new_user == "yes") {
 
-                        \Drupal::logger("file_reading_text")->notice("passes user new ");
+                        \Drupal::logger("file_reading_text")->notice("passes user new ".$contact['contact_id']);
                         $this->create_user($contact);
                         $civi = new query_base();
                         $this->find_uf_match($civi, $contact);
@@ -223,7 +223,6 @@ class AdminImportForm extends FormBase
         }
         if($exists == "New")
         {
-            \Drupal::logger("error_stuff")->notice("entity:  I get here");
             $ids = \Drupal::entityQuery('user')
                 ->condition('mail', trim($username))
                 ->range(0, 1)
@@ -320,7 +319,7 @@ where type_id = '1';";
     public function file_download($file, $size, $fileName)
     {
         if (strlen($file) > 0) {
-            \Drupal::logger("download_issue")->notice("i should be downloading");
+
             ob_start();  // buffer all but headers
             ob_end_clean();  // headers get sent, erase all buffering and enable output
             header("Content-type: text/csv");
