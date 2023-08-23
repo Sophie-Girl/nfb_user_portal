@@ -275,6 +275,7 @@ where type_id = '1';";
             'select' => [
                 '*',
             ],
+
             'where' => [
                 ['id', '=', $this->find_tempalte_id()],
             ],
