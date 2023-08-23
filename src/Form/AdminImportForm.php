@@ -234,6 +234,7 @@ class AdminImportForm extends FormBase
                 $exists = "New";
             }
         }
+        \Drupal::logger("why")->noticE("exists ".$exists);
         return $exists;
     }
     public function emial_functions($contact)
