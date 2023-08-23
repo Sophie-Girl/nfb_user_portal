@@ -705,9 +705,9 @@
                     document.getElementById("cancel_deaf").style.display = "inline-block";
                     document.getElementById("save_deaf").style.display = "inline-block";
                     document.getElementById("edit_open").innerText = "Open";
-                    document.getElementById("open_field").innerText = "deaf blind status";
+                    document.getElementById("open_field").innerText = "Deafblind";
                     document.getElementById("deaf_new_val").focus();
-                } else if (editstatus == "Open" && openfeild == "deaf blind status") {
+                } else if (editstatus == "Open" && openfeild == "Deafblind") {
                     document.getElementById("edit_deaf").focus()
                     document.getElementById("deaf_edit_div").style.display = "None";
                     document.getElementById("deaf_new_val").style.display = "None";

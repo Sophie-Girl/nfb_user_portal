@@ -34,9 +34,7 @@ class AdminImportForm extends FormBase
     {
         ini_set('max_execution_time', 1300); // make sure it can process big files
         $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/upload.csv";
-
         $this->Import_CSV($file, $contacts);
-
         $bad_contacts['0'] = array(
             'first_name' => "first_name",
             "last_name" => "last_name",
@@ -44,11 +42,9 @@ class AdminImportForm extends FormBase
             "contact_id" => "contact_id",
             "reason_for_rejection" => "reason_for_rejection"
         );
-        $count_limit = 100; $count = 0;
+
         foreach ($contacts as $contact)
         {
-
-            if($count <= $count_limit){
             $add = "no";
             $email_test = trim($contact['email']);
             if (filter_var($email_test, FILTER_VALIDATE_EMAIL)) {
@@ -83,8 +79,6 @@ class AdminImportForm extends FormBase
                     "reason_for_rejection" => $add
                 );
             }
-        }
-           $count ++;
         }
         $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/bad_user_requests_".date('m-d-y').'.csv';
         $this->download_report($fileName, $data);
