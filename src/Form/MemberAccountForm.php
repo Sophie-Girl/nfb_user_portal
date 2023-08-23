@@ -131,7 +131,6 @@ class MemberAccountForm extends FormBase
         $user = \Drupal::currentUser(); // get the user.
         $uname =  $user->getAccountName();
         $this->old_user_name = $uname;
-        \Drupal::logger("username_check")->notice("username check ".$uname);
         $uid = $user->getAccount()->id();
         $this->user_id = $uid;
         $entity = User::load($uid);

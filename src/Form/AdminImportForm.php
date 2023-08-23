@@ -50,13 +50,10 @@ class AdminImportForm extends FormBase
             if (filter_var($email_test, FILTER_VALIDATE_EMAIL)) {
                 // if email good. Proceed.
                 $run = $this->check_email_in_user($email_test);
-                \Drupal::logger("file_reading_text")->notice("passes valid email");
                 if ($run == "New") {
-                    \Drupal::logger("file_reading_text")->notice("passes new email");
                     $new_user = $this->check_if_civi_id_in_use($contact);
                     if ($new_user == "yes") {
 
-                        \Drupal::logger("file_reading_text")->notice("passes user new ".$contact['contact_id']);
                         $this->create_user($contact);
                         $civi = new query_base();
                         $this->find_uf_match($civi, $contact);
@@ -152,7 +149,6 @@ class AdminImportForm extends FormBase
         $result = $user->save();
         $this->user_id = $user->id();
         $this->reset_link = user_pass_reset_url($user);
-        \Drupal::logger("url_check")->notice("usl: ".$this->get_reset_link());
     }
 
     public function civi_user_set_up($contact)
@@ -234,7 +230,6 @@ class AdminImportForm extends FormBase
                 $exists = "New";
             }
         }
-        \Drupal::logger("why")->noticE("exists ".$exists);
         return $exists;
     }
     public function emial_functions($contact)

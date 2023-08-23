@@ -253,7 +253,6 @@ class AdminCompleteRequestForm extends FormBase
         $result = $user->save();
         $this->user_id = $user->id();
         $this->reset_link = user_pass_reset_url($user);
-        \Drupal::logger("url_check")->notice("usl: ".$this->get_reset_link());
     }
 
     public function civi_user_set_up()
@@ -325,7 +324,6 @@ class AdminCompleteRequestForm extends FormBase
         }
         if($exists == "New")
         {
-            \Drupal::logger("error_stuff")->notice("entity:  I get here");
             $ids = \Drupal::entityQuery('user')
                 ->condition('mail', trim($username))
                 ->range(0, 1)
@@ -335,7 +333,6 @@ class AdminCompleteRequestForm extends FormBase
             } else {
                 $exists = "New";
             }
-            \Drupal::logger("error_stuff")->notice("entity:  I get past here");
         }
         if ($exists == "Not New") {
             $form_state->setValue("status", "Duplicate Email");
@@ -495,7 +492,6 @@ where type_id = '1';";
         $this->rid = $this->string_parser($string);
         $start = $end + 2;
         $post_rid = substr($orig_string, $start, 200);
-        \drupal::logger("i_hate_my_life")->notice("post_rid ".$post_rid );
         $url = "/member_portal/admin/user_request/".$this->set_rediect_url($post_rid);
         $ender = new RedirectResponse($url);
         $ender->send(); exit;

@@ -80,7 +80,6 @@ class AdminEmailTempForm extends FormBase {
         $key = "tid";
         $sql = new User_request_queries();
         $sql->select_query($query, $key);
-        \Drupal::logger("sql_issue")->notice("results ".print_r($sql->get_result(), true));
         foreach ($sql->get_result() as $template)
         {
             $template = get_object_vars($template);
@@ -127,7 +126,7 @@ class AdminEmailTempForm extends FormBase {
         return $options;
     }
     public function create_database_records(FormStateInterface  $form_state)
-    {\drupal::logger("insert_test")->notice("I got here");
+    {
         $database = \Drupal::database();
         if ($database->schema()->tableExists("nfb_user_portal_templates")) {
             $fields = array(
