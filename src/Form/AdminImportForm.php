@@ -195,6 +195,7 @@ class AdminImportForm extends FormBase
         } else {
             $uf_match = $result->first();
             $id = $uf_match['id'];
+            $old_id = $uf_match['contact_id'];
             $civi->mode = "update";
             $civi->params = array(
                 'values' => [
@@ -205,6 +206,18 @@ class AdminImportForm extends FormBase
                 ],
                 'checkPermissions' => FALSE,
             );
+            $civi->civi_api_v4_query();
+            $civi->entity = "Contact";
+            $civi->params =
+                [
+                    'values' => [
+                        'is_deleted' => TRUE,
+                    ],
+                    'where' => [
+                        ['id', '=', $old_id],
+                    ],
+                    'checkPermissions' => FALSE,
+                ];
             $civi->civi_api_v4_query();
         }
     }
