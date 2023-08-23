@@ -60,7 +60,7 @@ class AdminImportForm extends FormBase
                         $this->create_user($contact);
                         $civi = new query_base();
                         $this->find_uf_match($civi, $contact);
-                        // $this->emial_functions($contact);
+                        $this->emial_functions($contact);
                     } else {
                         $add = "contact ID in use";
                     }
@@ -206,18 +206,6 @@ class AdminImportForm extends FormBase
                 ],
                 'checkPermissions' => FALSE,
             );
-            $civi->civi_api_v4_query();
-            $civi->entity = "Contact";
-            $civi->params =
-                [
-                    'values' => [
-                        'is_deleted' => TRUE,
-                    ],
-                    'where' => [
-                        ['id', '=', $old_id],
-                    ],
-                    'checkPermissions' => FALSE,
-                ];
             $civi->civi_api_v4_query();
         }
     }
