@@ -35,7 +35,7 @@ class AdminImportForm extends FormBase
         ini_set('max_execution_time', 50000); // make sure it can process big files
         $file = DRUPAL_ROOT."/modules/custom/nfb_user_portal/src/csv/upload.csv";
         $this->Import_CSV($file, $contacts);
-        $bad_contacts['0'] = array(
+    /*    $bad_contacts['0'] = array(
             'first_name' => "first_name",
             "last_name" => "last_name",
             "email" => "email",
@@ -79,6 +79,21 @@ class AdminImportForm extends FormBase
         }
         $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/bad_user_requests_".date('m-d-y').'.csv';
         $this->download_report($fileName, $data);
+    */
+        foreach ($contacts as $contact) {
+            $civi = new query_base();
+            $civi->entity = "GroupContact";
+            $civi->params = [
+                'values' => [
+                    'group_id' => 682,
+                    'contact_id' => $contact['contact_id'],
+                    'status' => 'Added',
+                ],
+                'checkPermissions' => FALSE,
+            ];
+            $civi->mode = "create";
+            $civi->civi_api_v4_query();
+        }
     }
     public function check_if_civi_id_in_use($contact)
     {
