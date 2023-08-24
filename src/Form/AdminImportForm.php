@@ -85,7 +85,7 @@ class AdminImportForm extends FormBase
             $civi->entity = "GroupContact";
             $civi->params = [
                 'values' => [
-                    'group_id' => 682,
+                    'group_id' => 713,
                     'contact_id' => $contact['contact_id'],
                     'status' => 'Added',
                 ],
