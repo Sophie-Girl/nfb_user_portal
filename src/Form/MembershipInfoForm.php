@@ -16,13 +16,12 @@ class MembershipInfoForm extends FormBase
         $form['portal_markup'] = array(
             '#type' => "item",
             '#markup' => $page_builder->build_membership_markup(),
-            '#allowed_tags' => ['div', 'i', 'h4', 'h3', 'image', 'span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p', 'ul', 'li'],
+            '#allowed_tags' => ['div', 'i', 'h4', 'h3', 'b', 'image', 'span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p', 'ul', 'li'],
         );
         $form['member_benefit'] = array(
             '#type' => "item",
             '#markup' => $page_builder->member_benefits_section(),
-            '#allowed_tags' => ['div', 'i','h3',
-                'h4','image','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p', 'ui', 'li'],
+            '#allowed_tags' => ['div', 'i','h3', 'b', 'h4','image','span', 'br', 'h2','label','table','thead', 'th', 'td', 'input', 'form', 'select', 'a', 'option', 'button', 'tr', 'p', 'ui', 'li'],
         );
         $form['#attached']['library'][] = 'nfb_user_portal/up-membership';
         return $form;
