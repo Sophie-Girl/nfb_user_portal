@@ -468,7 +468,7 @@ where type_id = '1';";
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $template_array = $result->first();
-        \Drupal::logger("template_debug")->notice("params: ".print_r($result), true));
+        \Drupal::logger("template_debug")->notice("params: ".print_r($result, true));
         $template['text'] = $template_array['msg_text'];
         $template['subject'] = $template_array['msg_subject'];
         return $template;
