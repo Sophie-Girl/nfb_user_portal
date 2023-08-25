@@ -397,8 +397,9 @@ class MemberAccountForm extends FormBase
         ];
         $civi->civi_api_v4_query(); $result = $civi->get_civi_result();
         $array = $result->first();
-        \Drupal::logger("tempalte_civi_result")->notice("tempalte result: ".print_r($array, true));
+
         $template = $array['msg_text'];
+        \Drupal::logger("tempalte_civi_result")->notice("tempalte result: ".$template);
         $this->message_subject = $array['msg_subject'];
         return $template;
     }
