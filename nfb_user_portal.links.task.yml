@@ -48,3 +48,12 @@ nfb_user_portal.start:
   title: "Member Profile Import"
   base_route: nfb_member.admin
   weight: 500
+nfb_user_portal.login:
+  route_name: nfb_user_portal.stephanie
+  title: "Login"
+  weight: 100
+nfb_user_portal.reset:
+  route_name: user.reset
+  title: "Reset Your Password"
+  base_route: nfb_member.login
+  weight: 200

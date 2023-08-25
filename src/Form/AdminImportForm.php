@@ -252,9 +252,10 @@ class AdminImportForm extends FormBase
         $array = $this->civi__find_id();
         $template = $array['text'];
         $subject = $array['subject'];
-        $template = str_replace("{display_name}", $this->get_name(), $template);
-        $template = str_replace("{display_email}", $this->get_email(), $template);
+        $template = str_replace("{display_name}", $contact['contact_name'], $template);
+        $template = str_replace("{display_email}", $contact['email'], $template);
         $template = str_replace("{reset_link}", $this->reset_link, $template);
+        $template = str_replace("{contact.first_name}", $contact['contact_name'], $template);
         $recipient_email = trim($contact['email']);
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'nfb_user_portal';
