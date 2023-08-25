@@ -406,6 +406,7 @@ class MemberAccountForm extends FormBase
 
         $template = $this->get_password_email_template();
         $template = $this->find_tempalte_text_and_subject($template);
+        \Drupal::logger("template_blank")->notice("text: ".$template);
         $this->password_email_template = $this->repalce_tempalte_text($template);
         if($form_state->getValue("desire_change_uanme") == 1){
         $recipient_email = $this->get_new_user_name();}
