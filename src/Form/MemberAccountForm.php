@@ -405,6 +405,7 @@ class MemberAccountForm extends FormBase
     {
 
         $template = $this->get_password_email_template();
+        \Drupal::logger("template_blank")->notice("text: ".$template);
         $template = $this->find_tempalte_text_and_subject($template);
         \Drupal::logger("template_blank")->notice("text: ".$template);
         $this->password_email_template = $this->repalce_tempalte_text($template);
