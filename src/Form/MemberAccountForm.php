@@ -390,7 +390,7 @@ class MemberAccountForm extends FormBase
                 '*',
             ],
             'where' => [
-                ['id', '=', ''],
+                ['id', '=', $template],
             ],
             'limit' => 25,
             'checkPermissions' => FALSE,
