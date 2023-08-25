@@ -385,7 +385,7 @@ class MemberAccountForm extends FormBase
         $civi = new query_base();
         $civi->entity = "MessageTemplate";
         $civi->mode = "get";
-        $civi->entity = [
+        $civi->params = [
             'select' => [
                 '*',
             ],
