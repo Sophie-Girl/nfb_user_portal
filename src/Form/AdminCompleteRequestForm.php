@@ -437,7 +437,7 @@ where type_id = '1';";
         $result = $sql->get_result();
         foreach ($result as $string) {
             $string = get_object_vars($string);
-            $template_id = $string['tid'];
+            $template_id = $string['template_id'];
         }
         return $template_id;
     }
