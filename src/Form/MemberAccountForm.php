@@ -395,8 +395,9 @@ class MemberAccountForm extends FormBase
             'limit' => 25,
             'checkPermissions' => FALSE,
         ];
-        $civi->civi_api_v4_query(); $result = $civi->get_civi_result();\Drupal::logger("tempalte_civi_result")->notice("tempalte result: ".print_r($result, true));
+        $civi->civi_api_v4_query(); $result = $civi->get_civi_result();
         $array = $result->first();
+        \Drupal::logger("tempalte_civi_result")->notice("tempalte result: ".print_r($array, true));
         $template = $array['msg_text'];
         $this->message_subject = $array['msg_subject'];
         return $template;
