@@ -274,9 +274,14 @@ where type_id = '1';";
         $key = 'tid';
         $sql->select_query($query, $key);
         $result = $sql->get_result();
+        $template_id = null;
         foreach ($result as $string) {
             $string = get_object_vars($string);
-            $template_id = $string['template_id'];
+            if($template_id == null){
+            $template_id = $string['template_id'];}
+        }
+        if($template_id == null) {
+        $template_id = "139";
         }
         return $template_id;
     }

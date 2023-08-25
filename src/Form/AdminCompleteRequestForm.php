@@ -415,6 +415,7 @@ class AdminCompleteRequestForm extends FormBase
         $template = str_replace("{display_name}", $this->get_name(), $template);
         $template = str_replace("{display_email}", $this->get_email(), $template);
         $template = str_replace("{reset_link}", $this->reset_link, $template);
+
         $recipient_email = $this->get_email();
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'nfb_user_portal';
@@ -435,9 +436,15 @@ where type_id = '1';";
         $key = 'tid';
         $sql->select_query($query, $key);
         $result = $sql->get_result();
-        foreach ($result as $string) {
+        $template_id = null;
+        foreach ($result as $string)
             $string = get_object_vars($string);
-            $template_id = $string['template_id'];
+            if($template_id == null) {
+                $template_id = $string['template_id'];
+            }}
+            if($template_id == null) {
+                $template_id = "139";
+            }
         }
         return $template_id;
     }
