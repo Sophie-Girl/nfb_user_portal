@@ -311,10 +311,14 @@ class MemberAccountForm extends FormBase
         $query = "select * from nfb_user_portal_templates where type_id = '2';";
         $key = "tid";
         $sql->select_query($query, $key);
+        $this->user_name_email_template = null;
         foreach ($sql->get_result() as $template)
         {
             $template = get_object_vars($template);
-            $this->user_name_email_template = $template['template_id'];
+            if($this->get_user_name_email_template() == null) {
+                $this->user_name_email_template = $template['template_id'];
+
+            }
         }
         $sql = null;
     }
@@ -324,10 +328,13 @@ class MemberAccountForm extends FormBase
         $query = "select * from nfb_user_portal_templates where type_id = '3';";
         $key = "tid";
         $sql->select_query($query, $key);
-        foreach ($sql->get_result() as $template)
-        {
+        $this->password_email_template = null;
+        foreach ($sql->get_result() as $template) {
             $template = get_object_vars($template);
+            if ($this->get_password_email_template() == null) {
+
             $this->password_email_template = $template['template_id'];
+        }
         }
         $sql = null;
     }
