@@ -375,6 +375,7 @@ class MemberAccountForm extends FormBase
     public function repalce_tempalte_text($template)
     {
         $template = str_replace("[old_uname]", $this->get_old_user_name(), $template);
+        \Drupal::logger("tempalte_replace_result")->notice(" result: ".$template);
         $template = str_replace("[new_uname]", $this->get_new_user_name(), $template);
         $template = str_replace("[f_name]", $this->get_user_first_name(), $template);
         $template = str_replace("[l_name]", $this->get_user_last_name(), $template);
