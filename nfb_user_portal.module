@@ -9,20 +9,20 @@ function nfb_user_profile_mail($key, &$message, $params)
         case 'nfb_user_portal_pass_wrod':
             $from = "web@nfb.org";
             $message['subject'] = $params['subject'];
-            $message['body'][] =  Drupal\Core\Mail\MailFormatHelper::htmlToText($params['message']);
+            $message['body'][] =  $params['message'];
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
             break;
         case 'nfb_user_portal_u_name_1':
             $from = "web@nfb.org";
             $message['subject'] = $params['subject'];
             \drupal::logger('nfb_bell_mail')->notice($params['message']);
-            $message['body'][] =  Drupal\Core\Mail\MailFormatHelper::htmlToText($params['message']);
+            $message['body'][] = $params['message'];
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
             break;
         case 'nfb_user_portal_complete':
             $form = "Web@nfb.org";
             $message['subject'] = $params['subject'];
-            $message['body'][] =  Drupal\Core\Mail\MailFormatHelper::htmlToText($params['message']);
+            $message['body'][] =  $params['message'];
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
             break;
     }

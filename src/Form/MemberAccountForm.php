@@ -379,6 +379,7 @@ class MemberAccountForm extends FormBase
         $template = str_replace("[new_uname]", $this->get_new_user_name(), $template);
         $template = str_replace("[f_name]", $this->get_user_first_name(), $template);
         $template = str_replace("[l_name]", $this->get_user_last_name(), $template);
+        \Drupal::logger("tempalte_replace_result")->notice(" result: ".$template);
         return $template;
     }
     public function find_tempalte_text_and_subject($template)
@@ -412,6 +413,7 @@ class MemberAccountForm extends FormBase
         $template = $this->find_tempalte_text_and_subject($template);
         \Drupal::logger("template_blank")->notice("text: ".$template);
         $this->password_email_template = $this->repalce_tempalte_text($template);
+        \Drupal::logger("template_blank")->notice("text: ".$this->get_password_email_template());
         if($form_state->getValue("desire_change_uanme") == 1){
         $recipient_email = $this->get_new_user_name();}
         else{
