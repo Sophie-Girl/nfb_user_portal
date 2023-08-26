@@ -5,6 +5,7 @@
 */
 function nfb_user_profile_mail($key, &$message, $params)
 {
+    \drupal::logger("params_check")->notice("params: ".print_r($params, true));
     switch ($key) {
         case 'nfb_user_portal_pass_wrod':
             $from = "web@nfb.org";
