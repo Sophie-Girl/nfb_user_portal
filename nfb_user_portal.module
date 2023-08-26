@@ -5,10 +5,11 @@
 */
 function nfb_user_profile_mail($key, &$message, $params)
 {
-    \drupal::logger("params_check")->notice("params: ".print_r($params, true));
+
     switch ($key) {
         case 'nfb_user_portal_pass_wrod':
             $from = "web@nfb.org";
+            \drupal::logger("params_check")->notice("params: ".print_r($params, true));
             $message['subject'] = $params['subject'];
             $message['body'][] =  $params['message'];
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
