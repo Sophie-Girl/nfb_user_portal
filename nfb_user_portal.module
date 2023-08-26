@@ -3,7 +3,7 @@
 * @file
 * A description of what your module does.
 */
-function nfb_user_profile_mail($key, &$message, $params)
+function nfb_user_profile_mail($key, &$message, &$params)
 {
 
     switch ($key) {
