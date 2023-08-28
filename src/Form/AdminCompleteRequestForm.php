@@ -485,7 +485,7 @@ where type_id = '1';";
     public function set_names()
     {
         $civi = new query_base();
-        $civi->entity = "Contect";
+        $civi->entity = "Contact";
         $civi->mode = "get";
         $civi->params = [
             'select' => [
