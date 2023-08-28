@@ -57,20 +57,32 @@ class EditFieldController extends ControllerBase
         $cool = "Nothing";
         $this->contact_id = $this->get_field_map()[0];
         $this->field = $this->get_field_map()[1];
-        $this->new_val = $this->get_field_map()[2];
+        $string = $this->get_field_map()[2];
+        $this->new_val = $this->clean_string($string);
         if($this->get_field() == "zip")
         {
-            $array[1] = $this->get_field_map()[2]; // zip
-            $array[2] = $this->get_field_map()[3]; // street
-            $array[3] = $this->get_field_map()[4]; // line 2
-            $array[4] = $this->get_field_map()[5]; // city
-            $array[5] = $this->get_field_map()[6]; // state
-            $array[6] = $this->get_field_map()[7]; // country
+            $string = $this->get_field_map()[2];
+            $array[1] = $this->clean_string($string); // zip
+            $string = $this->get_field_map()[3];
+            $array[2] = $this->clean_string($string); // street
+            $string = $this->get_field_map()[4];
+            $array[3] = $this->clean_string($string); // line 2
+            $string = $this->get_field_map()[5];
+            $array[4] = $this->clean_string($string); // city
+            $string = $this->get_field_map()[6];
+            $array[5] = $this->clean_string($string); // state
+            $string = $this->get_field_map()[7];
+            $array[6] = $this->clean_string($string); // country
             $this->new_val = $array;
         }
         \Drupal::logger("country_check")->notice("field_map_array ".print_r($this->get_field_map(), true));
         $this->civi_query($cool);
         return $cool;
+    }
+    public function clean_string($string)
+    {
+        $string = str_replace(";", "", $string);
+        return $string;
     }
     public function civi_query(&$cool)
     {
