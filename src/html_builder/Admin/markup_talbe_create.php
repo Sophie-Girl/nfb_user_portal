@@ -41,7 +41,7 @@ class markup_talbe_create extends markup_table_edit {
     public $params;
     public function get_params()
     {
-      return  $this->params;
+        return  $this->params;
     }
     public $title_status;
     public function get_title_status()
@@ -54,7 +54,7 @@ class markup_talbe_create extends markup_table_edit {
         $this->set_values($form_state);
         $this->sql_query($form_state);
         $form['intro'] = array(
-          '#type' => 'item',
+            '#type' => 'item',
             '#markup' => "<p>Below is a table listing every bit of content created for the NFb Member Portal Module
          You can create a new piece of content by clicking this button</p><a class='btn btn-primary' role='button' href='/member_portal/admin/content/new'>&nbsp;&nbsp;&nbsp;Create&nbsp;&nbsp;&nbsp;</a>"
         );
@@ -63,20 +63,20 @@ class markup_talbe_create extends markup_table_edit {
             '#title' => "Filter By Markup Type",
             '#options' => array(
                 '' => '- select -',
-              'intro_text' => "Intro Text",
+                'intro_text' => "Intro Text",
                 "member_benefit" => "Member Benefit",
                 'faq' => "FAQ",
                 'content_text' => "Conent Text"
             ),
         );
         $form['title_filt'] = array(
-          '#title' => "Filter By Markup Title",
+            '#title' => "Filter By Markup Title",
             "#type" => "textfield",
             '#size' => "20",
         );
         $form['filter_val'] = array(
-          '#type' => "textfield",
-          '#title' => "IGNORE ME!",
+            '#type' => "textfield",
+            '#title' => "IGNORE ME!",
         );
         $form['active_filt'] = array(
             '#type' => "select",
@@ -109,10 +109,9 @@ class markup_talbe_create extends markup_table_edit {
     {
 
         $this->sql = new User_request_queries();
-         $this->query_setup($form_state, $query, $alias);
+        $query = $this->query_setup($form_state);
         $key = "cid";
-        $this->sql->updated_select_query($query, $alias, $key);
-      //  $this->sql->select_query($query, $key);
+        $this->sql->select_query($query, $key);
         $this->header_build();
         foreach ($this->sql->get_result() as $content)
         {
@@ -121,30 +120,30 @@ class markup_talbe_create extends markup_table_edit {
             $array_markup = json_decode($array_markup);
             $array_markup = get_object_vars($array_markup);
             if($this->get_title_status() == true){
-            if($this->get_title_filt() != "" and $this->get_title_filt() != " ")
-            {
-                $filter_value = strtolower(trim($this->get_title_filt()));
-                $actual_value = strtolower(trim($array_markup['title']));
-                if(strpos(" ".$actual_value, $filter_value) > 0)
+                if($this->get_title_filt() != "" and $this->get_title_filt() != " ")
                 {
-                    $this->build_table_row($content, $array_markup);
+                    $filter_value = strtolower(trim($this->get_title_filt()));
+                    $actual_value = strtolower(trim($array_markup['title']));
+                    if(strpos(" ".$actual_value, $filter_value) > 0)
+                    {
+                        $this->build_table_row($content, $array_markup);
+                    }
                 }
-            }
             }
             else {
                 $this->build_table_row($content, $array_markup);
             }
-            }
+        }
         $this->end_table();
 
     }
-    public function query_setup(FormStateInterface  $form_state, &$query, &$alias)
+    public function query_setup(FormStateInterface  $form_state)
     {
         $this->set_values($form_state);
-       $this->assign_filters($query, $alias);
-
+        $query =  $this->assign_filters();
+        return $query;
     }
-    public function assign_filters(&$query, &$alias)
+    public function assign_filters()
     {
         if($this->get_type_filt() == " " || $this->get_type_filt() == "")
         {
@@ -169,72 +168,44 @@ class markup_talbe_create extends markup_table_edit {
         }
         if($this->get_sort_field() == " "  || $this->get_sort_field()== "")
         {
-          $this->sort_field = "cid";
+            $this->sort_field = "cid";
         }
-        $query = $this->query_switches($type, $title, $active, $alias);
+        $query = $this->query_switches($type, $title, $active);
+        return $query;
     }
-    public function query_switches($type, $title, $active, &$alias)
+    public function query_switches($type, $title, $active )
     {
-            If($type == false && $title == false && $active == false)
-            {
-                // $query = "select * from nfb_user_portal_content order by '".$this->get_sort_field()."' desc";
-                $query = "select * from nfb_user_portal_content order by ':sort' desc";
-                $alias = [
-                  ":sort" => $this->get_sort_field()
-                ];
-                $this->title_status = false;
-            }
-            elseif($type == True && $title == false && $active == false)
-            {
-                $query = "select * from nfb_user_portal_content where markup_type = ':type'order by  ':sort' desc";
-                $alias = [
-                    ':type' => $this->get_type_filt(),
-                    ':sort' => $this->get_sort_field(),
-                ];
-                $this->title_status = false;
-            }
-            elseif($type == True && $title == true && $active == false)
-            {
-             //   $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."'order by  ".$this->get_sort_field()." desc";
-                $query = "select * from nfb_user_portal_content where markup_type = ':type'order by  ':sort' desc";
-                $alias = [
-                    ':type' => $this->get_type_filt(),
-                    ':sort' => $this->get_sort_field(),
-                ];
-                $this->title_status = true;
-            }
-            elseif($type == True && $title == true && $active == true)
-            {
-             //   $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."' and active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
-                $query = "select * from nfb_user_portal_content where markup_type = ':type' and active = ':active'order by  ".$this->get_sort_field()." desc";
-                $alias = [
-                    ':type' => $this->get_type_filt(),
-                    ':active' => $this->get_active_filter(),
-                    ':sort' => $this->get_sort_field(),
-                ];
-                $this->title_status = true;
-            }
-            elseif($type == false && $title == true && $active == true)
-            {
-               // $query = "select * from nfb_user_portal_content where  active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
-                $query = "select * from nfb_user_portal_content where  active = ':active'order by  ':sort' desc";
-                $alias = [
-                    ':active' => $this->get_sort_field(),
-                    ':sort' => $this->get_sort_field(),
-                ];
-                $this->title_status = true;
-            }
-            elseif($type == false && $title == false && $active == true)
-            {
-             //   $query = "select * from nfb_user_portal_content where  active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
-                $query = "select * from nfb_user_portal_content where  active = ':active'order by  ':sort' desc";
-                $alias = [
-                    ':active' => $this->get_sort_field(),
-                    ':sort' => $this->get_sort_field(),
-                ];
-                $this->title_status = false;
-            }
-            return $query;
+        If($type == false && $title == false && $active == false)
+        {
+            $query = "select * from nfb_user_portal_content order by  ".$this->get_sort_field()." desc";
+            $this->title_status = false;
+        }
+        elseif($type == True && $title == false && $active == false)
+        {
+            $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."'order by  ".$this->get_sort_field()." desc";
+            $this->title_status = false;
+        }
+        elseif($type == True && $title == true && $active == false)
+        {
+            $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."'order by  ".$this->get_sort_field()." desc";
+            $this->title_status = true;
+        }
+        elseif($type == True && $title == true && $active == true)
+        {
+            $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."' and active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
+            $this->title_status = true;
+        }
+        elseif($type == false && $title == true && $active == true)
+        {
+            $query = "select * from nfb_user_portal_content where  active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
+            $this->title_status = true;
+        }
+        elseif($type == false && $title == false && $active == true)
+        {
+            $query = "select * from nfb_user_portal_content where  active = '".$this->get_active_filter()."'order by  ".$this->get_sort_field()." desc";
+            $this->title_status = false;
+        }
+        return $query;
     }
     public function set_values(FormStateInterface  $form_state)
     {
