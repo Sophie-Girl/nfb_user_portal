@@ -7,7 +7,7 @@ nfb_user_portal.main_tab:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.member_tab:
-  path: 'member_portal/membership_info'
+  path: 'member_profile/membership_info'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\MembershipInfoForm'
     _title: 'Membership Info'
@@ -15,7 +15,7 @@ nfb_user_portal.member_tab:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.manage_account:
-  path: 'member_portal/manage_account'
+  path: 'member_profile/manage_account'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\MemberAccountForm'
     _title: 'Manage Account'
@@ -23,7 +23,7 @@ nfb_user_portal.manage_account:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.faq:
-  path: 'member_portal/faq'
+  path: 'member_profile/faq'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\FaqTabForm'
     _title: 'Place Holder'
@@ -31,7 +31,7 @@ nfb_user_portal.faq:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.othertab:
-  path: 'member_portal/other'
+  path: 'member_profile/other'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\OtherInfoForm'
     _title: 'Manage Account'
@@ -39,7 +39,7 @@ nfb_user_portal.othertab:
     _permission: 'access content'
     _role: 'authenticated'
 nfb_user_portal.stephanie:
-  path: 'member_portal/login'
+  path: 'member_profile/login'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\MemberLogInForm'
     _title: 'Log In'
@@ -60,7 +60,7 @@ nfb_user_portal.state:
   requirements:
     _permission: 'access content'
 nfb_user_portal.userrequest:
-  path: 'member_portal/admin/user_request/{limiter}'
+  path: 'member_profile/admin/user_request/{limiter}'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminUserRequestForm'
     _title: 'User Requests'
@@ -69,7 +69,7 @@ nfb_user_portal.userrequest:
     _permission: 'access content'
     _role: 'content_admin'
 nfb_user_portal.completerequest:
-  path: 'member_portal/admin/complete_request/{rid}'
+  path: 'member_profile/admin/complete_request/{rid}'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminCompleteRequestForm'
     _title: 'Complete User Request'
@@ -78,7 +78,7 @@ nfb_user_portal.completerequest:
     _permission: 'access content'
     _role: 'content_admin'
 nfb_user_portal.tempalteform:
-  path: 'member_portal/admin/templates'
+  path: 'member_profile/admin/templates'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminEmailTempForm'
     _title: 'Change Member Profile Email Templates'
@@ -86,7 +86,7 @@ nfb_user_portal.tempalteform:
     _permission: 'access content'
     _role: 'content_admin'
 nfb_user_portal.content:
-  path: 'member_portal/admin/content/{content}'
+  path: 'member_profile/admin/content/{content}'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminTemplateCreateForm'
     _title: 'Member Profile Admin: Create and Edit Content'
@@ -95,7 +95,7 @@ nfb_user_portal.content:
     _permission: 'access content'
     _role: 'content_admin'
 nfb_user_portal.content_table:
-  path: 'member_portal/admin/manage_content'
+  path: 'member_profile/admin/manage_content'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminTemplateHomForm'
     _title: 'Manage Member Profile Content'
@@ -104,7 +104,7 @@ nfb_user_portal.content_table:
     _permission: 'access content'
     _role: 'content_admin'
 nfb_user_portal.admin_import:
-  path: 'member_portal/admin/import'
+  path: 'member_profile/admin/import'
   defaults:
     _form: 'Drupal\nfb_user_portal\Form\AdminImportForm'
     _title: 'Manage Member Profile Content'
