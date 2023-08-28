@@ -20,4 +20,15 @@ class User_request_queries
         $this->result = $this->database->query($query)->execute();
         $this->database = null;
     }
+    public function update_update_query($table, $fields, $condition)
+    {
+        $this->database = \Drupal::database();
+        $this->database->update($table)->fields($fields)->condition($condition)->execute();
+    }
+    public function updated_select_query(string $query,array  $alias, string $key)
+    {
+        $this->database = \Drupal::database();
+        $this->result =  $this->database->query($query, $alias)->fetchAllAssoc($key);
+        $this->database = null;
+    }
 }
