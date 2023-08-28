@@ -37,7 +37,6 @@ class AdminCompleteRequestForm extends FormBase
     {
         return $this->page;
     }
-
     public $status;
 
     public function get_status()
@@ -85,6 +84,16 @@ class AdminCompleteRequestForm extends FormBase
     public function get_reset_link()
     {
         return $this->reset_link;
+    }
+    public $f_name;
+    public $l_name;
+    public function get_f_name()
+    {
+        return $this->f_name;
+    }
+    public function get_l_name()
+    {
+        return $this->l_name;
     }
 
     public function getFormId()
@@ -412,10 +421,12 @@ class AdminCompleteRequestForm extends FormBase
         $array = $this->civi__find_id();
         $template = $array['text'];
         $subject = $array['subject'];
+        $this->set_names();
        $template = str_replace("{display_name}", $this->get_name(), $template);
         $template = str_replace("{display_email}", $this->get_email(), $template);
         $template = str_replace("{reset_link}", $this->get_reset_link(), $template);
-        $template = str_replace("{contact.first_name)", $form_state->getValue("name"), $template);
+        $template = str_replace("{contact.first_name}", $this->get_f_name(), $template);
+        $template = str_replace("{contact.last_name}", $this->get_f_name(), $template);
         $recipient_email = $this->get_email();
         $mailManager = \Drupal::service('plugin.manager.mail');
         $module = 'nfb_user_portal';
@@ -464,14 +475,33 @@ where type_id = '1';";
             'limit' => 1,
             'checkPermissions' => FALSE,
         );
-        \Drupal::logger("template_debug")->notice("params: ".print_r($civi->get_params(), true));
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
         $template_array = $result->first();
-        \Drupal::logger("template_debug")->notice("params: ".print_r($result, true));
         $template['text'] = $template_array['msg_text'];
         $template['subject'] = $template_array['msg_subject'];
         return $template;
+    }
+    public function set_names()
+    {
+        $civi = new query_base();
+        $civi->entity = "Contect";
+        $civi->mode = "get";
+        $civi->params = [
+            'select' => [
+                '*',
+            ],
+            'where' => [
+                ['id', '=', $this->get_civi_id()],
+            ],
+            'limit' => 25,
+            'checkPermissions' => FALSE,
+        ];
+        $civi->civi_api_v4_query(); $result = $civi->get_civi_result();
+        $contact = $result->first();
+        $this->f_name = $contact['first_name'];
+        $this->l_name = $contact['last_name'];
+
     }
 
     public function update_database(FormStateInterface $form_state)
