@@ -180,13 +180,17 @@ class markup_talbe_create extends markup_table_edit {
                 // $query = "select * from nfb_user_portal_content order by '".$this->get_sort_field()."' desc";
                 $query = "select * from nfb_user_portal_content order by ':sort' desc";
                 $alias = [
-                  "sort" => $this->get_sort_field()
+                  ":sort" => $this->get_sort_field()
                 ];
                 $this->title_status = false;
             }
             elseif($type == True && $title == false && $active == false)
             {
-                $query = "select * from nfb_user_portal_content where markup_type = '".$this->get_type_filt()."'order by  ".$this->get_sort_field()." desc";
+                $query = "select * from nfb_user_portal_content where markup_type = ':type'order by  ':sort' desc";
+                $alias = [
+                    ':type' => $this->get_type_filt(),
+                    ':sort' => $this->get_sort_field(),
+                ];
                 $this->title_status = false;
             }
             elseif($type == True && $title == true && $active == false)
@@ -206,7 +210,7 @@ class markup_talbe_create extends markup_table_edit {
                 $alias = [
                     ':type' => $this->get_type_filt(),
                     ':active' => $this->get_active_filter(),
-                    "sort" => $this->get_sort_field(),
+                    ':sort' => $this->get_sort_field(),
                 ];
                 $this->title_status = true;
             }
