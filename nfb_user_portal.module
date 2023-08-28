@@ -11,20 +11,19 @@ function nfb_user_portal_mail($key, &$message, &$params)
             $from = "web@nfb.org";
             \drupal::logger("params_check")->notice("params: ".print_r($params, true));
             $message['subject'] = $params['subject'];
-            $message['body'][] =  $params['message'];
+            $message['body'][] =   Drupal\Core\Mail\MailFormatHelper::htmlToText($params['message']);
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
             break;
         case 'nfb_user_portal_u_name_1':
             $from = "web@nfb.org";
             $message['subject'] = $params['subject'];
-            \drupal::logger('nfb_bell_mail')->notice($params['message']);
-            $message['body'][] = $params['message'];
+            $message['body'][] =  Drupal\Core\Mail\MailFormatHelper::htmlToText($params['message']);
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
             break;
         case 'nfb_user_portal_complete':
             $form = "Web@nfb.org";
             $message['subject'] = $params['subject'];
-            $message['body'][] =  $params['message'];
+            $message['body'][] =   Drupal\Core\Mail\MailFormatHelper::htmlToText($params['message']);
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
             break;
     }
