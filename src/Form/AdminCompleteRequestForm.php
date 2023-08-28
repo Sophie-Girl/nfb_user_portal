@@ -189,7 +189,7 @@ class AdminCompleteRequestForm extends FormBase
             $this->create_user($form_state); // create user account and get user reset link
             $this->civi_user_set_up(); // Civi UF match functions
             $this->update_database($form_state); // finalize the datbase change
-            $this->emial_functions(); // send Email
+            $this->emial_functions($form_state); // send Email
         }
         $this->url__Re_directy($form_state);
     }
