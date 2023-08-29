@@ -54,7 +54,7 @@ nfb_user_portal.login:
   base_route: nfb_user_portal.login
   weight: 100
 nfb_user_portal.reset:
-  route_name: user.reset
+  route_name: user.pass
   title: "Reset Your Password"
   base_route: nfb_user_portal.login
   weight: 200
