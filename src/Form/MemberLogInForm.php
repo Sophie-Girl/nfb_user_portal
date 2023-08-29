@@ -104,7 +104,7 @@ class MemberLogInForm extends FormBase
         // Display login form:
         $form['intro'] = [
           '#type' => "item",
-          '#markup' => "<p>This is just a test</p>"
+          '#markup' => "<p></p>"
         ];
         $form['name'] = [
             '#type' => 'textfield',
