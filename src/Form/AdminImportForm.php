@@ -254,7 +254,7 @@ class AdminImportForm extends FormBase
         $subject = $array['subject'];
         $template = str_replace("{display_name}", $contact['contact_name'], $template);
         $template = str_replace("{display_email}", $contact['email'], $template);
-        $template = str_replace("{reset_link}", $this->reset_link, $template);
+        $template = str_replace("{reset_link}", $this->get_reset_link(), $template);
         $template = str_replace("{contact.first_name}", $contact['first_name'], $template);
         $recipient_email = trim($contact['email']);
         $mailManager = \Drupal::service('plugin.manager.mail');
