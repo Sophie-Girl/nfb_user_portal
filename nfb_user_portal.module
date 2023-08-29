@@ -6,12 +6,18 @@
 /**
  * Implements hook_link_alter().
  */
-
+function nfb_user_portal_menu_local_tasks_alter(&$data, $route_name) {
+    if($route_name == 'user.login'  && isset($data['tabs'][0])) {
+        // Remove all tabs from user login form.
+        foreach ($data['tabs'][0] as $key => $tab){
+            $data['tabs'][0][$key]['#access'] = FALSE;
+        }
+    }
+}
 function nfb_user_portal_mail($key, &$message, &$params)
 {
 
-    switch ($key) {
-        case 'nfb_user_portal_pass_wrod':
+    switch ($key) {case 'nfb_user_portal_pass_wrod':
             $from = "web@nfb.org";
             \drupal::logger("params_check")->notice("params: ".print_r($params, true));
             $message['subject'] = $params['subject'];
