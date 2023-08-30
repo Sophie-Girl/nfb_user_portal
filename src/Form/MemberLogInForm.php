@@ -104,7 +104,11 @@ class MemberLogInForm extends FormBase
         // Display login form:
         $form['intro'] = [
           '#type' => "item",
-          '#markup' => "<p></p>"
+          '#markup' => "<p>Welcome to the National Federation of the Blind Member Profile. This new self-service platform is for members of the Federation to update their own contact information, review membership information, and more. This is newly launched as of September 2023, and we anticipate adding more features in the near future. Please sign in.
+
+If you don't have login details, please connect with <a href='/about-us/state-affiliates'>your state affiliate</a> or <a href='/about-us/divisions-committees-and-groups/divisions'>national division</a> to become a member or confirm your membership. Thank you for your support and participation with the organized blind movement.
+
+</p>"
         ];
         $form['name'] = [
             '#type' => 'textfield',
