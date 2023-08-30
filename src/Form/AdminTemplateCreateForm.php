@@ -154,6 +154,7 @@ where cid = '".$form_state->getValue("content_value")."';";
         {
             $beginning_date = $form_state->getValue("start_date");
             $end_date = $form_state->getValue("end_date");
+            \Drupal::logger("end_date_format_issue")->notice("End Date". $form_state->getValue("end_date"));
             $end_date = $end_date->format("Y-m-d");
             $beginning_date = $beginning_date->format("Y-m-d");
         }
