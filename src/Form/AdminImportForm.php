@@ -76,6 +76,7 @@ class AdminImportForm extends FormBase
                     "reason_for_rejection" => $add
                 );
             }
+            $this->emial_functions($contact);
         }
         $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/bad_user_requests_".date('m-d-y').'.csv';
         $this->download_report($fileName, $data);
