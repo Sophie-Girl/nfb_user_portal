@@ -265,7 +265,8 @@ class AdminImportForm extends FormBase
         $params['message'] = $template;
         $params['subject'] = $subject;
         $langcode = "en";
-        $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
+        \Drupal::logger("tempalte_text")->notice("template ".$template);
+     //   $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
     }
     public function find_tempalte_id()
     {
