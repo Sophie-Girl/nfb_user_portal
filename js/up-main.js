@@ -1,5 +1,5 @@
 (function ($, Drupal) {
-    // Connell, Sophi: Bind and whihc are sued here because we are using an older version of jQuery. It will need to be updated
+    // Connell, Sophi: Bind and which are usud here because we are using an older version of jQuery. It will need to be updated
     Drupal.behaviors.up_main = {
         attach: function (context, settings) {
             window.onload = function () {
