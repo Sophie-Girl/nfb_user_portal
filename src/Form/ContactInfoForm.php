@@ -7,6 +7,7 @@ use Drupal\nfb_user_portal\html_builder\core_markup;
 use Drupal\user\Entity\User;
 class ContactInfoForm extends FormBase
 {
+    /* Connell, Sophi This is the profile tab. Name changed after I made this */
     public function getFormId()
     {
         return "user_portal_page_one";
