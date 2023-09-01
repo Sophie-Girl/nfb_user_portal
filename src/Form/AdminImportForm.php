@@ -206,7 +206,7 @@ class AdminImportForm extends FormBase
         } else {
             $uf_match = $result->first();
             $id = $uf_match['id'];
-            $old_id = $uf_match['contact_id'];
+          //  $old_id = $uf_match['contact_id'];
             $civi->mode = "update";
             $civi->params = array(
                 'values' => [
