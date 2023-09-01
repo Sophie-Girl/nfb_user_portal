@@ -40,7 +40,6 @@ class EditFieldController extends ControllerBase
     }
     public function content()
     {
-        \Drupal::logger("ajax_test")->notice("I am getting the post");
         $this->set_field_map();
         $data =  $this->parse_array();
         return new JsonResponse($data);
@@ -49,7 +48,6 @@ class EditFieldController extends ControllerBase
     {
         $request = Request::createFromGlobals();
         $this->field_map = $request->request->get('feildarray');
-        \Drupal::logger("testing_ajax")->notice("array ".print_r($this->get_field_map(), true));
     }
 
     public function parse_array()
@@ -158,12 +156,10 @@ class EditFieldController extends ControllerBase
         $civi->mode = "get";
         $civi->civi_api_v4_query();
         $result = $civi->get_civi_result();
-        \Drupal::logger("ajax_test")->notice("array: ".print_r($result, true));
         $count = $result->count();
         if($count != "0")
         {
             $data = $result->first();
-            \Drupal::logger("ajax_test")->notice("array: ".print_r($data, true));
             $this->contact_data_id = $data['id'];
         }
     }
