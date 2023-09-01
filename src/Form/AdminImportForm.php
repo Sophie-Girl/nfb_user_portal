@@ -76,7 +76,6 @@ class AdminImportForm extends FormBase
                     "reason_for_rejection" => $add
                 );
             }
-            $this->emial_functions($contact);
         }
         $data = $bad_contacts; $fileName = DRUPAL_ROOT."/sites/default/files/bad_user_requests_".date('m-d-y').'.csv';
         $this->download_report($fileName, $data);
@@ -266,8 +265,7 @@ class AdminImportForm extends FormBase
         $params['message'] = $template;
         $params['subject'] = $subject;
         $langcode = "en";
-        \Drupal::logger("tempalte_text")->notice("template ".$template);
-     //   $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
+     $result = $mailManager->mail($module, $key, $to, $langcode, $params, $send);
     }
     public function find_tempalte_id()
     {
